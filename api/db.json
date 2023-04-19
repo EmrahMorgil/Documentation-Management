@@ -1,10 +1,27 @@
 {
-  "projects": [{}],
+  "projects": [
+    {}
+  ],
   "users": [
     {
       "username": "emrah",
       "password": "password",
       "id": 1
+    },
+    {
+      "email": "",
+      "password": "",
+      "id": 2
+    },
+    {
+      "username": "qwe",
+      "password": "qwe",
+      "id": 3
+    },
+    {
+      "username": "emrah",
+      "password": "12345",
+      "id": 4
     }
   ]
 }
