@@ -16,19 +16,26 @@
       "id": 1
     },
     {
-      "email": "",
-      "password": "",
+      "name": "ayse",
+      "password": "password",
+      "role": 0,
+      "visibilityProjects": [],
+      "createdDate": "2023",
+      "updatedDate": "",
+      "createdPerson": "emrah",
+      "updatedPerson": "emrah",
       "id": 2
     },
     {
-      "username": "qwe",
-      "password": "qwe",
-      "id": 3
-    },
-    {
-      "username": "emrah",
+      "name": "qwe",
       "password": "12345",
-      "id": 4
+      "role": 0,
+      "visibilityProjects": [],
+      "createdDate": "2023",
+      "updatedDate": "2023",
+      "createdPerson": "emrah",
+      "updatedPerson": "emrah",
+      "id": 3
     }
   ]
 }

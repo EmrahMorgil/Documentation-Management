@@ -17,6 +17,9 @@ const Login = () => {
 
   useEffect(() => {
     dispatch(getUsersAsync());
+
+    console.log(new Date());
+    
   }, [dispatch]);
 
 
@@ -44,7 +47,8 @@ const Login = () => {
     {userLoggedIn ? (<Users />) : 
     
     (<div style={{display: "flex", justifyContent: "center", marginTop: "150px"}}>
-    <form style={{width: "400px"}}>
+    <form style={{width: "400px", textAlign: "center"}}>
+      <h3>Login</h3>
       <div className="form-outline mb-4">
         <input type="text" placeholder="Name" className="form-control" value={userLogin.name} onChange={handleChange} name="name" />
       </div>

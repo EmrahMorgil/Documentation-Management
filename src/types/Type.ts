@@ -52,7 +52,7 @@ export class user{
 }
 
 enum userRole{
-    user = 0,
-    admin = 1,
+    user,
+    admin,
 }
 
