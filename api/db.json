@@ -2,8 +2,15 @@
   "projects": [{}],
   "users": [
     {
-      "username": "emrah",
+      "name": "emrah",
+      "surname": "morgil",
       "password": "password",
+      "role": 1,
+      "visibilityProjects": [],
+      "createdDate": "2023",
+      "updatedDate": "2023",
+      "createdPerson": "emrah",
+      "updatedPerson": "emrah",
       "id": 1
     }
   ]
