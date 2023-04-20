@@ -1,6 +1,109 @@
 {
   "projects": [
-    {}
+    {
+      "id": 1,
+      "projectName": "Okul veritabanı",
+      "createdDate": "2023",
+      "updatedDate": "2023",
+      "createdPerson": "emrah",
+      "updatedPerson": "emrah",
+      "totalContent": 3,
+      "visibilityRole": "admin"
+    },
+    {
+      "id": 2,
+      "projectName": "Hastane veritabanı",
+      "createdDate": "2021",
+      "updatedDate": "2021",
+      "createdPerson": "ayşe",
+      "updatedPerson": "ayşe",
+      "totalContent": 1,
+      "visibilityRole": "user"
+    },
+    {
+      "id": 3,
+      "projectName": "Banka veritabanı",
+      "createdDate": "2022",
+      "updatedDate": "2022",
+      "createdPerson": "emrah",
+      "updatedPerson": "emrah",
+      "totalContent": 2,
+      "visibilityRole": "user"
+    }
+  ],
+  "contents": [
+    {
+      "id": 1,
+      "contentName": "First post",
+      "createdDate": "2022",
+      "updatedDate": "2022",
+      "createdPerson": "emrah",
+      "updatedPerson": "emrah",
+      "version": 1,
+      "content": "Dolor sit ametweqdasqwead",
+      "contentTags": [],
+      "projectId": 1
+    },
+    {
+      "id": 2,
+      "contentName": "ikinci",
+      "createdDate": "2022",
+      "updatedDate": "2022",
+      "createdPerson": "emrah",
+      "updatedPerson": "emrah",
+      "contentVersion": 1,
+      "content": "Dolor sit ametweqdasqwead",
+      "contentTag": [],
+      "projectId": 1
+    },
+    {
+      "id": 3,
+      "contentName": "üçüncü post",
+      "createdDate": "2022",
+      "updatedDate": "2022",
+      "createdPerson": "emrah",
+      "updatedPerson": "emrah",
+      "contentVersion": 1,
+      "content": "Dolor sit ametweqdasqwead",
+      "contentTag": [],
+      "projectId": 1
+    },
+    {
+      "id": 4,
+      "contentName": "dorduncu post",
+      "createdDate": "2022",
+      "updatedDate": "2022",
+      "createdPerson": "emrah",
+      "updatedPerson": "emrah",
+      "contentVersion": 1,
+      "content": "Dolor sit ametweqdasqwead",
+      "contentTag": [],
+      "projectId": 2
+    },
+    {
+      "id": 5,
+      "contentName": "bes post",
+      "createdDate": "2022",
+      "updatedDate": "2022",
+      "createdPerson": "emrah",
+      "updatedPerson": "emrah",
+      "contentVersion": 1,
+      "content": "Dolor sit ametweqdasqwead",
+      "contentTag": [],
+      "projectId": 3
+    },
+    {
+      "id": 6,
+      "contentName": "altı post",
+      "createdDate": "2022",
+      "updatedDate": "2022",
+      "createdPerson": "emrah",
+      "updatedPerson": "emrah",
+      "contentVersion": 1,
+      "content": "Dolor sit ametweqdasqwead",
+      "contentTag": [],
+      "projectId": 3
+    }
   ],
   "users": [
     {
@@ -36,6 +139,28 @@
       "createdPerson": "emrah",
       "updatedPerson": "emrah",
       "id": 3
+    },
+    {
+      "name": "asd",
+      "password": "12345",
+      "role": 0,
+      "visibilityProjects": [],
+      "createdDate": "2023",
+      "updatedDate": "2023",
+      "createdPerson": "emrah",
+      "updatedPerson": "emrah",
+      "id": 4
+    },
+    {
+      "name": "qweasdfs",
+      "password": "qwesafsd",
+      "role": 0,
+      "visibilityProjects": [],
+      "createdDate": "2023",
+      "updatedDate": "2023",
+      "createdPerson": "emrah",
+      "updatedPerson": "emrah",
+      "id": 5
     }
   ]
 }

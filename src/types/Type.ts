@@ -5,9 +5,9 @@ export class project{
     updatedDate?: string;
     createdPerson?: string;
     updatedPerson?: string;
-    contents?: content;
     totalContent?: number;
     visibilityRole?: string;
+    contents?: content;
 }
 
 export class content{
@@ -18,7 +18,7 @@ export class content{
     createdPerson?: string;
     updatedPerson?: string;
     version?: number;
-    contents?: string;
+    content?: string;
     contentTags?: [];
 }
 

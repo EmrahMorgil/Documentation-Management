@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setUserLoggedIn } from "../redux/users/usersSlice";
 
-const Users = () => {
+const UserPage = () => {
   const dispatch = useDispatch();
 
   const logout = () => {
@@ -19,4 +19,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default UserPage;

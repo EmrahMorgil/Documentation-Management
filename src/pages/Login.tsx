@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import { Link, Navigate } from "react-router-dom";
-import Register from "./Register";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsersAsync } from "../redux/users/usersSlice";
 import { RootState } from "../redux/store";
 import { user } from "../types/Type";
-import { setUserLoggedIn } from "../redux/users/usersSlice";
-import Users from "./Users";
+import { setUserLoggedIn, setAdminLoggedIn } from "../redux/users/usersSlice";
+import UserPage from "./UserPage";
+import AdminPage from "./AdminPage";
 
 const Login = () => {
 
@@ -14,6 +14,7 @@ const Login = () => {
   const [userLogin, setUserLogin] = useState({name: "", password: ""});
   const users = useSelector((state: RootState) => state.users.users);
   const userLoggedIn = useSelector((state: RootState)=>state.users.userLoggedIn);
+  const adminLoggedIn = useSelector((state: RootState)=>state.users.adminLoggedIn);
 
   useEffect(() => {
     dispatch(getUsersAsync());
@@ -24,16 +25,22 @@ const Login = () => {
 
 
   const handleClick = () => {
-    const newArr = users.map((item: user) =>
-        item.name === userLogin.name && item.password === userLogin.password
-    );
-
-    if (newArr.includes(true)) {
-      alert("Kullanıcı Girişi Başarılı...");
-      dispatch(setUserLoggedIn(true));
-    } else {
-      alert("Kullanıcı adı ya da şifre hatalı!");
-    }
+    const newArr = users.map((item: user) =>{
+      if(item.name === userLogin.name && item.password === userLogin.password)
+      {
+        if(item.role === 0)
+        {
+          alert("Kullanıcı Girişi Başarılı...");
+          dispatch(setUserLoggedIn(true));
+        }else{
+          alert("Admin Girişi Başarılı..")
+          dispatch(setAdminLoggedIn(true));
+        }
+        
+      }
+    });
+        
+    
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
@@ -44,7 +51,7 @@ const Login = () => {
   return (
     <>
     
-    {userLoggedIn ? (<Users />) : 
+    {userLoggedIn ? (<UserPage />) : adminLoggedIn ? (<AdminPage />) :
     
     (<div style={{display: "flex", justifyContent: "center", marginTop: "150px"}}>
     <form style={{width: "400px", textAlign: "center"}}>
@@ -57,10 +64,6 @@ const Login = () => {
       </div>
  
       <button type="button" onClick={handleClick} className="btn btn-primary btn-block mb-4">Sign in</button>
- 
-      <div className="text-center">
-        <p>Not a member? <Link to="/register">Register</Link></p>
-      </div>
     </form>
   </div>)}
     
