@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUsersAsync } from "../redux/users/usersSlice";
 import { RootState } from "../redux/store";
 import { user } from "../types/Type";
-import { setUserLoggedIn, setAdminLoggedIn } from "../redux/users/usersSlice";
+import { setUserLoggedIn, setAdminLoggedIn, setActiveUser } from "../redux/users/usersSlice";
 import UserPage from "./UserPage";
 import AdminPage from "./AdminPage";
 
@@ -15,12 +15,10 @@ const Login = () => {
   const users = useSelector((state: RootState) => state.users.users);
   const userLoggedIn = useSelector((state: RootState)=>state.users.userLoggedIn);
   const adminLoggedIn = useSelector((state: RootState)=>state.users.adminLoggedIn);
+  
 
   useEffect(() => {
     dispatch(getUsersAsync());
-
-    console.log(new Date());
-    
   }, [dispatch]);
 
 
@@ -36,7 +34,7 @@ const Login = () => {
           alert("Admin Girişi Başarılı..")
           dispatch(setAdminLoggedIn(true));
         }
-        
+        dispatch(setActiveUser(item));
       }
     });
         

@@ -107,60 +107,22 @@
   ],
   "users": [
     {
-      "name": "emrah",
-      "surname": "morgil",
-      "password": "password",
+      "name": "admin",
+      "password": "123",
       "role": 1,
-      "visibilityProjects": [],
-      "createdDate": "2023",
-      "updatedDate": "2023",
-      "createdPerson": "emrah",
-      "updatedPerson": "emrah",
       "id": 1
     },
     {
-      "name": "ayse",
+      "name": "emrah",
+      "surname": "morgil",
       "password": "password",
       "role": 0,
       "visibilityProjects": [],
-      "createdDate": "2023",
-      "updatedDate": "",
-      "createdPerson": "emrah",
-      "updatedPerson": "emrah",
+      "createdDate": "Thu Apr 20 2023 11:22:01",
+      "updatedDate": "Thu Apr 20 2023 11:22:01",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
       "id": 2
-    },
-    {
-      "name": "qwe",
-      "password": "12345",
-      "role": 0,
-      "visibilityProjects": [],
-      "createdDate": "2023",
-      "updatedDate": "2023",
-      "createdPerson": "emrah",
-      "updatedPerson": "emrah",
-      "id": 3
-    },
-    {
-      "name": "asd",
-      "password": "12345",
-      "role": 0,
-      "visibilityProjects": [],
-      "createdDate": "2023",
-      "updatedDate": "2023",
-      "createdPerson": "emrah",
-      "updatedPerson": "emrah",
-      "id": 4
-    },
-    {
-      "name": "qweasdfs",
-      "password": "qwesafsd",
-      "role": 0,
-      "visibilityProjects": [],
-      "createdDate": "2023",
-      "updatedDate": "2023",
-      "createdPerson": "emrah",
-      "updatedPerson": "emrah",
-      "id": 5
     }
   ]
 }
