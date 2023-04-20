@@ -11,6 +11,7 @@ const initialState: any = {
   users: [],
   userLoggedIn: false,
   adminLoggedIn: false,
+  activeUser: {},
 };
 
 export const usersSlice = createSlice({
@@ -22,6 +23,9 @@ export const usersSlice = createSlice({
     },
     setAdminLoggedIn: (state, action) => {
       state.adminLoggedIn = action.payload;
+    },
+    setActiveUser: (state, action) =>{
+      state.activeUser = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -33,4 +37,4 @@ export const usersSlice = createSlice({
 });
 
 export default usersSlice.reducer;
-export const { setUserLoggedIn, setAdminLoggedIn } = usersSlice.actions;
+export const { setUserLoggedIn, setAdminLoggedIn, setActiveUser } = usersSlice.actions;
