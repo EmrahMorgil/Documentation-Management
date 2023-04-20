@@ -110,19 +110,20 @@
       "name": "admin",
       "password": "123",
       "role": 1,
+      "visibilityProjects": [],
       "id": 1
     },
     {
-      "name": "emrah",
-      "surname": "morgil",
-      "password": "password",
+      "name": "qweqwe",
+      "surname": "qweqwe",
+      "password": "123",
       "role": 0,
       "visibilityProjects": [],
-      "createdDate": "Thu Apr 20 2023 11:22:01",
-      "updatedDate": "Thu Apr 20 2023 11:22:01",
+      "createdDate": "Thu Apr 20 2023 12:40:02",
+      "updatedDate": "Thu Apr 20 2023 12:40:19",
       "createdPerson": "admin",
       "updatedPerson": "admin",
-      "id": 2
+      "id": 3
     }
   ]
 }

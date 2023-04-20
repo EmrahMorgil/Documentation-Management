@@ -26,6 +26,9 @@ export const usersSlice = createSlice({
     },
     setActiveUser: (state, action) =>{
       state.activeUser = action.payload;
+    },
+    setUsers: (state, action)=>{
+      state.users = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -37,4 +40,4 @@ export const usersSlice = createSlice({
 });
 
 export default usersSlice.reducer;
-export const { setUserLoggedIn, setAdminLoggedIn, setActiveUser } = usersSlice.actions;
+export const { setUserLoggedIn, setAdminLoggedIn, setActiveUser, setUsers } = usersSlice.actions;
