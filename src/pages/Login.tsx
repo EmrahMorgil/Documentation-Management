@@ -5,8 +5,7 @@ import { getUsersAsync } from "../redux/users/usersSlice";
 import { RootState } from "../redux/store";
 import { user } from "../types/Type";
 import { setUserLoggedIn, setAdminLoggedIn, setActiveUser } from "../redux/users/usersSlice";
-import UserPage from "./UserPage";
-import AdminPage from "./AdminPage";
+import Home from "./Home";
 
 const Login = () => {
 
@@ -49,7 +48,7 @@ const Login = () => {
   return (
     <>
     
-    {userLoggedIn ? (<UserPage />) : adminLoggedIn ? (<AdminPage />) :
+    {userLoggedIn ? (<Home />) : adminLoggedIn ? (<Home />) :
     
     (<div style={{display: "flex", justifyContent: "center", marginTop: "150px"}}>
     <form style={{width: "400px", textAlign: "center"}}>

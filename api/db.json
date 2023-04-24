@@ -107,23 +107,25 @@
   ],
   "users": [
     {
+      "id": 1,
       "name": "admin",
       "password": "123",
       "role": 1,
       "visibilityProjects": [],
-      "id": 1
+      "updatedDate": "Mon Apr 24 2023 15:56:11",
+      "updatedPerson": "admin"
     },
     {
-      "name": "qweqwe",
-      "surname": "qweqwe",
+      "id": "id1",
+      "name": "Emrah",
+      "surname": "Morgil",
       "password": "123",
-      "role": 0,
+      "role": "1",
       "visibilityProjects": [],
-      "createdDate": "Thu Apr 20 2023 12:40:02",
-      "updatedDate": "Thu Apr 20 2023 12:40:19",
       "createdPerson": "admin",
-      "updatedPerson": "admin",
-      "id": 3
+      "createdDate": "Mon Apr 24 2023 15:56:37",
+      "updatedDate": "Mon Apr 24 2023 15:57:30",
+      "updatedPerson": "Ömer"
     }
   ]
 }

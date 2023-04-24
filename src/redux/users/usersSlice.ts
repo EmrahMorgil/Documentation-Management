@@ -10,7 +10,6 @@ export const getUsersAsync: any = createAsyncThunk("users/getUsersAsync",async (
 const initialState: any = {
   users: [],
   userLoggedIn: false,
-  adminLoggedIn: false,
   activeUser: {},
 };
 
@@ -29,6 +28,9 @@ export const usersSlice = createSlice({
     },
     setUsers: (state, action)=>{
       state.users = action.payload;
+    },
+    addUsers: (state, action)=>{
+      state.users.push(action.payload);
     }
   },
   extraReducers: (builder) => {
@@ -40,4 +42,4 @@ export const usersSlice = createSlice({
 });
 
 export default usersSlice.reducer;
-export const { setUserLoggedIn, setAdminLoggedIn, setActiveUser, setUsers } = usersSlice.actions;
+export const { setUserLoggedIn, setAdminLoggedIn, setActiveUser, setUsers, addUsers } = usersSlice.actions;

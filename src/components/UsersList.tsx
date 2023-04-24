@@ -10,7 +10,7 @@ const UsersList = ({ item }: { item: user }) => {
 
   const activeUser = useSelector((state:RootState)=>state.users.activeUser.name);
   const [updateControl, setUpdateControl] = useState(false);
-  const [updatedUser, setUpdatedUser] = useState({id: item.id, name: item.name, surname: item.surname, password: item.password, role: item.role, visibilityProjects: item.visibilityProjects});
+  const [updatedUser, setUpdatedUser] = useState({id: item.id, name: item.name, surname: item.surname, password: item.password, role: item.role, visibilityProjects: item.visibilityProjects, createdPerson: item.createdPerson, createdDate: item.createdDate, updatedDate: item.updatedDate, updatedPerson: item.updatedPerson});
 
   const users = useSelector((state: RootState)=>state.users.users);
   const dispatch = useDispatch();
@@ -28,22 +28,19 @@ const UsersList = ({ item }: { item: user }) => {
 
   const updateUser = async(item: user) =>{
     let nowDate = new Date().toString().substring(0, 24);
-    const {createdDate, createdPerson} = item; 
-    const updatedUser = {...item};
-    updatedUser.updatedDate = nowDate;
-    updatedUser.updatedPerson = createdPerson;
+    const setUpdatedUser = {...updatedUser};
+    setUpdatedUser.updatedDate = nowDate;
+    setUpdatedUser.updatedPerson = activeUser;
 
-    const {id, name, surname, password, role, visibilityProjects} = updatedUser;
+    const {id, name, surname, password, role, visibilityProjects, createdPerson, createdDate, updatedDate, updatedPerson} = setUpdatedUser;
+
     
-
     setUpdateControl(false);
-    await axios.put(`http://localhost:3004/users/${item.id}`, updatedUser);
+    await axios.put(`http://localhost:3004/users/${item.id}`, setUpdatedUser);
     const newArr = users.map((users: user)=>{
       if(users.id===item.id)
       {
-        debugger;
-        
-        return {id, name, surname, password, role, visibilityProjects, createdDate, createdPerson, updatedPerson: activeUser};
+        return {id, name, surname, password, role, visibilityProjects, createdPerson, createdDate, updatedDate, updatedPerson};
       }
         return users;
     })

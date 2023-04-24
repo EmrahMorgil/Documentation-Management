@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
-import UserPage from "./pages/UserPage";
 import { useSelector } from "react-redux";
 import { RootState } from "./redux/store";
-import AdminPage from "./pages/AdminPage";
-import AddUser from "./pages/AddUser";
+import Home from "./pages/Home";
+import UserPanel from "./pages/UserPanel";
+import ProjectPanel from "./pages/ProjectPanel";
 
 function App() {
 
@@ -16,9 +16,9 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/AddUser" element={adminLoggedIn && <AddUser />} />
-        <Route path="/UserPage" element={userLoggedIn && <UserPage />} />
-        <Route path="/AdminPage" element={adminLoggedIn && <AdminPage />} />
+        <Route path="/userpanel" element={<UserPanel />}/>
+        <Route path="/projectpanel" element={<ProjectPanel />}/>
+        <Route path="/home" element={<Home/>} />
       </Routes>
     </>
   );
