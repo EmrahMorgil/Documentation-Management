@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsersAsync } from "../redux/users/usersSlice";
+import { getUsersAsync } from "../services/getUsers";
 import { RootState } from "../redux/store";
 import { user } from "../types/Type";
 import { setUserLoggedIn, setAdminLoggedIn, setActiveUser } from "../redux/users/usersSlice";

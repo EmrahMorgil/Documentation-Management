@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addUsers, getUsersAsync, setUsers } from '../redux/users/usersSlice';
+import { addUsers} from '../redux/users/usersSlice';
 import { RootState } from '../redux/store';
 import { user } from '../types/Type';
 import { setAdminLoggedIn } from '../redux/users/usersSlice';

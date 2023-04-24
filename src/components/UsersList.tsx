@@ -94,7 +94,8 @@ const UsersList = ({ item }: { item: user }) => {
           <td>{item.updatedDate}</td>
           <td>{item.createdPerson}</td>
           <td>{item.updatedPerson}</td>
-          <td>
+          <td style={{display: "flex", flexDirection: "column"}}>
+            <button className="btn btn-success">Projects</button>
             <button className="btn btn-warning" onClick={()=>setUpdateControl(true)}>Update</button>
             <button className="btn btn-danger" onClick={()=>deleteUser(item.id)}>Delete</button>
           </td>

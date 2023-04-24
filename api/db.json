@@ -117,15 +117,15 @@
     },
     {
       "id": "id1",
-      "name": "Emrah",
-      "surname": "Morgil",
+      "name": "qwe",
+      "surname": "qwe",
       "password": "123",
-      "role": "1",
+      "role": 0,
       "visibilityProjects": [],
       "createdPerson": "admin",
-      "createdDate": "Mon Apr 24 2023 15:56:37",
-      "updatedDate": "Mon Apr 24 2023 15:57:30",
-      "updatedPerson": "Ömer"
+      "createdDate": "Mon Apr 24 2023 16:47:21",
+      "updatedDate": "Mon Apr 24 2023 16:47:27",
+      "updatedPerson": "admin"
     }
   ]
 }
