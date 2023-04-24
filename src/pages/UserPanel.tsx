@@ -9,7 +9,7 @@ import { setAdminLoggedIn } from '../redux/users/usersSlice';
 import UsersList from '../components/UsersList';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import nextId from "react-id-generator";
+import { nanoid } from 'nanoid'
 
 const UserPanel = () => {
     
@@ -27,7 +27,7 @@ const UserPanel = () => {
     let nowDate = new Date().toString().substring(0, 24);
  
     const updatedUser = {...newUser};
-    updatedUser.id = nextId();    
+    updatedUser.id = nanoid();    
     updatedUser.createdDate = nowDate;
     updatedUser.updatedDate = nowDate;
     updatedUser.createdPerson = activeUser.name;
@@ -35,6 +35,7 @@ const UserPanel = () => {
 
    await axios.post("http://localhost:3004/users", updatedUser);
     dispatch(addUsers(updatedUser));
+    setNewUser({id: "", name: "", surname: "", password: "", role: 0, visibilityProjects: [], createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "" });
   };
 
   const handleChange = (e: any) => {

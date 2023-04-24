@@ -24,7 +24,7 @@ export class content{
 
 
 export class user{
-    id: number;
+    id: string;
     name: string;
     surname: string;
     password: string;
@@ -35,7 +35,7 @@ export class user{
     createdPerson: string;
     updatedPerson: string;
 
-    constructor(id: number, name: string, surname: string, password: string, role: userRole, visibilityProjects: [],createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string)
+    constructor(id: string, name: string, surname: string, password: string, role: userRole, visibilityProjects: [],createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string)
     {
         this.id = id;
         this.name = name;

@@ -107,24 +107,15 @@
   ],
   "users": [
     {
-      "id": 1,
+      "id": "jQtaedxpbAekmoBdGkd2A",
       "name": "admin",
-      "password": "123",
-      "role": 1,
-      "visibilityProjects": [],
-      "updatedDate": "Mon Apr 24 2023 15:56:11",
-      "updatedPerson": "admin"
-    },
-    {
-      "id": "id1",
-      "name": "qwe",
-      "surname": "qwe",
+      "surname": "admin",
       "password": "123",
       "role": 0,
       "visibilityProjects": [],
+      "createdDate": "Mon Apr 24 2023 16:59:26",
+      "updatedDate": "Mon Apr 24 2023 16:59:26",
       "createdPerson": "admin",
-      "createdDate": "Mon Apr 24 2023 16:47:21",
-      "updatedDate": "Mon Apr 24 2023 16:47:27",
       "updatedPerson": "admin"
     }
   ]

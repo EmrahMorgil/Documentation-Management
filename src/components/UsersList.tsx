@@ -15,7 +15,7 @@ const UsersList = ({ item }: { item: user }) => {
   const users = useSelector((state: RootState)=>state.users.users);
   const dispatch = useDispatch();
 
-  const deleteUser = async(id: number)=>{
+  const deleteUser = async(id: string)=>{
     await axios.delete(`http://localhost:3004/users/${id}`);
     const newArr = users.filter((users: user)=>{
       if(users.id !== id)
