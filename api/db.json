@@ -111,11 +111,11 @@
       "name": "admin",
       "surname": "admin",
       "password": "123",
-      "role": 0,
+      "role": "1",
       "visibilityProjects": [],
-      "createdDate": "Mon Apr 24 2023 16:59:26",
-      "updatedDate": "Mon Apr 24 2023 16:59:26",
       "createdPerson": "admin",
+      "createdDate": "Mon Apr 24 2023 16:59:26",
+      "updatedDate": "Mon Apr 24 2023 17:33:47",
       "updatedPerson": "admin"
     }
   ]

@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsersAsync } from "../services/getUsers";
+import { getUsersAsync } from "../services/userService";
 import { RootState } from "../redux/store";
 import { user } from "../types/Type";
 import { setUserLoggedIn, setAdminLoggedIn, setActiveUser } from "../redux/users/usersSlice";
 import Home from "./Home";
 
-const Login = () => {
+const Login: React.FC = () => {
 
   const dispatch = useDispatch();
   const [userLogin, setUserLogin] = useState({name: "", password: ""});

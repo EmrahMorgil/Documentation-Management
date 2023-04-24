@@ -11,7 +11,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { nanoid } from 'nanoid'
 
-const UserPanel = () => {
+const UserPanel: React.FC = () => {
     
     const users = useSelector((state: RootState) => state.users.users);
     const dispatch = useDispatch();
@@ -33,7 +33,11 @@ const UserPanel = () => {
     updatedUser.createdPerson = activeUser.name;
     updatedUser.updatedPerson = activeUser.name;
 
-   await axios.post("http://localhost:3004/users", updatedUser);
+   
+   addUsers(updatedUser);
+    //api
+
+
     dispatch(addUsers(updatedUser));
     setNewUser({id: "", name: "", surname: "", password: "", role: 0, visibilityProjects: [], createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "" });
   };
@@ -47,10 +51,11 @@ const UserPanel = () => {
 
   return (
     <div>
-      <div  style={{display: "flex",justifyContent: "center", margin: "30px"}}>
-        <div><button type="button" className="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-  Add User
-</button>
+      <div style={{display: "flex",justifyContent: "center", margin: "30px"}}>
+        <div>
+          <button type="button" className="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+            Add User
+          </button>
 
 <div className="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div className="modal-dialog" role="document">
@@ -103,8 +108,6 @@ const UserPanel = () => {
 </div></div>
         <Link to="/home"><button className='btn btn-danger'>Back</button></Link>
       </div>
-
-
         {
             users.map((item: user, i: number)=>(
                 <UsersList item={item} key={i}/>

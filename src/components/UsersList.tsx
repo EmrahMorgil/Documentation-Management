@@ -5,8 +5,15 @@ import { setUsers } from "../redux/users/usersSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { useState } from "react";
+import { deleteUsers, updateUsers } from "../services/userService";
 
-const UsersList = ({ item }: { item: user }) => {
+
+interface IItemProp{
+  item: user;
+}
+
+
+const UsersList: React.FC<IItemProp> = ({item}) => {
 
   const activeUser = useSelector((state:RootState)=>state.users.activeUser.name);
   const [updateControl, setUpdateControl] = useState(false);
@@ -16,7 +23,11 @@ const UsersList = ({ item }: { item: user }) => {
   const dispatch = useDispatch();
 
   const deleteUser = async(id: string)=>{
-    await axios.delete(`http://localhost:3004/users/${id}`);
+
+
+    deleteUsers(id);
+    //api
+
     const newArr = users.filter((users: user)=>{
       if(users.id !== id)
       {
@@ -36,7 +47,9 @@ const UsersList = ({ item }: { item: user }) => {
 
     
     setUpdateControl(false);
-    await axios.put(`http://localhost:3004/users/${item.id}`, setUpdatedUser);
+    updateUsers(item.id, setUpdatedUser);
+    //api
+
     const newArr = users.map((users: user)=>{
       if(users.id===item.id)
       {

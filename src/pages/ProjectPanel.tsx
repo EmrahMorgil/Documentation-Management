@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProjectPanel = () => {
+const ProjectPanel: React.FC = () => {
   return (
     <div>ProjectPanel</div>
   )
