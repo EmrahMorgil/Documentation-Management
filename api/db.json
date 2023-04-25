@@ -117,18 +117,6 @@
       "createdDate": "Mon Apr 24 2023 16:59:26",
       "updatedDate": "Tue Apr 25 2023 09:26:34",
       "updatedPerson": "admin"
-    },
-    {
-      "id": "HP5i5RIT8_XbKnr9nR6tR",
-      "name": "Ömer",
-      "surname": "Morgil",
-      "password": "123",
-      "role": 0,
-      "visibilityProjects": [],
-      "createdPerson": "admin",
-      "createdDate": "Mon Apr 24 2023 18:13:41",
-      "updatedDate": "Tue Apr 25 2023 09:56:58",
-      "updatedPerson": "admin"
     }
   ]
 }
