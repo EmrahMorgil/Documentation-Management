@@ -1,12 +1,13 @@
-import React from 'react'
-import { project } from '../../types/Type'
-import DeleteProject from './DeleteProject'
+import React from "react";
+import { project } from "../../types/Type";
+import DeleteProject from "./DeleteProject";
+import AddContent from "./AddContent";
 
-interface IProject{
-    item: project,
+interface IProject {
+  item: project;
 }
 
-const Project: React.FC<IProject> = ({item}) => {
+const Project: React.FC<IProject> = ({ item }) => {
   return (
     <div className="container mt-5">
       <table className="table">
@@ -33,15 +34,13 @@ const Project: React.FC<IProject> = ({item}) => {
           <td>{item.totalContent}</td>
           <td>{item.visibilityRole}</td>
           <td style={{ display: "flex", flexDirection: "column" }}>
-            <button className="btn btn-success">Content</button>
-            <DeleteProject id={item.id}/>
-            {/* <UpdateUser item={item} />
-            <DeleteUser id={item.id} /> */}
+            <AddContent id={item.id} />
+            <DeleteProject id={item.id} />
           </td>
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};
 
-export default Project
+export default Project;

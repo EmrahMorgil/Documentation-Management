@@ -31,6 +31,7 @@ export class content{
     version?: number;
     content?: string;
     contentTags?: [];
+    projectId?: string;
 }
 
 
