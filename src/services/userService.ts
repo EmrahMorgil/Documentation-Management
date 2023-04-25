@@ -9,7 +9,7 @@ export const getUsersAsync: any = createAsyncThunk("users/getUsersAsync", async 
 );
 
 
-export const addUsers = async(updatedUser: user)=>{
+export const addUsers = async(updatedUser: any)=>{
   await axios.post("http://localhost:3004/users", updatedUser);
 }
 

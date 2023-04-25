@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addUsers} from '../redux/users/usersSlice';
+import { addNewUsers} from '../redux/users/usersSlice';
 import { RootState } from '../redux/store';
 import { user } from '../types/Type';
 import { setAdminLoggedIn } from '../redux/users/usersSlice';
@@ -10,6 +10,7 @@ import UsersList from '../components/UsersList';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { nanoid } from 'nanoid'
+import { addUsers } from '../services/userService';
 
 const UserPanel: React.FC = () => {
     
@@ -33,12 +34,12 @@ const UserPanel: React.FC = () => {
     updatedUser.createdPerson = activeUser.name;
     updatedUser.updatedPerson = activeUser.name;
 
-   
+   debugger;
    addUsers(updatedUser);
     //api
 
 
-    dispatch(addUsers(updatedUser));
+    dispatch(addNewUsers(updatedUser));
     setNewUser({id: "", name: "", surname: "", password: "", role: 0, visibilityProjects: [], createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "" });
   };
 

@@ -24,7 +24,7 @@ export const usersSlice = createSlice({
     setUsers: (state, action)=>{
       state.users = action.payload;
     },
-    addUsers: (state, action)=>{
+    addNewUsers: (state, action)=>{
       state.users.push(action.payload);
     }
   },
@@ -37,4 +37,4 @@ export const usersSlice = createSlice({
 });
 
 export default usersSlice.reducer;
-export const { setUserLoggedIn, setAdminLoggedIn, setActiveUser, setUsers, addUsers } = usersSlice.actions;
+export const { setUserLoggedIn, setAdminLoggedIn, setActiveUser, setUsers, addNewUsers } = usersSlice.actions;
