@@ -6,6 +6,7 @@ import { RootState } from "./redux/store";
 import Home from "./pages/Home";
 import UserPanel from "./pages/UserPanel";
 import ProjectPanel from "./pages/ProjectPanel";
+import Protected from "./components/Protected";
 
 function App() {
 
@@ -16,9 +17,9 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/userpanel" element={<UserPanel />}/>
-        <Route path="/projectpanel" element={<ProjectPanel />}/>
-        <Route path="/home" element={<Home/>} />
+        <Route path="/home" element={<Protected loggedIn={adminLoggedIn || userLoggedIn}><Home/></Protected>} />
+        <Route path="/userpanel" element={<Protected loggedIn={adminLoggedIn}><UserPanel /></Protected>}/>
+        <Route path="/projectpanel" element={<Protected loggedIn={adminLoggedIn}><ProjectPanel /></Protected>}/>
       </Routes>
     </>
   );

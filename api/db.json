@@ -117,18 +117,6 @@
       "createdDate": "Mon Apr 24 2023 16:59:26",
       "updatedDate": "Tue Apr 25 2023 09:26:34",
       "updatedPerson": "admin"
-    },
-    {
-      "id": "Qz9F8uJhR0K61gUYk8DW-",
-      "name": "Emrahasd",
-      "surname": "asdasd",
-      "password": "123",
-      "role": 0,
-      "visibilityProjects": [],
-      "createdPerson": "admin",
-      "createdDate": "Tue Apr 25 2023 13:19:28",
-      "updatedDate": "Tue Apr 25 2023 13:34:36",
-      "updatedPerson": "admin"
     }
   ]
 }

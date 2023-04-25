@@ -5,6 +5,7 @@ import { getUsersAsync } from "../../services/userService";
 const initialState: any = {
   users: [],
   userLoggedIn: false,
+  adminLoggedIn: false,
   activeUser: {},
 };
 
