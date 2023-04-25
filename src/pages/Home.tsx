@@ -2,10 +2,11 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { RootState } from "../redux/store";
-import { setAdminLoggedIn } from "../redux/users/usersSlice";
+import AdminLogout from "../logout/AdminLogout";
+
 
 const Home: React.FC = () => {
-  const dispatch = useDispatch();
+  
   const adminLoggedIn = useSelector((state: RootState) => state.users.adminLoggedIn);
 
 
@@ -19,7 +20,7 @@ const Home: React.FC = () => {
           <Link to="/projectpanel">
             <button className="btn btn-success">Project</button>
           </Link>
-          <button className="btn btn-danger" onClick={()=>dispatch(setAdminLoggedIn(!adminLoggedIn))}>Logout</button>
+          <AdminLogout />
         </div>
       )}
       <h1>Projects</h1>
