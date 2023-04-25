@@ -11,7 +11,7 @@ const UpdateUser = ({ item }: { item: user }) => {
         data-toggle="modal"
         data-target={`#${item.id}`}
       >
-        Update
+        Detail
       </button>
       <UpdateModal item={item} />
     </div>

@@ -117,18 +117,6 @@
       "createdDate": "Mon Apr 24 2023 16:59:26",
       "updatedDate": "Tue Apr 25 2023 09:26:34",
       "updatedPerson": "admin"
-    },
-    {
-      "id": "vSDbJuMUb34HxGE2kF7DN",
-      "name": "Emrah",
-      "surname": "Morgil",
-      "password": "123",
-      "role": 0,
-      "visibilityProjects": [],
-      "createdDate": "Tue Apr 25 2023 14:23:28",
-      "updatedDate": "Tue Apr 25 2023 14:23:28",
-      "createdPerson": "admin",
-      "updatedPerson": "admin"
     }
   ]
 }
