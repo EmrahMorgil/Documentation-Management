@@ -11,24 +11,14 @@
       "visibilityRole": "1"
     },
     {
-      "id": 2,
-      "projectName": "Hastane veritabanı",
-      "createdDate": "2021",
-      "updatedDate": "2021",
-      "createdPerson": "ayşe",
-      "updatedPerson": "ayşe",
-      "totalContent": 1,
-      "visibilityRole": "1"
-    },
-    {
-      "id": 3,
-      "projectName": "Banka veritabanı",
-      "createdDate": "2022",
-      "updatedDate": "2022",
-      "createdPerson": "emrah",
-      "updatedPerson": "emrah",
-      "totalContent": 2,
-      "visibilityRole": "2"
+      "id": "0CWPZH2n99_3HDsQlfeO9",
+      "projectName": "E-Okul",
+      "createdDate": "Tue Apr 25 2023 16:01:31",
+      "updatedDate": "Tue Apr 25 2023 16:01:31",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
+      "visibilityRole": 0
     }
   ],
   "contents": [
@@ -67,42 +57,6 @@
       "content": "Dolor sit ametweqdasqwead",
       "contentTag": [],
       "projectId": 1
-    },
-    {
-      "id": 4,
-      "contentName": "dorduncu post",
-      "createdDate": "2022",
-      "updatedDate": "2022",
-      "createdPerson": "emrah",
-      "updatedPerson": "emrah",
-      "contentVersion": 1,
-      "content": "Dolor sit ametweqdasqwead",
-      "contentTag": [],
-      "projectId": 2
-    },
-    {
-      "id": 5,
-      "contentName": "bes post",
-      "createdDate": "2022",
-      "updatedDate": "2022",
-      "createdPerson": "emrah",
-      "updatedPerson": "emrah",
-      "contentVersion": 1,
-      "content": "Dolor sit ametweqdasqwead",
-      "contentTag": [],
-      "projectId": 3
-    },
-    {
-      "id": 6,
-      "contentName": "altı post",
-      "createdDate": "2022",
-      "updatedDate": "2022",
-      "createdPerson": "emrah",
-      "updatedPerson": "emrah",
-      "contentVersion": 1,
-      "content": "Dolor sit ametweqdasqwead",
-      "contentTag": [],
-      "projectId": 3
     }
   ],
   "users": [

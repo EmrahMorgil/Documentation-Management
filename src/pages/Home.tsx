@@ -8,8 +8,7 @@ import AdminLogout from "../logout/AdminLogout";
 const Home: React.FC = () => {
   
   const adminLoggedIn = useSelector((state: RootState) => state.users.adminLoggedIn);
-
-
+  
   return (
     <div>
       {adminLoggedIn && (

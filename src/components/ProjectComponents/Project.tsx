@@ -1,5 +1,6 @@
 import React from 'react'
 import { project } from '../../types/Type'
+import DeleteProject from './DeleteProject'
 
 interface IProject{
     item: project,
@@ -32,7 +33,8 @@ const Project: React.FC<IProject> = ({item}) => {
           <td>{item.totalContent}</td>
           <td>{item.visibilityRole}</td>
           <td style={{ display: "flex", flexDirection: "column" }}>
-            <button className="btn btn-success">Projects</button>
+            <button className="btn btn-success">Content</button>
+            <DeleteProject id={item.id}/>
             {/* <UpdateUser item={item} />
             <DeleteUser id={item.id} /> */}
           </td>
