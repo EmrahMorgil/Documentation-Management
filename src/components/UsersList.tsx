@@ -5,16 +5,8 @@ import DeleteUser from "./DeleteUser";
 import UpdateUser from "./UpdateUser";
 import { IItemProp } from "../types/Type";
 
-
-const UsersList: React.FC<IItemProp> = ({item}) => {
-
+const UsersList: React.FC<IItemProp> = ({ item }) => {
   const [updateControl, setUpdateControl] = useState<boolean>(false);
-  const [updatedUser, setUpdatedUser] = useState<user>({id: item.id, name: item.name, surname: item.surname, password: item.password, role: item.role, visibilityProjects: item.visibilityProjects, createdPerson: item.createdPerson, createdDate: item.createdDate, updatedDate: item.updatedDate, updatedPerson: item.updatedPerson});
-
-
-  const handleChange = (e: any) => {
-    setUpdatedUser({ ...updatedUser, [e.target.name]: e.target.value });
-  };
 
   return (
     <div className="container mt-5">
@@ -35,35 +27,34 @@ const UsersList: React.FC<IItemProp> = ({item}) => {
           </tr>
         </thead>
         <tbody>
-          {updateControl ? 
-          (<>
-            <input onChange={handleChange} placeholder="name" name="name" value={updatedUser.name}/>
-            <input onChange={handleChange} placeholder="surname" name="surname" value={updatedUser.surname}/>
-            <input onChange={handleChange} placeholder="password" name="password" value={updatedUser.password}/>
-            <input onChange={handleChange} placeholder="role" name="role" value={updatedUser.role}/>
-            <input onChange={handleChange} placeholder="project" name="project" value={updatedUser.visibilityProjects}/>
-            <UpdateUser item={item} setUpdateControl={setUpdateControl} updatedUser={updatedUser}/>
-          </>)
-          : 
-          (<>
-          <td>{item.id}</td>
-          <td>{item.name}</td>
-          <td>{item.surname}</td>
-          <td>{item.password}</td>
-          <td>{item.role}</td>
-          <td>{item.visibilityProjects}</td>
-          <td>{item.createdDate}</td>
-          <td>{item.updatedDate}</td>
-          <td>{item.createdPerson}</td>
-          <td>{item.updatedPerson}</td>
-          <td style={{display: "flex", flexDirection: "column"}}>
-            <button className="btn btn-success">Projects</button>
-            <button className="btn btn-warning" onClick={()=>setUpdateControl(true)}>Update</button>
-            <DeleteUser id={item.id}/>
-          </td>
-          </>
+          {updateControl ? (
+            <>
+              <UpdateUser item={item} setUpdateControl={setUpdateControl} />
+            </>
+          ) : (
+            <>
+              <td>{item.id}</td>
+              <td>{item.name}</td>
+              <td>{item.surname}</td>
+              <td>{item.password}</td>
+              <td>{item.role}</td>
+              <td>{item.visibilityProjects}</td>
+              <td>{item.createdDate}</td>
+              <td>{item.updatedDate}</td>
+              <td>{item.createdPerson}</td>
+              <td>{item.updatedPerson}</td>
+              <td style={{ display: "flex", flexDirection: "column" }}>
+                <button className="btn btn-success">Projects</button>
+                <button
+                  className="btn btn-warning"
+                  onClick={() => setUpdateControl(true)}
+                >
+                  Update
+                </button>
+                <DeleteUser id={item.id} />
+              </td>
+            </>
           )}
-          
         </tbody>
       </table>
     </div>

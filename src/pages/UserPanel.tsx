@@ -5,10 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addNewUsers} from '../redux/users/usersSlice';
 import { RootState } from '../redux/store';
 import { user } from '../types/Type';
-import { setAdminLoggedIn } from '../redux/users/usersSlice';
 import UsersList from '../components/UsersList';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import { nanoid } from 'nanoid'
 import { addUsers } from '../services/userService';
 

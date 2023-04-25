@@ -63,5 +63,4 @@ export interface IItemProp{
 export interface IUpdateUser{
     item: user,
     setUpdateControl: React.Dispatch<React.SetStateAction<boolean>>,
-    updatedUser: user,
   }
