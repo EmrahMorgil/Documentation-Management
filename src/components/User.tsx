@@ -1,12 +1,9 @@
 import React from "react";
-import { user } from "../types/Type";
-import { useState } from "react";
 import DeleteUser from "./DeleteUser";
-import UpdateUser from "./UpdateUser";
 import { IItemProp } from "../types/Type";
+import UpdateModal from "../modals/UpdateModal";
 
 const User: React.FC<IItemProp> = ({ item }) => {
-  const [updateControl, setUpdateControl] = useState<boolean>(false);
 
   return (
     <div className="container mt-5">
@@ -27,12 +24,6 @@ const User: React.FC<IItemProp> = ({ item }) => {
           </tr>
         </thead>
         <tbody>
-          {updateControl ? (
-            <>
-              <UpdateUser item={item} setUpdateControl={setUpdateControl} />
-            </>
-          ) : (
-            <>
               <td>{item.id}</td>
               <td>{item.name}</td>
               <td>{item.surname}</td>
@@ -45,16 +36,12 @@ const User: React.FC<IItemProp> = ({ item }) => {
               <td>{item.updatedPerson}</td>
               <td style={{ display: "flex", flexDirection: "column" }}>
                 <button className="btn btn-success">Projects</button>
-                <button
-                  className="btn btn-warning"
-                  onClick={() => setUpdateControl(true)}
-                >
+                <button type="button" className="btn btn-warning" data-toggle="modal" data-target={`#${item.id}`}>
                   Update
                 </button>
+                <UpdateModal item={item}/>
                 <DeleteUser id={item.id} />
               </td>
-            </>
-          )}
         </tbody>
       </table>
     </div>

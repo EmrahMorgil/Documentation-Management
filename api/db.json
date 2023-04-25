@@ -119,15 +119,27 @@
       "updatedPerson": "admin"
     },
     {
-      "id": "PbY4LUoPJnhou2oQPpB1z",
-      "name": "qwe",
-      "surname": "qwe",
+      "id": "YDdLWN9yCX7Z_Y8buItg-",
+      "name": "Ömer",
+      "surname": "Morgil",
       "password": "123",
+      "role": "1",
+      "visibilityProjects": [],
+      "createdPerson": "admin",
+      "createdDate": "Tue Apr 25 2023 13:18:03",
+      "updatedDate": "Tue Apr 25 2023 13:18:35",
+      "updatedPerson": "admin"
+    },
+    {
+      "id": "wolmTRSaCosKyJ6RqTZp3",
+      "name": "Hasan",
+      "surname": "Kara",
+      "password": "1234",
       "role": 0,
       "visibilityProjects": [],
       "createdPerson": "admin",
-      "createdDate": "Tue Apr 25 2023 11:03:03",
-      "updatedDate": "Tue Apr 25 2023 11:04:24",
+      "createdDate": "Tue Apr 25 2023 13:18:13",
+      "updatedDate": "Tue Apr 25 2023 13:18:40",
       "updatedPerson": "admin"
     }
   ]
