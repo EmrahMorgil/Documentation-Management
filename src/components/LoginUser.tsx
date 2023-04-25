@@ -15,6 +15,7 @@ const LoginUser = () => {
         item.name === userLogin.name &&
         item.password === userLogin.password
       ) {
+        //switch case
         if (item.role === 0) {
           alert("Kullanıcı Girişi Başarılı...");
           dispatch(setUserLoggedIn(true));
