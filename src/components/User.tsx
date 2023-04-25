@@ -5,7 +5,6 @@ import UpdateModal from "../modals/UpdateModal";
 import UpdateUser from "./UpdateUser";
 
 const User: React.FC<IItemProp> = ({ item }) => {
-
   return (
     <div className="container mt-5">
       <table className="table">
@@ -25,21 +24,21 @@ const User: React.FC<IItemProp> = ({ item }) => {
           </tr>
         </thead>
         <tbody>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>{item.surname}</td>
-              <td>{item.password}</td>
-              <td>{item.role}</td>
-              <td>{item.visibilityProjects}</td>
-              <td>{item.createdDate}</td>
-              <td>{item.updatedDate}</td>
-              <td>{item.createdPerson}</td>
-              <td>{item.updatedPerson}</td>
-              <td style={{ display: "flex", flexDirection: "column" }}>
-                <button className="btn btn-success">Projects</button>
-                <UpdateUser item={item}/>
-                <DeleteUser id={item.id} />
-              </td>
+          <td>{item.id}</td>
+          <td>{item.name}</td>
+          <td>{item.surname}</td>
+          <td>{item.password}</td>
+          <td>{item.role}</td>
+          <td>{item.visibilityProjects}</td>
+          <td>{item.createdDate}</td>
+          <td>{item.updatedDate}</td>
+          <td>{item.createdPerson}</td>
+          <td>{item.updatedPerson}</td>
+          <td style={{ display: "flex", flexDirection: "column" }}>
+            <button className="btn btn-success">Projects</button>
+            <UpdateUser item={item} />
+            <DeleteUser id={item.id} />
+          </td>
         </tbody>
       </table>
     </div>

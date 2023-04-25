@@ -5,7 +5,6 @@ import { user } from "../types/Type";
 import User from "./User";
 
 const UsersList = () => {
-  
   const users = useSelector((state: RootState) => state.users.users);
 
   return (

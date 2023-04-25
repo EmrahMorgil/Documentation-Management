@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { user } from "../types/Type";
-import {setUserLoggedIn,setAdminLoggedIn,setActiveUser} from "../redux/users/usersSlice";
+import {
+  setUserLoggedIn,
+  setAdminLoggedIn,
+  setActiveUser,
+} from "../redux/users/usersSlice";
 
 const LoginUser = () => {
   const dispatch = useDispatch();
@@ -15,7 +19,6 @@ const LoginUser = () => {
         item.name === userLogin.name &&
         item.password === userLogin.password
       ) {
-        //switch case
         if (item.role === 0) {
           alert("Kullanıcı Girişi Başarılı...");
           dispatch(setUserLoggedIn(true));

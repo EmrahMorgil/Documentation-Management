@@ -19,7 +19,6 @@ const AddUser = () => {
 
             <AddModal />
           </div>
-          
         </div>
       </div>
     </div>
