@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { getUsersAsync } from "../../services/userService";
 
 
@@ -25,17 +25,17 @@ export const usersSlice = createSlice({
     setUsers: (state, action)=>{
       state.users = action.payload;
     },
-    addNewUsers: (state, action)=>{
+    addNewUser: (state, action)=>{
       state.users.push(action.payload);
     }
   },
   extraReducers: (builder) => {
     builder.addCase(getUsersAsync.fulfilled, (state, action) => {
-      console.log(action.payload);
+      // console.log(action.payload);
       state.users = action.payload;
     });
   },
 });
 
 export default usersSlice.reducer;
-export const { setUserLoggedIn, setAdminLoggedIn, setActiveUser, setUsers, addNewUsers } = usersSlice.actions;
+export const { setUserLoggedIn, setAdminLoggedIn, setActiveUser, setUsers, addNewUser } = usersSlice.actions;

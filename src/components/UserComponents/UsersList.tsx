@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import { user } from "../types/Type";
+import { RootState } from "../../redux/store";
+import { user } from "../../types/Type";
 import User from "./User";
 
 const UsersList = () => {

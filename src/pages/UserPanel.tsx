@@ -1,6 +1,6 @@
 import React from "react";
-import AddUser from "../components/AddUser";
-import UsersList from "../components/UsersList";
+import AddUser from "../components/UserComponents/AddUser";
+import UsersList from "../components/UserComponents/UsersList";
 import { Link } from "react-router-dom";
 
 const UserPanel: React.FC = () => {

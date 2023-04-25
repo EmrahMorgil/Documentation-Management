@@ -5,7 +5,7 @@ import { user } from "../types/Type";
 import { updateUsers } from "../services/userService";
 import { setUsers } from "../redux/users/usersSlice";
 
-const UpdateModal = ({ item }: { item: any }) => {
+const UpdateUserModal = ({ item }: { item: any }) => {
   const users = useSelector((state: RootState) => state.users.users);
   const dispatch = useDispatch();
   const activeUser = useSelector(
@@ -159,4 +159,4 @@ const UpdateModal = ({ item }: { item: any }) => {
   );
 };
 
-export default UpdateModal;
+export default UpdateUserModal;

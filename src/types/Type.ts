@@ -1,5 +1,5 @@
 export class project{
-    id?: number;
+    id?: string;
     projectName?: string;
     createdDate?: string;
     updatedDate?: string;
@@ -7,11 +7,10 @@ export class project{
     updatedPerson?: string;
     totalContent?: number;
     visibilityRole?: string;
-    contents?: content;
 }
 
 export class content{
-    id?: number;
+    id?: string;
     contentName?: string;
     createdDate?: string;
     updatedDate?: string;

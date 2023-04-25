@@ -1,6 +1,6 @@
 import React from "react";
-import { user } from "../types/Type";
-import UpdateModal from "../modals/UpdateModal";
+import { user } from "../../types/Type";
+import UpdateUserModal from "../../modals/UpdateUserModal";
 
 const UpdateUser = ({ item }: { item: user }) => {
   return (
@@ -13,7 +13,7 @@ const UpdateUser = ({ item }: { item: user }) => {
       >
         Detail
       </button>
-      <UpdateModal item={item} />
+      <UpdateUserModal item={item} />
     </div>
   );
 };

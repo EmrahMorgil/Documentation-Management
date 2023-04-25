@@ -1,10 +1,10 @@
 import React from "react";
-import { deleteUsers } from "../services/userService";
-import { RootState } from "../redux/store";
+import { deleteUsers } from "../../services/userService";
+import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
-import { user } from "../types/Type";
+import { user } from "../../types/Type";
 import { useDispatch } from "react-redux";
-import { setUsers } from "../redux/users/usersSlice";
+import { setUsers } from "../../redux/users/usersSlice";
 
 const DeleteUser = ({ id }: { id: string }) => {
   const dispatch = useDispatch();

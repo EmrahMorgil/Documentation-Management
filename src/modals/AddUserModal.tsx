@@ -3,9 +3,9 @@ import { nanoid } from "nanoid";
 import { addUsers } from "../services/userService";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-import { addNewUsers } from "../redux/users/usersSlice";
+import { addNewUser } from "../redux/users/usersSlice";
 
-const AddModal = () => {
+const AddUserModal = () => {
   const dispatch = useDispatch();
   const activeUser = useSelector((state: RootState) => state.users.activeUser);
   const [newUser, setNewUser] = useState({
@@ -31,11 +31,11 @@ const AddModal = () => {
     updatedUser.createdPerson = activeUser.name;
     updatedUser.updatedPerson = activeUser.name;
 
-    debugger;
+    // debugger;
     addUsers(updatedUser);
     //api
 
-    dispatch(addNewUsers(updatedUser));
+    dispatch(addNewUser(updatedUser));
     setNewUser({
       id: "",
       name: "",
@@ -132,4 +132,4 @@ const AddModal = () => {
   );
 };
 
-export default AddModal;
+export default AddUserModal;

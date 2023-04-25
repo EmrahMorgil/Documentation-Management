@@ -1,4 +1,4 @@
-import AddModal from "../modals/AddModal";
+import AddUserModal from "../../modals/AddUserModal";
 
 const AddUser = () => {
   return (
@@ -12,7 +12,7 @@ const AddUser = () => {
         Add User
       </button>
 
-      <AddModal />
+      <AddUserModal />
     </div>
   );
 };

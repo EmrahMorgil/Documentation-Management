@@ -8,7 +8,7 @@
       "createdPerson": "emrah",
       "updatedPerson": "emrah",
       "totalContent": 3,
-      "visibilityRole": "admin"
+      "visibilityRole": "1"
     },
     {
       "id": 2,
@@ -18,7 +18,7 @@
       "createdPerson": "ayşe",
       "updatedPerson": "ayşe",
       "totalContent": 1,
-      "visibilityRole": "user"
+      "visibilityRole": "1"
     },
     {
       "id": 3,
@@ -28,7 +28,7 @@
       "createdPerson": "emrah",
       "updatedPerson": "emrah",
       "totalContent": 2,
-      "visibilityRole": "user"
+      "visibilityRole": "2"
     }
   ],
   "contents": [
@@ -116,6 +116,18 @@
       "createdPerson": "admin",
       "createdDate": "Mon Apr 24 2023 16:59:26",
       "updatedDate": "Tue Apr 25 2023 09:26:34",
+      "updatedPerson": "admin"
+    },
+    {
+      "id": "nw1vDeoa814XghfdULMcx",
+      "name": "Ömer",
+      "surname": "Morgil",
+      "password": "123",
+      "role": 0,
+      "visibilityProjects": [],
+      "createdPerson": "admin",
+      "createdDate": "Tue Apr 25 2023 15:55:10",
+      "updatedDate": "Tue Apr 25 2023 15:55:15",
       "updatedPerson": "admin"
     }
   ]
