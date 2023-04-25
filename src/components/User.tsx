@@ -2,6 +2,7 @@ import React from "react";
 import DeleteUser from "./DeleteUser";
 import { IItemProp } from "../types/Type";
 import UpdateModal from "../modals/UpdateModal";
+import UpdateUser from "./UpdateUser";
 
 const User: React.FC<IItemProp> = ({ item }) => {
 
@@ -36,10 +37,7 @@ const User: React.FC<IItemProp> = ({ item }) => {
               <td>{item.updatedPerson}</td>
               <td style={{ display: "flex", flexDirection: "column" }}>
                 <button className="btn btn-success">Projects</button>
-                <button type="button" className="btn btn-warning" data-toggle="modal" data-target={`#${item.id}`}>
-                  Update
-                </button>
-                <UpdateModal item={item}/>
+                <UpdateUser item={item}/>
                 <DeleteUser id={item.id} />
               </td>
         </tbody>
