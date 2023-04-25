@@ -5,13 +5,10 @@ import { useSelector } from "react-redux";
 import { updateUsers } from "../services/userService";
 import { useDispatch } from "react-redux";
 import { setUsers } from "../redux/users/usersSlice";
+import { IUpdateUser } from "../types/Type";
 
 
-interface IUpdateUser{
-  item: user,
-  setUpdateControl: React.Dispatch<React.SetStateAction<boolean>>,
-  updatedUser: user,
-}
+
 
 
 const UpdateUser: React.FC<IUpdateUser> = ({item,setUpdateControl,updatedUser}) => {

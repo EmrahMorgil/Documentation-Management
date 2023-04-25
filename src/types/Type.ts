@@ -56,3 +56,12 @@ enum userRole{
     admin,
 }
 
+export interface IItemProp{
+    item: user;
+  }
+
+export interface IUpdateUser{
+    item: user,
+    setUpdateControl: React.Dispatch<React.SetStateAction<boolean>>,
+    updatedUser: user,
+  }

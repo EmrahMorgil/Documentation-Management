@@ -3,11 +3,8 @@ import { user } from "../types/Type";
 import { useState } from "react";
 import DeleteUser from "./DeleteUser";
 import UpdateUser from "./UpdateUser";
+import { IItemProp } from "../types/Type";
 
-
-interface IItemProp{
-  item: user;
-}
 
 const UsersList: React.FC<IItemProp> = ({item}) => {
 
