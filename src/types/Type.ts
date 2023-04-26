@@ -91,3 +91,6 @@ export interface IUpdateUser{
     item: user,
     setUpdateControl: React.Dispatch<React.SetStateAction<boolean>>,
   }
+  export interface IProject {
+    item: project;
+  }

@@ -3,6 +3,7 @@ import { project } from "../../types/Type";
 import DeleteProject from "./DeleteProject";
 import AddContent from "../ContentComponents/AddContent";
 import { Link } from "react-router-dom";
+import UpdateProject from "./UpdateProject";
 
 interface IProject {
   item: project;
@@ -25,7 +26,7 @@ const Project: React.FC<IProject> = ({ item }) => {
           <button className="btn btn-success" style={{width: "100px"}}>Content</button>
         </Link>
         <DeleteProject id={item.id} />
-        <button className="btn btn-warning" style={{width: "100px"}}>Update</button>
+        <UpdateProject item={item}/>
       </td>
     </tr>
     </>
