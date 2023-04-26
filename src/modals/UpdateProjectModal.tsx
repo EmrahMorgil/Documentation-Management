@@ -7,8 +7,8 @@ import { setProjects } from '../../src/redux/projects/projectsSlice';
 
 const UpdateProjectModal = ({ item }: { item: project }) => {
     const dispatch = useDispatch();
-  const projects = useSelector((state: RootState) => state.projects.projects);
-  const activeUser = useSelector((state: RootState) => state.users.activeUser.name);
+    const projects = useSelector((state: RootState) => state.projects.projects);
+    const activeUser = useSelector((state: RootState) => state.users.activeUser.name);
 
   const [updatedProject, setUpdatedProject] = useState<project>({
     id: item.id,

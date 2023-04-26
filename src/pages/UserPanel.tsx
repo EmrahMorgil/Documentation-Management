@@ -8,7 +8,7 @@ const UserPanel: React.FC = () => {
     <>
       <div style={{ display: "flex", justifyContent: "center", margin: "30px" }}>
         <AddUser />
-        <Link to="/home"><button className="btn btn-danger">Back</button></Link>
+        <Link to="/projects"><button className="btn btn-danger">Back</button></Link>
       </div>
       <UsersList />
     </>

@@ -19,7 +19,7 @@ const Login: React.FC = () => {
 
   if(userLoggedIn || adminLoggedIn)
   {
-    return <Navigate to="/home" replace></Navigate>
+    return <Navigate to="/projects" replace></Navigate>
   }else{
     return <LoginUser />
   }

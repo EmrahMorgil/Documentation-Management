@@ -5,7 +5,7 @@ import { RootState } from "../redux/store";
 import AdminLogout from "../logout/AdminLogout";
 
 
-const Home: React.FC = () => {
+const Projects: React.FC = () => {
   
   const adminLoggedIn = useSelector((state: RootState) => state.users.adminLoggedIn);
   
@@ -27,4 +27,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Projects;
