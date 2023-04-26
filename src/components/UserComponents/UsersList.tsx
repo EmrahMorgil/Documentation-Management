@@ -8,11 +8,30 @@ const UsersList = () => {
   const users = useSelector((state: RootState) => state.users.users);
 
   return (
-    <>
-      {users.map((item: user, i: number) => (
-        <User item={item} key={i} />
-      ))}
-    </>
+    <div className="container mt-5">
+      <table className="table table-striped">
+        <thead className="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name </th>
+            <th scope="col">Surname</th>
+            <th scope="col">Password </th>
+            <th scope="col">Role</th>
+            <th scope="col">Projects</th>
+            <th scope="col">Created Date</th>
+            <th scope="col">Updated Date</th>
+            <th scope="col">Created Person</th>
+            <th scope="col">Updated Person</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((item: user, i: number) => (
+            <User item={item} key={i} />
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

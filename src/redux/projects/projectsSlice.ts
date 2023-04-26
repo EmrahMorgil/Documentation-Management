@@ -19,7 +19,6 @@ export const projectsSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getProductsAsync.fulfilled, (state, action) => {
       state.projects = action.payload;
-      console.log(state.projects);
       
     });
   },

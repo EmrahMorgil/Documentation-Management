@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { project } from "../../types/Type";
-import Project from "./Project";
+import { content } from "../../types/Type";
+import Content from "./Content";
 
-const ProjectsList = () => {
-  const projects = useSelector((state: RootState) => state.projects.projects);
+const ContentList = () => {
+  const contents = useSelector((state: RootState) => state.contents.contents);
 
   return (
     <div className="container mt-5">
@@ -13,24 +13,25 @@ const ProjectsList = () => {
         <thead className="thead-dark">
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Project Name </th>
+            <th scope="col">Content Name </th>
             <th scope="col">Created Date</th>
             <th scope="col">Updated Date</th>
             <th scope="col">Created Person</th>
             <th scope="col">Updated Person</th>
-            <th scope="col">Total Content</th>
-            <th scope="col">Visibility Role</th>
+            <th scope="col">Content Version</th>
+            <th scope="col">Content</th>
+            <th scope="col">Content Tags</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
-          {projects.map((item: project, i: number) => (
-            <Project item={item} key={i} />
-          ))}
+          {contents.map((item: content, i: number) => {
+            return <Content item={item} key={i} />;
+          })}
         </tbody>
       </table>
     </div>
   );
 };
 
-export default ProjectsList;
+export default ContentList;

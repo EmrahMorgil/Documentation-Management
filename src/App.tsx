@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import UserPanel from "./pages/UserPanel";
 import ProjectPanel from "./pages/ProjectPanel";
 import Protected from "./components/Protected";
+import ContentPanel from "./pages/ContentPanel";
+import "./styles/App.css"
 
 function App() {
 
@@ -20,6 +22,7 @@ function App() {
         <Route path="/home" element={<Protected loggedIn={adminLoggedIn || userLoggedIn}><Home/></Protected>} />
         <Route path="/userpanel" element={<Protected loggedIn={adminLoggedIn}><UserPanel /></Protected>}/>
         <Route path="/projectpanel" element={<Protected loggedIn={adminLoggedIn}><ProjectPanel /></Protected>}/>
+        <Route path="/contentpanel/:id" element={<ContentPanel />} />
       </Routes>
     </>
   );

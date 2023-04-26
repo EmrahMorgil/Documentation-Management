@@ -22,16 +22,31 @@ export class project{
 }
 
 export class content{
-    id?: string;
-    contentName?: string;
-    createdDate?: string;
-    updatedDate?: string;
-    createdPerson?: string;
-    updatedPerson?: string;
-    version?: number;
-    content?: string;
-    contentTags?: [];
-    projectId?: string;
+    id: string;
+    contentName: string;
+    createdDate: string;
+    updatedDate: string;
+    createdPerson: string;
+    updatedPerson: string;
+    version: number;
+    content: string;
+    contentTags: [];
+    projectId: string;
+
+    constructor(id: string, contentName: string, createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string, version: number, content: string, contentTags: [], projectId: string)
+    {
+        this.id = id;
+        this.contentName = contentName;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
+        this.createdPerson = createdPerson;
+        this.updatedPerson = updatedPerson;
+        this.version = version;
+        this.content = content;
+        this.contentTags = contentTags;
+        this.projectId = projectId;
+    }
+
 }
 
 
