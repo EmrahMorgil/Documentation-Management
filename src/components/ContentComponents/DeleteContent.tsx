@@ -1,9 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
-import { deleteProducts } from '../../services/projectService';
-import { content, project } from '../../types/Type';
-import { setProjects } from '../../redux/projects/projectsSlice';
+import { content } from '../../types/Type';
 import { deleteContents } from '../../services/contentService';
 import { setContents } from '../../redux/contents/contentsSlice';
 

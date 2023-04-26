@@ -4,7 +4,7 @@ import { getUsersAsync } from "../services/userService";
 import { RootState } from "../redux/store";
 import LoginUser from "../components/UserComponents/LoginUser";
 import { Navigate } from "react-router";
-import { getProductsAsync } from "../services/projectService";
+import { getProjectsAsync } from "../services/projectService";
 
 const Login: React.FC = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     dispatch(getUsersAsync());
-    dispatch(getProductsAsync());
+    dispatch(getProjectsAsync());
   }, [dispatch]);
 
 

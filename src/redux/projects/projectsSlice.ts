@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getProductsAsync } from "../../services/projectService";
+import { getProjectsAsync } from "../../services/projectService";
 
 const initialState: any = {
   projects: [],
@@ -17,7 +17,7 @@ export const projectsSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
-    builder.addCase(getProductsAsync.fulfilled, (state, action) => {
+    builder.addCase(getProjectsAsync.fulfilled, (state, action) => {
       state.projects = action.payload;
       
     });

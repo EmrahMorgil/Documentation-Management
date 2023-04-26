@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
-import { deleteProducts } from '../../services/projectService';
+import { deleteProjects } from '../../services/projectService';
 import { project } from '../../types/Type';
 import { setProjects } from '../../redux/projects/projectsSlice';
 
@@ -12,7 +12,7 @@ const DeleteProject = ({id}: {id: string}) => {
   const projects = useSelector((state: RootState) => state.projects.projects);
 
   const deleteUser = (id: string) => {
-    deleteProducts(id);
+    deleteProjects(id);
     //api
 
     const newArr = projects.filter((projects: project) => {

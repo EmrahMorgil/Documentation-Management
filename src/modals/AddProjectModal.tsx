@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import { RootState } from '../redux/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { addNewProject } from '../redux/projects/projectsSlice';
-import { addProducts } from '../services/projectService';
+import { addProjects } from '../services/projectService';
 
 const AddProjectModal = () => {
 
@@ -33,7 +33,7 @@ const AddProjectModal = () => {
 
 
         //api
-        addProducts(updatedProject);
+        addProjects(updatedProject);
 
         
         dispatch(addNewProject(updatedProject));

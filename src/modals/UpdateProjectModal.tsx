@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import { project } from "../types/Type";
-import { updateProducts } from "../../src/services/projectService"
+import { updateProjects } from "../../src/services/projectService"
 import { setProjects } from '../../src/redux/projects/projectsSlice';
 
 const UpdateProjectModal = ({ item }: { item: project }) => {
@@ -39,7 +39,7 @@ const UpdateProjectModal = ({ item }: { item: project }) => {
       visibilityRole,
     } = setUpdatedProject;
 
-    updateProducts(item.id,setUpdatedProject);
+    updateProjects(item.id,setUpdatedProject);
 
     const newArr = projects.map((projects: project) => {
       if (projects.id === item.id) {

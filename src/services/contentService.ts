@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { content, project } from "../types/Type";
+import { content } from "../types/Type";
 
 
 
