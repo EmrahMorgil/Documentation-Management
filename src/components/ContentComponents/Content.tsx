@@ -1,48 +1,46 @@
-import React from "react";
-import { project } from "../../types/Type";
-import DeleteProject from "./DeleteProject";
-import AddContent from "../ContentComponents/AddContent";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { content } from '../../types/Type'
 
-interface IProject {
-  item: project;
+interface IContent{
+    item: content
 }
 
-const Project: React.FC<IProject> = ({ item }) => {
+const Content: React.FC<IContent> = ({item}) => {
   return (
     <div className="container mt-5">
       <table className="table">
         <thead>
           <tr>
             <th>ID</th>
-            <th>Project Name </th>
+            <th>Content Name </th>
             <th>Created Date</th>
             <th>Updated Date</th>
             <th>Created Person</th>
             <th>Updated Person</th>
-            <th>Total Content</th>
-            <th>Visibility Role</th>
+            <th>Content Version</th>
+            <th>Content</th>
+            <th>Content Tags</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           <td>{item.id}</td>
-          <td>{item.projectName}</td>
+          <td>{item.contentName}</td>
           <td>{item.createdDate}</td>
           <td>{item.updatedDate}</td>
           <td>{item.createdPerson}</td>
           <td>{item.updatedPerson}</td>
-          <td>{item.totalContent}</td>
-          <td>{item.visibilityRole}</td>
+          <td>{item.version}</td>
+          <td>{item.content}</td>
+          <td>{item.contentTags}</td>
           <td style={{ display: "flex", flexDirection: "column" }}>
-            <Link to={`/contentpanel/${item.id}`}><button className="btn btn-success">Content</button></Link>
-            <DeleteProject id={item.id} />
+            
             <button className="btn btn-warning">Update</button>
           </td>
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
 
-export default Project;
+export default Content
