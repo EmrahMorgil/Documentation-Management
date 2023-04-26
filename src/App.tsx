@@ -8,6 +8,7 @@ import UserPanel from "./pages/UserPanel";
 import ProjectPanel from "./pages/ProjectPanel";
 import Protected from "./components/Protected";
 import ContentPanel from "./pages/ContentPanel";
+import "./styles/App.css"
 
 function App() {
 
