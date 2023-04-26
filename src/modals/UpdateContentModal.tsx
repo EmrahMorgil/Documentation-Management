@@ -115,8 +115,8 @@ const UpdateContentModal = ({ item }: { item: content }) => {
                 </div>
 
                 <div className="form-outline mb-4">
-                  <input
-                    type="text"
+                <textarea 
+                    rows={9}
                     value={updatedContent.content}
                     name="content"
                     className="form-control"

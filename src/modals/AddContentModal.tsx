@@ -99,8 +99,8 @@ const AddContentModal = ({id}: {id: string}) => {
                 </div>
 
                 <div className="form-outline mb-4">
-                  <input
-                    type="text"
+                  <textarea 
+                    rows={9}
                     value={newContent.content}
                     onChange={handleChange}
                     name="content"

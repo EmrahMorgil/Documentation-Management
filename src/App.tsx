@@ -22,7 +22,7 @@ function App() {
         <Route path="/projects" element={<Protected loggedIn={adminLoggedIn || userLoggedIn}><Projects/></Protected>} />
         <Route path="/userpanel" element={<Protected loggedIn={adminLoggedIn}><UserPanel /></Protected>}/>
         <Route path="/projectpanel" element={<Protected loggedIn={adminLoggedIn}><ProjectPanel /></Protected>}/>
-        <Route path="/contentpanel/:id" element={<ContentPanel />} />
+        <Route path="/contentpanel/:id" element={<Protected loggedIn={adminLoggedIn}><ContentPanel /></Protected>} />
       </Routes>
     </>
   );
