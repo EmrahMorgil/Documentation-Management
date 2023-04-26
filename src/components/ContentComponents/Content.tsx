@@ -18,7 +18,7 @@ const Content: React.FC<IContent> = ({ item }) => {
         <td scope="row">{item.createdPerson}</td>
         <td scope="row">{item.updatedPerson}</td>
         <td scope="row">{item.version}</td>
-        <td scope="row">{item.content}</td>
+        <td scope="row">{(item.content).substring(0,20)+"..."}</td>
         <td scope="row">{item.contentTags}</td>
         <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
           <UpdateContent item={item} />

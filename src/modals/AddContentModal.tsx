@@ -4,11 +4,15 @@ import { RootState } from '../redux/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContents } from '../services/contentService';
 import { addNewContent } from '../redux/contents/contentsSlice';
+import { getTotalContentAmount, updateProjects } from '../services/projectService';
+import { project } from '../types/Type';
+import { setProjects } from '../redux/projects/projectsSlice';
 
 const AddContentModal = ({id}: {id: string}) => {
     
     const dispatch = useDispatch();
     const activeUser = useSelector((state: RootState) => state.users.activeUser);
+    const projects = useSelector((state:RootState)=>state.projects.projects);
 
     const [newContent, setNewContent] = useState({
         id: "",
@@ -23,7 +27,7 @@ const AddContentModal = ({id}: {id: string}) => {
         projectId: id,
       });
 
-    const handleClick = () =>{
+    const handleClick = async() =>{
         let nowDate = new Date().toString().substring(0, 24);
         const updatedContent = { ...newContent };
         updatedContent.id = nanoid();
@@ -34,6 +38,10 @@ const AddContentModal = ({id}: {id: string}) => {
         updatedContent.projectId = id;
 
         //api
+
+        //amount
+        const totalContentAmount = await getTotalContentAmount(id)+1;
+        
         addContents(updatedContent);
         dispatch(addNewContent(updatedContent));
 
@@ -50,6 +58,21 @@ const AddContentModal = ({id}: {id: string}) => {
             projectId: ""
           });
 
+          
+          //update amount
+          let newArr = projects.map((item: project)=>{
+            if(item.id === id)
+            {
+              let updatedContentAmount = {...item};
+              updatedContentAmount.totalContent = totalContentAmount;
+              updateProjects(id, updatedContentAmount);
+              
+              return updatedContentAmount;
+            }
+            return item;
+          })
+          dispatch(setProjects(newArr));
+          
     }
     const handleChange = (e: any) =>{
         setNewContent({ ...newContent, [e.target.name]: e.target.value });

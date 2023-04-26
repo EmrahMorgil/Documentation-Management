@@ -15,7 +15,7 @@ export const contentsSlice = createSlice({
       },
       setContents: (state, action)=>{
         state.contents = action.payload;
-      }
+      },
   },
   extraReducers: (builder) => {
     builder.addCase(getContentsAsync.pending, (state, action)=>{

@@ -20,3 +20,8 @@ export const deleteProjects = async (id: string) => {
 export const updateProjects = async (id: string, setUpdatedProject: project) => {
   await axios.put(`http://localhost:3004/projects/${id}`, setUpdatedProject);
 };
+
+export const getTotalContentAmount = async (id: string)=>{
+  const res = await axios.get(`http://localhost:3004/projects/${id}/contents`);
+  return res.data.length;
+}
