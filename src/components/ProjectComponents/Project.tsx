@@ -10,38 +10,25 @@ interface IProject {
 
 const Project: React.FC<IProject> = ({ item }) => {
   return (
-    <div className="container mt-5">
-      <table className="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Project Name </th>
-            <th>Created Date</th>
-            <th>Updated Date</th>
-            <th>Created Person</th>
-            <th>Updated Person</th>
-            <th>Total Content</th>
-            <th>Visibility Role</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <td>{item.id}</td>
-          <td>{item.projectName}</td>
-          <td>{item.createdDate}</td>
-          <td>{item.updatedDate}</td>
-          <td>{item.createdPerson}</td>
-          <td>{item.updatedPerson}</td>
-          <td>{item.totalContent}</td>
-          <td>{item.visibilityRole}</td>
-          <td style={{ display: "flex", flexDirection: "column" }}>
-            <Link to={`/contentpanel/${item.id}`}><button className="btn btn-success">Content</button></Link>
-            <DeleteProject id={item.id} />
-            <button className="btn btn-warning">Update</button>
-          </td>
-        </tbody>
-      </table>
-    </div>
+    <>
+    <tr>
+      <td scope="row">{item.id}</td>
+      <td scope="row">{item.projectName}</td>
+      <td scope="row">{item.createdDate}</td>
+      <td scope="row">{item.updatedDate}</td>
+      <td scope="row">{item.createdPerson}</td>
+      <td scope="row">{item.updatedPerson}</td>
+      <td scope="row">{item.totalContent}</td>
+      <td scope="row">{item.visibilityRole}</td>
+      <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
+        <Link to={`/contentpanel/${item.id}`}>
+          <button className="btn btn-success" style={{width: "100px"}}>Content</button>
+        </Link>
+        <DeleteProject id={item.id} />
+        <button className="btn btn-warning" style={{width: "100px"}}>Update</button>
+      </td>
+    </tr>
+    </>
   );
 };
 

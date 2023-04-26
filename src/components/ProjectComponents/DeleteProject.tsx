@@ -24,7 +24,7 @@ const DeleteProject = ({id}: {id: string}) => {
   };
 
   return (
-    <button className="btn btn-danger" onClick={() => deleteUser(id)}>
+    <button className="btn btn-danger" onClick={() => deleteUser(id)} style={{width: "100px"}}>
       Delete
     </button>
   )
