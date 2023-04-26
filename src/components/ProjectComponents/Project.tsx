@@ -36,6 +36,7 @@ const Project: React.FC<IProject> = ({ item }) => {
           <td style={{ display: "flex", flexDirection: "column" }}>
             <AddContent id={item.id} />
             <DeleteProject id={item.id} />
+            <button className="btn btn-warning">Update</button>
           </td>
         </tbody>
       </table>
