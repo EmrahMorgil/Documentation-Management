@@ -12,11 +12,9 @@ const ContentPanel = () => {
     let {id} = useParams();
 
     useEffect(() => {
-      dispatch(getContentsAsync(id))
+      dispatch(getContentsAsync(id));
     }, []);
     
-
-
   return (
     <>
     <div style={{ display: "flex", justifyContent: "center", margin: "30px" }}>

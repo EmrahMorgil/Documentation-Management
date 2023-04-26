@@ -24,4 +24,4 @@ export const contentsSlice = createSlice({
 });
 
 export default contentsSlice.reducer;
-export const {addNewContent} = contentsSlice.actions;
+export const {addNewContent, setContents} = contentsSlice.actions;

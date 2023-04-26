@@ -1,5 +1,7 @@
 import React from 'react'
 import { content } from '../../types/Type'
+import DeleteContent from './DeleteContent'
+import UpdateContent from './UpdateContent'
 
 interface IContent{
     item: content
@@ -34,8 +36,8 @@ const Content: React.FC<IContent> = ({item}) => {
           <td>{item.content}</td>
           <td>{item.contentTags}</td>
           <td style={{ display: "flex", flexDirection: "column" }}>
-            
-            <button className="btn btn-warning">Update</button>
+            <UpdateContent item={item}/>
+            <DeleteContent id={item.id}/>
           </td>
         </tbody>
       </table>
