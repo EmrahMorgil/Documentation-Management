@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { project, user } from "../types/Type";
+import ProjectsList from "../components/ProjectComponents/ProjectsList";
 
 const AddOnUserProjectsModal = ({ item }: { item: user }) => {
+
+
   return (
     <div
       className="modal fade"
-      id={item.id}
+      id={item.id+"on"}
       role="dialog"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
-      <div className="modal-dialog" role="document">
+      <div className="modal-dialog modal-xl" role="document">
         <div className="modal-content">
           <div className="modal-body">
             <div
@@ -20,22 +23,25 @@ const AddOnUserProjectsModal = ({ item }: { item: user }) => {
                 marginTop: "50px",
               }}
             >
-              <form>
+              <div style={{textAlign: "center"}}>
                 <div
                   style={{
                     marginBottom: "50px",
-                    width: "400px",
-                    textAlign: "center",
+ 
                   }}
                 >
                   <h3>Add Project</h3>
                 </div>
                 
                 <div>
-                    All Projects
+                    <ProjectsList onUserControl={"addUserOnProject"}/>
+                </div>
+                <div>
+                <h3>User's Projects</h3>
+                {JSON.stringify(item.visibilityProjects)}
                 </div>
                 
-              </form>
+              </div>
             </div>
           </div>
           <div className="modal-footer">

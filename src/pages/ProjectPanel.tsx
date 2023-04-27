@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import AddProject from '../components/ProjectComponents/AddProject'
 import { Link } from 'react-router-dom'
 import ProjectsList from '../components/ProjectComponents/ProjectsList'
@@ -12,7 +12,7 @@ const ProjectPanel: React.FC = () => {
       <AddProject />
       <Link to="/projects"><button className="btn btn-danger">Back</button></Link>
     </div>
-    <ProjectsList />
+    <ProjectsList onUserControl={"projectPanel"}/>
     </>
   )
 }

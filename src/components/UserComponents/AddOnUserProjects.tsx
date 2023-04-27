@@ -9,7 +9,7 @@ const AddOnUserProjects = ({ item }: { item: user }) => {
         type="button"
         className="btn btn-success"
         data-toggle="modal"
-        data-target={`#${item.id}`}
+        data-target={`#${item.id}`+"on"}
       >
         Projects
       </button>

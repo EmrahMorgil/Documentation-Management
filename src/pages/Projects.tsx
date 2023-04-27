@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { RootState } from "../redux/store";
 import AdminLogout from "../logout/AdminLogout";
+import ProjectsList from "../components/ProjectComponents/ProjectsList";
 
 
 const Projects: React.FC = () => {
@@ -22,7 +23,8 @@ const Projects: React.FC = () => {
           <AdminLogout />
         </div>
       )}
-      <h1>Projects</h1>
+      <div style={{textAlign: "center", marginTop: "50px"}}><input/></div>
+      <ProjectsList onUserControl={"homePageProject"}/>
     </div>
   );
 };
