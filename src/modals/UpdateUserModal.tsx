@@ -88,48 +88,48 @@ const UpdateUserModal = ({ item }: { item: any }) => {
                 marginTop: "150px",
               }}
             >
-              <form style={{ width: "400px", textAlign: "center" }}>
-                <h3>Update User</h3>
+              <form >
+                <div style={{marginBottom: "50px", width: "400px", textAlign: "center" }}><h3>Update User</h3></div>
                 <div className="form-outline mb-4">
+                <label htmlFor="exampleInput">Name</label>
                   <input
                     type="text"
                     value={updatedUser.name}
                     name="name"
                     className="form-control"
-                    placeholder="Name"
                     onChange={handleChange}
                   />
                 </div>
 
                 <div className="form-outline mb-4">
+                <label htmlFor="exampleInput">Surname</label>
                   <input
                     type="text"
                     value={updatedUser.surname}
                     name="surname"
                     className="form-control"
-                    placeholder="Surname"
                     onChange={handleChange}
                   />
                 </div>
 
                 <div className="form-outline mb-4">
+                <label htmlFor="exampleInputPassword1">Password</label>
                   <input
                     type="text"
                     value={updatedUser.password}
                     name="password"
                     className="form-control"
-                    placeholder="Password"
                     onChange={handleChange}
                   />
                 </div>
 
                 <div className="form-outline mb-4">
+                <label htmlFor="exampleInputRole1">Role</label>
                   <input
                     type="text"
                     value={updatedUser.role}
                     name="role"
                     className="form-control"
-                    placeholder="Role"
                     onChange={handleChange}
                   />
                 </div>

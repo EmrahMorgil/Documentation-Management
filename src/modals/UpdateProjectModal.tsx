@@ -81,27 +81,27 @@ const UpdateProjectModal = ({ item }: { item: project }) => {
               marginTop: "150px",
             }}
           >
-            <form style={{ width: "400px", textAlign: "center" }}>
-              <h3>Update Project</h3>
+            <form>
+             <div style={{marginBottom: "75px", width: "400px", textAlign: "center" }}> <h3>Update Project</h3></div>
               <div className="form-outline mb-4">
+              <label htmlFor="exampleInput">Project Name</label>
                 <input
                   type="text"
                   value={updatedProject.projectName}
                   name="projectName"
                   className="form-control"
-                  placeholder="Project Name"
                   onChange={handleChange}
                 />
               </div>
 
         
                 <div className="form-outline mb-4">
+                <label htmlFor="exampleInput">Role</label>
                   <input
                     type="text"
                     value={updatedProject.visibilityRole}
                     name="visibilityRole"
                     className="form-control"
-                    placeholder="Role"
                     onChange={handleChange}
                   />
                 </div>

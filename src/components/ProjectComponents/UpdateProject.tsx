@@ -12,7 +12,7 @@ const UpdateProject = ({ item }: { item: project }) => {
       data-toggle="modal"
       data-target={`#${item.id}`}
     >
-      Update
+      Detail
     </button>
     <UpdateProjectModal item={item} />
   </div>

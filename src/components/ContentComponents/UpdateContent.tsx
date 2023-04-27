@@ -11,7 +11,7 @@ const UpdateContent = ({ item }: { item: content }) => {
         data-toggle="modal"
         data-target={`#${item.id}`}
       >
-        Update
+        Detail
       </button>
       <UpdateContentModal item={item} />
     </div>
