@@ -24,7 +24,7 @@ const DeleteContent = ({id, projectId}: {id: string, projectId?: string}) => {
       {
         let updatedContentAmount = {...item};
         updatedContentAmount.totalContent--;
-        updateProjects(projectId, updatedContentAmount);
+        //updateProjects(projectId, updatedContentAmount);
         
         return updatedContentAmount;
       }

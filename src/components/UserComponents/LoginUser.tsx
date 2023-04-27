@@ -15,10 +15,7 @@ const LoginUser = () => {
 
   const handleClick = () => {
     const newArr = users.map((item: user) => {
-      if (
-        item.name === userLogin.name &&
-        item.password === userLogin.password
-      ) {
+      if (item.name === userLogin.name && item.password === userLogin.password) {
         if (item.role === 0) {
           alert("Kullanıcı Girişi Başarılı...");
           dispatch(setUserLoggedIn(true));
@@ -26,6 +23,8 @@ const LoginUser = () => {
           alert("Admin Girişi Başarılı..");
           dispatch(setAdminLoggedIn(true));
         }
+        localStorage.setItem("name", item.name);
+        localStorage.setItem("password", item.password);
         dispatch(setActiveUser(item));
       }
     });

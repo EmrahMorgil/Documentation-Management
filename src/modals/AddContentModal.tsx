@@ -34,8 +34,7 @@ const AddContentModal = ({ id }: { id: string }) => {
       if (item.id === id) {
         let updatedContentAmount = { ...item };
         updatedContentAmount.totalContent++;
-        updateProjects(id, updatedContentAmount);
-
+        //updateProjects(id, updatedContentAmount);
         return updatedContentAmount;
       }
       return item;
