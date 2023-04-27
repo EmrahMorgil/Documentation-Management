@@ -73,27 +73,28 @@ const AddProjectModal = () => {
                 marginTop: "50px",
               }}
             >
-              <form style={{ width: "400px", textAlign: "center" }}>
-                <h3 style={{marginBottom: "50px"}}>Add Project</h3>
+              <form>
+                <div><h3 style={{marginBottom: "50px" ,width: "400px", textAlign: "center" }}>Add Project</h3></div>
+               
                 <div className="form-outline mb-4">
+                <label htmlFor="exampleInput">Project Name</label>
                   <input
                     type="text"
                     value={newProject.projectName}
                     onChange={handleChange}
                     name="projectName"
                     className="form-control"
-                    placeholder="Project Name"
                   />
                 </div>
 
                 <div className="form-outline mb-4">
+                <label htmlFor="exampleInput">Role</label>
                   <input
                     type="text"
                     value={newProject.visibilityRole}
                     onChange={handleChange}
                     name="visibilityRole"
                     className="form-control"
-                    placeholder="Visibility Role"
                   />
                 </div>
               </form>

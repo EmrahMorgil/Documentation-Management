@@ -72,38 +72,39 @@ const AddUserModal = () => {
                 marginTop: "150px",
               }}
             >
-              <form style={{ width: "400px", textAlign: "center" }}>
-                <h3>Add User</h3>
+              <form>
+                <div style={{marginBottom: "50px", width: "400px", textAlign: "center"}}>
+                  <h3>Add User</h3>
+                </div>
+
                 <div className="form-outline mb-4">
+                  <label htmlFor="exampleInput">Name</label>
                   <input
                     type="text"
                     value={newUser.name}
                     onChange={handleChange}
                     name="name"
                     className="form-control"
-                    placeholder="Name"
                   />
                 </div>
-
                 <div className="form-outline mb-4">
+                  <label htmlFor="exampleInput">Surname</label>
                   <input
                     type="text"
                     value={newUser.surname}
                     onChange={handleChange}
                     name="surname"
                     className="form-control"
-                    placeholder="Surname"
                   />
                 </div>
-
                 <div className="form-outline mb-4">
+                  <label htmlFor="exampleInputPassword1">Password</label>
                   <input
                     type="password"
                     value={newUser.password}
                     onChange={handleChange}
                     name="password"
                     className="form-control"
-                    placeholder="Password"
                   />
                 </div>
               </form>

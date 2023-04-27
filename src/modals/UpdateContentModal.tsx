@@ -90,48 +90,48 @@ const UpdateContentModal = ({ item }: { item: content }) => {
                 marginTop: "150px",
               }}
             >
-              <form style={{ width: "400px", textAlign: "center" }}>
-                <h3>Update Content</h3>
+              <form>
+               <div style={{marginBottom: "50px", width: "400px", textAlign: "center" }}><h3>Update Content</h3></div>
                 <div className="form-outline mb-4">
+                <label htmlFor="exampleInput">Content Name</label>
                   <input
                     type="text"
                     value={updatedContent.contentName}
                     name="contentName"
                     className="form-control"
-                    placeholder="Content Name"
                     onChange={handleChange}
                   />
                 </div>
 
                 <div className="form-outline mb-4">
+                <label htmlFor="exampleInput">Content Version</label>
                   <input
                     type="text"
                     value={updatedContent.version}
                     name="version"
                     className="form-control"
-                    placeholder="Content Version"
                     onChange={handleChange}
                   />
                 </div>
 
                 <div className="form-outline mb-4">
+                <label htmlFor="exampleFormControlTextarea1">Content</label>
                 <textarea 
                     rows={9}
                     value={updatedContent.content}
                     name="content"
                     className="form-control"
-                    placeholder="Content"
                     onChange={handleChange}
                   />
                 </div>
 
                 <div className="form-outline mb-4">
+                <label htmlFor="exampleInput">Content Tags</label>
                   <input
                     type="text"
                     value={updatedContent.contentTags}
                     name="contentTags"
                     className="form-control"
-                    placeholder="Content Tags"
                     onChange={handleChange}
                   />
                 </div>
