@@ -2,6 +2,7 @@ import React from "react";
 import DeleteUser from "./DeleteUser";
 import { IItemProp } from "../../types/Type";
 import UpdateUser from "./UpdateUser";
+import AddOnUserProjects from "./AddOnUserProjects";
 
 const User: React.FC<IItemProp> = ({ item }) => {
   return (
@@ -18,7 +19,8 @@ const User: React.FC<IItemProp> = ({ item }) => {
         <td scope="row">{item.createdPerson}</td>
         <td scope="row">{item.updatedPerson}</td>
         <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
-          <button className="btn btn-success">Projects</button>
+          {/* <button className="btn btn-success">Projects</button> */}
+          <AddOnUserProjects item={item}/>
           <UpdateUser item={item} />
           <DeleteUser id={item.id} />
         </td>
