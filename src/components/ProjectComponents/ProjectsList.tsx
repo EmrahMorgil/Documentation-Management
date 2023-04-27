@@ -4,7 +4,7 @@ import { RootState } from "../../redux/store";
 import { project } from "../../types/Type";
 import Project from "./Project";
 
-const ProjectsList = ({onUserControl}: {onUserControl: string}) => {
+const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userId: string}) => {
   const projects = useSelector((state: RootState) => state.projects.projects);
 
   return (
@@ -20,12 +20,12 @@ const ProjectsList = ({onUserControl}: {onUserControl: string}) => {
             <th scope="col">Updated Person</th>
             <th scope="col">Total Content</th>
             <th scope="col">Visibility Role</th>
-            {onUserControl!=="homePageProject" && <th scope="col">Actions</th>}
+            {projectsControl!=="homePageProject" && <th scope="col">Actions</th>}
           </tr>
         </thead>
         <tbody>
           {projects.map((item: project, i: number) => (
-            <Project item={item} key={i} onUserControl={onUserControl}/>
+            <Project item={item} key={i} projectsControl={projectsControl} userId={userId}/>
           ))}
         </tbody>
       </table>

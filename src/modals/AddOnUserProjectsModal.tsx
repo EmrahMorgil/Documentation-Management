@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { project, user } from "../types/Type";
 import ProjectsList from "../components/ProjectComponents/ProjectsList";
+import RemoveOnUserProject from "../components/ProjectComponents/RemoveOnUserProject";
 
-const AddOnUserProjectsModal = ({ item }: { item: user }) => {
-
-
+const AddOnUserProjectsModal = ({ user }: { user: user }) => {
   return (
     <div
       className="modal fade"
-      id={item.id+"on"}
+      id={user.id + "on"}
       role="dialog"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
@@ -23,24 +22,37 @@ const AddOnUserProjectsModal = ({ item }: { item: user }) => {
                 marginTop: "50px",
               }}
             >
-              <div style={{textAlign: "center"}}>
+              <div style={{ textAlign: "center" }}>
                 <div
                   style={{
                     marginBottom: "50px",
- 
                   }}
                 >
                   <h3>Add Project</h3>
                 </div>
-                
+
                 <div>
-                    <ProjectsList onUserControl={"addUserOnProject"}/>
+                  <ProjectsList
+                    projectsControl={"addUserOnProject"}
+                    userId={user.id}
+                  />
                 </div>
                 <div>
-                <h3>User's Projects</h3>
-                {JSON.stringify(item.visibilityProjects)}
+                  <h3>User's Projects</h3>
+                  {/* {JSON.stringify(item.visibilityProjects)} */}
+                  {user.visibilityProjects.map((item: project) => {
+                    return (
+                      <div>
+                        <div className="row">
+                          <div className="col">{item.projectName}</div>
+                          <div className="col">{item.createdDate}</div>
+                          <div className="col">{item.updatedDate}</div>
+                          <RemoveOnUserProject item={item} userId={user.id}/>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-                
               </div>
             </div>
           </div>
@@ -57,7 +69,7 @@ const AddOnUserProjectsModal = ({ item }: { item: user }) => {
               className="btn btn-success"
               data-dismiss="modal"
             >
-              Add
+              Save
             </button>
           </div>
         </div>

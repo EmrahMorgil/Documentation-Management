@@ -24,7 +24,7 @@ const Projects: React.FC = () => {
         </div>
       )}
       <div style={{textAlign: "center", marginTop: "50px"}}><input/></div>
-      <ProjectsList onUserControl={"homePageProject"}/>
+      <ProjectsList projectsControl={"homePageProject"} userId=""/>
     </div>
   );
 };

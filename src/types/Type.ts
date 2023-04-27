@@ -56,13 +56,13 @@ export class user{
     surname: string;
     password: string;
     role: userRole;
-    visibilityProjects: [];
+    visibilityProjects: any;
     createdDate: string;
     updatedDate: string;
     createdPerson: string;
     updatedPerson: string;
 
-    constructor(id: string, name: string, surname: string, password: string, role: userRole, visibilityProjects: [],createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string)
+    constructor(id: string, name: string, surname: string, password: string, role: userRole, visibilityProjects: any,createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string)
     {
         this.id = id;
         this.name = name;

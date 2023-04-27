@@ -13,7 +13,7 @@ const AddOnUserProjects = ({ item }: { item: user }) => {
       >
         Projects
       </button>
-      <AddOnUserProjectsModal item={item} />
+      <AddOnUserProjectsModal user={item} />
     </div>
   );
 };

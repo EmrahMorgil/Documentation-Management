@@ -13,7 +13,7 @@ const User: React.FC<IItemProp> = ({ item }) => {
         <td scope="row">{item.surname}</td>
         <td scope="row">{item.password}</td>
         <td scope="row">{item.role}</td>
-        <td scope="row">{item.visibilityProjects}</td>
+        <td scope="row">{item.visibilityProjects.length}</td>
         <td scope="row">{item.createdDate}</td>
         <td scope="row">{item.updatedDate}</td>
         <td scope="row">{item.createdPerson}</td>

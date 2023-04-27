@@ -4,13 +4,15 @@ import DeleteProject from "./DeleteProject";
 import AddContent from "../ContentComponents/AddContent";
 import { Link } from "react-router-dom";
 import UpdateProject from "./UpdateProject";
+import AddOnUserProjects from "./AddOnUserProjects";
 
 interface IProject {
   item: project;
-  onUserControl: string;
+  projectsControl: string;
+  userId: string;
 }
 
-const Project: React.FC<IProject> = ({ item, onUserControl }) => {
+const Project: React.FC<IProject> = ({ item, projectsControl, userId }) => {
   return (
     <>
       <tr>
@@ -23,9 +25,9 @@ const Project: React.FC<IProject> = ({ item, onUserControl }) => {
         <td scope="row">{item.totalContent}</td>
         <td scope="row">{item.visibilityRole}</td>
         <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
-          {onUserControl==="addUserOnProject" ? (
-            <><button className="btn btn-success">Add</button></>
-          ) : onUserControl === "projectPanel" ? (
+          {projectsControl==="addUserOnProject" ? (
+            <AddOnUserProjects item={item} userId={userId}/>
+          ) : projectsControl === "projectPanel" ? (
             <>
               <Link to={`/contentpanel/${item.id}`}>
                 <button className="btn btn-success" style={{ width: "100px" }} >

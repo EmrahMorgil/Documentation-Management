@@ -27,7 +27,7 @@ export const usersSlice = createSlice({
     },
     addNewUser: (state, action)=>{
       state.users.push(action.payload);
-    }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getUsersAsync.fulfilled, (state, action) => {
