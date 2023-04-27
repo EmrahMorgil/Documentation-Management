@@ -4,7 +4,7 @@ import { RootState } from "../../redux/store";
 import { content } from "../../types/Type";
 import Content from "./Content";
 
-const ContentList = () => {
+const ContentList = ({projectId}: {projectId?: string}) => {
   const contents = useSelector((state: RootState) => state.contents.contents);
 
   return (
@@ -26,7 +26,7 @@ const ContentList = () => {
         </thead>
         <tbody>
           {contents.map((item: content, i: number) => {
-            return <Content item={item} key={i} />;
+            return <Content item={item} key={i} projectId={projectId}/>;
           })}
         </tbody>
       </table>

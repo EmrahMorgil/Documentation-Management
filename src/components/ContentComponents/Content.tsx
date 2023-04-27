@@ -5,9 +5,10 @@ import UpdateContent from "./UpdateContent";
 
 interface IContent {
   item: content;
+  projectId?: string;
 }
 
-const Content: React.FC<IContent> = ({ item }) => {
+const Content: React.FC<IContent> = ({ item, projectId }) => {
   return (
     <>
       <tr>
@@ -22,7 +23,7 @@ const Content: React.FC<IContent> = ({ item }) => {
         <td scope="row">{item.contentTags}</td>
         <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
           <UpdateContent item={item} />
-          <DeleteContent id={item.id} />
+          <DeleteContent id={item.id} projectId={projectId}/>
         </td>
       </tr>
     </>

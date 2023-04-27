@@ -34,7 +34,7 @@ const ContentPanel = () => {
               <button className="btn btn-danger">Back</button>
             </Link>
           </div>
-          <ContentList />
+          <ContentList projectId={id}/>
         </>
       )}
     </>
