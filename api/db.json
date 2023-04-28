@@ -141,32 +141,12 @@
       "updatedPerson": "admin"
     },
     {
-      "id": "slthES7wPMNG96eQ40MQj",
+      "id": "U0qLuK4twaRQUETB-AukR",
       "name": "Emrah",
       "surname": "Morgil",
       "password": "123",
       "role": 0,
       "visibilityProjects": [
-        {
-          "id": "GL8bgEAu3QGSQ5uLDWZBE",
-          "projectName": "Okul",
-          "createdDate": "Thu Apr 27 2023 15:31:25",
-          "updatedDate": "Thu Apr 27 2023 15:31:41",
-          "createdPerson": "admin",
-          "updatedPerson": "admin",
-          "totalContent": 0,
-          "visibilityRole": 0
-        },
-        {
-          "id": "dlUJee7EV9WtWGWJ60Z-B",
-          "projectName": "Hastane",
-          "createdDate": "Thu Apr 27 2023 15:31:47",
-          "updatedDate": "Thu Apr 27 2023 15:31:47",
-          "createdPerson": "admin",
-          "updatedPerson": "admin",
-          "totalContent": 0,
-          "visibilityRole": 0
-        },
         {
           "id": "qG_Kr8jgguJkQJJvLGeMM",
           "projectName": "Kütüphane",
@@ -178,29 +158,6 @@
           "visibilityRole": 0
         },
         {
-          "id": "d6zGauqw_2PVr7GogMDgY",
-          "projectName": "E-Devlet",
-          "createdDate": "Fri Apr 28 2023 14:10:59",
-          "updatedDate": "Fri Apr 28 2023 14:10:59",
-          "createdPerson": "admin",
-          "updatedPerson": "admin",
-          "totalContent": 1,
-          "visibilityRole": 0
-        }
-      ],
-      "createdDate": "Wed Apr 26 2023 12:05:02",
-      "updatedDate": "Wed Apr 26 2023 12:05:02",
-      "createdPerson": "admin",
-      "updatedPerson": "admin"
-    },
-    {
-      "id": "cttQJD_Grk7nOKXkscQRF",
-      "name": "Ayşe",
-      "surname": "Elaldı",
-      "password": "123",
-      "role": 0,
-      "visibilityProjects": [
-        {
           "id": "dlUJee7EV9WtWGWJ60Z-B",
           "projectName": "Hastane",
           "createdDate": "Thu Apr 27 2023 15:31:47",
@@ -211,8 +168,8 @@
           "visibilityRole": 0
         }
       ],
-      "createdDate": "Wed Apr 26 2023 14:23:21",
-      "updatedDate": "Wed Apr 26 2023 14:23:21",
+      "createdDate": "Fri Apr 28 2023 14:14:09",
+      "updatedDate": "Fri Apr 28 2023 14:14:09",
       "createdPerson": "admin",
       "updatedPerson": "admin"
     }

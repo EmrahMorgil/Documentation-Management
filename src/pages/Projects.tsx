@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { RootState } from "../redux/store";
-import AdminLogout from "../logout/AdminLogout";
 import ProjectsList from "../components/ProjectComponents/ProjectsList";
 import UserProjectsList from "../components/UserComponents/UserProjectsList";
+import Logout from "../logout/Logout";
 
 const Projects: React.FC = () => {
   const adminLoggedIn = useSelector(
@@ -15,7 +15,7 @@ const Projects: React.FC = () => {
 
   return (
     <div>
-      {adminLoggedIn && (
+      {adminLoggedIn ? (
         <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
           <Link to="/userpanel">
             <button className="btn btn-success">User</button>
@@ -23,9 +23,9 @@ const Projects: React.FC = () => {
           <Link to="/projectpanel">
             <button className="btn btn-success">Project</button>
           </Link>
-          <AdminLogout />
+          <Logout />
         </div>
-      )}
+      ) : (<div style={{ display: "flex", justifyContent: "center", gap: "20px", marginTop: "20px" }}><Logout/></div>)}
       <div style={{ textAlign: "center", marginTop: "50px" }}>
         <input onChange={(e: any)=>setFilterValue(e.target.value)}/>
       </div>
