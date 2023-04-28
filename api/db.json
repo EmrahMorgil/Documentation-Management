@@ -134,7 +134,18 @@
       "surname": "admin",
       "password": "123",
       "role": "1",
-      "visibilityProjects": [],
+      "visibilityProjects": [
+        {
+          "id": "qG_Kr8jgguJkQJJvLGeMM",
+          "projectName": "Kütüphane",
+          "createdDate": "Thu Apr 27 2023 15:31:17",
+          "updatedDate": "Thu Apr 27 2023 15:31:35",
+          "createdPerson": "admin",
+          "updatedPerson": "admin",
+          "totalContent": 0,
+          "visibilityRole": 0
+        }
+      ],
       "createdPerson": "admin",
       "createdDate": "Mon Apr 24 2023 16:59:26",
       "updatedDate": "Tue Apr 25 2023 09:26:34",
@@ -152,16 +163,6 @@
           "projectName": "Kütüphane",
           "createdDate": "Thu Apr 27 2023 15:31:17",
           "updatedDate": "Thu Apr 27 2023 15:31:35",
-          "createdPerson": "admin",
-          "updatedPerson": "admin",
-          "totalContent": 0,
-          "visibilityRole": 0
-        },
-        {
-          "id": "dlUJee7EV9WtWGWJ60Z-B",
-          "projectName": "Hastane",
-          "createdDate": "Thu Apr 27 2023 15:31:47",
-          "updatedDate": "Thu Apr 27 2023 15:31:47",
           "createdPerson": "admin",
           "updatedPerson": "admin",
           "totalContent": 0,

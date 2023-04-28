@@ -26,7 +26,9 @@ const Project: React.FC<IProject> = ({ item, projectsControl, userId }) => {
         <td scope="row">{item.visibilityRole}</td>
         <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
           {projectsControl==="addUserOnProject" ? (
+            <>
             <AddOnUserProjects item={item} userId={userId}/>
+            </>
           ) : projectsControl === "projectPanel" ? (
             <>
               <Link to={`/contentpanel/${item.id}`}>
