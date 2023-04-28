@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import { RootState } from "../redux/store";
 import AdminLogout from "../logout/AdminLogout";
 import ProjectsList from "../components/ProjectComponents/ProjectsList";
+import UserProjectsList from "../components/UserComponents/UserProjectsList";
 
 const Projects: React.FC = () => {
   const adminLoggedIn = useSelector(
     (state: RootState) => state.users.adminLoggedIn
   );
-  const activeUser = useSelector((state: RootState)=>state.users.activeUser);
+  
 
   return (
     <div>
@@ -31,9 +32,7 @@ const Projects: React.FC = () => {
         <ProjectsList projectsControl={"homePageProject"} userId="" />
       ) : (
         <>
-        {activeUser.visibilityProjects.map((item: any)=>{
-          return <li>{item.projectName}</li>
-        })}
+          <UserProjectsList />
         </>
       )}
     </div>
