@@ -40,9 +40,9 @@ const AddOnUserProjectsModal = ({ user }: { user: user }) => {
                 <div>
                   <h3>User's Projects</h3>
                   {/* {JSON.stringify(item.visibilityProjects)} */}
-                  {user.visibilityProjects.map((item: project) => {
+                  {user.visibilityProjects.map((item: project, i: number) => {
                     return (
-                      <div>
+                      <div key={i}>
                         <div className="row">
                           <div className="col">{item.projectName}</div>
                           <div className="col">{item.createdDate}</div>

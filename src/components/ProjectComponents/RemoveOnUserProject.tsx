@@ -3,6 +3,7 @@ import { project, user } from "../../types/Type";
 import { RootState } from "../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { setUsers } from "../../redux/users/usersSlice";
+import { updateUsers } from "../../services/userService";
 
 const RemoveOnUserProject = ({ item, userId }: { item: project, userId: string }) => {
   const users = useSelector((state: RootState) => state.users.users);
@@ -21,11 +22,12 @@ const RemoveOnUserProject = ({ item, userId }: { item: project, userId: string }
                     }
                 })
                 newUser.visibilityProjects = newArray;
+                updateUsers(userId,newUser);
+                //api
                 return newUser;
             }
             return user;
         })
-        console.log(newArr);
         dispatch(setUsers(newArr));
         
   };

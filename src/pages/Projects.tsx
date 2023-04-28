@@ -5,11 +5,12 @@ import { RootState } from "../redux/store";
 import AdminLogout from "../logout/AdminLogout";
 import ProjectsList from "../components/ProjectComponents/ProjectsList";
 
-
 const Projects: React.FC = () => {
-  
-  const adminLoggedIn = useSelector((state: RootState) => state.users.adminLoggedIn);
-  
+  const adminLoggedIn = useSelector(
+    (state: RootState) => state.users.adminLoggedIn
+  );
+  const activeUser = useSelector((state: RootState)=>state.users.activeUser);
+
   return (
     <div>
       {adminLoggedIn && (
@@ -23,8 +24,18 @@ const Projects: React.FC = () => {
           <AdminLogout />
         </div>
       )}
-      <div style={{textAlign: "center", marginTop: "50px"}}><input/></div>
-      <ProjectsList projectsControl={"homePageProject"} userId=""/>
+      <div style={{ textAlign: "center", marginTop: "50px" }}>
+        <input />
+      </div>
+      {adminLoggedIn ? (
+        <ProjectsList projectsControl={"homePageProject"} userId="" />
+      ) : (
+        <>
+        {activeUser.visibilityProjects.map((item: any)=>{
+          return <li>{item.projectName}</li>
+        })}
+        </>
+      )}
     </div>
   );
 };
