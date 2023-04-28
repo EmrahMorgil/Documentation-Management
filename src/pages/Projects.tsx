@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { RootState } from "../redux/store";
@@ -11,6 +11,7 @@ const Projects: React.FC = () => {
     (state: RootState) => state.users.adminLoggedIn
   );
   
+    const [filterValue, setFilterValue] = useState("");
 
   return (
     <div>
@@ -26,13 +27,13 @@ const Projects: React.FC = () => {
         </div>
       )}
       <div style={{ textAlign: "center", marginTop: "50px" }}>
-        <input />
+        <input onChange={(e: any)=>setFilterValue(e.target.value)}/>
       </div>
       {adminLoggedIn ? (
         <ProjectsList projectsControl={"homePageProject"} userId="" />
       ) : (
         <>
-          <UserProjectsList />
+          <UserProjectsList filterValue={filterValue}/>
         </>
       )}
     </div>

@@ -4,7 +4,7 @@ import { RootState } from '../../redux/store';
 import { project } from '../../types/Type';
 import UserProjects from './UserProjects';
 
-const UserProjectsList = () => {
+const UserProjectsList = ({filterValue}: {filterValue: any}) => {
 
     const activeUser = useSelector((state: RootState)=>state.users.activeUser);
 
@@ -25,7 +25,10 @@ const UserProjectsList = () => {
   </thead>
   <tbody>
   {activeUser.visibilityProjects.map((item: project, i: number)=>{
-          return <UserProjects item={item} key={i}/>
+        if(item.projectName.toLowerCase().includes(filterValue.toLowerCase()))
+        {
+            return <UserProjects item={item} key={i}/>
+        }
         })}
   </tbody>
 </table>

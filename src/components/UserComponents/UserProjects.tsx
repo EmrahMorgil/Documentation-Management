@@ -19,7 +19,6 @@ const Project: React.FC<IProject> = ({ item }) => {
         <td scope="row">{item.updatedPerson}</td>
         <td scope="row">{item.totalContent}</td>
         <td scope="row">{item.visibilityRole}</td>
-        
       </tr>
     </>
   );
