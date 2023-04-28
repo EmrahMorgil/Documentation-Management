@@ -4,7 +4,7 @@ import { RootState } from "../../redux/store";
 import { project } from "../../types/Type";
 import Project from "./Project";
 
-const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userId: string}) => {
+const ProjectsList = ({projectsControl, userId, filterValue}: {projectsControl: string, userId: string, filterValue: string}) => {
   const projects = useSelector((state: RootState) => state.projects.projects);
 
   return (
@@ -24,9 +24,13 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
           </tr>
         </thead>
         <tbody>
-          {projects.map((item: project, i: number) => (
-            <Project item={item} key={i} projectsControl={projectsControl} userId={userId}/>
-          ))}
+          {projects.map((item: project, i: number) =>{
+            if(item.projectName.toLowerCase().includes(filterValue.toLowerCase()))
+            {
+              return <Project item={item} key={i} projectsControl={projectsControl} userId={userId}/>
+            }
+          }
+          )}
         </tbody>
       </table>
     </div>

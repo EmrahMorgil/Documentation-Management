@@ -30,7 +30,7 @@ const Projects: React.FC = () => {
         <input onChange={(e: any)=>setFilterValue(e.target.value)}/>
       </div>
       {adminLoggedIn ? (
-        <ProjectsList projectsControl={"homePageProject"} userId="" />
+        <ProjectsList projectsControl={"homePageProject"} userId="" filterValue={filterValue}/>
       ) : (
         <>
           <UserProjectsList filterValue={filterValue}/>

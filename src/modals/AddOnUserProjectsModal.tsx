@@ -33,6 +33,7 @@ const AddOnUserProjectsModal = ({ user }: { user: user }) => {
 
                 <div>
                   <ProjectsList
+                  filterValue=""
                     projectsControl={"addUserOnProject"}
                     userId={user.id}
                   />

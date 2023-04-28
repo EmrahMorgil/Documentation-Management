@@ -12,7 +12,7 @@ const ProjectPanel: React.FC = () => {
       <AddProject />
       <Link to="/projects"><button className="btn btn-danger">Back</button></Link>
     </div>
-    <ProjectsList projectsControl={"projectPanel"} userId=""/>
+    <ProjectsList projectsControl={"projectPanel"} userId="" filterValue=''/>
     </>
   )
 }
