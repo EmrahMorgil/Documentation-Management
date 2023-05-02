@@ -4,7 +4,7 @@ import { RootState } from "../../redux/store";
 import { project } from "../../types/Type";
 import Project from "./Project";
 
-const ProjectsList = ({projectsControl, userId, filterValue}: {projectsControl: string, userId: string, filterValue: string}) => {
+const ProjectsList = ({projectsControl, userId, filterValue}: {projectsControl: string, userId?: string, filterValue: string}) => {
   const projects = useSelector((state: RootState) => state.projects.projects);
 
   return (

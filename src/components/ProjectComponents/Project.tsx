@@ -9,7 +9,7 @@ import OnUserProjectsContainer from "./OnUserProjectsContainer";
 interface IProject {
   item: project;
   projectsControl: string;
-  userId: string;
+  userId?: string;
 }
 
 const Project: React.FC<IProject> = ({ item, projectsControl, userId }) => {

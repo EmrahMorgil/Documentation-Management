@@ -4,10 +4,11 @@ import ProjectsList from "../components/ProjectComponents/ProjectsList";
 import RemoveOnUserProject from "../components/ProjectComponents/RemoveOnUserProject";
 import AddOnUserProjectContainer from "../components/UserComponents/AddOnUserProjectContainer";
 
-const AddOnUserProjectsModal = ({ user }: { user: user }) => {
+const AddOnUserProjectsModal = ({ user }: { user?: user }) => {
+  
   return (
     <div
-      className="modal fade" id={user.id + "on"} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      className="modal fade" id={user?.id + "on"} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog modal-xl" role="document">
         <div className="modal-content">
           <div className="modal-body">

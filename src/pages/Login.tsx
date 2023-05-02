@@ -5,6 +5,7 @@ import { RootState } from "../redux/store";
 import LoginUser from "../components/UserComponents/LoginUser";
 import { Navigate } from "react-router";
 import { getProjectsAsync } from "../services/projectService";
+import { getVisibilityProjectsAsync } from "../services/visibilityProjectServise";
 
 const Login: React.FC = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const Login: React.FC = () => {
   useEffect(() => {
     dispatch(getUsersAsync());
     dispatch(getProjectsAsync());
+    dispatch(getVisibilityProjectsAsync())
   }, [dispatch]);
 
 

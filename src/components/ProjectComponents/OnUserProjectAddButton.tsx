@@ -1,29 +1,25 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { user } from "../../types/Type";
+import { project, user } from "../../types/Type";
 import { setUsers } from "../../redux/users/usersSlice";
 import { updateUsers } from "../../services/userService";
+import { addVisibilityProjectsApi } from "../../services/visibilityProjectServise";
+import { addVisibilityProjects } from "../../redux/projects/projectsSlice";
+import { nanoid } from "nanoid";
 
-const OnUserProjectAddButton = ({ userId, item, addButtonControl, setAddButtonControl }: { userId: string, item: any, addButtonControl: any, setAddButtonControl: any }) => {
+const OnUserProjectAddButton = ({ userId, item, addButtonControl, setAddButtonControl, setDynamicId }: { userId?: string, item: project, addButtonControl: any, setAddButtonControl: any, setDynamicId: any }) => {
   const users = useSelector((state: RootState) => state.users.users);
   const dispatch = useDispatch();
 
   const handleClick = () => {
     setAddButtonControl(true);
-
-    const newArr = users.map((users: user) => {
-      if (users.id === userId) {
-        const newUser = { ...users };
-        newUser.visibilityProjects = [...users.visibilityProjects, item];
-        updateUsers(userId, newUser);
-        //api
-        return newUser;
-      }
-      return users;
-    });
-
-    dispatch(setUsers(newArr));
+    const {projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole } = item;
+    const randomId = nanoid();
+    setDynamicId(randomId);
+    const newItem = {id: randomId, projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole, userId};
+    addVisibilityProjectsApi(newItem);
+    dispatch(addVisibilityProjects(newItem));
   };
 
   return (

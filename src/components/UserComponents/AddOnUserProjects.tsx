@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import { user } from "../../types/Type";
 import AddOnUserProjectsModal from "../../modals/AddOnUserProjectsModal";
 
 const AddOnUserProjects = ({ item }: { item: user }) => {
+ 
+  const [user, setUser] = useState<user>();
+
   return (
     <div>
       <button
@@ -10,10 +13,10 @@ const AddOnUserProjects = ({ item }: { item: user }) => {
         className="btn btn-success"
         data-toggle="modal"
         data-target={`#${item.id}`+"on"}
-      >
+        onClick={()=>setUser(item)}>
         Projects
       </button>
-      <AddOnUserProjectsModal user={item} />
+      <AddOnUserProjectsModal user={user} />
     </div>
   );
 };

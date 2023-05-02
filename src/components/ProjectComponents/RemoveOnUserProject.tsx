@@ -12,20 +12,20 @@ const RemoveOnUserProject = ({ item, userId }: { item: project, userId: string }
   const handleClick = (userId: string) => {
         // console.log(userId);
         const newArr = users.map((user: user)=>{
-            if(user.id===userId)
-            {
-                const newUser = {...user};
-                const newArray = user.visibilityProjects.filter((project: project)=>{
-                    if(project!==item)
-                    {
-                        return project;
-                    }
-                })
-                newUser.visibilityProjects = newArray;
-                updateUsers(userId,newUser);
-                //api
-                return newUser;
-            }
+            // if(user.id===userId)
+            // {
+            //     const newUser = {...user};
+            //     const newArray = user.visibilityProjects.filter((project: project)=>{
+            //         if(project!==item)
+            //         {
+            //             return project;
+            //         }
+            //     })
+            //     newUser.visibilityProjects = newArray;
+            //     updateUsers(userId,newUser);
+            //     //api
+            //     return newUser;
+            // }
             return user;
         })
         dispatch(setUsers(newArr));
