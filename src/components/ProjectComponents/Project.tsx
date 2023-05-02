@@ -4,7 +4,7 @@ import DeleteProject from "./DeleteProject";
 import AddContent from "../ContentComponents/AddContent";
 import { Link } from "react-router-dom";
 import UpdateProject from "./UpdateProject";
-import AddOnUserProjects from "./AddOnUserProjects";
+import OnUserProjectsContainer from "./OnUserProjectsContainer";
 
 interface IProject {
   item: project;
@@ -27,7 +27,7 @@ const Project: React.FC<IProject> = ({ item, projectsControl, userId }) => {
         <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
           {projectsControl==="addUserOnProject" ? (
             <>
-            <AddOnUserProjects item={item} userId={userId}/>
+            <OnUserProjectsContainer item={item} userId={userId}/>
             </>
           ) : projectsControl === "projectPanel" ? (
             <>

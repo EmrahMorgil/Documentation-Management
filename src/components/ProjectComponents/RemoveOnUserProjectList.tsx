@@ -11,7 +11,7 @@ const RemoveOnUserProjectList = ({ user }: { user: user }) => {
             <div className="col">{item.projectName}</div>
             <div className="col">{item.createdDate}</div>
             <div className="col">{item.updatedDate}</div>
-            <RemoveOnUserProject item={item} userId={user.id} />
+            {/* <RemoveOnUserProject item={item} userId={user.id} /> */}
           </div>
         );
       })}
