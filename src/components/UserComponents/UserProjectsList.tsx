@@ -21,6 +21,7 @@ const UserProjectsList = ({filterValue}: {filterValue: any}) => {
       <th scope="col">Updated Person</th>
       <th scope="col">Total Content</th>
       <th scope="col">Visibility Role</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>

@@ -1,13 +1,14 @@
 import React from "react";
 import { project } from "../../types/Type";
 import { Link } from "react-router-dom";
-import AddOnUserProjects from "./AddOnUserProjects";
 
 interface IProject {
   item: project;
 }
 
 const Project: React.FC<IProject> = ({ item }) => {
+
+  
   return (
     <>
       <tr>
@@ -19,6 +20,7 @@ const Project: React.FC<IProject> = ({ item }) => {
         <td scope="row">{item.updatedPerson}</td>
         <td scope="row">{item.totalContent}</td>
         <td scope="row">{item.visibilityRole}</td>
+        <td scope="row"><Link to={`/contentpanel/${item.id}`} ><button className="btn btn-success">Contents</button></Link></td>
       </tr>
     </>
   );

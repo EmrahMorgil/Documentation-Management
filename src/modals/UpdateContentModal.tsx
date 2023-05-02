@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
 import { content, user } from "../types/Type";
-import { updateUsers } from "../services/userService";
-import { setUsers } from "../redux/users/usersSlice";
 import { setContents } from "../redux/contents/contentsSlice";
 import { updateContents } from "../services/contentService";
 
 const UpdateContentModal = ({ item }: { item: content }) => {
+
+  const adminLoggedIn = useSelector((state: RootState)=>state.users.adminLoggedIn);
+
   const contents = useSelector((state: RootState) => state.contents.contents);
   const dispatch = useDispatch();
   const activeUser = useSelector(
@@ -92,7 +93,7 @@ const UpdateContentModal = ({ item }: { item: content }) => {
             >
               <form>
                <div style={{marginBottom: "50px", width: "400px", textAlign: "center" }}><h3>Update Content</h3></div>
-                <div className="form-outline mb-4">
+                {adminLoggedIn ? <><div className="form-outline mb-4">
                 <label htmlFor="exampleInput">Content Name</label>
                   <input
                     type="text"
@@ -134,7 +135,53 @@ const UpdateContentModal = ({ item }: { item: content }) => {
                     className="form-control"
                     onChange={handleChange}
                   />
+                </div></> : 
+                <>
+                <div className="form-outline mb-4">
+                <label htmlFor="exampleInput">Content Name</label>
+                  <input
+                    type="text"
+                    value={updatedContent.contentName}
+                    name="contentName"
+                    className="form-control"
+                    disabled
+                  />
                 </div>
+
+                <div className="form-outline mb-4">
+                <label htmlFor="exampleInput">Content Version</label>
+                  <input
+                    type="text"
+                    value={updatedContent.version}
+                    name="version"
+                    className="form-control"
+                    disabled
+                  />
+                </div>
+
+                <div className="form-outline mb-4">
+                <label htmlFor="exampleFormControlTextarea1">Content</label>
+                <textarea 
+                    rows={9}
+                    value={updatedContent.content}
+                    name="content"
+                    className="form-control"
+                    disabled
+                  />
+                </div>
+
+                <div className="form-outline mb-4">
+                <label htmlFor="exampleInput">Content Tags</label>
+                  <input
+                    type="text"
+                    value={updatedContent.contentTags}
+                    name="contentTags"
+                    className="form-control"
+                    disabled
+                  />
+                </div>
+                </>}
+                
               </form>
             </div>
           </div>
@@ -146,14 +193,14 @@ const UpdateContentModal = ({ item }: { item: content }) => {
             >
               Close
             </button>
-            <button
+            {adminLoggedIn && <><button
               type="button"
               className="btn btn-warning"
               data-dismiss="modal"
               onClick={() => updateContent(item)}
             >
               Update
-            </button>
+            </button></>}
           </div>
         </div>
       </div>

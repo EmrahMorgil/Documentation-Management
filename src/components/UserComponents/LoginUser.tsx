@@ -14,6 +14,10 @@ const LoginUser = () => {
   const users = useSelector((state: RootState) => state.users.users);
 
   const handleClick = () => {
+
+
+    
+
     const newArr = users.map((item: user) => {
       if (item.name === userLogin.name && item.password === userLogin.password) {
         if (item.role === 0) {

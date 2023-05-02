@@ -11,6 +11,7 @@ const ContentPanel = () => {
   const dispatch = useDispatch();
   let { id } = useParams();
   const isLoading = useSelector((state: RootState) => state.contents.isLoading);
+  const adminLoggedIn = useSelector((state:RootState)=>state.users.adminLoggedIn);
 
   useEffect(() => {
     dispatch(getContentsAsync(id));
@@ -29,8 +30,8 @@ const ContentPanel = () => {
               margin: "30px",
             }}
           >
-            <AddContent id={String(id)} />
-            <Link to="/projectpanel">
+            {adminLoggedIn && <AddContent id={String(id)} />}
+            <Link to={adminLoggedIn ? "/projectpanel" : "/projects"}>
               <button className="btn btn-danger">Back</button>
             </Link>
           </div>

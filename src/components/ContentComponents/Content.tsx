@@ -2,6 +2,8 @@ import React from "react";
 import { content } from "../../types/Type";
 import DeleteContent from "./DeleteContent";
 import UpdateContent from "./UpdateContent";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 interface IContent {
   item: content;
@@ -9,6 +11,9 @@ interface IContent {
 }
 
 const Content: React.FC<IContent> = ({ item, projectId }) => {
+
+  const adminLoggedIn = useSelector((state: RootState)=>state.users.adminLoggedIn);
+
   return (
     <>
       <tr>
@@ -23,7 +28,7 @@ const Content: React.FC<IContent> = ({ item, projectId }) => {
         <td scope="row">{item.contentTags}</td>
         <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
           <UpdateContent item={item} />
-          <DeleteContent id={item.id} projectId={projectId}/>
+          {adminLoggedIn && <DeleteContent id={item.id} projectId={projectId}/>}
         </td>
       </tr>
     </>
