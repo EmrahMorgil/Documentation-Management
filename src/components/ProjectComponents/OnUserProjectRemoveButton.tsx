@@ -5,7 +5,7 @@ import { project, user, visibilityProjects } from "../../types/Type";
 import { updateUsers } from "../../services/userService";
 import { setUsers } from "../../redux/users/usersSlice";
 import { setVisibilityProjects } from "../../redux/projects/projectsSlice";
-import { deleteVisibilityProjects } from "../../services/visibilityProjectServise";
+import { deleteVisibilityProjectsApi } from "../../services/visibilityProjectServise";
 
 const OnUserProjectRemoveButton = ({userId,item,addButtonControl,setAddButtonControl, dynamicId}: {
   userId?: string;
@@ -30,7 +30,7 @@ const OnUserProjectRemoveButton = ({userId,item,addButtonControl,setAddButtonCon
     });
     dispatch(setVisibilityProjects(newArr));
     //api    
-    deleteVisibilityProjects(dynamicId);
+    deleteVisibilityProjectsApi(dynamicId);
   };
 
   return (

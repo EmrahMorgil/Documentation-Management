@@ -36,7 +36,7 @@ const Project: React.FC<IProject> = ({ item, projectsControl, userId }) => {
                   Content
                 </button>
               </Link>
-              <DeleteProject id={item.id} />
+              <DeleteProject item={item} />
               <UpdateProject item={item} />
             </>
           ) : <></>}
