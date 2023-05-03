@@ -18,6 +18,25 @@ const OnUserProjectRemoveButton = ({userId,item,addButtonControl,setAddButtonCon
   const visibilityProjects = useSelector((state:RootState)=>state.projects.visibilityProjects);
   const dispatch = useDispatch();
 
+
+
+
+  const removeProjectAmount = ()=>{
+    let updatedProjectAmount: user ={id:"", name: "", surname: "", password: "", role: 0, createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalProject: 0};
+    const newUserArray = users.map((user: user)=>{
+      if(user.id===userId)
+      {
+        updatedProjectAmount = {...user};
+        updatedProjectAmount.totalProject--;
+        return updatedProjectAmount
+      }
+      return user;
+    });
+    updateUsers(updatedProjectAmount.id, updatedProjectAmount);
+    dispatch(setUsers(newUserArray));
+  }
+
+
   const handleClick = () => {
 
     setAddButtonControl(false);
@@ -31,6 +50,8 @@ const OnUserProjectRemoveButton = ({userId,item,addButtonControl,setAddButtonCon
     dispatch(setVisibilityProjects(newArr));
     //api    
     deleteVisibilityProjectsApi(dynamicId);
+    
+    setTimeout(removeProjectAmount, 100)
   };
 
   return (

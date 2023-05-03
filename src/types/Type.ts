@@ -60,8 +60,9 @@ export class user{
     updatedDate: string;
     createdPerson: string;
     updatedPerson: string;
+    totalProject: number;
 
-    constructor(id: string, name: string, surname: string, password: string, role: userRole,createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string)
+    constructor(id: string, name: string, surname: string, password: string, role: userRole,createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string, totalProject: number)
     {
         this.id = id;
         this.name = name;
@@ -72,6 +73,7 @@ export class user{
         this.updatedDate = updatedDate;
         this.createdPerson = createdPerson;
         this.updatedPerson = updatedPerson;
+        this.totalProject = totalProject;
     }
 
 }

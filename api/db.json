@@ -1,78 +1,167 @@
 {
   "projects": [
     {
-      "id": "lkM58BAkEI_J7fB2FBd84",
-      "projectName": "Okul",
-      "createdDate": "Wed May 03 2023 10:56:51",
-      "updatedDate": "Wed May 03 2023 10:56:51",
+      "id": "2Be6-Ud8DelZxzUKCYrvP",
+      "projectName": "test",
+      "createdDate": "Wed May 03 2023 16:26:25",
+      "updatedDate": "Wed May 03 2023 16:26:25",
       "createdPerson": "admin",
       "updatedPerson": "admin",
-      "totalContent": 1,
+      "totalContent": 0,
+      "visibilityRole": 0
+    },
+    {
+      "id": "TAvjOFE8vRbjVk5-cHYE3",
+      "projectName": "test2",
+      "createdDate": "Wed May 03 2023 16:26:27",
+      "updatedDate": "Wed May 03 2023 16:26:27",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
+      "visibilityRole": 0
+    },
+    {
+      "id": "n6Mwq7ynmol5mm6HXX9EZ",
+      "projectName": "test3",
+      "createdDate": "Wed May 03 2023 16:26:30",
+      "updatedDate": "Wed May 03 2023 16:26:30",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
       "visibilityRole": 0
     }
   ],
-  "contents": [
-    {
-      "id": "bINpeALaki7kCffMGIkKj",
-      "contentName": "test2",
-      "createdDate": "Wed May 03 2023 10:56:58",
-      "updatedDate": "Wed May 03 2023 10:56:58",
-      "createdPerson": "admin",
-      "updatedPerson": "admin",
-      "contentVersion": 0,
-      "content": "",
-      "contentTags": "",
-      "projectId": "lkM58BAkEI_J7fB2FBd84"
-    }
-  ],
+  "contents": [],
   "users": [
     {
-      "id": "jQtaedxpbAekmoBdGkd2A",
+      "id": "jWATbVD199EVlEWyxcDdd",
       "name": "admin",
       "surname": "admin",
       "password": "123",
-      "role": "1",
+      "role": 0,
+      "totalProject": 1,
+      "createdDate": "Wed May 03 2023 16:26:13",
+      "updatedDate": "Wed May 03 2023 16:26:13",
       "createdPerson": "admin",
-      "createdDate": "Mon Apr 24 2023 16:59:26",
-      "updatedDate": "Tue Apr 25 2023 09:26:34",
       "updatedPerson": "admin"
     },
     {
-      "id": "hvwEZxSzZyLfSeJXp8IBY",
+      "id": "fuEHobO6vHYY6aKd86PED",
       "name": "Emrah",
       "surname": "Morgil",
       "password": "123",
       "role": 0,
-      "createdDate": "Tue May 02 2023 14:57:05",
-      "updatedDate": "Tue May 02 2023 14:57:05",
-      "createdPerson": "admin",
-      "updatedPerson": "admin"
-    },
-    {
-      "id": "zIS4HM1kgQrcDQ8vBbh8t",
-      "name": "Ömer",
-      "surname": "Morgil",
-      "password": "123",
-      "role": 0,
-      "createdDate": "Tue May 02 2023 16:20:41",
-      "updatedDate": "Tue May 02 2023 16:20:41",
+      "totalProject": 1,
+      "createdDate": "Wed May 03 2023 16:26:19",
+      "updatedDate": "Wed May 03 2023 16:26:19",
       "createdPerson": "admin",
       "updatedPerson": "admin"
     }
   ],
   "visibilityProjects": [
     {
-      "id": "Hp75TMpD4RLoW94uNUO00",
-      "projectName": "Okul",
-      "createdDate": "Wed May 03 2023 10:56:51",
-      "updatedDate": "Wed May 03 2023 10:56:51",
+      "id": "EpFTjJcX8PEZemeg6iWvq",
+      "projectName": "test",
+      "createdDate": "Wed May 03 2023 16:26:25",
+      "updatedDate": "Wed May 03 2023 16:26:25",
       "createdPerson": "admin",
       "updatedPerson": "admin",
-      "totalContent": 1,
+      "totalContent": 0,
       "visibilityRole": 0,
       "visibility": true,
-      "userId": "hvwEZxSzZyLfSeJXp8IBY",
-      "projectId": "lkM58BAkEI_J7fB2FBd84"
+      "userId": "fuEHobO6vHYY6aKd86PED",
+      "projectId": "2Be6-Ud8DelZxzUKCYrvP"
+    },
+    {
+      "id": "w6_Ghu11et1SBY-s_vyW-",
+      "projectName": "test2",
+      "createdDate": "Wed May 03 2023 16:26:27",
+      "updatedDate": "Wed May 03 2023 16:26:27",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "fuEHobO6vHYY6aKd86PED",
+      "projectId": "TAvjOFE8vRbjVk5-cHYE3"
+    },
+    {
+      "id": "JQbykl0jg_sw1r4Zyoetw",
+      "projectName": "test3",
+      "createdDate": "Wed May 03 2023 16:26:30",
+      "updatedDate": "Wed May 03 2023 16:26:30",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "fuEHobO6vHYY6aKd86PED",
+      "projectId": "n6Mwq7ynmol5mm6HXX9EZ"
+    },
+    {
+      "id": "JBuhe86JAvMO9JgsfxG1f",
+      "projectName": "test3",
+      "createdDate": "Wed May 03 2023 16:26:30",
+      "updatedDate": "Wed May 03 2023 16:26:30",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "fuEHobO6vHYY6aKd86PED",
+      "projectId": "n6Mwq7ynmol5mm6HXX9EZ"
+    },
+    {
+      "id": "LK2IYAAziscZg8w8t09fu",
+      "projectName": "test2",
+      "createdDate": "Wed May 03 2023 16:26:27",
+      "updatedDate": "Wed May 03 2023 16:26:27",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "fuEHobO6vHYY6aKd86PED",
+      "projectId": "TAvjOFE8vRbjVk5-cHYE3"
+    },
+    {
+      "id": "Gbu1HLYrt9I5L4uk_5Bgp",
+      "projectName": "test",
+      "createdDate": "Wed May 03 2023 16:26:25",
+      "updatedDate": "Wed May 03 2023 16:26:25",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "fuEHobO6vHYY6aKd86PED",
+      "projectId": "2Be6-Ud8DelZxzUKCYrvP"
+    },
+    {
+      "id": "LBKjboMHLTlG1SPHa0CQE",
+      "projectName": "test",
+      "createdDate": "Wed May 03 2023 16:26:25",
+      "updatedDate": "Wed May 03 2023 16:26:25",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "fuEHobO6vHYY6aKd86PED",
+      "projectId": "2Be6-Ud8DelZxzUKCYrvP"
+    },
+    {
+      "id": "Rr1ohWmQT5u-zWKJSNiPA",
+      "projectName": "test",
+      "createdDate": "Wed May 03 2023 16:26:25",
+      "updatedDate": "Wed May 03 2023 16:26:25",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "jWATbVD199EVlEWyxcDdd",
+      "projectId": "2Be6-Ud8DelZxzUKCYrvP"
     }
   ]
 }

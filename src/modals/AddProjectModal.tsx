@@ -33,10 +33,12 @@ const AddProjectModal = () => {
 
 
         //api
-        addProjects(updatedProject);
-
+        // addProjects(updatedProject);
+        setTimeout(()=>dispatch(addNewProject(updatedProject)), 100);
         
-        dispatch(addNewProject(updatedProject));
+        setTimeout(()=>addProjects(updatedProject), 500);
+        
+        
 
         setNewProject({
             id: "",

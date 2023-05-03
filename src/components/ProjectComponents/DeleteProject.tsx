@@ -8,6 +8,19 @@ import { setProjects, setVisibilityProjects } from '../../redux/projects/project
 const DeleteProject = ({item}: {item: project}) => {
 
 
+  const removeVisibilityProjectItem = () =>{
+    const newArray = visibilityProjects.filter((visibilityProject: visibilityProjects)=>{
+      if(visibilityProject.projectId!==item.id)
+      {
+        return visibilityProject;
+      }
+    })
+    
+    dispatch(setVisibilityProjects(newArray));
+  }
+
+
+
   const dispatch = useDispatch();
   const projects = useSelector((state: RootState) => state.projects.projects);
   const visibilityProjects = useSelector((state: RootState)=>state.projects.visibilityProjects);
@@ -23,14 +36,7 @@ const DeleteProject = ({item}: {item: project}) => {
     });
 
     //visibilityProjects'den silme işlemi
-    const newArray = visibilityProjects.filter((visibilityProject: visibilityProjects)=>{
-      if(visibilityProject.projectId!==item.id)
-      {
-        return visibilityProject;
-      }
-    })
-
-    dispatch(setVisibilityProjects(newArray));
+    removeVisibilityProjectItem();
 
     dispatch(setProjects(newArr));
   };

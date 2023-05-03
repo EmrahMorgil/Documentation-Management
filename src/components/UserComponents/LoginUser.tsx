@@ -13,13 +13,16 @@ const LoginUser = () => {
   const [userLogin, setUserLogin] = useState({ name: "", password: "" });
   const users = useSelector((state: RootState) => state.users.users);
 
+  const [error, setError] = useState("");
+
   const handleClick = () => {
 
-
-    
-
     const newArr = users.map((item: user) => {
-      if (item.name === userLogin.name && item.password === userLogin.password) {
+      if(userLogin.name == "")
+      {
+        setError("Kullancı adı boş bırakılamaz");
+        
+      }else if (item.name === userLogin.name && item.password === userLogin.password) {
         if (item.role === 0) {
           alert("Kullanıcı Girişi Başarılı...");
           dispatch(setUserLoggedIn(true));
@@ -30,6 +33,8 @@ const LoginUser = () => {
         localStorage.setItem("name", item.name);
         localStorage.setItem("password", item.password);
         dispatch(setActiveUser(item));
+      }else{
+        setError("Kullanıcı Adı Ya da Şifre Hatalı");
       }
     });
   };
@@ -64,7 +69,7 @@ const LoginUser = () => {
             name="password"
           />
         </div>
-
+        {error && <p style={{color: "red"}}>{error}</p>}
         <button
           type="button"
           onClick={handleClick}

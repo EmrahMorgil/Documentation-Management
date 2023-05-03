@@ -45,7 +45,7 @@ const DeleteContent = ({id, projectId}: {id: string, projectId?: string}) => {
 
 
     //delete amount
-    deleteContentAmount();
+    setTimeout(deleteContentAmount, 100);
 
 
     const newArr = contents.filter((contents: content) => {

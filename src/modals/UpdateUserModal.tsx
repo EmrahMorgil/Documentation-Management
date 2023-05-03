@@ -21,6 +21,7 @@ const UpdateUserModal = ({ item }: { item: any }) => {
     createdDate: item.createdDate,
     updatedDate: item.updatedDate,
     updatedPerson: item.updatedPerson,
+    totalProject: 0,
   });
 
   const updateUser = async (item: user) => {

@@ -59,12 +59,10 @@ const AddContentModal = ({ id }: { id: string }) => {
     updatedContent.projectId = id;
 
     //api
-
-    //amount
-    const totalContentAmount = (await getTotalContentAmount(id)) + 1;
-
-    addContents(updatedContent);
-    dispatch(addNewContent(updatedContent));
+    setTimeout(()=>dispatch(addNewContent(updatedContent)), 100);
+    // addContents(updatedContent);
+    setTimeout(()=>addContents(updatedContent), 500);
+    
 
     setNewContent({
       id: "",
@@ -80,7 +78,7 @@ const AddContentModal = ({ id }: { id: string }) => {
     });
 
     //add amount
-    addContentAmount();
+    setTimeout(addContentAmount, 100);
   };
   const handleChange = (e: any) => {
     setNewContent({ ...newContent, [e.target.name]: e.target.value });
