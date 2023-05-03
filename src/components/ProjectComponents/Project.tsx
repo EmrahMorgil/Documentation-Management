@@ -7,37 +7,37 @@ import UpdateProject from "./ProjectModalConnection/UpdateProject";
 import OnUserProjectsContainer from "./OnUserProject/OnUserProjectsContainer";
 
 interface IProject {
-  item: project;
+  project: project;
   projectsControl: string;
   userId?: string;
 }
 
-const Project: React.FC<IProject> = ({ item, projectsControl, userId }) => {
+const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
   return (
     <>
       <tr>
-        <td scope="row">{item.id.substring(0,2)+"..."}</td>
-        <td scope="row">{item.projectName}</td>
-        <td scope="row">{item.createdDate}</td>
-        <td scope="row">{item.updatedDate}</td>
-        <td scope="row">{item.createdPerson}</td>
-        <td scope="row">{item.updatedPerson}</td>
-        <td scope="row">{item.totalContent}</td>
-        <td scope="row">{item.visibilityRole}</td>
+        <td scope="row">{project.id.substring(0,2)+"..."}</td>
+        <td scope="row">{project.projectName}</td>
+        <td scope="row">{project.createdDate}</td>
+        <td scope="row">{project.updatedDate}</td>
+        <td scope="row">{project.createdPerson}</td>
+        <td scope="row">{project.updatedPerson}</td>
+        <td scope="row">{project.totalContent}</td>
+        <td scope="row">{project.visibilityRole}</td>
         <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
           {projectsControl==="addUserOnProject" ? (
             <>
-            <OnUserProjectsContainer item={item} userId={userId}/>
+            <OnUserProjectsContainer project={project} userId={userId}/>
             </>
           ) : projectsControl === "projectPanel" ? (
             <>
-              <Link to={`/contentpanel/${item.id}`}>
+              <Link to={`/contentpanel/${project.id}`}>
                 <button className="btn btn-success" style={{ width: "100px" }} >
                   Content
                 </button>
               </Link>
-              <DeleteProject item={item} />
-              <UpdateProject item={item} />
+              <DeleteProject project={project} />
+              <UpdateProject project={project} />
             </>
           ) : <></>}
         </td>

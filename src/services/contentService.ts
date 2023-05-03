@@ -21,3 +21,8 @@ export const addContents = async(updatedContent: any)=>{
   export const updateContents = async (id: string, setUpdatedContent: content) => {
     await axios.put(`http://localhost:3004/contents/${id}`, setUpdatedContent);
   };
+
+  export const getTotalContentAmount = async (id: string)=>{
+    const res = await axios.get(`http://localhost:3004/projects/${id}/contents`);
+    return res.data.length;
+  }

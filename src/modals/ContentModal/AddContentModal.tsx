@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
-import { RootState } from "../redux/store";
+import { RootState } from "../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
-import { addContents } from "../services/contentService";
-import { addNewContent } from "../redux/contents/contentsSlice";
-import {
-  getTotalContentAmount,
-  updateProjects,
-} from "../services/projectService";
-import { project } from "../types/Type";
-import { setProjects } from "../redux/projects/projectsSlice";
+import { addContents } from "../../services/contentService";
+import { addNewContent } from "../../redux/contents/contentsSlice";
+import {updateProjects} from "../../services/projectService";
+import { project } from "../../types/Type";
+import { setProjects } from "../../redux/projects/projectsSlice";
 
-const AddContentModal = ({ id }: { id: string }) => {
+interface IAddContentModal{
+  id: string;
+}
+
+const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
   const dispatch = useDispatch();
   const activeUser = useSelector((state: RootState) => state.users.activeUser);
   const projects = useSelector((state: RootState) => state.projects.projects);

@@ -3,7 +3,12 @@ import { user, visibilityProjects } from "../../../types/Type";
 import { RootState } from "../../../redux/store";
 import { useSelector } from "react-redux";
 
-const OnUserProjects = ({ onUser }: { onUser?: user }) => {
+
+interface IOnUserProjects{
+  onUser?: user;
+}
+
+const OnUserProjects: React.FC<IOnUserProjects> = ({ onUser }) => {
   const visibilityProjects = useSelector((state: RootState) => state.projects.visibilityProjects);
 
   return (

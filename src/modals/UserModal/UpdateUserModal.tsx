@@ -1,30 +1,34 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../redux/store";
-import { user } from "../types/Type";
-import { updateUsers } from "../services/userService";
-import { setUsers } from "../redux/users/usersSlice";
+import { RootState } from "../../redux/store";
+import { user } from "../../types/Type";
+import { updateUsers } from "../../services/userService";
+import { setUsers } from "../../redux/users/usersSlice";
 
-const UpdateUserModal = ({ item }: { item: any }) => {
+interface IUpdateUserModal{
+  user: user;
+}
+
+const UpdateUserModal: React.FC<IUpdateUserModal> = ({ user }) => {
   const users = useSelector((state: RootState) => state.users.users);
   const dispatch = useDispatch();
   const activeUser = useSelector(
     (state: RootState) => state.users.activeUser.name
   );
   const [updatedUser, setUpdatedUser] = useState<user>({
-    id: item.id,
-    name: item.name,
-    surname: item.surname,
-    password: item.password,
-    role: item.role,
-    createdPerson: item.createdPerson,
-    createdDate: item.createdDate,
-    updatedDate: item.updatedDate,
-    updatedPerson: item.updatedPerson,
+    id: user.id,
+    name: user.name,
+    surname: user.surname,
+    password: user.password,
+    role: user.role,
+    createdPerson: user.createdPerson,
+    createdDate: user.createdDate,
+    updatedDate: user.updatedDate,
+    updatedPerson: user.updatedPerson,
     totalProject: 0,
   });
 
-  const updateUser = async (item: user) => {
+  const updateUser = async (updateUser: user) => {
     let nowDate = new Date().toString().substring(0, 24);
     const setUpdatedUser = { ...updatedUser };
     setUpdatedUser.updatedDate = nowDate;
@@ -42,11 +46,11 @@ const UpdateUserModal = ({ item }: { item: any }) => {
       updatedPerson,
     } = setUpdatedUser;
 
-    updateUsers(item.id, setUpdatedUser);
+    updateUsers(updateUser.id, setUpdatedUser);
     //api
 
     const newArr = users.map((users: user) => {
-      if (users.id === item.id) {
+      if (users.id === updateUser.id) {
         return {
           id,
           name,
@@ -71,7 +75,7 @@ const UpdateUserModal = ({ item }: { item: any }) => {
   return (
     <div
       className="modal fade"
-      id={item.id}
+      id={user.id}
       role="dialog"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
@@ -146,7 +150,7 @@ const UpdateUserModal = ({ item }: { item: any }) => {
               type="button"
               className="btn btn-warning"
               data-dismiss="modal"
-              onClick={() => updateUser(item)}
+              onClick={() => updateUser(user)}
             >
               Update
             </button>

@@ -5,12 +5,16 @@ import { deleteProjects } from '../../services/projectService';
 import { project, visibilityProjects } from '../../types/Type';
 import { setProjects, setVisibilityProjects } from '../../redux/projects/projectsSlice';
 
-const DeleteProject = ({item}: {item: project}) => {
+interface IDeleteProject{
+  project: project;
+}
+
+const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
 
 
   const removeVisibilityProjectItem = () =>{
     const newArray = visibilityProjects.filter((visibilityProject: visibilityProjects)=>{
-      if(visibilityProject.projectId!==item.id)
+      if(visibilityProject.projectId!==project.id)
       {
         return visibilityProject;
       }
@@ -42,7 +46,7 @@ const DeleteProject = ({item}: {item: project}) => {
   };
 
   return (
-    <button className="btn btn-danger" onClick={() => deletedProject(item)} style={{width: "100px"}}>
+    <button className="btn btn-danger" onClick={() => deletedProject(project)} style={{width: "100px"}}>
       Delete
     </button>
   )

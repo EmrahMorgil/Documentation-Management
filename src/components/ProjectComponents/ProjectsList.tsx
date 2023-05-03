@@ -30,10 +30,10 @@ const ProjectsList: React.FC<IProjectsList> = ({projectsControl, userId, filterV
           </tr>
         </thead>
         <tbody>
-          {projects.map((item: project, i: number) =>{
-            if(item.projectName.toLowerCase().includes(filterValue.toLowerCase()))
+          {projects.map((project: project, i: number) =>{
+            if(project.projectName.toLowerCase().includes(filterValue.toLowerCase()))
             {
-              return <Project item={item} key={i} projectsControl={projectsControl} userId={userId}/>
+              return <Project project={project} key={i} projectsControl={projectsControl} userId={userId}/>
             }
           }
           )}

@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../redux/store";
-import { content, user } from "../types/Type";
-import { setContents } from "../redux/contents/contentsSlice";
-import { updateContents } from "../services/contentService";
+import { RootState } from "../../redux/store";
+import { content, user } from "../../types/Type";
+import { setContents } from "../../redux/contents/contentsSlice";
+import { updateContents } from "../../services/contentService";
 
-const UpdateContentModal = ({ item }: { item: content }) => {
+interface IUpdateContentModal{
+  item: content
+}
+
+const UpdateContentModal: React.FC<IUpdateContentModal> = ({ item }) => {
 
   const adminLoggedIn = useSelector((state: RootState)=>state.users.adminLoggedIn);
 

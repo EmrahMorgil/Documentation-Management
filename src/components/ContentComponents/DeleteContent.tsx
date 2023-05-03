@@ -7,7 +7,12 @@ import { setContents } from '../../redux/contents/contentsSlice';
 import { updateProjects } from '../../services/projectService';
 import { setProjects } from '../../redux/projects/projectsSlice';
 
-const DeleteContent = ({id, projectId}: {id: string, projectId?: string}) => {
+interface IDeleteContent{
+  id: string;
+  projectId?: string;
+}
+
+const DeleteContent: React.FC<IDeleteContent> = ({id, projectId}) => {
 
 
   const dispatch = useDispatch();

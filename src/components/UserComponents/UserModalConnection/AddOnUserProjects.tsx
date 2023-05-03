@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { IUserProp, user } from "../../../types/Type";
-import AddOnUserProjectsModal from "../../../modals/AddOnUserProjectsModal";
+import AddOnUserProjectsModal from "../../../modals/UserModal/AddOnUserProjectsModal";
 
 const AddOnUserProjects: React.FC<IUserProp> = ({ user }) => {
  

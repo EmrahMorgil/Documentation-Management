@@ -1,8 +1,12 @@
 import React, { useState } from "react";
-import { project, user } from "../types/Type";
-import AddOnUserProjectContainer from "../components/UserComponents/AddOnUserProjectContainer";
+import { project, user } from "../../types/Type";
+import AddOnUserProjectContainer from "../../components/UserComponents/AddOnUserProjectContainer";
 
-const AddOnUserProjectsModal = ({ onUser }: { onUser?: user }) => {
+interface IAddOnUserProjectsModal{
+  onUser?: user;
+} 
+
+const AddOnUserProjectsModal: React.FC<IAddOnUserProjectsModal> = ({ onUser }) => {
   
   return (
     <div

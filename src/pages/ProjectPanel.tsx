@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import AddProject from '../components/ProjectComponents/ProjectModalConnection/AddProject'
 import { Link } from 'react-router-dom'
 import ProjectsList from '../components/ProjectComponents/ProjectsList'

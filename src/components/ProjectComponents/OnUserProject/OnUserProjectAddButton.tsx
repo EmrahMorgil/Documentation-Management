@@ -8,7 +8,16 @@ import { addVisibilityProjectsApi } from "../../../services/visibilityProjectSer
 import { addVisibilityProjects } from "../../../redux/projects/projectsSlice";
 import { nanoid } from "nanoid";
 
-const OnUserProjectAddButton = ({ userId, item, addButtonControl, setAddButtonControl, setDynamicId }: { userId?: string, item: project, addButtonControl: any, setAddButtonControl: any, setDynamicId: any }) => {
+
+interface IOnUserProjectAddButton{
+  userId?: string;
+  project: project;
+  addButtonControl: boolean;
+  setAddButtonControl: React.Dispatch<React.SetStateAction<boolean>>;
+  setDynamicId: React.Dispatch<React.SetStateAction<string | undefined>>;
+}
+
+const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, project, addButtonControl, setAddButtonControl, setDynamicId }) => {
   
   const users = useSelector((state: RootState)=>state.users.users);
 
@@ -35,10 +44,10 @@ const OnUserProjectAddButton = ({ userId, item, addButtonControl, setAddButtonCo
   const handleClick = () => {
 
     setAddButtonControl(true);
-    const {projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole } = item;
+    const {projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole } = project;
     const randomId = nanoid();
     setDynamicId(randomId);
-    const newItem = {id: randomId, projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole, visibility: true, userId, projectId: item.id};
+    const newItem = {id: randomId, projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole, visibility: true, userId, projectId: project.id};
     addVisibilityProjectsApi(newItem);
     dispatch(addVisibilityProjects(newItem));
 

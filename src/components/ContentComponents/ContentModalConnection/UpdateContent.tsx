@@ -1,6 +1,6 @@
 import React from "react";
 import { content } from "../../../types/Type";
-import UpdateContentModal from "../../../modals/UpdateContentModal";
+import UpdateContentModal from "../../../modals/ContentModal/UpdateContentModal";
 
 interface IUpdateContent{
   content: content;

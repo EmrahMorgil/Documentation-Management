@@ -1,28 +1,32 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../redux/store';
-import { project } from "../types/Type";
-import { updateProjects } from "../../src/services/projectService"
-import { setProjects } from '../../src/redux/projects/projectsSlice';
+import { RootState } from '../../redux/store';
+import { project } from "../../types/Type";
+import { updateProjects } from "../../services/projectService"
+import { setProjects } from '../../redux/projects/projectsSlice';
 
-const UpdateProjectModal = ({ item }: { item: project }) => {
+interface IUpdateProjectModal{
+  project: project;
+}
+
+const UpdateProjectModal: React.FC<IUpdateProjectModal> = ({ project }) => {
     const dispatch = useDispatch();
     const projects = useSelector((state: RootState) => state.projects.projects);
     const activeUser = useSelector((state: RootState) => state.users.activeUser.name);
 
   const [updatedProject, setUpdatedProject] = useState<project>({
-    id: item.id,
-    projectName: item.projectName,
-    createdDate: item.createdDate,
-    updatedDate: item.updatedDate,
-    createdPerson: item.createdPerson,
-    updatedPerson: item.updatedPerson,
-    totalContent: item.totalContent,
-    visibilityRole: item.visibilityRole,
+    id: project.id,
+    projectName: project.projectName,
+    createdDate: project.createdDate,
+    updatedDate: project.updatedDate,
+    createdPerson: project.createdPerson,
+    updatedPerson: project.updatedPerson,
+    totalContent: project.totalContent,
+    visibilityRole: project.visibilityRole,
   });
   
 
-  const updateProject = async (item: project) => {
+  const updateProject = async (updateProject: project) => {
     let nowDate = new Date().toString().substring(0, 24);
     const setUpdatedProject = { ...updatedProject };
     setUpdatedProject.updatedDate = nowDate;
@@ -39,10 +43,10 @@ const UpdateProjectModal = ({ item }: { item: project }) => {
       visibilityRole,
     } = setUpdatedProject;
 
-    updateProjects(item.id,setUpdatedProject);
+    updateProjects(updateProject.id,setUpdatedProject);
 
     const newArr = projects.map((projects: project) => {
-      if (projects.id === item.id) {
+      if (projects.id === updateProject.id) {
         return {
           id,
           projectName,
@@ -66,7 +70,7 @@ const UpdateProjectModal = ({ item }: { item: project }) => {
   return (
     <div
     className="modal fade"
-    id={item.id}
+    id={project.id}
     role="dialog"
     aria-labelledby="exampleModalLabel"
     aria-hidden="true"
@@ -120,7 +124,7 @@ const UpdateProjectModal = ({ item }: { item: project }) => {
               type="button"
               className="btn btn-warning"
               data-dismiss="modal"
-              onClick={() => updateProject(item)}
+              onClick={() => updateProject(project)}
             >
               Update
             </button>

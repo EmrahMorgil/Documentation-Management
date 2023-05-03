@@ -1,5 +1,5 @@
 import React from "react";
-import AddContentModal from "../../../modals/AddContentModal";
+import AddContentModal from "../../../modals/ContentModal/AddContentModal";
 
 interface IAddContent{
   id: string;

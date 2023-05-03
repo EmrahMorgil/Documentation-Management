@@ -7,18 +7,17 @@ import { setUsers } from "../../../redux/users/usersSlice";
 import { setVisibilityProjects } from "../../../redux/projects/projectsSlice";
 import { deleteVisibilityProjectsApi } from "../../../services/visibilityProjectServise";
 
-const OnUserProjectRemoveButton = ({userId,item,addButtonControl,setAddButtonControl, dynamicId}: {
+interface IOnUserProjectRemoveButton{
   userId?: string;
-  item: any;
-  addButtonControl: any;
-  setAddButtonControl: any;
-  dynamicId: any;
-}) => {
+  addButtonControl: boolean;
+  setAddButtonControl: React.Dispatch<React.SetStateAction<boolean>>;
+  dynamicId?: string;
+}
+
+const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId,addButtonControl,setAddButtonControl, dynamicId}) => {
   const users = useSelector((state: RootState) => state.users.users);
   const visibilityProjects = useSelector((state:RootState)=>state.projects.visibilityProjects);
   const dispatch = useDispatch();
-
-
 
 
   const removeProjectAmount = ()=>{
@@ -49,7 +48,7 @@ const OnUserProjectRemoveButton = ({userId,item,addButtonControl,setAddButtonCon
     });
     dispatch(setVisibilityProjects(newArr));
     //api    
-    deleteVisibilityProjectsApi(dynamicId);
+    deleteVisibilityProjectsApi(dynamicId!);
     
     setTimeout(removeProjectAmount, 100)
   };

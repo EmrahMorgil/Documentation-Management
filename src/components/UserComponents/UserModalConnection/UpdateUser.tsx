@@ -1,6 +1,6 @@
 import React from "react";
 import { IUserProp } from "../../../types/Type";
-import UpdateUserModal from "../../../modals/UpdateUserModal";
+import UpdateUserModal from "../../../modals/UserModal/UpdateUserModal";
 
 const UpdateUser: React.FC<IUserProp> = ({ user }) => {
   return (
@@ -13,7 +13,7 @@ const UpdateUser: React.FC<IUserProp> = ({ user }) => {
       >
         Detail
       </button>
-      <UpdateUserModal item={user} />
+      <UpdateUserModal user={user} />
     </div>
   );
 };

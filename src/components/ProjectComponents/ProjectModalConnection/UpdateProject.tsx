@@ -1,8 +1,12 @@
 import React from 'react'
 import { project } from "../../../types/Type";
-import UpdateProjectModal from "../../../modals/UpdateProjectModal";
+import UpdateProjectModal from "../../../modals/ProjectModal/UpdateProjectModal";
 
-const UpdateProject = ({ item }: { item: project }) => {
+interface IUpdateProject{
+  project: project;
+}
+
+const UpdateProject: React.FC<IUpdateProject> = ({ project }) => {
   
   return (
     <div>
@@ -10,11 +14,11 @@ const UpdateProject = ({ item }: { item: project }) => {
       type="button"
       className="btn btn-warning"
       data-toggle="modal"
-      data-target={`#${item.id}`}
+      data-target={`#${project.id}`}
     >
       Detail
     </button>
-    <UpdateProjectModal item={item} />
+    <UpdateProjectModal project={project} />
   </div>
   )
 }
