@@ -1,30 +1,30 @@
 {
   "projects": [
     {
-      "id": "L3YmwEaY2EmBBxO7Okur8",
+      "id": "zCGhl5JHx3lTuDnnMqox6",
       "projectName": "Okul",
-      "createdDate": "Wed May 03 2023 10:17:14",
-      "updatedDate": "Wed May 03 2023 10:17:14",
+      "createdDate": "Wed May 03 2023 10:26:32",
+      "updatedDate": "Wed May 03 2023 10:26:32",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "totalContent": 0,
       "visibilityRole": 0
     },
     {
-      "id": "M2J9ZFTLvjFLPPOeaeK_G",
+      "id": "VAT5fN5e2kDsMXIB8hamO",
       "projectName": "Hastane",
-      "createdDate": "Wed May 03 2023 10:17:18",
-      "updatedDate": "Wed May 03 2023 10:17:18",
+      "createdDate": "Wed May 03 2023 10:26:36",
+      "updatedDate": "Wed May 03 2023 10:26:36",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "totalContent": 0,
       "visibilityRole": 0
     },
     {
-      "id": "ZU9W51JEm-b8X94TINIk9",
+      "id": "BWkFi85LwZhHETGYGEmvp",
       "projectName": "Kütüphane",
-      "createdDate": "Wed May 03 2023 10:17:23",
-      "updatedDate": "Wed May 03 2023 10:17:23",
+      "createdDate": "Wed May 03 2023 10:26:41",
+      "updatedDate": "Wed May 03 2023 10:26:41",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "totalContent": 0,
@@ -33,112 +33,76 @@
   ],
   "contents": [
     {
-      "id": "I61f35lUjQAnX6ZoF7OIC",
+      "id": "cxF-94tdQ1jvQG-9b0tJr",
       "contentName": "deneme",
-      "createdDate": "Wed May 03 2023 10:17:34",
-      "updatedDate": "Wed May 03 2023 10:17:34",
+      "createdDate": "Wed May 03 2023 10:26:48",
+      "updatedDate": "Wed May 03 2023 10:26:48",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "contentVersion": 0,
       "content": "",
       "contentTags": "",
-      "projectId": "L3YmwEaY2EmBBxO7Okur8"
+      "projectId": "zCGhl5JHx3lTuDnnMqox6"
     },
     {
-      "id": "vsESvcwG2wQhbsVBHQREW",
+      "id": "zzLCfm7681ZDuQ_i-nH_u",
       "contentName": "deneme2",
-      "createdDate": "Wed May 03 2023 10:17:38",
-      "updatedDate": "Wed May 03 2023 10:17:38",
+      "createdDate": "Wed May 03 2023 10:26:52",
+      "updatedDate": "Wed May 03 2023 10:26:52",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "contentVersion": 0,
       "content": "",
       "contentTags": "",
-      "projectId": "L3YmwEaY2EmBBxO7Okur8"
+      "projectId": "zCGhl5JHx3lTuDnnMqox6"
     },
     {
-      "id": "I3fYlLSm0CStxWpiw1LMJ",
+      "id": "wrzmN6oGjSKObQU6STrrD",
       "contentName": "deneme3",
-      "createdDate": "Wed May 03 2023 10:17:43",
-      "updatedDate": "Wed May 03 2023 10:17:43",
+      "createdDate": "Wed May 03 2023 10:26:56",
+      "updatedDate": "Wed May 03 2023 10:26:56",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "contentVersion": 0,
       "content": "",
       "contentTags": "",
-      "projectId": "L3YmwEaY2EmBBxO7Okur8"
+      "projectId": "zCGhl5JHx3lTuDnnMqox6"
     },
     {
-      "id": "tDp9H_0oTLxILegtaB14M",
+      "id": "dRmpq17p8U-T0JcHRYPc8",
       "contentName": "test1",
-      "createdDate": "Wed May 03 2023 10:17:49",
-      "updatedDate": "Wed May 03 2023 10:17:49",
+      "createdDate": "Wed May 03 2023 10:27:01",
+      "updatedDate": "Wed May 03 2023 10:27:01",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "contentVersion": 0,
       "content": "",
       "contentTags": "",
-      "projectId": "M2J9ZFTLvjFLPPOeaeK_G"
+      "projectId": "VAT5fN5e2kDsMXIB8hamO"
     },
     {
-      "id": "nZ4GHj_InT8wWyO7OX7bg",
-      "contentName": "test2",
-      "createdDate": "Wed May 03 2023 10:17:52",
-      "updatedDate": "Wed May 03 2023 10:17:52",
+      "id": "yMPp_QwqIIbTvMagkVmvr",
+      "contentName": "testt",
+      "createdDate": "Wed May 03 2023 10:27:08",
+      "updatedDate": "Wed May 03 2023 10:27:08",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "contentVersion": 0,
       "content": "",
       "contentTags": "",
-      "projectId": "M2J9ZFTLvjFLPPOeaeK_G"
+      "projectId": "BWkFi85LwZhHETGYGEmvp"
     },
     {
-      "id": "1UXKUy025R-4fZqbTFQ0K",
-      "contentName": "qwe1",
-      "createdDate": "Wed May 03 2023 10:17:57",
-      "updatedDate": "Wed May 03 2023 10:17:57",
+      "id": "D4joRPINMLFOjMZat1nsv",
+      "contentName": "testt",
+      "createdDate": "Wed May 03 2023 10:27:12",
+      "updatedDate": "Wed May 03 2023 10:27:12",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "contentVersion": 0,
       "content": "",
       "contentTags": "",
-      "projectId": "ZU9W51JEm-b8X94TINIk9"
-    },
-    {
-      "id": "K8WpNqfgWgNR-CTis4kNz",
-      "contentName": "qwe2",
-      "createdDate": "Wed May 03 2023 10:18:00",
-      "updatedDate": "Wed May 03 2023 10:18:00",
-      "createdPerson": "admin",
-      "updatedPerson": "admin",
-      "contentVersion": 0,
-      "content": "",
-      "contentTags": "",
-      "projectId": "ZU9W51JEm-b8X94TINIk9"
-    },
-    {
-      "id": "qJKlSAEsqA-LygLAc6diS",
-      "contentName": "qwe3",
-      "createdDate": "Wed May 03 2023 10:18:04",
-      "updatedDate": "Wed May 03 2023 10:18:04",
-      "createdPerson": "admin",
-      "updatedPerson": "admin",
-      "contentVersion": 0,
-      "content": "",
-      "contentTags": "",
-      "projectId": "ZU9W51JEm-b8X94TINIk9"
-    },
-    {
-      "id": "bPaa4JwImZpLpN-KknpAw",
-      "contentName": "qwe4",
-      "createdDate": "Wed May 03 2023 10:18:07",
-      "updatedDate": "Wed May 03 2023 10:18:07",
-      "createdPerson": "admin",
-      "updatedPerson": "admin",
-      "contentVersion": 0,
-      "content": "",
-      "contentTags": "",
-      "projectId": "ZU9W51JEm-b8X94TINIk9"
+      "projectId": "BWkFi85LwZhHETGYGEmvp"
     }
   ],
   "users": [
@@ -176,5 +140,32 @@
       "updatedPerson": "admin"
     }
   ],
-  "visibilityProjects": []
+  "visibilityProjects": [
+    {
+      "id": "Rr8CsF-vsoHbQWl6H4x2R",
+      "projectName": "Okul",
+      "createdDate": "Wed May 03 2023 10:26:32",
+      "updatedDate": "Wed May 03 2023 10:26:32",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 3,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "hvwEZxSzZyLfSeJXp8IBY",
+      "projectId": "zCGhl5JHx3lTuDnnMqox6"
+    },
+    {
+      "id": "c7SI60OzvT5-kyD2Y_s7W",
+      "projectName": "Hastane",
+      "createdDate": "Wed May 03 2023 10:26:36",
+      "updatedDate": "Wed May 03 2023 10:26:36",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 1,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "hvwEZxSzZyLfSeJXp8IBY",
+      "projectId": "VAT5fN5e2kDsMXIB8hamO"
+    }
+  ]
 }

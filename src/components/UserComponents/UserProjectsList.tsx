@@ -1,12 +1,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
-import { project } from '../../types/Type';
+import { project, user, visibilityProjects } from '../../types/Type';
 import UserProjects from './UserProjects';
 
 const UserProjectsList = ({filterValue}: {filterValue: any}) => {
 
-    const activeUser = useSelector((state: RootState)=>state.users.activeUser);
+    const activeUser: user = useSelector((state: RootState)=>state.users.activeUser);
+    const visibilityProjects = useSelector((state: RootState)=>state.projects.visibilityProjects);
 
   return (
 <div className="container mt-5">
@@ -25,12 +26,15 @@ const UserProjectsList = ({filterValue}: {filterValue: any}) => {
     </tr>
   </thead>
   <tbody>
-  {activeUser.visibilityProjects.map((item: project, i: number)=>{
+    {visibilityProjects.map((item: visibilityProjects, i: number)=>{
+      if(activeUser.id===item.userId)
+      {
         if(item.projectName.toLowerCase().includes(filterValue.toLowerCase()))
         {
-            return <UserProjects item={item} key={i}/>
+          return <UserProjects item={item} key={i}/>
         }
-        })}
+      }
+    })}
   </tbody>
 </table>
 </div>
