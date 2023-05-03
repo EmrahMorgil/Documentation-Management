@@ -19,17 +19,22 @@ const DeleteContent = ({id, projectId}: {id: string, projectId?: string}) => {
 
   //amount
   const deleteContentAmount = () =>{
+
+    let updatedContentAmount: project ={id:"", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalContent: 0, visibilityRole: "0"};
+
     let newArray = projects.map((item: project)=>{
       if(item.id === projectId)
       {
-        let updatedContentAmount = {...item};
+        updatedContentAmount = {...item};
         updatedContentAmount.totalContent--;
-        //updateProjects(projectId, updatedContentAmount);
-        
+
         return updatedContentAmount;
       }
       return item;
     })
+    
+    updateProjects(updatedContentAmount.id, updatedContentAmount);
+
     dispatch(setProjects(newArray));
   }
 

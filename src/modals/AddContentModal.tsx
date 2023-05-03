@@ -30,15 +30,21 @@ const AddContentModal = ({ id }: { id: string }) => {
   });
 
   const addContentAmount = () => {
+
+    let updatedContentAmount: project ={id:"", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalContent: 0, visibilityRole: "0"};
     let newArr = projects.map((item: project) => {
       if (item.id === id) {
-        let updatedContentAmount = { ...item };
+        updatedContentAmount = { ...item };
         updatedContentAmount.totalContent++;
-        //updateProjects(id, updatedContentAmount);
+  
         return updatedContentAmount;
       }
       return item;
     });
+    
+    //api amount
+    updateProjects(updatedContentAmount.id, updatedContentAmount);
+
     dispatch(setProjects(newArr));
   };
 
