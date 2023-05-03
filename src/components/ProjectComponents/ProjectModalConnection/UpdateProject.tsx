@@ -1,6 +1,6 @@
 import React from 'react'
-import { project } from "../../types/Type";
-import UpdateProjectModal from "../../modals/UpdateProjectModal";
+import { project } from "../../../types/Type";
+import UpdateProjectModal from "../../../modals/UpdateProjectModal";
 
 const UpdateProject = ({ item }: { item: project }) => {
   

@@ -1,34 +1,34 @@
 import React from "react";
 import { content } from "../../types/Type";
 import DeleteContent from "./DeleteContent";
-import UpdateContent from "./UpdateContent";
+import UpdateContent from "./ContentModalConnection/UpdateContent";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 
 interface IContent {
-  item: content;
+  content: content;
   projectId?: string;
 }
 
-const Content: React.FC<IContent> = ({ item, projectId }) => {
+const Content: React.FC<IContent> = ({ content, projectId }) => {
 
   const adminLoggedIn = useSelector((state: RootState)=>state.users.adminLoggedIn);
 
   return (
     <>
       <tr>
-        <td scope="row">{item.id}</td>
-        <td scope="row">{item.contentName}</td>
-        <td scope="row">{item.createdDate}</td>
-        <td scope="row">{item.updatedDate}</td>
-        <td scope="row">{item.createdPerson}</td>
-        <td scope="row">{item.updatedPerson}</td>
-        <td scope="row">{item.version}</td>
-        <td scope="row">{(item.content).substring(0,20)+"..."}</td>
-        <td scope="row">{item.contentTags}</td>
+        <td scope="row">{content.id}</td>
+        <td scope="row">{content.contentName}</td>
+        <td scope="row">{content.createdDate}</td>
+        <td scope="row">{content.updatedDate}</td>
+        <td scope="row">{content.createdPerson}</td>
+        <td scope="row">{content.updatedPerson}</td>
+        <td scope="row">{content.version}</td>
+        <td scope="row">{(content.content).substring(0,20)+"..."}</td>
+        <td scope="row">{content.contentTags}</td>
         <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
-          <UpdateContent item={item} />
-          {adminLoggedIn && <DeleteContent id={item.id} projectId={projectId}/>}
+          <UpdateContent content={content} />
+          {adminLoggedIn && <DeleteContent id={content.id} projectId={projectId}/>}
         </td>
       </tr>
     </>

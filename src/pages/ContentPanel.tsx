@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import AddContent from "../components/ContentComponents/AddContent";
+import AddContent from "../components/ContentComponents/ContentModalConnection/AddContent";
 import { useDispatch, useSelector } from "react-redux";
 import { getContentsAsync } from "../services/contentService";
 import ContentList from "../components/ContentComponents/ContentList";
 import { RootState } from "../redux/store";
 import Loading from "../components/Loading";
 
-const ContentPanel = () => {
+const ContentPanel: React.FC = () => {
   const dispatch = useDispatch();
   let { id } = useParams();
   const isLoading = useSelector((state: RootState) => state.contents.isLoading);

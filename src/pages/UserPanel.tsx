@@ -1,5 +1,5 @@
 import React from "react";
-import AddUser from "../components/UserComponents/AddUser";
+import AddUser from "../components/UserComponents/UserModalConnection/AddUser";
 import UsersList from "../components/UserComponents/UsersList";
 import { Link } from "react-router-dom";
 

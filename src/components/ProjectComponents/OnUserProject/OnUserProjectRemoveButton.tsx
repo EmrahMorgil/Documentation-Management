@@ -1,11 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
-import { project, user, visibilityProjects } from "../../types/Type";
-import { updateUsers } from "../../services/userService";
-import { setUsers } from "../../redux/users/usersSlice";
-import { setVisibilityProjects } from "../../redux/projects/projectsSlice";
-import { deleteVisibilityProjectsApi } from "../../services/visibilityProjectServise";
+import { RootState } from "../../../redux/store";
+import { project, user, visibilityProjects } from "../../../types/Type";
+import { updateUsers } from "../../../services/userService";
+import { setUsers } from "../../../redux/users/usersSlice";
+import { setVisibilityProjects } from "../../../redux/projects/projectsSlice";
+import { deleteVisibilityProjectsApi } from "../../../services/visibilityProjectServise";
 
 const OnUserProjectRemoveButton = ({userId,item,addButtonControl,setAddButtonControl, dynamicId}: {
   userId?: string;

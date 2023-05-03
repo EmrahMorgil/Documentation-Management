@@ -6,7 +6,11 @@ import { user } from "../../types/Type";
 import { useDispatch } from "react-redux";
 import { setUsers } from "../../redux/users/usersSlice";
 
-const DeleteUser = ({ id }: { id: string }) => {
+interface Id{
+  id: string;
+}
+
+const DeleteUser: React.FC<Id> = ({ id }) => {
   const dispatch = useDispatch();
   const users = useSelector((state: RootState) => state.users.users);
 

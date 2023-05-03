@@ -8,7 +8,7 @@ import {
   setActiveUser,
 } from "../../redux/users/usersSlice";
 
-const LoginUser = () => {
+const LoginUser: React.FC = () => {
   const dispatch = useDispatch();
   const [userLogin, setUserLogin] = useState({ name: "", password: "" });
   const users = useSelector((state: RootState) => state.users.users);

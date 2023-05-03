@@ -1,9 +1,9 @@
 import React from "react";
-import { project, user } from "../../types/Type";
+import { IOnUserProp, project, user } from "../../types/Type";
 import ProjectsList from "../ProjectComponents/ProjectsList";
-import OnUserProjects from "../ProjectComponents/OnUserProjects";
+import OnUserProjects from "../ProjectComponents/OnUserProject/OnUserProjects";
 
-const AddOnUserProjectContainer = ({ user }: { user?: user }) => {
+const AddOnUserProjectContainer: React.FC<IOnUserProp> = ({ onUser }) => {
   
   return (
     <div style={{ textAlign: "center" }}>
@@ -11,11 +11,11 @@ const AddOnUserProjectContainer = ({ user }: { user?: user }) => {
         <h3>Add Project</h3>
       </div>
 
-        <ProjectsList filterValue="" projectsControl={"addUserOnProject"} userId={user?.id}/>
+        <ProjectsList filterValue="" projectsControl={"addUserOnProject"} userId={onUser?.id}/>
       
         <h3>User's Projects</h3>
 
-        <OnUserProjects user={user}/>
+        <OnUserProjects onUser={onUser}/>
     </div>
   );
 };

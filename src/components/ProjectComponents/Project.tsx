@@ -1,10 +1,10 @@
 import React from "react";
 import { project } from "../../types/Type";
 import DeleteProject from "./DeleteProject";
-import AddContent from "../ContentComponents/AddContent";
+import AddContent from "../ContentComponents/ContentModalConnection/AddContent";
 import { Link } from "react-router-dom";
-import UpdateProject from "./UpdateProject";
-import OnUserProjectsContainer from "./OnUserProjectsContainer";
+import UpdateProject from "./ProjectModalConnection/UpdateProject";
+import OnUserProjectsContainer from "./OnUserProject/OnUserProjectsContainer";
 
 interface IProject {
   item: project;

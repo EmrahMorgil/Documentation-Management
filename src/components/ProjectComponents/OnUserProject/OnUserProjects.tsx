@@ -1,15 +1,15 @@
 import React from "react";
-import { user, visibilityProjects } from "../../types/Type";
-import { RootState } from "../../redux/store";
+import { user, visibilityProjects } from "../../../types/Type";
+import { RootState } from "../../../redux/store";
 import { useSelector } from "react-redux";
 
-const OnUserProjects = ({ user }: { user?: user }) => {
+const OnUserProjects = ({ onUser }: { onUser?: user }) => {
   const visibilityProjects = useSelector((state: RootState) => state.projects.visibilityProjects);
 
   return (
     <>
       {visibilityProjects.map((item: visibilityProjects, i: string) => {
-        if(user?.id===item.userId)
+        if(onUser?.id===item.userId)
         {
           return (
             <div className="row">

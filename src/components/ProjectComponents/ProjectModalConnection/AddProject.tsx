@@ -1,5 +1,5 @@
 import React from "react";
-import AddProjectModal from "../../modals/AddProjectModal";
+import AddProjectModal from "../../../modals/AddProjectModal";
 
 const AddProject = () => {
   return (

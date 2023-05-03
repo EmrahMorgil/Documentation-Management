@@ -8,7 +8,6 @@ interface IVisibilityProjects {
 
 const Project: React.FC<IVisibilityProjects> = ({ item }) => {
 
-  
   return (
     <>
       <tr>

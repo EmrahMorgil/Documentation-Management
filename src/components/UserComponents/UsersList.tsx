@@ -4,7 +4,7 @@ import { RootState } from "../../redux/store";
 import { user } from "../../types/Type";
 import User from "./User";
 
-const UsersList = () => {
+const UsersList: React.FC = () => {
   const users = useSelector((state: RootState) => state.users.users);
 
   return (
@@ -26,8 +26,8 @@ const UsersList = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((item: user, i: number) => (
-            <User item={item} key={i} />
+          {users.map((user: user, i: number) => (
+            <User user={user} key={i} />
           ))}
         </tbody>
       </table>

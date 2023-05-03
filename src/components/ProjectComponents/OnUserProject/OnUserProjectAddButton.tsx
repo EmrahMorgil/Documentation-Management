@@ -1,11 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
-import { project, user, visibilityProjects } from "../../types/Type";
-import { setUsers } from "../../redux/users/usersSlice";
-import { updateUsers } from "../../services/userService";
-import { addVisibilityProjectsApi } from "../../services/visibilityProjectServise";
-import { addVisibilityProjects } from "../../redux/projects/projectsSlice";
+import { RootState } from "../../../redux/store";
+import { project, user, visibilityProjects } from "../../../types/Type";
+import { setUsers } from "../../../redux/users/usersSlice";
+import { updateUsers } from "../../../services/userService";
+import { addVisibilityProjectsApi } from "../../../services/visibilityProjectServise";
+import { addVisibilityProjects } from "../../../redux/projects/projectsSlice";
 import { nanoid } from "nanoid";
 
 const OnUserProjectAddButton = ({ userId, item, addButtonControl, setAddButtonControl, setDynamicId }: { userId?: string, item: project, addButtonControl: any, setAddButtonControl: any, setDynamicId: any }) => {

@@ -4,7 +4,11 @@ import { RootState } from '../../redux/store';
 import { project, user, visibilityProjects } from '../../types/Type';
 import UserProjects from './UserProjects';
 
-const UserProjectsList = ({filterValue}: {filterValue: any}) => {
+interface IFilterValue{
+  filterValue: string;
+}
+
+const UserProjectsList: React.FC<IFilterValue> = ({filterValue}) => {
 
     const activeUser: user = useSelector((state: RootState)=>state.users.activeUser);
     const visibilityProjects = useSelector((state: RootState)=>state.projects.visibilityProjects);

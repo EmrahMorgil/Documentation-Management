@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import { project, user } from "../types/Type";
-import ProjectsList from "../components/ProjectComponents/ProjectsList";
-import RemoveOnUserProject from "../components/ProjectComponents/RemoveOnUserProject";
 import AddOnUserProjectContainer from "../components/UserComponents/AddOnUserProjectContainer";
 
-const AddOnUserProjectsModal = ({ user }: { user?: user }) => {
+const AddOnUserProjectsModal = ({ onUser }: { onUser?: user }) => {
   
   return (
     <div
-      className="modal fade" id={user?.id + "on"} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      className="modal fade" id={onUser?.id + "on"} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog modal-xl" role="document">
         <div className="modal-content">
           <div className="modal-body">
             <div style={{display: "flex", justifyContent: "center",marginTop: "50px"}}>
-              <AddOnUserProjectContainer user={user}/>
+              <AddOnUserProjectContainer onUser={onUser}/>
             </div>
           </div>
           <div className="modal-footer">

@@ -4,7 +4,13 @@ import { RootState } from "../../redux/store";
 import { project } from "../../types/Type";
 import Project from "./Project";
 
-const ProjectsList = ({projectsControl, userId, filterValue}: {projectsControl: string, userId?: string, filterValue: string}) => {
+interface IProjectsList{
+  projectsControl: string;
+  userId?: string;
+  filterValue: string;
+}
+
+const ProjectsList: React.FC<IProjectsList> = ({projectsControl, userId, filterValue}) => {
   const projects = useSelector((state: RootState) => state.projects.projects);
 
   return (
@@ -20,7 +26,7 @@ const ProjectsList = ({projectsControl, userId, filterValue}: {projectsControl: 
             <th scope="col">Updated Person</th>
             <th scope="col">Total Content</th>
             <th scope="col">Visibility Role</th>
-            {projectsControl!=="homePageProject" && <th scope="col">Actions</th>}
+            {projectsControl!=="adminLoggedInProjects" && <th scope="col">Actions</th>}
           </tr>
         </thead>
         <tbody>

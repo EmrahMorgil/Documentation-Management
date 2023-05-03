@@ -1,6 +1,6 @@
-import AddUserModal from "../../modals/AddUserModal";
+import AddUserModal from "../../../modals/AddUserModal";
 
-const AddUser = () => {
+const AddUser: React.FC = () => {
   return (
     <div>
       <button

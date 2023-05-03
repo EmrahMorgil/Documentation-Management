@@ -4,7 +4,12 @@ import { RootState } from "../../redux/store";
 import { content } from "../../types/Type";
 import Content from "./Content";
 
-const ContentList = ({projectId}: {projectId?: string}) => {
+
+interface IContentList{
+  projectId?: string;
+}
+
+const ContentList: React.FC<IContentList> = ({projectId}) => {
   const contents = useSelector((state: RootState) => state.contents.contents);
 
   return (
@@ -25,8 +30,8 @@ const ContentList = ({projectId}: {projectId?: string}) => {
           </tr>
         </thead>
         <tbody>
-          {contents.map((item: content, i: number) => {
-            return <Content item={item} key={i} projectId={projectId}/>;
+          {contents.map((content: content, i: number) => {
+            return <Content content={content} key={i} projectId={projectId}/>;
           })}
         </tbody>
       </table>

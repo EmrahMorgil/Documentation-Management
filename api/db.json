@@ -38,7 +38,7 @@
       "name": "admin",
       "surname": "admin",
       "password": "123",
-      "role": 0,
+      "role": 1,
       "totalProject": 1,
       "createdDate": "Wed May 03 2023 16:26:13",
       "updatedDate": "Wed May 03 2023 16:26:13",

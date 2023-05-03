@@ -1,7 +1,11 @@
 import React from "react";
-import AddContentModal from "../../modals/AddContentModal";
+import AddContentModal from "../../../modals/AddContentModal";
 
-const AddContent = ({ id }: { id: string }) => {
+interface IAddContent{
+  id: string;
+}
+
+const AddContent: React.FC<IAddContent> = ({ id }) => {
   return (
     <div>
       <button
