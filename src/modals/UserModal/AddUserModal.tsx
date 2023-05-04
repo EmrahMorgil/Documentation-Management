@@ -25,7 +25,7 @@ const AddUserModal: React.FC = () => {
     let nowDate = new Date().toString().substring(0, 24);
 
     const updatedUser = { ...newUser };
-    updatedUser.id = nanoid();
+    updatedUser.id = "id"+nanoid();
     updatedUser.createdDate = nowDate;
     updatedUser.updatedDate = nowDate;
     updatedUser.createdPerson = activeUser.name;

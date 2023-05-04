@@ -82,7 +82,7 @@ const UpdateProjectModal: React.FC<IUpdateProjectModal> = ({ project }) => {
             style={{
               display: "flex",
               justifyContent: "center",
-              marginTop: "150px",
+              marginTop: "100px",
             }}
           >
             <form>

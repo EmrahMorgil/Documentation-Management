@@ -10,6 +10,7 @@ const AddProjectModal: React.FC = () => {
 
     const dispatch = useDispatch();
     const activeUser = useSelector((state: RootState) => state.users.activeUser);
+    const projects = useSelector((state: RootState)=>state.projects.projects);
 
     const [newProject, setNewProject] = useState({
         id: "",
@@ -22,35 +23,25 @@ const AddProjectModal: React.FC = () => {
         visibilityRole: 0,
       });
 
-    const handleClick = () =>{
+
+      const createNewProject = ()=>{
         let nowDate = new Date().toString().substring(0, 24);
         const updatedProject = { ...newProject };
-        updatedProject.id = nanoid();
+        updatedProject.id = "id"+nanoid();
         updatedProject.createdDate = nowDate;
         updatedProject.updatedDate = nowDate;
         updatedProject.createdPerson = activeUser.name;
         updatedProject.updatedPerson = activeUser.name;
+        dispatch(addNewProject(updatedProject));
+        addProjects(updatedProject);
+      }
 
-
-        //api
-        // addProjects(updatedProject);
-        setTimeout(()=>dispatch(addNewProject(updatedProject)), 100);
+    const handleClick = () =>{
         
-        setTimeout(()=>addProjects(updatedProject), 500);
-        
-        
-
-        setNewProject({
-            id: "",
-            projectName: "",
-            createdDate: "",
-            updatedDate: "",
-            createdPerson: "",
-            updatedPerson: "",
-            totalContent: 0,
-            visibilityRole: 0,
-          });
-
+        createNewProject();
+  
+        //proje ekledikten sonra alanların temizlenmesi.
+        setNewProject({id: "",projectName: "",createdDate: "",updatedDate: "",createdPerson: "",updatedPerson: "",totalContent: 0,visibilityRole: 0,});
     }
     const handleChange = (e: any) =>{
         setNewProject({ ...newProject, [e.target.name]: e.target.value });

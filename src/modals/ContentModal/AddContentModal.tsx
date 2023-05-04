@@ -52,7 +52,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
   const handleClick = async () => {
     let nowDate = new Date().toString().substring(0, 24);
     const updatedContent = { ...newContent };
-    updatedContent.id = nanoid();
+    updatedContent.id = "id"+nanoid();
     updatedContent.createdDate = nowDate;
     updatedContent.updatedDate = nowDate;
     updatedContent.createdPerson = activeUser.name;

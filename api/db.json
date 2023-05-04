@@ -1,150 +1,97 @@
 {
   "projects": [
     {
-      "id": "zUeb4weZYCRpAvPLXVJSg",
-      "projectName": "Okul",
-      "createdDate": "Wed May 03 2023 18:14:52",
-      "updatedDate": "Wed May 03 2023 18:14:52",
+      "id": "idt5GFGroG5VS8Q_FJQGXQt",
+      "projectName": "",
+      "createdDate": "Thu May 04 2023 10:24:03",
+      "updatedDate": "Thu May 04 2023 10:24:03",
       "createdPerson": "admin",
       "updatedPerson": "admin",
-      "totalContent": 2,
+      "totalContent": 3,
       "visibilityRole": 0
     },
     {
-      "id": "F0hVqk0aCYpTSUq2FXh8K",
-      "projectName": "Hastane",
-      "createdDate": "Wed May 03 2023 18:14:56",
-      "updatedDate": "Wed May 03 2023 18:14:56",
+      "id": "idW8VBIlrLjEcQFGp9q6D6i",
+      "projectName": "",
+      "createdDate": "Thu May 04 2023 10:24:06",
+      "updatedDate": "Thu May 04 2023 10:24:06",
       "createdPerson": "admin",
       "updatedPerson": "admin",
-      "totalContent": 1,
+      "totalContent": 0,
       "visibilityRole": 0
     },
     {
-      "id": "i4aPDo_q3iW_q4ynmlmoH",
-      "projectName": "Kütüphane",
-      "createdDate": "Wed May 03 2023 18:15:02",
-      "updatedDate": "Wed May 03 2023 18:15:02",
+      "id": "idj3h8KjqWdofS_-WXsJ7Cg",
+      "projectName": "",
+      "createdDate": "Thu May 04 2023 10:24:07",
+      "updatedDate": "Thu May 04 2023 10:24:07",
       "createdPerson": "admin",
       "updatedPerson": "admin",
-      "totalContent": 1,
+      "totalContent": 0,
+      "visibilityRole": 0
+    },
+    {
+      "id": "idqP0zBOJiAjSZoLBZdPULT",
+      "projectName": "",
+      "createdDate": "Thu May 04 2023 10:24:09",
+      "updatedDate": "Thu May 04 2023 10:24:09",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
       "visibilityRole": 0
     }
   ],
   "contents": [
     {
-      "id": "5ACA95h4AUzOXzgzyU-ME",
-      "contentName": "test",
-      "createdDate": "Wed May 03 2023 18:15:17",
-      "updatedDate": "Wed May 03 2023 18:15:17",
+      "id": "idPUxg2tCh3Juwn-YWTbiNb",
+      "contentName": "",
+      "createdDate": "Thu May 04 2023 10:25:59",
+      "updatedDate": "Thu May 04 2023 10:25:59",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "contentVersion": 0,
-      "content": "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.\n\n",
-      "contentTags": "test",
-      "projectId": "zUeb4weZYCRpAvPLXVJSg"
+      "content": "",
+      "contentTags": "",
+      "projectId": "idt5GFGroG5VS8Q_FJQGXQt"
     },
     {
-      "id": "bOyPOvIE3oSPB9_T9VXe3",
-      "contentName": "test2",
-      "createdDate": "Wed May 03 2023 18:15:24",
-      "updatedDate": "Wed May 03 2023 18:15:24",
+      "id": "idVE0E-G0670JBY8opw-KPF",
+      "contentName": "",
+      "createdDate": "Thu May 04 2023 10:26:01",
+      "updatedDate": "Thu May 04 2023 10:26:01",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "contentVersion": 0,
-      "content": "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.\n\n",
-      "contentTags": "test",
-      "projectId": "zUeb4weZYCRpAvPLXVJSg"
+      "content": "",
+      "contentTags": "",
+      "projectId": "idt5GFGroG5VS8Q_FJQGXQt"
     },
     {
-      "id": "c8ZsR2RvWAnO3a-S1VRsU",
-      "contentName": "deneme",
-      "createdPerson": "admin",
-      "updatedPerson": "admin",
-      "createdDate": "Wed May 03 2023 18:15:41",
-      "updatedDate": "Wed May 03 2023 18:16:02",
-      "content": "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.",
-      "contentTags": "test",
-      "projectId": "F0hVqk0aCYpTSUq2FXh8K"
-    },
-    {
-      "id": "8ggaG3o0FE_phc4-zVvaI",
-      "contentName": "test",
-      "createdDate": "Wed May 03 2023 18:15:51",
-      "updatedDate": "Wed May 03 2023 18:15:51",
+      "id": "idR9BMiWoLUUuFYgNLiSj7_",
+      "contentName": "",
+      "createdDate": "Thu May 04 2023 10:26:03",
+      "updatedDate": "Thu May 04 2023 10:26:03",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "contentVersion": 0,
-      "content": "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.",
-      "contentTags": "test",
-      "projectId": "i4aPDo_q3iW_q4ynmlmoH"
+      "content": "",
+      "contentTags": "",
+      "projectId": "idt5GFGroG5VS8Q_FJQGXQt"
     }
   ],
   "users": [
     {
-      "id": "8vH4BWlluof0_7rSptc-y",
+      "id": "idXbGXXGx12u5G49_zCv-ij",
       "name": "admin",
       "surname": "admin",
       "password": "123",
-      "role": 1,
-      "totalProject": 0,
-      "createdDate": "Thu May 04 2023 09:04:58",
-      "updatedDate": "Thu May 04 2023 09:04:58",
+      "role": "1",
       "createdPerson": "admin",
-      "updatedPerson": "admin"
-    },
-    {
-      "id": "CnHCluFn6CGSQoJ51ceTW",
-      "name": "Emrah",
-      "surname": "Morgil",
-      "password": "123",
-      "role": 0,
-      "totalProject": 3,
-      "createdDate": "Thu May 04 2023 09:05:06",
-      "updatedDate": "Thu May 04 2023 09:05:06",
-      "createdPerson": "admin",
-      "updatedPerson": "admin"
+      "createdDate": "Thu May 04 2023 10:25:43",
+      "updatedDate": "Thu May 04 2023 10:25:50",
+      "updatedPerson": "admin",
+      "totalProject": 0
     }
   ],
-  "visibilityProjects": [
-    {
-      "id": "E1Yq6pykAWVJ6gT86I4LZ",
-      "projectName": "Okul",
-      "createdDate": "Wed May 03 2023 18:14:52",
-      "updatedDate": "Wed May 03 2023 18:14:52",
-      "createdPerson": "admin",
-      "updatedPerson": "admin",
-      "totalContent": 2,
-      "visibilityRole": 0,
-      "visibility": true,
-      "userId": "CnHCluFn6CGSQoJ51ceTW",
-      "projectId": "zUeb4weZYCRpAvPLXVJSg"
-    },
-    {
-      "id": "zvWHdtHtWFEEW_tKXMH14",
-      "projectName": "Hastane",
-      "createdDate": "Wed May 03 2023 18:14:56",
-      "updatedDate": "Wed May 03 2023 18:14:56",
-      "createdPerson": "admin",
-      "updatedPerson": "admin",
-      "totalContent": 1,
-      "visibilityRole": 0,
-      "visibility": true,
-      "userId": "CnHCluFn6CGSQoJ51ceTW",
-      "projectId": "F0hVqk0aCYpTSUq2FXh8K"
-    },
-    {
-      "id": "csXweyW1fZgoWKg2JcPyA",
-      "projectName": "Kütüphane",
-      "createdDate": "Wed May 03 2023 18:15:02",
-      "updatedDate": "Wed May 03 2023 18:15:02",
-      "createdPerson": "admin",
-      "updatedPerson": "admin",
-      "totalContent": 1,
-      "visibilityRole": 0,
-      "visibility": true,
-      "userId": "CnHCluFn6CGSQoJ51ceTW",
-      "projectId": "i4aPDo_q3iW_q4ynmlmoH"
-    }
-  ]
+  "visibilityProjects": []
 }
