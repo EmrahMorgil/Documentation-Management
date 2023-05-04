@@ -1,7 +1,7 @@
 import React from "react";
-import { IOnUserProp, project, user } from "../../types/Type";
-import ProjectsList from "../ProjectComponents/ProjectsList";
-import OnUserProjects from "../ProjectComponents/OnUserProject/OnUserProjects";
+import { IOnUserProp, project, user } from "../../../types/Type";
+import ProjectsList from "../ProjectsList";
+import OnUserProjects from "./OnUserProjects";
 
 const AddOnUserProjectContainer: React.FC<IOnUserProp> = ({ onUser }) => {
   

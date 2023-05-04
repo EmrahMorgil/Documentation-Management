@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { project, user } from "../../types/Type";
-import AddOnUserProjectContainer from "../../components/UserComponents/AddOnUserProjectContainer";
+import AddOnUserProjectContainer from "../../components/ProjectComponents/OnUserProject/AddOnUserProjectContainer";
 
 interface IAddOnUserProjectsModal{
   onUser?: user;

@@ -27,10 +27,12 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
         <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
           {projectsControl==="addUserOnProject" ? (
             <>
+            {/* kullanıcının üzerine proje ekleme */}
             <OnUserProjectsContainer project={project} userId={userId}/>
             </>
           ) : projectsControl === "projectPanel" ? (
             <>
+            {/* projectpanelde görünecekler */}
               <Link to={`/contentpanel/${project.id}`}>
                 <button className="btn btn-success" style={{ width: "100px" }} >
                   Content

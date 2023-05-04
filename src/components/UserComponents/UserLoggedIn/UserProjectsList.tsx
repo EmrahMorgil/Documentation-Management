@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
-import { project, user, visibilityProjects } from '../../types/Type';
+import { RootState } from '../../../redux/store';
+import { project, user, visibilityProjects } from '../../../types/Type';
 import UserProjects from './UserProjects';
 
 interface IFilterValue{
@@ -30,12 +30,12 @@ const UserProjectsList: React.FC<IFilterValue> = ({filterValue}) => {
     </tr>
   </thead>
   <tbody>
-    {visibilityProjects.map((item: visibilityProjects, i: number)=>{
-      if(activeUser.id===item.userId)
+    {visibilityProjects.map((visibilityProject: visibilityProjects, i: number)=>{
+      if(activeUser.id===visibilityProject.userId)
       {
-        if(item.projectName.toLowerCase().includes(filterValue.toLowerCase()))
+        if(visibilityProject.projectName.toLowerCase().includes(filterValue.toLowerCase()))
         {
-          return <UserProjects item={item} key={i}/>
+          return <UserProjects visibilityProject={visibilityProject} key={i}/>
         }
       }
     })}
