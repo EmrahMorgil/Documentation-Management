@@ -8,7 +8,7 @@ const User: React.FC<IUserProp> = ({ user }) => {
   return (
     <>
       <tr>
-        <td scope="row">{user.id}</td>
+        <td scope="row">{user.id.substring(0,2)+"..."}</td>
         <td scope="row">{user.name}</td>
         <td scope="row">{user.surname}</td>
         <td scope="row">{user.password}</td>

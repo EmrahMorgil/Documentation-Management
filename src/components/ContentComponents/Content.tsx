@@ -17,7 +17,7 @@ const Content: React.FC<IContent> = ({ content, projectId }) => {
   return (
     <>
       <tr>
-        <td scope="row">{content.id}</td>
+        <td scope="row">{content.id.substring(0,2)+"..."}</td>
         <td scope="row">{content.contentName}</td>
         <td scope="row">{content.createdDate}</td>
         <td scope="row">{content.updatedDate}</td>
