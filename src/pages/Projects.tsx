@@ -6,8 +6,9 @@ import ProjectsList from "../components/ProjectComponents/ProjectsList";
 import UserProjectsList from "../components/UserComponents/UserLoggedIn/UserProjectsList";
 import Logout from "../logout/Logout";
 
-const Projects: React.FC = () => {const adminLoggedIn = useSelector((state: RootState) => state.users.adminLoggedIn);
+const Projects: React.FC = () => {
   
+    const adminLoggedIn = useSelector((state: RootState) => state.users.adminLoggedIn);
     const [filterValue, setFilterValue] = useState<string>("");
 
   return (
@@ -16,7 +17,7 @@ const Projects: React.FC = () => {const adminLoggedIn = useSelector((state: Root
         <input className="mb-3" onChange={(e: React.ChangeEvent<HTMLInputElement>)=>setFilterValue(e.target.value)}/>
       </div>
       {adminLoggedIn ? (
-        <ProjectsList projectsControl={"adminLoggedInProjects"} userId="" filterValue={filterValue}/>
+        <ProjectsList projectsControl={"adminLoggedInProjects"} filterValue={filterValue}/>
       ) : (
         <>
           <UserProjectsList filterValue={filterValue}/>

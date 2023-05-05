@@ -7,8 +7,8 @@ import { setProjects } from "../../redux/projects/projectsSlice";
 
 
 const ProjectsList = ({projectsControl, userId, filterValue}: {projectsControl: string, userId?: string, filterValue: string}) => {
+  
   const projects = useSelector((state: RootState) => state.projects.projects);
-  // const [data, setData] = useState(projects);
   const [sorted, setSorted] = useState({ sorted: "totalContent", isReversed: false });
   const dispatch = useDispatch();
   
@@ -62,7 +62,7 @@ const ProjectsList = ({projectsControl, userId, filterValue}: {projectsControl: 
             {sorted.sorted==="totalContent" ? renderArrow():null}
             </th>
             <th scope="col">Visibility Role</th>
-            {projectsControl!=="homePageProject" && <th scope="col">Actions</th>}
+            {projectsControl!=="adminLoggedInProjects" && <th scope="col">Actions</th>}
           </tr>
         </thead>
         <tbody>
