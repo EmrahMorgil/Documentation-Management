@@ -10,7 +10,7 @@ const UsersList: React.FC = () => {
   return (
     <div className="container">
       <table className="table table-striped">
-        <thead className="thead-dark">
+        <thead>
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Name </th>

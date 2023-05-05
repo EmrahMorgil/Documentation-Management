@@ -14,7 +14,7 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
 
   return (
     <div className="container">
-      <table className="table table-striped">
+      <table className="table table-striped table-dark">
         <thead className="thead-dark">
           <tr>
             <th scope="col">ID</th>

@@ -12,7 +12,7 @@ const UpdateProject: React.FC<IUpdateProject> = ({ project }) => {
     <div>
     <button
       type="button"
-      className="btn btn-warning"
+      className="btn btn-warning w-100"
       data-toggle="modal"
       data-target={`#${project.id}`}
     >

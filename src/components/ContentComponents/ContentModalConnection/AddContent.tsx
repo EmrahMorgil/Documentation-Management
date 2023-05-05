@@ -10,7 +10,7 @@ const AddContent: React.FC<IAddContent> = ({ id }) => {
     <div>
       <button
         type="button"
-        className="btn btn-success"
+        className="btn btn-success mb-3"
         data-toggle="modal"
         data-target={`#${id}`}
       >
