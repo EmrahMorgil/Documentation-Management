@@ -91,7 +91,59 @@
       "updatedDate": "Thu May 04 2023 10:25:50",
       "updatedPerson": "admin",
       "totalProject": 0
+    },
+    {
+      "id": "idWL7B3khyBVTOEKiuKENNb",
+      "name": "Emrah",
+      "surname": "Morgil",
+      "password": "123",
+      "role": 0,
+      "totalProject": 3,
+      "createdDate": "Fri May 05 2023 11:07:39",
+      "updatedDate": "Fri May 05 2023 11:07:39",
+      "createdPerson": "admin",
+      "updatedPerson": "admin"
     }
   ],
-  "visibilityProjects": []
+  "visibilityProjects": [
+    {
+      "id": "9SnZ4FN_pe5HgWybK2LF_",
+      "projectName": "",
+      "createdDate": "Thu May 04 2023 10:24:03",
+      "updatedDate": "Thu May 04 2023 10:24:03",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 3,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "idWL7B3khyBVTOEKiuKENNb",
+      "projectId": "idt5GFGroG5VS8Q_FJQGXQt"
+    },
+    {
+      "id": "Iz61yuszEznZzWytLNgI5",
+      "projectName": "",
+      "createdDate": "Thu May 04 2023 10:24:06",
+      "updatedDate": "Thu May 04 2023 10:24:06",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "idWL7B3khyBVTOEKiuKENNb",
+      "projectId": "idW8VBIlrLjEcQFGp9q6D6i"
+    },
+    {
+      "id": "3RE75Y8j-RCf5fFjY5olQ",
+      "projectName": "",
+      "createdDate": "Thu May 04 2023 10:24:07",
+      "updatedDate": "Thu May 04 2023 10:24:07",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "idWL7B3khyBVTOEKiuKENNb",
+      "projectId": "idj3h8KjqWdofS_-WXsJ7Cg"
+    }
+  ]
 }

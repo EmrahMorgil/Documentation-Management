@@ -12,18 +12,6 @@ const Projects: React.FC = () => {const adminLoggedIn = useSelector((state: Root
 
   return (
     <div>
-      {adminLoggedIn ? (
-        //admin giriş yaparsa user ve project butonu çıkar.
-        <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
-          <Link to="/userpanel">
-            <button className="btn btn-success">User</button>
-          </Link>
-          <Link to="/projectpanel">
-            <button className="btn btn-success">Project</button>
-          </Link>
-          <Logout />
-        </div>
-      ) : (<div style={{ display: "flex", justifyContent: "center", gap: "20px", marginTop: "20px" }}><Logout/></div>)}
       <div style={{ textAlign: "center", marginTop: "50px" }}>
         <input onChange={(e: React.ChangeEvent<HTMLInputElement>)=>setFilterValue(e.target.value)}/>
       </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import { useSelector } from "react-redux";
@@ -9,6 +9,8 @@ import ProjectPanel from "./pages/ProjectPanel";
 import Protected from "./components/Protected";
 import ContentPanel from "./pages/ContentPanel";
 import "./styles/App.css"
+import AdminNavbar from "./pages/AdminNavbar";
+import UserNavbar from "./pages/UserNavbar";
 
 function App() {
 
@@ -17,6 +19,7 @@ function App() {
 
   return (
     <>
+    {adminLoggedIn ? <AdminNavbar /> : userLoggedIn ? <UserNavbar /> : <></>}
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/projects" element={<Protected loggedIn={adminLoggedIn || userLoggedIn}><Projects/></Protected>} />
