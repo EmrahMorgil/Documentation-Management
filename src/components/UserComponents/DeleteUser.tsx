@@ -27,7 +27,7 @@ const DeleteUser: React.FC<Id> = ({ id }) => {
   };
 
   return (
-    <button className="btn btn-danger" onClick={() => deleteUser(id)}>
+    <button className="btn btn-danger w-100" onClick={() => deleteUser(id)}>
       Delete
     </button>
   );

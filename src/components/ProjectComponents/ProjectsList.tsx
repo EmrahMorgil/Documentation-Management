@@ -26,7 +26,7 @@ const ProjectsList: React.FC<IProjectsList> = ({projectsControl, userId, filterV
             <th scope="col">Updated Person</th>
             <th scope="col">Total Content</th>
             <th scope="col">Visibility Role</th>
-            {projectsControl=="projectPanel" && <th scope="col">Actions</th>}
+            {projectsControl!="adminLoggedInProjects" && <th scope="col">Actions</th>}
           </tr>
         </thead>
         <tbody>

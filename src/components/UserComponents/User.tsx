@@ -2,6 +2,7 @@ import React from "react";
 import DeleteUser from "./DeleteUser";
 import { IUserProp } from "../../types/Type";
 import UpdateUser from "./UserModalConnection/UpdateUser";
+import OnUserProjects from "./UserModalConnection/OnUserProjects";
 import AddOnUserProjects from "./UserModalConnection/AddOnUserProjects";
 
 const User: React.FC<IUserProp> = ({ user }) => {
@@ -19,7 +20,8 @@ const User: React.FC<IUserProp> = ({ user }) => {
         <td scope="row">{user.createdPerson}</td>
         <td scope="row">{user.updatedPerson}</td>
         <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
-          <AddOnUserProjects user={user} />
+          <OnUserProjects user={user} />
+          <AddOnUserProjects user={user}/>
           <UpdateUser user={user} />
           <DeleteUser id={user.id} />
         </td>

@@ -5,7 +5,7 @@ const AddUser: React.FC = () => {
     <div>
       <button
         type="button"
-        className="btn btn-success"
+        className="btn btn-success mr-1"
         data-toggle="modal"
         data-target="#exampleModal"
       >

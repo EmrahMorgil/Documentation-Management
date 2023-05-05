@@ -2,6 +2,7 @@ import React from "react";
 import { user, visibilityProjects } from "../../../types/Type";
 import { RootState } from "../../../redux/store";
 import { useSelector } from "react-redux";
+import Project from "../Project";
 
 
 interface IOnUserProjects{
@@ -17,11 +18,9 @@ const OnUserProjects: React.FC<IOnUserProjects> = ({ onUser }) => {
         if(onUser?.id===item.userId)
         {
           return (
-            <div className="row">
-              <div className="col">{item.projectName}</div>
-              <div className="col">{item.createdDate}</div>
-              <div className="col">{item.updatedDate}</div>
-            </div>
+            <>
+            <Project project={item} projectsControl=""/>
+            </>
           );
         }
       })}

@@ -1,22 +1,19 @@
-import React, { useState } from "react";
-import { project, user } from "../../types/Type";
-import AddOnUserProjectContainer from "../../components/ProjectComponents/OnUserProject/AddOnUserProjectContainer";
+import React from 'react'
+import { user } from '../../types/Type'
+import ProjectsList from '../../components/ProjectComponents/ProjectsList'
 
-interface IAddOnUserProjectsModal{
-  onUser?: user;
-} 
-
-const AddOnUserProjectsModal: React.FC<IAddOnUserProjectsModal> = ({ onUser }) => {
-  
+const AddOnUserProjectsModal = ({addOnUserProject}: {addOnUserProject?: user}) => {
   return (
     <div
-      className="modal fade" id={onUser?.id + "on"} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      className="modal fade" id={addOnUserProject?.id + "add"} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog modal-xl" role="document">
         <div className="modal-content">
           <div className="modal-body">
-            <div style={{display: "flex", justifyContent: "center",marginTop: "50px"}}>
-              <AddOnUserProjectContainer onUser={onUser}/>
-            </div>
+
+        <h3 className='text-center mt-3'>Add Project</h3>
+          <div style={{display: "flex", justifyContent: "center",marginTop: "50px"}}>
+            <ProjectsList filterValue="" projectsControl={"addUserOnProject"} userId={addOnUserProject?.id}/>
+          </div>
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" data-dismiss="modal">
@@ -29,7 +26,7 @@ const AddOnUserProjectsModal: React.FC<IAddOnUserProjectsModal> = ({ onUser }) =
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AddOnUserProjectsModal;
+export default AddOnUserProjectsModal
