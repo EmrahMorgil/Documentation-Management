@@ -4,6 +4,7 @@ import { addUsers } from "../../services/userService";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { addNewUser } from "../../redux/users/usersSlice";
+import {toast} from "react-toastify";
 
 const AddUserModal: React.FC = () => {
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ const AddUserModal: React.FC = () => {
       createdPerson: "",
       updatedPerson: "",
     });
+    toast.success("user successfully added");
   };
 
   const handleChange = (e: any) => {

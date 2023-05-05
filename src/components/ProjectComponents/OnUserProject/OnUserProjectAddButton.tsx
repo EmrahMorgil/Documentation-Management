@@ -7,6 +7,7 @@ import { updateUsers } from "../../../services/userService";
 import { addVisibilityProjectsApi } from "../../../services/visibilityProjectServise";
 import { addVisibilityProjects } from "../../../redux/projects/projectsSlice";
 import { nanoid } from "nanoid";
+import {toast} from "react-toastify";
 
 
 interface IOnUserProjectAddButton{
@@ -17,6 +18,7 @@ interface IOnUserProjectAddButton{
 const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, project }) => {
   
   const users = useSelector((state: RootState)=>state.users.users);
+  const visibilityProjects = useSelector((state: RootState)=>state.projects.visibilityProjects);
 
   const dispatch = useDispatch();
 
@@ -40,16 +42,28 @@ const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, pro
 
   const handleClick = () => {
 
+    const newArr = visibilityProjects.map((visibilityProject: visibilityProjects)=>{
+      if(visibilityProject.projectId===project.id && visibilityProject.userId=== userId)
+      {
+        return false;
+      }else{
+        return true;
+      }
+    })
 
-
-    const {projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole } = project;
-    const randomId = nanoid();
-    const newItem = {id: randomId, projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole, visibility: true, userId, projectId: project.id};
-    addVisibilityProjectsApi(newItem);
-    dispatch(addVisibilityProjects(newItem));
-
-    setTimeout(addProjectAmount, 100);
-    alert("Proje kullanıcının üzerine başarıyla eklendi..")
+    if(!newArr.includes(false) || newArr.length ===0)
+    {
+      const {projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole } = project;
+      const randomId = nanoid();
+      const newItem = {id: randomId, projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole, visibility: true, userId, projectId: project.id};
+      addVisibilityProjectsApi(newItem);
+      dispatch(addVisibilityProjects(newItem));
+      
+      setTimeout(addProjectAmount, 100);
+      toast.success("Project successfully added on user!");
+    }else{
+      toast.error("Already added on user!");
+    };
   };
 
   return (

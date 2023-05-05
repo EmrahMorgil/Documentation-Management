@@ -7,6 +7,7 @@ import { addNewContent } from "../../redux/contents/contentsSlice";
 import {updateProjects} from "../../services/projectService";
 import { project } from "../../types/Type";
 import { setProjects } from "../../redux/projects/projectsSlice";
+import {toast} from "react-toastify";
 
 interface IAddContentModal{
   id: string;
@@ -80,6 +81,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
 
     //add amount
     setTimeout(addContentAmount, 100);
+    toast.success("Content successfully added");
   };
   const handleChange = (e: any) => {
     setNewContent({ ...newContent, [e.target.name]: e.target.value });

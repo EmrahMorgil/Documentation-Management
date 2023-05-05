@@ -4,6 +4,7 @@ import { RootState } from '../../redux/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { addNewProject } from '../../redux/projects/projectsSlice';
 import { addProjects } from '../../services/projectService';
+import {toast} from "react-toastify";
 
 const AddProjectModal: React.FC = () => {
 
@@ -42,7 +43,8 @@ const AddProjectModal: React.FC = () => {
   
         //proje ekledikten sonra alanların temizlenmesi.
         setNewProject({id: "",projectName: "",createdDate: "",updatedDate: "",createdPerson: "",updatedPerson: "",totalContent: 0,visibilityRole: 0,});
-    }
+        toast.success("Project successfully added");
+      }
     const handleChange = (e: any) =>{
         setNewProject({ ...newProject, [e.target.name]: e.target.value });
     }

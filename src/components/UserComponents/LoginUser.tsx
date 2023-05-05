@@ -7,6 +7,7 @@ import {
   setAdminLoggedIn,
   setActiveUser,
 } from "../../redux/users/usersSlice";
+import {toast} from "react-toastify";
 
 const LoginUser: React.FC = () => {
   const dispatch = useDispatch();
@@ -24,10 +25,10 @@ const LoginUser: React.FC = () => {
         
       }else if (item.name === userLogin.name && item.password === userLogin.password) {
         if (item.role === 0) {
-          alert("Kullanıcı Girişi Başarılı...");
+          toast.success("Kullanıcı Girişi Başarılı...");
           dispatch(setUserLoggedIn(true));
         } else {
-          alert("Admin Girişi Başarılı..");
+          toast.success("Admin Login Successfully!");
           dispatch(setAdminLoggedIn(true));
         }
         localStorage.setItem("name", item.name);
