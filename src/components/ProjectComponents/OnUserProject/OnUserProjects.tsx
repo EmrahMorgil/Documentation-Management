@@ -19,7 +19,7 @@ const OnUserProjects: React.FC<IOnUserProjects> = ({ onUser }) => {
         {
           return (
             <>
-            <Project project={item} key={i} projectsControl="onUserDeleteProject"/>
+            <Project project={item} key={i} projectsControl="onUserDeleteProject" userId={onUser.id}/>
             </>
           );
         }

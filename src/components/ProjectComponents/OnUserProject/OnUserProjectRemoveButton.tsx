@@ -21,6 +21,7 @@ const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId
   const removeProjectAmount = ()=>{
     let updatedProjectAmount: user ={id:"", name: "", surname: "", password: "", role: 0, createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalProject: 0};
     const newUserArray = users.map((user: user)=>{
+      
       if(user.id===userId)
       {
         updatedProjectAmount = {...user};
@@ -29,7 +30,6 @@ const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId
       }
       return user;
     });
-    console.log(newUserArray);
     
     updateUsers(updatedProjectAmount.id, updatedProjectAmount);
     dispatch(setUsers(newUserArray));
