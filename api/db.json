@@ -116,7 +116,7 @@
       "createdDate": "Fri May 05 2023 15:09:20",
       "updatedDate": "Fri May 05 2023 15:09:24",
       "updatedPerson": "admin",
-      "totalProject": 0
+      "totalProject": 3
     },
     {
       "id": "idZeV2u5hicxFvyfRwab-cC",
@@ -131,5 +131,45 @@
       "updatedPerson": "admin"
     }
   ],
-  "visibilityProjects": []
+  "visibilityProjects": [
+    {
+      "id": "_OCKYG2MSLFTMPzsm5lk-",
+      "projectName": "Kütüphane",
+      "createdDate": "Fri May 05 2023 16:20:59",
+      "updatedDate": "Fri May 05 2023 16:20:59",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 1,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "iden0hAIFIAnC9jZjJLU25K",
+      "projectId": "id72yVroWgwwONXrKRp7iu5"
+    },
+    {
+      "id": "2VXC-h9nNgYmyfvIxtuJY",
+      "projectName": "Okul",
+      "createdDate": "Fri May 05 2023 16:21:03",
+      "updatedDate": "Fri May 05 2023 16:21:03",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 2,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "iden0hAIFIAnC9jZjJLU25K",
+      "projectId": "idI2NDkBoYAJoUWM2Ywzhhc"
+    },
+    {
+      "id": "Pr5GBZp2HlyGq-KZ2sK80",
+      "projectName": "Hastane",
+      "createdDate": "Fri May 05 2023 16:21:07",
+      "updatedDate": "Fri May 05 2023 16:21:07",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 3,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "iden0hAIFIAnC9jZjJLU25K",
+      "projectId": "id4HyNNzph-dX9XJvFckCtt"
+    }
+  ]
 }

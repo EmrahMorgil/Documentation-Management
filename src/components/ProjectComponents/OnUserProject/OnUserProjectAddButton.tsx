@@ -40,14 +40,16 @@ const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, pro
 
   const handleClick = () => {
 
+
+
     const {projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole } = project;
     const randomId = nanoid();
     const newItem = {id: randomId, projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole, visibility: true, userId, projectId: project.id};
     addVisibilityProjectsApi(newItem);
     dispatch(addVisibilityProjects(newItem));
 
-    
     setTimeout(addProjectAmount, 100);
+    alert("Proje kullanıcının üzerine başarıyla eklendi..")
   };
 
   return (
