@@ -24,14 +24,13 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
         <td scope="row">{project.updatedPerson}</td>
         <td scope="row">{project.totalContent}</td>
         <td scope="row">{project.visibilityRole}</td>
-        <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
           {projectsControl==="addUserOnProject" ? (
-            <>
+            <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
             {/* kullanıcının üzerine proje ekleme */}
             <OnUserProjectsContainer project={project} userId={userId}/>
-            </>
+            </td>
           ) : projectsControl === "projectPanel" ? (
-            <>
+            <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
             {/* projectpanelde görünecekler */}
               <Link to={`/contentpanel/${project.id}`}>
                 <button className="btn btn-success" style={{ width: "100px" }} >
@@ -40,9 +39,9 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
               </Link>
               <DeleteProject project={project} />
               <UpdateProject project={project} />
-            </>
-          ) : <></>}
-        </td>
+            </td>
+          ) : projectsControl ==="onUserDeleteProject" ? <td scope="row"><button className="btn btn-danger btn-sm">X</button></td> : <></>}
+        
       </tr>
     </>
   );

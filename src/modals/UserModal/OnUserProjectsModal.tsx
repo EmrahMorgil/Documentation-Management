@@ -15,7 +15,8 @@ const OnUserProjectsModal: React.FC<IAddOnUserProjectsModal> = ({ onUser }) => {
         <div className="modal-content">
           <div className="modal-body">
             <div style={{display: "flex", justifyContent: "center",marginTop: "50px"}}>
-              <OnUserProjectContainer onUser={onUser}/>
+              {onUser?.totalProject === 0 ? <h3>This user has no projects</h3> : <OnUserProjectContainer onUser={onUser}/>}
+              
             </div>
           </div>
           <div className="modal-footer">
