@@ -9,12 +9,10 @@ import { deleteVisibilityProjectsApi } from "../../../services/visibilityProject
 
 interface IOnUserProjectRemoveButton{
   userId?: string;
-  addButtonControl: boolean;
-  setAddButtonControl: React.Dispatch<React.SetStateAction<boolean>>;
-  dynamicId?: string;
+  projectId: string;
 }
 
-const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId,addButtonControl,setAddButtonControl, dynamicId}) => {
+const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId, projectId}) => {
   const users = useSelector((state: RootState) => state.users.users);
   const visibilityProjects = useSelector((state:RootState)=>state.projects.visibilityProjects);
   const dispatch = useDispatch();
@@ -27,10 +25,12 @@ const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId
       {
         updatedProjectAmount = {...user};
         updatedProjectAmount.totalProject--;
-        return updatedProjectAmount
+        return updatedProjectAmount;
       }
       return user;
     });
+    console.log(newUserArray);
+    
     updateUsers(updatedProjectAmount.id, updatedProjectAmount);
     dispatch(setUsers(newUserArray));
   }
@@ -38,17 +38,16 @@ const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId
 
   const handleClick = () => {
 
-    setAddButtonControl(false);
     
     const newArr = visibilityProjects.filter((item: visibilityProjects, i:number)=>{
-      if(item.id!==dynamicId)
+      if(item.id!==projectId)
       {
         return item;
       }
     });
     dispatch(setVisibilityProjects(newArr));
     //api    
-    deleteVisibilityProjectsApi(dynamicId!);
+    deleteVisibilityProjectsApi(projectId);
     
     setTimeout(removeProjectAmount, 100)
   };
@@ -57,7 +56,6 @@ const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId
     <button
       className="btn btn-danger"
       onClick={handleClick}
-      disabled={!addButtonControl}
     >
       X
     </button>

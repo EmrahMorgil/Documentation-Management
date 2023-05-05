@@ -1,10 +1,15 @@
 import React from "react";
-import { project } from "../../types/Type";
+import { project, visibilityProjects } from "../../types/Type";
 import DeleteProject from "./DeleteProject";
 import AddContent from "../ContentComponents/ContentModalConnection/AddContent";
 import { Link } from "react-router-dom";
 import UpdateProject from "./ProjectModalConnection/UpdateProject";
 import OnUserProjectsContainer from "./OnUserProject/OnUserProjectsContainer";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+import { setVisibilityProjects } from "../../redux/projects/projectsSlice";
+import { deleteVisibilityProjectsApi } from "../../services/visibilityProjectServise";
+import OnUserProjectRemoveButton from "./OnUserProject/OnUserProjectRemoveButton";
 
 interface IProject {
   project: project;
@@ -13,6 +18,7 @@ interface IProject {
 }
 
 const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
+
   return (
     <>
       <tr>
@@ -40,7 +46,7 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
               <DeleteProject project={project} />
               <UpdateProject project={project} />
             </td>
-          ) : projectsControl ==="onUserDeleteProject" ? <td scope="row"><button className="btn btn-danger btn-sm">X</button></td> : <></>}
+          ) : projectsControl ==="onUserDeleteProject" ? <td scope="row"><OnUserProjectRemoveButton userId={userId} projectId={project.id} /></td> : <></>}
         
       </tr>
     </>
