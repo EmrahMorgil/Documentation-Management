@@ -13,7 +13,7 @@ const Projects: React.FC = () => {const adminLoggedIn = useSelector((state: Root
   return (
     <div>
       <div style={{ textAlign: "center", marginTop: "50px" }}>
-        <input onChange={(e: React.ChangeEvent<HTMLInputElement>)=>setFilterValue(e.target.value)}/>
+        <input className="mb-3" onChange={(e: React.ChangeEvent<HTMLInputElement>)=>setFilterValue(e.target.value)}/>
       </div>
       {adminLoggedIn ? (
         <ProjectsList projectsControl={"adminLoggedInProjects"} userId="" filterValue={filterValue}/>

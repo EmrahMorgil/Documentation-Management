@@ -8,7 +8,7 @@ const UsersList: React.FC = () => {
   const users = useSelector((state: RootState) => state.users.users);
 
   return (
-    <div className="container mt-5">
+    <div className="container">
       <table className="table table-striped">
         <thead className="thead-dark">
           <tr>

@@ -8,7 +8,7 @@ const ProjectPanel: React.FC = () => {
   
   return (
     <>
-    <div style={{ display: "flex", justifyContent: "center", margin: "30px" }}>
+    <div className='container d-flex mt-5'>
       <AddProject />
       <Link to="/projects"><button className="btn btn-danger">Back</button></Link>
     </div>

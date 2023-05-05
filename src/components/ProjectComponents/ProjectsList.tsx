@@ -14,7 +14,7 @@ const ProjectsList: React.FC<IProjectsList> = ({projectsControl, userId, filterV
   const projects = useSelector((state: RootState) => state.projects.projects);
 
   return (
-    <div className="container mt-5">
+    <div className="container">
       <table className="table table-striped">
         <thead className="thead-dark">
           <tr>

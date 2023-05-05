@@ -13,7 +13,7 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
   const contents = useSelector((state: RootState) => state.contents.contents);
 
   return (
-    <div className="container mt-5">
+    <div className="container">
       <table className="table table-striped">
         <thead className="thead-dark">
           <tr>

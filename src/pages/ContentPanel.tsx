@@ -23,13 +23,7 @@ const ContentPanel: React.FC = () => {
         <Loading />
       ) : (
         <>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              margin: "30px",
-            }}
-          >
+          <div className='container d-flex mt-5'>
             {adminLoggedIn && <AddContent id={String(id)} />}
             <Link to={adminLoggedIn ? "/projectpanel" : "/projects"}>
               <button className="btn btn-danger">Back</button>
