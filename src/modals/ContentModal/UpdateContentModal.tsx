@@ -92,15 +92,20 @@ const UpdateContentModal: React.FC<IUpdateContentModal> = ({ item }) => {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: "150px",
+                marginTop: "10px",
               }}
             >
               <form>
-               <div style={{marginBottom: "50px", width: "400px", textAlign: "center" }}><h3>Update Content</h3></div>
-                {adminLoggedIn ? <><div className="form-outline mb-4">
-                <label htmlFor="exampleInput">Content Name</label>
+               <div style={{marginBottom: "50px", width: "400px", textAlign: "center", color: "black"}}><h3>Update Content</h3></div>
+                {adminLoggedIn ? 
+                
+                <>
+                
+                <div className="form-outline mb-4">
+                <label htmlFor="exampleInput" style={{color: "black"}}>Content Name</label>
                   <input
                     type="text"
+                    style={{border: "1px solid black"}}
                     value={updatedContent.contentName}
                     name="contentName"
                     className="form-control"
@@ -109,9 +114,10 @@ const UpdateContentModal: React.FC<IUpdateContentModal> = ({ item }) => {
                 </div>
 
                 <div className="form-outline mb-4">
-                <label htmlFor="exampleInput">Content Version</label>
+                <label htmlFor="exampleInput" style={{color: "black"}}>Content Version</label>
                   <input
                     type="text"
+                    style={{border: "1px solid black"}}
                     value={updatedContent.version}
                     name="version"
                     className="form-control"
@@ -120,9 +126,10 @@ const UpdateContentModal: React.FC<IUpdateContentModal> = ({ item }) => {
                 </div>
 
                 <div className="form-outline mb-4">
-                <label htmlFor="exampleFormControlTextarea1">Content</label>
+                <label htmlFor="exampleFormControlTextarea1" style={{color: "black"}}>Content</label>
                 <textarea 
-                    rows={9}
+                    rows={6}
+                    style={{border: "1px solid black"}}
                     value={updatedContent.content}
                     name="content"
                     className="form-control"
@@ -131,20 +138,26 @@ const UpdateContentModal: React.FC<IUpdateContentModal> = ({ item }) => {
                 </div>
 
                 <div className="form-outline mb-4">
-                <label htmlFor="exampleInput">Content Tags</label>
+                <label htmlFor="exampleInput" style={{color: "black"}}>Content Tags</label>
                   <input
                     type="text"
+                    style={{border: "1px solid black"}}
                     value={updatedContent.contentTags}
                     name="contentTags"
                     className="form-control"
                     onChange={handleChange}
                   />
-                </div></> : 
+                </div>
+              </> 
+              
+              : 
+                //user
                 <>
                 <div className="form-outline mb-4">
-                <label htmlFor="exampleInput">Content Name</label>
+                <label htmlFor="exampleInput" style={{color: "black"}}>Content Name</label>
                   <input
                     type="text"
+                    style={{border: "1px solid black"}}
                     value={updatedContent.contentName}
                     name="contentName"
                     className="form-control"
@@ -153,8 +166,9 @@ const UpdateContentModal: React.FC<IUpdateContentModal> = ({ item }) => {
                 </div>
 
                 <div className="form-outline mb-4">
-                <label htmlFor="exampleInput">Content Version</label>
+                <label htmlFor="exampleInput" style={{color: "black"}}>Content Version</label>
                   <input
+                   style={{border: "1px solid black"}}
                     type="text"
                     value={updatedContent.version}
                     name="version"
@@ -164,9 +178,10 @@ const UpdateContentModal: React.FC<IUpdateContentModal> = ({ item }) => {
                 </div>
 
                 <div className="form-outline mb-4">
-                <label htmlFor="exampleFormControlTextarea1">Content</label>
+                <label htmlFor="exampleFormControlTextarea1" style={{color: "black"}}>Content</label>
                 <textarea 
-                    rows={9}
+                    rows={6}
+                    style={{border: "1px solid black"}}
                     value={updatedContent.content}
                     name="content"
                     className="form-control"
@@ -175,8 +190,9 @@ const UpdateContentModal: React.FC<IUpdateContentModal> = ({ item }) => {
                 </div>
 
                 <div className="form-outline mb-4">
-                <label htmlFor="exampleInput">Content Tags</label>
+                <label htmlFor="exampleInput" style={{color: "black"}}>Content Tags</label>
                   <input
+                   style={{border: "1px solid black"}}
                     type="text"
                     value={updatedContent.contentTags}
                     name="contentTags"
@@ -197,14 +213,14 @@ const UpdateContentModal: React.FC<IUpdateContentModal> = ({ item }) => {
             >
               Close
             </button>
-            {adminLoggedIn && <><button
+            {adminLoggedIn && <button
               type="button"
               className="btn btn-warning"
               data-dismiss="modal"
               onClick={() => updateContent(item)}
             >
               Update
-            </button></>}
+            </button>}
           </div>
         </div>
       </div>
