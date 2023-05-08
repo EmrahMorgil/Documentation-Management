@@ -2,8 +2,10 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { deleteProjects } from '../../services/projectService';
-import { project, visibilityProjects } from '../../types/Type';
+import { project, user, visibilityProjects } from '../../types/Type';
 import { setProjects, setVisibilityProjects } from '../../redux/projects/projectsSlice';
+import { updateUsers } from '../../services/userService';
+import { setUsers } from '../../redux/users/usersSlice';
 
 interface IDeleteProject{
   project: project;
@@ -11,23 +13,53 @@ interface IDeleteProject{
 
 const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
 
+  let deletedItems: visibilityProjects = {id: "", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "",  totalContent: 0, visibilityRole: "", visibility: false, userId: "", projectId: ""};
 
-  const removeVisibilityProjectItem = () =>{
-    const newArray = visibilityProjects.filter((visibilityProject: visibilityProjects)=>{
-      if(visibilityProject.projectId!==project.id)
+  
+  const dispatch = useDispatch();
+  const projects = useSelector((state: RootState) => state.projects.projects);
+  const visibilityProjects = useSelector((state: RootState)=>state.projects.visibilityProjects);
+  const users = useSelector((state: RootState)=>state.users.users);
+
+
+
+  const removeUserProjectAmount = ()=>{
+    let updatedProjectAmount: user ={id:"", name: "", surname: "", password: "", role: 0, createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalProject: 0};
+    const newUserProjectAmount = users.map((user: user)=>{
+      if(user.id===deletedItems.userId)
       {
-        return visibilityProject;
+        updatedProjectAmount = {...user};
+        updatedProjectAmount.totalProject--;
+        return updatedProjectAmount;
+      }else{
+        return user;
       }
-    })
-    
-    dispatch(setVisibilityProjects(newArray));
+    });
+    updateUsers(updatedProjectAmount.id, updatedProjectAmount);
+    dispatch(setUsers(newUserProjectAmount));
   }
 
 
 
-  const dispatch = useDispatch();
-  const projects = useSelector((state: RootState) => state.projects.projects);
-  const visibilityProjects = useSelector((state: RootState)=>state.projects.visibilityProjects);
+
+
+
+  const removeVisibilityProjectItem = () =>{
+   
+    const newArray: visibilityProjects = visibilityProjects.filter((visibilityProject: visibilityProjects)=>{
+      if(visibilityProject.projectId!==project.id)
+      {
+        return visibilityProject;
+      }else{
+        deletedItems = visibilityProject;
+      }
+    });
+    dispatch(setVisibilityProjects(newArray));
+
+    // kullanıcının amount'unu azaltma işlemi
+    removeUserProjectAmount();
+  }
+
 
   const deletedProject = (item: project) => {
     deleteProjects(item.id);
@@ -38,11 +70,12 @@ const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
         return projects;
       }
     });
+    dispatch(setProjects(newArr));
+
 
     //visibilityProjects'den silme işlemi
     removeVisibilityProjectItem();
 
-    dispatch(setProjects(newArr));
   };
 
   return (

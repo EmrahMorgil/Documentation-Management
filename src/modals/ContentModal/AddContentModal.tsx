@@ -61,9 +61,9 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
     updatedContent.projectId = id;
 
     //api
-    setTimeout(()=>dispatch(addNewContent(updatedContent)), 100);
+    dispatch(addNewContent(updatedContent));
     // addContents(updatedContent);
-    setTimeout(()=>addContents(updatedContent), 500);
+    addContents(updatedContent);
     
 
     setNewContent({
@@ -80,7 +80,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
     });
 
     //add amount
-    setTimeout(addContentAmount, 100);
+    addContentAmount();
     toast.success("Content successfully added");
   };
   const handleChange = (e: any) => {
@@ -102,7 +102,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: "50px",
+                marginTop: "20px",
               }}
             >
               <form>
@@ -111,7 +111,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
                     style={{
                       width: "400px",
                       textAlign: "center",
-                      marginBottom: "50px",
+                      marginBottom: "20px",
                     }}
                   >
                     Add Content
@@ -145,7 +145,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
                   </label>
 
                   <textarea
-                    rows={9}
+                    rows={6}
                     value={newContent.content}
                     onChange={handleChange}
                     name="content"
