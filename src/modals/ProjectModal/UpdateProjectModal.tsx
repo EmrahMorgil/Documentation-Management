@@ -65,6 +65,10 @@ const UpdateProjectModal: React.FC<IUpdateProjectModal> = ({ project }) => {
 
   const handleChange = (e: any) => {
     setUpdatedProject({ ...updatedProject, [e.target.name]: e.target.value });
+    if(e.target.name==="visibilityRole")
+    {
+      setUpdatedProject({...updatedProject, visibilityRole: Number(e.target.value)})
+    }
   };
 
   return (
