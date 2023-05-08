@@ -27,7 +27,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
     updatedPerson: "emrah",
     version: 0.1,
     content: "",
-    contentTags: [],
+    contentTags: "",
     projectId: id,
   });
 
@@ -81,7 +81,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
       updatedPerson: "",
       version: 0,
       content: "",
-      contentTags: [],
+      contentTags: "",
       projectId: "",
     });
 

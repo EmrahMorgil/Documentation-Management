@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { content } from "../../types/Type";
@@ -11,10 +11,23 @@ interface IContentList{
 
 const ContentList: React.FC<IContentList> = ({projectId}) => {
   const contents = useSelector((state: RootState) => state.contents.contents);
+  const [tagFilter, setTagFilter] = useState("");
+
 
   return (
     <div className="container">
       <table className="table table-striped table-dark">
+        <thead className="thead-dark">
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"><input size={5} onChange={(e)=>setTagFilter(e.target.value)}/></th>
+        </thead>
         <thead className="thead-dark">
           <tr>
             <th scope="col">ID</th>
@@ -31,7 +44,11 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
         </thead>
         <tbody>
           {contents.map((content: content, i: number) => {
-            return <Content content={content} key={i} projectId={projectId}/>;
+            debugger;
+            if(content.contentTags.includes(tagFilter))
+            {
+              return <Content content={content} key={i} projectId={projectId}/>;  
+            }
           })}
         </tbody>
       </table>
