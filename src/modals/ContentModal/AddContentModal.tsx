@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addContents } from "../../services/contentService";
 import { addNewContent } from "../../redux/contents/contentsSlice";
 import {updateProjects} from "../../services/projectService";
-import { project } from "../../types/Type";
+import { content, project } from "../../types/Type";
 import { setProjects } from "../../redux/projects/projectsSlice";
 import {toast} from "react-toastify";
 
@@ -18,16 +18,16 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
   const activeUser = useSelector((state: RootState) => state.users.activeUser);
   const projects = useSelector((state: RootState) => state.projects.projects);
 
-  const [newContent, setNewContent] = useState({
+  const [newContent, setNewContent] = useState<content>({
     id: "",
     contentName: "",
     createdDate: "2023",
     updatedDate: "2023",
     createdPerson: "emrah",
     updatedPerson: "emrah",
-    contentVersion: 0,
+    version: 0.1,
     content: "",
-    contentTags: "",
+    contentTags: [],
     projectId: id,
   });
 
@@ -51,6 +51,12 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
   };
 
   const handleClick = async () => {
+    debugger;
+    if(newContent.contentName==="" || newContent.content==="")
+    {
+      toast.error("Please fill in all the blanks..");
+    }else{
+
     let nowDate = new Date().toString().substring(0, 24);
     const updatedContent = { ...newContent };
     updatedContent.id = "id"+nanoid();
@@ -73,15 +79,17 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
       updatedDate: "",
       createdPerson: "",
       updatedPerson: "",
-      contentVersion: 0,
+      version: 0,
       content: "",
-      contentTags: "",
+      contentTags: [],
       projectId: "",
     });
 
     //add amount
     addContentAmount();
     toast.success("Content successfully added");
+
+  }
   };
   const handleChange = (e: any) => {
     setNewContent({ ...newContent, [e.target.name]: e.target.value });
@@ -132,7 +140,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
                   <label htmlFor="exampleInput">Content Version</label>
                   <input
                     type="text"
-                    value={newContent.contentVersion}
+                    value={newContent.version}
                     onChange={handleChange}
                     name="contentVersion"
                     className="form-control"

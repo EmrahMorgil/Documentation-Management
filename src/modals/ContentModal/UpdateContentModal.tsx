@@ -116,10 +116,13 @@ const UpdateContentModal: React.FC<IUpdateContentModal> = ({ item }) => {
                 <div className="form-outline mb-4">
                 <label htmlFor="exampleInput" style={{color: "black"}}>Content Version</label>
                   <input
-                    type="text"
+                    type="number"
                     style={{border: "1px solid black"}}
                     value={updatedContent.version}
                     name="version"
+                    max={0.9}
+                    min={0.1}
+                    step={0.1}
                     className="form-control"
                     onChange={handleChange}
                   />
