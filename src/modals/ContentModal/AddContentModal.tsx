@@ -25,7 +25,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
     updatedDate: "2023",
     createdPerson: "emrah",
     updatedPerson: "emrah",
-    version: 0.1,
+    version: 0,
     content: "",
     contentTags: "",
     projectId: id,
@@ -57,7 +57,8 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
       toast.error("Please fill in all the blanks..");
     }else{
 
-    let nowDate = new Date().toString().substring(0, 24);
+    let date = new Date();
+    let nowDate = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
     const updatedContent = { ...newContent };
     updatedContent.id = "id"+nanoid();
     updatedContent.createdDate = nowDate;

@@ -26,7 +26,7 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
           <th scope="col"></th>
           <th scope="col"></th>
           <th scope="col"></th>
-          <th scope="col"><input size={5} onChange={(e)=>setTagFilter(e.target.value)}/></th>
+          <th scope="col"><input placeholder="Tag Search" size={7} onChange={(e)=>setTagFilter(e.target.value)}/></th>
         </thead>
         <thead className="thead-dark">
           <tr>
@@ -44,7 +44,6 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
         </thead>
         <tbody>
           {contents.map((content: content, i: number) => {
-            debugger;
             if(content.contentTags.toLowerCase().includes(tagFilter.toLowerCase()))
             {
               return <Content content={content} key={i} projectId={projectId}/>;  

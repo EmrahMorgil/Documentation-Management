@@ -23,7 +23,8 @@ const AddUserModal: React.FC = () => {
   });
 
   const handleClick = async () => {
-    let nowDate = new Date().toString().substring(0, 24);
+    let date = new Date();
+    let nowDate = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
 
     const updatedUser = { ...newUser };
     updatedUser.id = "id"+nanoid();

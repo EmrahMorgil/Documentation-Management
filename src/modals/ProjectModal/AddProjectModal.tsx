@@ -21,13 +21,17 @@ const AddProjectModal: React.FC = () => {
         createdPerson: "emrah",
         updatedPerson: "emrah",
         totalContent: 0,
-        visibilityRole: 1,
+        visibilityRole: 0,
       });
+      
 
 
       const createNewProject = ()=>{
         const updatedProject = { ...newProject };
-        let nowDate = new Date().toString().substring(0, 24);
+        // let nowDate = new Date().toString().substring(0, 24);
+        let date = new Date();
+        let nowDate = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+
         updatedProject.id = "id"+nanoid();
         updatedProject.createdDate = nowDate;
         updatedProject.updatedDate = nowDate;
@@ -42,7 +46,7 @@ const AddProjectModal: React.FC = () => {
         createNewProject();
   
         //proje ekledikten sonra alanların temizlenmesi.
-        setNewProject({id: "",projectName: "",createdDate: "",updatedDate: "",createdPerson: "",updatedPerson: "",totalContent: 0,visibilityRole: 1});
+        setNewProject({id: "",projectName: "",createdDate: "",updatedDate: "",createdPerson: "",updatedPerson: "",totalContent: 0,visibilityRole: 0});
         toast.success("Project successfully added");
       }
     const handleChange = (e: any) =>{

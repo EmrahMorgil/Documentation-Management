@@ -32,7 +32,8 @@ const UpdateContentModal: React.FC<IUpdateContentModal> = ({ item }) => {
   });
 
   const updateContent = async (item: content) => {
-    let nowDate = new Date().toString().substring(0, 24);
+    let date = new Date();
+    let nowDate = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
     const setUpdatedContent = { ...updatedContent };
     setUpdatedContent.updatedDate = nowDate;
     setUpdatedContent.updatedPerson = activeUser;

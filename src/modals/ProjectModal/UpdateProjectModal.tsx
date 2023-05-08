@@ -27,7 +27,8 @@ const UpdateProjectModal: React.FC<IUpdateProjectModal> = ({ project }) => {
   
 
   const updateProject = async (updateProject: project) => {
-    let nowDate = new Date().toString().substring(0, 24);
+    let date = new Date();
+    let nowDate = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
     const setUpdatedProject = { ...updatedProject };
     setUpdatedProject.updatedDate = nowDate;
     setUpdatedProject.updatedPerson = activeUser;

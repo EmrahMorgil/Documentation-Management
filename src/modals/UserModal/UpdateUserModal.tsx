@@ -29,7 +29,8 @@ const UpdateUserModal: React.FC<IUpdateUserModal> = ({ user }) => {
   });
 
   const updateUser = async (updateUser: user) => {
-    let nowDate = new Date().toString().substring(0, 24);
+    let date = new Date();
+    let nowDate = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
     const setUpdatedUser = { ...updatedUser };
     setUpdatedUser.updatedDate = nowDate;
     setUpdatedUser.updatedPerson = activeUser;

@@ -12,7 +12,16 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
   const [projectSorted, setProjectSorted] = useState({ sorted: "projectName", isReversed: false });
   const [totalSorted, setTotalSorted] = useState({sorted: "totalContent", isReversed: false});
   const [roleSorted, setRoleSorted] = useState({sorted: "visibilityRole", isReversed: false});
-  const [filterProjectName, setFilterProjectName] = useState<string>("");
+  const [filterValues, setFilterValues] = useState({projectName: "", createdDate: "", updatedDate: "", visibilityRole: 0});
+  
+  const handleChange = (e: any) =>{
+    setFilterValues({...filterValues, [e.target.name]: e.target.value});
+    if(e.target.name==="visibilityRole")
+    {
+      setFilterValues({...filterValues, "visibilityRole": (e.target.value)});
+    }
+  }
+  
   const dispatch = useDispatch();
 
   const sortByTotalContent = () => {
@@ -58,13 +67,14 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
       <table className="table table-striped">
       <thead className="thead-dark">
           <th scope="col"></th>
-          <th scope="col"><input size={10} onChange={(e: React.ChangeEvent<HTMLInputElement>)=>setFilterProjectName(e.target.value)}/></th>
+          <th scope="col"><input name="projectName" size={10} onChange={handleChange}/></th>
+          <th scope="col"><input name="createdDate" size={7} onChange={handleChange}/></th>
+          <th scope="col"><input name="updatedDate" size={7} onChange={handleChange}/></th>
           <th scope="col"></th>
           <th scope="col"></th>
           <th scope="col"></th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-          <th scope="col"></th>
+          <th scope="col"><input name="visibilityRole" size={7} onChange={handleChange}/></th>
+          {projectsControl!=="adminLoggedInProjects" && <th scope="col"></th>}
         </thead>
         <thead className="thead-dark">
           <tr>
@@ -87,7 +97,7 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
         </thead>
         <tbody>
           {projects.map((item: project, i: number) =>{
-            if(item.projectName.toLowerCase().includes(filterProjectName.toLowerCase()))
+            if(item.projectName.toLowerCase().includes(filterValues.projectName.toLowerCase()) && item.createdDate.includes(filterValues.createdDate) && item.updatedDate.includes(filterValues.updatedDate))
             {
               return <Project project={item} key={i} projectsControl={projectsControl} userId={userId}/>
             }
