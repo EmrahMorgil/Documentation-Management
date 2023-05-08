@@ -67,9 +67,9 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
     updatedContent.projectId = id;
 
     //api
-    dispatch(addNewContent(updatedContent));
+    setTimeout(()=>dispatch(addNewContent(updatedContent)), 100);
     // addContents(updatedContent);
-    addContents(updatedContent);
+    setTimeout(()=>addContents(updatedContent), 500);
     
 
     setNewContent({
@@ -86,7 +86,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
     });
 
     //add amount
-    addContentAmount();
+    setTimeout(addContentAmount, 100);
     toast.success("Content successfully added");
 
   }
