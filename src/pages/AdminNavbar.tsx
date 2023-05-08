@@ -26,7 +26,7 @@ const AdminNavbar = () => {
                 <Link className="nav-link" to={"/projectpanel"}>Project & Content Control Panel</Link>
             </li>
           </ul>
-          <button className="btn btn-primary mr-3">{activeUser.name}</button>
+          <button className="btn btn-primary mr-3">Welcome {activeUser.name}</button>
             <Logout />
         </div>
 

@@ -28,7 +28,7 @@ const UserNavbar = () => {
           className="collapse navbar-collapse"
           id="navbarTogglerDemo03"
         ></div>
-        <button className="btn btn-primary mr-3">{activeUser.name}</button>
+        <button className="btn btn-primary mr-3">Welcome {activeUser.name}</button>
 
         <Logout />
       </div>

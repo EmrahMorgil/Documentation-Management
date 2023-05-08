@@ -80,7 +80,7 @@ const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, pro
       toast.error("Already added on user!");
     };
   }else{
-    toast.error("Kullanıcı rolü ile proje rolü uyuşmuyor!!");
+    toast.error("User role and project role do not match!");
   }
   };
 
