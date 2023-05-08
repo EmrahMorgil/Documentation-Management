@@ -11,6 +11,7 @@ const ProjectsList = ({projectsControl, userId, filterValue}: {projectsControl: 
   const projects = useSelector((state: RootState) => state.projects.projects);
   const [projectSorted, setProjectSorted] = useState({ sorted: "projectName", isReversed: false });
   const [totalSorted, setTotalSorted] = useState({sorted: "totalContent", isReversed: false});
+  const [roleSorted, setRoleSorted] = useState({sorted: "visibilityRole", isReversed: false});
   const dispatch = useDispatch();
 
   const sortByTotalContent = () => {
@@ -36,7 +37,17 @@ const ProjectsList = ({projectsControl, userId, filterValue}: {projectsControl: 
     dispatch(setProjects(sortedData));
     setProjectSorted({ sorted: "projectName", isReversed: !projectSorted.isReversed });
   };
+  const sortByVisibilityRole = () => {
+    const sortedData = [...projects].sort((a, b) => {
+      if (roleSorted.isReversed) {
+        return a.visibilityRole - b.visibilityRole;
+      }
+      return b.visibilityRole - a.visibilityRole;
+    });
   
+    dispatch(setProjects(sortedData));
+    setRoleSorted({ sorted: "visibilityRole", isReversed: !roleSorted.isReversed });
+  };
 
   return (
     <div className="container mt-5">
@@ -44,9 +55,8 @@ const ProjectsList = ({projectsControl, userId, filterValue}: {projectsControl: 
         <thead className="thead-dark">
           <tr>
             <th scope="col">ID</th>
-            <th onClick={sortByProjectName} scope="col">Project Name {" "}
-           {projectSorted.sorted ? (projectSorted.isReversed ? "▲" : "▼"):null} 
-        {/* {sorted.sorted==="projectName" ? renderArrow():null}  */}
+            <th onClick={sortByProjectName} scope="col">Project Name
+           {projectSorted.sorted ? (projectSorted.isReversed ? "▲" : "▼"):null}
          </th>
             <th scope="col">Created Date</th>
             <th scope="col">Updated Date</th>
@@ -54,9 +64,10 @@ const ProjectsList = ({projectsControl, userId, filterValue}: {projectsControl: 
             <th scope="col">Updated Person</th>
             <th onClick={sortByTotalContent} scope="col">Total Content 
           {totalSorted.sorted  ? (totalSorted.isReversed ? "▲" : "▼"):null}
-           {/* {sorted.sorted==="totalContent" ? renderArrow():null} */}
             </th>
-            <th scope="col">Visibility Role</th>
+            <th onClick={sortByVisibilityRole} scope="col">Visibility Role
+            {roleSorted.sorted  ? (roleSorted.isReversed ? "▲" : "▼"):null}
+            </th>
             {projectsControl!=="adminLoggedInProjects" && <th scope="col">Actions</th>}
           </tr>
         </thead>
