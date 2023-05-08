@@ -41,6 +41,18 @@ const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, pro
   }
 
   const handleClick = () => {
+    debugger;
+
+
+    const newUser: user = users.find((user: user)=>{
+      if(user.id===userId)
+      {
+        return user;
+      }
+    });
+
+    console.log(newUser);
+    
 
     const newArr = visibilityProjects.map((visibilityProject: visibilityProjects)=>{
       if(visibilityProject.projectId===project.id && visibilityProject.userId=== userId)
@@ -51,8 +63,11 @@ const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, pro
       }
     })
 
-    if(!newArr.includes(false) || newArr.length ===0)
+    if(newUser.role===project.visibilityRole)
     {
+  
+      if(!newArr.includes(false) || newArr.length ===0)
+      {
       const {projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole } = project;
       const randomId = nanoid();
       const newItem = {id: randomId, projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole, visibility: true, userId, projectId: project.id};
@@ -64,6 +79,9 @@ const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, pro
     }else{
       toast.error("Already added on user!");
     };
+  }else{
+    toast.error("Kullanıcı rolü ile proje rolü uyuşmuyor!!");
+  }
   };
 
   return (

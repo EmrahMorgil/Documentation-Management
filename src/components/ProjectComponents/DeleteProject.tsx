@@ -13,7 +13,7 @@ interface IDeleteProject{
 
 const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
 
-  let deletedItems: visibilityProjects = {id: "", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "",  totalContent: 0, visibilityRole: "", visibility: false, userId: "", projectId: ""};
+  let deletedItems: visibilityProjects = {id: "", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "",  totalContent: 0, visibilityRole: 1, visibility: false, userId: "", projectId: ""};
 
   
   const dispatch = useDispatch();

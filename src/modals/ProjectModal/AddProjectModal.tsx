@@ -5,15 +5,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addNewProject } from '../../redux/projects/projectsSlice';
 import { addProjects } from '../../services/projectService';
 import {toast} from "react-toastify";
+import { project } from '../../types/Type';
 
 const AddProjectModal: React.FC = () => {
 
 
     const dispatch = useDispatch();
     const activeUser = useSelector((state: RootState) => state.users.activeUser);
-    const projects = useSelector((state: RootState)=>state.projects.projects);
 
-    const [newProject, setNewProject] = useState({
+    const [newProject, setNewProject] = useState<project>({
         id: "",
         projectName: "",
         createdDate: "2023",
@@ -21,13 +21,13 @@ const AddProjectModal: React.FC = () => {
         createdPerson: "emrah",
         updatedPerson: "emrah",
         totalContent: 0,
-        visibilityRole: 0,
+        visibilityRole: 1,
       });
 
 
       const createNewProject = ()=>{
-        let nowDate = new Date().toString().substring(0, 24);
         const updatedProject = { ...newProject };
+        let nowDate = new Date().toString().substring(0, 24);
         updatedProject.id = "id"+nanoid();
         updatedProject.createdDate = nowDate;
         updatedProject.updatedDate = nowDate;
@@ -42,7 +42,7 @@ const AddProjectModal: React.FC = () => {
         createNewProject();
   
         //proje ekledikten sonra alanların temizlenmesi.
-        setNewProject({id: "",projectName: "",createdDate: "",updatedDate: "",createdPerson: "",updatedPerson: "",totalContent: 0,visibilityRole: 0,});
+        setNewProject({id: "",projectName: "",createdDate: "",updatedDate: "",createdPerson: "",updatedPerson: "",totalContent: 0,visibilityRole: 1});
         toast.success("Project successfully added");
       }
     const handleChange = (e: any) =>{

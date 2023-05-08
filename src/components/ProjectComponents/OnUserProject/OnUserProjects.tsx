@@ -30,12 +30,12 @@ const OnUserProjects: React.FC<IOnUserProjects> = ({ onUser }) => {
           </tr>
         </thead>
         <tbody>
-          {visibilityProjects.map((item: visibilityProjects, i: string) => {
-            if (onUser?.id === item.userId) {
+          {visibilityProjects.map((visibilityProject: visibilityProjects, i: string) => {
+            if (onUser?.id === visibilityProject.userId) {
               return (
                 <>
                   <Project
-                    project={item}
+                    project={visibilityProject}
                     key={i}
                     projectsControl="onUserDeleteProject"
                     userId={onUser.id}

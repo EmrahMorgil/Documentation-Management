@@ -25,7 +25,7 @@ const UpdateUserModal: React.FC<IUpdateUserModal> = ({ user }) => {
     createdDate: user.createdDate,
     updatedDate: user.updatedDate,
     updatedPerson: user.updatedPerson,
-    totalProject: 0,
+    totalProject: user.totalProject,
   });
 
   const updateUser = async (updateUser: user) => {
@@ -33,6 +33,8 @@ const UpdateUserModal: React.FC<IUpdateUserModal> = ({ user }) => {
     const setUpdatedUser = { ...updatedUser };
     setUpdatedUser.updatedDate = nowDate;
     setUpdatedUser.updatedPerson = activeUser;
+    setUpdatedUser.totalProject = updateUser.totalProject;
+    
 
     const {
       id,
@@ -61,6 +63,7 @@ const UpdateUserModal: React.FC<IUpdateUserModal> = ({ user }) => {
           createdDate,
           updatedDate,
           updatedPerson,
+          totalProject: updateUser.totalProject,
         };
       }
       return users;
@@ -68,8 +71,12 @@ const UpdateUserModal: React.FC<IUpdateUserModal> = ({ user }) => {
     dispatch(setUsers(newArr));
   };
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUpdatedUser({ ...updatedUser, [e.target.name]: e.target.value });
+    if(e.target.name==="role")
+    {
+      setUpdatedUser({...updatedUser, role: Number(e.target.value)})
+    }
   };
 
   return (
