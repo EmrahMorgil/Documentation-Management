@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { project } from "../../types/Type";
@@ -9,42 +9,34 @@ import { setProjects } from "../../redux/projects/projectsSlice";
 const ProjectsList = ({projectsControl, userId, filterValue}: {projectsControl: string, userId?: string, filterValue: string}) => {
   
   const projects = useSelector((state: RootState) => state.projects.projects);
-  const [sorted, setSorted] = useState({ sorted: "totalContent", isReversed: false });
+  const [projectSorted, setProjectSorted] = useState({ sorted: "projectName", isReversed: false });
+  const [totalSorted, setTotalSorted] = useState({sorted: "totalContent", isReversed: false});
   const dispatch = useDispatch();
-  
-  const sortById = () => {
+
+  const sortByTotalContent = () => {
     const sortedData = [...projects].sort((a, b) => {
-      if (sorted.isReversed) {
+      if (totalSorted.isReversed) {
         return a.totalContent - b.totalContent;
       }
       return b.totalContent - a.totalContent;
     });
   
     dispatch(setProjects(sortedData));
-    console.log(sortedData);
-    setSorted({ sorted: "totalContent", isReversed: !sorted.isReversed });
+    setTotalSorted({ sorted: "totalContent", isReversed: !totalSorted.isReversed });
   };
   
   const sortByProjectName = () => {
     const sortedData = [...projects].sort((a, b) => {
-      if (sorted.isReversed) {
+      if (projectSorted.isReversed) {
         return b.projectName.localeCompare(a.projectName);
       }
       return a.projectName.localeCompare(b.projectName);
     });
   
     dispatch(setProjects(sortedData));
-    console.log(sortedData);
-    
-    setSorted({ sorted: "projectName", isReversed: !sorted.isReversed });
+    setProjectSorted({ sorted: "projectName", isReversed: !projectSorted.isReversed });
   };
   
- const renderArrow=()=>{
-  if (sorted.isReversed) {
-    return  "▲" 
-  }return "▼"
- }
-
 
   return (
     <div className="container mt-5">
@@ -52,14 +44,17 @@ const ProjectsList = ({projectsControl, userId, filterValue}: {projectsControl: 
         <thead className="thead-dark">
           <tr>
             <th scope="col">ID</th>
-            <th onClick={sortByProjectName} scope="col">Project Name 
-            {sorted.sorted==="projectName" ? renderArrow():null}  </th>
+            <th onClick={sortByProjectName} scope="col">Project Name {" "}
+           {projectSorted.sorted ? (projectSorted.isReversed ? "▲" : "▼"):null} 
+        {/* {sorted.sorted==="projectName" ? renderArrow():null}  */}
+         </th>
             <th scope="col">Created Date</th>
             <th scope="col">Updated Date</th>
             <th scope="col">Created Person</th>
             <th scope="col">Updated Person</th>
-            <th onClick={sortById} scope="col">Total Content
-            {sorted.sorted==="totalContent" ? renderArrow():null}
+            <th onClick={sortByTotalContent} scope="col">Total Content 
+          {totalSorted.sorted  ? (totalSorted.isReversed ? "▲" : "▼"):null}
+           {/* {sorted.sorted==="totalContent" ? renderArrow():null} */}
             </th>
             <th scope="col">Visibility Role</th>
             {projectsControl!=="adminLoggedInProjects" && <th scope="col">Actions</th>}
