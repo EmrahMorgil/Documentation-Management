@@ -18,7 +18,6 @@ const Project: React.FC<IVisibilityProjects> = ({ visibilityProject }) => {
         <td scope="row">{visibilityProject.createdPerson}</td>
         <td scope="row">{visibilityProject.updatedPerson}</td>
         <td scope="row">{visibilityProject.totalContent}</td>
-        <td scope="row">{visibilityProject.visibilityRole}</td>
         <td scope="row"><Link to={`/contentpanel/${visibilityProject.projectId}`} ><button className="btn btn-success">Contents</button></Link></td>
       </tr>
     </>

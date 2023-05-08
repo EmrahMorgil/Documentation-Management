@@ -12,7 +12,7 @@ const AddOnUserProjectsModal = ({addOnUserProject}: {addOnUserProject?: user}) =
 
         <h3 className='text-center mt-3'>Add Project</h3>
           <div style={{display: "flex", justifyContent: "center",marginTop: "50px"}}>
-            <ProjectsList filterValue="" projectsControl={"addUserOnProject"} userId={addOnUserProject?.id}/>
+            <ProjectsList projectsControl={"addUserOnProject"} userId={addOnUserProject?.id}/>
           </div>
           </div>
           <div className="modal-footer">

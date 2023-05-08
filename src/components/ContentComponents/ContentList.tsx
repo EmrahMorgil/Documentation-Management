@@ -45,7 +45,7 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
         <tbody>
           {contents.map((content: content, i: number) => {
             debugger;
-            if(content.contentTags.includes(tagFilter))
+            if(content.contentTags.toLowerCase().includes(tagFilter.toLowerCase()))
             {
               return <Content content={content} key={i} projectId={projectId}/>;  
             }

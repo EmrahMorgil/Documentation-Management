@@ -4,21 +4,21 @@
       "id": "id02G2yzexNeIt8O1qd-GmI",
       "projectName": "Kütüphane",
       "createdDate": "Mon May 08 2023 14:42:47",
-      "updatedDate": "Mon May 08 2023 14:42:47",
+      "updatedDate": "Mon May 08 2023 16:55:11",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "totalContent": 5,
-      "visibilityRole": 1
+      "visibilityRole": 0
     },
     {
       "id": "idKhqVxgNM0mL6p-r_w8wNH",
       "projectName": "Okul",
       "createdDate": "Mon May 08 2023 14:42:51",
-      "updatedDate": "Mon May 08 2023 14:42:51",
+      "updatedDate": "Mon May 08 2023 16:55:15",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "totalContent": 1,
-      "visibilityRole": 1
+      "visibilityRole": 0
     },
     {
       "id": "idEyKW8AJXHlVCP0K3bANqH",
@@ -164,7 +164,7 @@
       "createdDate": "Mon May 08 2023 14:33:07",
       "updatedDate": "Mon May 08 2023 14:34:01",
       "updatedPerson": "admin",
-      "totalProject": 2
+      "totalProject": 4
     }
   ],
   "visibilityProjects": [
@@ -193,6 +193,32 @@
       "visibility": true,
       "userId": "idwj_Oosygqw3FS3z-Y6beV",
       "projectId": "idEyKW8AJXHlVCP0K3bANqH"
+    },
+    {
+      "id": "mPfddYFAxOiC7KmCyU0Cx",
+      "projectName": "Kütüphane",
+      "createdDate": "Mon May 08 2023 14:42:47",
+      "updatedDate": "Mon May 08 2023 16:55:11",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 5,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "idwj_Oosygqw3FS3z-Y6beV",
+      "projectId": "id02G2yzexNeIt8O1qd-GmI"
+    },
+    {
+      "id": "ZTyE9YvstGWc5pIkhf9vm",
+      "projectName": "Okul",
+      "createdDate": "Mon May 08 2023 14:42:51",
+      "updatedDate": "Mon May 08 2023 16:55:15",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 1,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "idwj_Oosygqw3FS3z-Y6beV",
+      "projectId": "idKhqVxgNM0mL6p-r_w8wNH"
     }
   ]
 }

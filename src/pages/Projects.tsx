@@ -9,18 +9,15 @@ import Logout from "../logout/Logout";
 const Projects: React.FC = () => {
   
     const adminLoggedIn = useSelector((state: RootState) => state.users.adminLoggedIn);
-    const [filterValue, setFilterValue] = useState<string>("");
 
   return (
     <div>
-      <div style={{ textAlign: "center", marginTop: "50px" }}>
-        <input className="mb-3" onChange={(e: React.ChangeEvent<HTMLInputElement>)=>setFilterValue(e.target.value)}/>
-      </div>
+      
       {adminLoggedIn ? (
-        <ProjectsList projectsControl={"adminLoggedInProjects"} filterValue={filterValue}/>
+        <ProjectsList projectsControl={"adminLoggedInProjects"} />
       ) : (
         <>
-          <UserProjectsList filterValue={filterValue}/>
+          <UserProjectsList />
         </>
       )}
     </div>

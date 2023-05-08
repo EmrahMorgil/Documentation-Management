@@ -6,12 +6,13 @@ import Project from "./Project";
 import { setProjects } from "../../redux/projects/projectsSlice";
 
 
-const ProjectsList = ({projectsControl, userId, filterValue}: {projectsControl: string, userId?: string, filterValue: string}) => {
+const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userId?: string}) => {
   
   const projects = useSelector((state: RootState) => state.projects.projects);
   const [projectSorted, setProjectSorted] = useState({ sorted: "projectName", isReversed: false });
   const [totalSorted, setTotalSorted] = useState({sorted: "totalContent", isReversed: false});
   const [roleSorted, setRoleSorted] = useState({sorted: "visibilityRole", isReversed: false});
+  const [filterProjectName, setFilterProjectName] = useState<string>("");
   const dispatch = useDispatch();
 
   const sortByTotalContent = () => {
@@ -49,9 +50,22 @@ const ProjectsList = ({projectsControl, userId, filterValue}: {projectsControl: 
     setRoleSorted({ sorted: "visibilityRole", isReversed: !roleSorted.isReversed });
   };
 
+
+  
+
   return (
     <div className="container mt-5">
       <table className="table table-striped">
+      <thead className="thead-dark">
+          <th scope="col"></th>
+          <th scope="col"><input size={10} onChange={(e: React.ChangeEvent<HTMLInputElement>)=>setFilterProjectName(e.target.value)}/></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </thead>
         <thead className="thead-dark">
           <tr>
             <th scope="col">ID</th>
@@ -73,7 +87,7 @@ const ProjectsList = ({projectsControl, userId, filterValue}: {projectsControl: 
         </thead>
         <tbody>
           {projects.map((item: project, i: number) =>{
-            if(item.projectName.toLowerCase().includes(filterValue.toLowerCase()))
+            if(item.projectName.toLowerCase().includes(filterProjectName.toLowerCase()))
             {
               return <Project project={item} key={i} projectsControl={projectsControl} userId={userId}/>
             }
