@@ -11,7 +11,6 @@ const AddProjectModal: React.FC = () => {
 
     const dispatch = useDispatch();
     const activeUser = useSelector((state: RootState) => state.users.activeUser);
-    const projects = useSelector((state: RootState)=>state.projects.projects);
 
     const [newProject, setNewProject] = useState({
         id: "",
@@ -21,7 +20,7 @@ const AddProjectModal: React.FC = () => {
         createdPerson: "emrah",
         updatedPerson: "emrah",
         totalContent: 0,
-        visibilityRole: 0,
+        visibilityRole: 1,
       });
 
 
@@ -42,7 +41,7 @@ const AddProjectModal: React.FC = () => {
         createNewProject();
   
         //proje ekledikten sonra alanların temizlenmesi.
-        setNewProject({id: "",projectName: "",createdDate: "",updatedDate: "",createdPerson: "",updatedPerson: "",totalContent: 0,visibilityRole: 0,});
+        setNewProject({id: "",projectName: "",createdDate: "",updatedDate: "",createdPerson: "",updatedPerson: "",totalContent: 0,visibilityRole: 1,});
         toast.success("Project successfully added");
       }
     const handleChange = (e: any) =>{

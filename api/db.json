@@ -1,69 +1,102 @@
 {
   "projects": [
     {
-      "id": "idIKXEexHsrVNoZdoKvMmw0",
-      "projectName": "Okul",
-      "createdDate": "Mon May 08 2023 10:21:57",
-      "updatedDate": "Mon May 08 2023 10:21:57",
+      "id": "idaSS3PDrc4WL__ywQw2wPM",
+      "projectName": "Kütüphane",
+      "createdDate": "Mon May 08 2023 11:39:42",
+      "updatedDate": "Mon May 08 2023 11:39:42",
       "createdPerson": "admin",
       "updatedPerson": "admin",
-      "totalContent": 1,
-      "visibilityRole": 0
-    }
-  ],
-  "contents": [
+      "totalContent": 0,
+      "visibilityRole": 1
+    },
     {
-      "id": "idrfQlxzQLnLREIWhkdmb7W",
-      "contentName": "qwe",
-      "createdDate": "Mon May 08 2023 11:20:12",
-      "updatedDate": "Mon May 08 2023 11:20:12",
+      "id": "idMz3bZ6QgOBgrVcPbpOt4T",
+      "projectName": "Okul",
+      "createdDate": "Mon May 08 2023 11:39:45",
+      "updatedDate": "Mon May 08 2023 11:39:45",
       "createdPerson": "admin",
       "updatedPerson": "admin",
-      "version": 0.1,
-      "content": "qwe",
-      "contentTags": [],
-      "projectId": "idIKXEexHsrVNoZdoKvMmw0"
+      "totalContent": 0,
+      "visibilityRole": 1
+    },
+    {
+      "id": "id7nqnXMkvnnRr80pnqAl1z",
+      "projectName": "Hastane",
+      "createdDate": "Mon May 08 2023 11:39:51",
+      "updatedDate": "Mon May 08 2023 11:39:51",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
+      "visibilityRole": 1
     }
   ],
+  "contents": [],
   "users": [
     {
-      "id": "iden0hAIFIAnC9jZjJLU25K",
+      "id": "idOtcM3-XCn4lr3zrUht6Ky",
       "name": "admin",
       "surname": "admin",
       "password": "123",
       "role": "1",
       "createdPerson": "admin",
-      "createdDate": "Fri May 05 2023 15:09:20",
-      "updatedDate": "Fri May 05 2023 17:23:13",
+      "createdDate": "Mon May 08 2023 13:47:24",
+      "updatedDate": "Mon May 08 2023 13:47:51",
       "updatedPerson": "admin",
-      "totalProject": 1
+      "totalProject": 0
     },
     {
-      "id": "idvpstAFuXAZd_IV4LNLV9Y",
+      "id": "idcpDP3wpnl4xY4TPG4Ijpi",
       "name": "Emrah",
       "surname": "Morgil",
       "password": "123",
       "role": 0,
-      "totalProject": 1,
-      "createdDate": "Mon May 08 2023 10:08:59",
-      "updatedDate": "Mon May 08 2023 10:08:59",
+      "totalProject": 3,
+      "createdDate": "Mon May 08 2023 13:47:39",
+      "updatedDate": "Mon May 08 2023 13:47:39",
       "createdPerson": "admin",
       "updatedPerson": "admin"
     }
   ],
   "visibilityProjects": [
     {
-      "id": "8uBpu3wnLryV8sRn9wcyW",
-      "projectName": "Okul",
-      "createdDate": "Mon May 08 2023 10:21:57",
-      "updatedDate": "Mon May 08 2023 10:21:57",
+      "id": "CNIOLC6mBlA-5NJ31jr6Z",
+      "projectName": "Kütüphane",
+      "createdDate": "Mon May 08 2023 11:39:42",
+      "updatedDate": "Mon May 08 2023 11:39:42",
       "createdPerson": "admin",
       "updatedPerson": "admin",
-      "totalContent": 5,
-      "visibilityRole": 0,
+      "totalContent": 0,
+      "visibilityRole": 1,
       "visibility": true,
-      "userId": "idvpstAFuXAZd_IV4LNLV9Y",
-      "projectId": "idIKXEexHsrVNoZdoKvMmw0"
+      "userId": "idcpDP3wpnl4xY4TPG4Ijpi",
+      "projectId": "idaSS3PDrc4WL__ywQw2wPM"
+    },
+    {
+      "id": "iT8ezNWBrtk6bnLeACYj_",
+      "projectName": "Okul",
+      "createdDate": "Mon May 08 2023 11:39:45",
+      "updatedDate": "Mon May 08 2023 11:39:45",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
+      "visibilityRole": 1,
+      "visibility": true,
+      "userId": "idcpDP3wpnl4xY4TPG4Ijpi",
+      "projectId": "idMz3bZ6QgOBgrVcPbpOt4T"
+    },
+    {
+      "id": "xG4zpKzzShhhmed-Se8PM",
+      "projectName": "Hastane",
+      "createdDate": "Mon May 08 2023 11:39:51",
+      "updatedDate": "Mon May 08 2023 11:39:51",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
+      "visibilityRole": 1,
+      "visibility": true,
+      "userId": "idcpDP3wpnl4xY4TPG4Ijpi",
+      "projectId": "id7nqnXMkvnnRr80pnqAl1z"
     }
   ]
 }

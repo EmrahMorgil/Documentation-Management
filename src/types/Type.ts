@@ -6,9 +6,9 @@ export class project{
     createdPerson: string;
     updatedPerson: string;
     totalContent: number;
-    visibilityRole: string;
+    visibilityRole: number;
 
-    constructor(id: string, projectName: string, createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string, totalContent: number, visibilityRole: string)
+    constructor(id: string, projectName: string, createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string, totalContent: number, visibilityRole: number)
     {
         this.id = id;
         this.projectName = projectName;
@@ -86,12 +86,12 @@ export class visibilityProjects{
     createdPerson: string;
     updatedPerson: string;
     totalContent: number;
-    visibilityRole: string;
+    visibilityRole: number;
     visibility: boolean;
     userId: string;
     projectId: string
 
-    constructor(id: string, projectName: string, createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string, totalContent: number, visibilityRole: string, visibility: boolean, userId: string, projectId: string)
+    constructor(id: string, projectName: string, createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string, totalContent: number, visibilityRole: number, visibility: boolean, userId: string, projectId: string)
     {
         this.id = id;
         this.projectName = projectName;
