@@ -39,8 +39,13 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
       return b.totalContent - a.totalContent;
     });
   
-    dispatch(setProjects(sortedData));
-    dispatch(setVisibilityProjects(sortedData));
+    
+    if(activeUser.role===0)
+    {
+      dispatch(setVisibilityProjects(sortedData));
+    }else{
+      dispatch(setProjects(sortedData));
+    }
     setTotalSorted({ sorted: "totalContent", isReversed: !totalSorted.isReversed });
   };
   
@@ -55,8 +60,12 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
       return a.projectName.localeCompare(b.projectName);
     });
   
-    dispatch(setProjects(sortedData));
-    dispatch(setVisibilityProjects(sortedData));
+    if(activeUser.role===0)
+    {
+      dispatch(setVisibilityProjects(sortedData));
+    }else{
+      dispatch(setProjects(sortedData));
+    }
     setProjectSorted({ sorted: "projectName", isReversed: !projectSorted.isReversed });
   };
   const sortByVisibilityRole = () => {
@@ -71,8 +80,12 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
       return b.visibilityRole - a.visibilityRole;
     });
   
-    dispatch(setProjects(sortedData));
-    dispatch(setVisibilityProjects(sortedData));
+    if(activeUser.role===0)
+    {
+      dispatch(setVisibilityProjects(sortedData));
+    }else{
+      dispatch(setProjects(sortedData));
+    }
     setRoleSorted({ sorted: "visibilityRole", isReversed: !roleSorted.isReversed });
   };
 
