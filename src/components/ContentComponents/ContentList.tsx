@@ -12,12 +12,14 @@ interface IContentList{
 
 const ContentList: React.FC<IContentList> = ({projectId}) => {
   const contents = useSelector((state: RootState) => state.contents.contents);
-  const [tagFilter, setTagFilter] = useState("");
-
+  const [filterValues, setFilterValues] = useState({ contentName:"", createdDate: "", updatedDate: "",contentTags: ""});
   const [contentSorted, setContentSorted] = useState({ sorted: "contentName", isReversed: false })
   const [versionSorted, setVersionSorted] = useState({sorted: "version", isReversed: false});
   const dispatch = useDispatch();
 
+  const handleChange = (e: any) =>{
+    setFilterValues({...filterValues, [e.target.name]: e.target.value});
+  }
 
 
   const sortByVersionContent = () => {
@@ -51,14 +53,14 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
       <table className="table table-striped table-dark">
         <thead className="thead-dark">
           <th scope="col"></th>
+          <th scope="col"><input placeholder="Search..." name="contentName" size={7} onChange={handleChange}/></th>
+          <th scope="col"><input placeholder="Search Date" name="createdDate" size={7} onChange={handleChange}/></th>
+          <th scope="col"><input placeholder="Search Date" name="updatedDate" size={7} onChange={handleChange}/></th>
           <th scope="col"></th>
           <th scope="col"></th>
           <th scope="col"></th>
           <th scope="col"></th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-          <th scope="col"><input placeholder="Tag Search" size={7} onChange={(e)=>setTagFilter(e.target.value)}/></th>
+          <th scope="col"><input placeholder="Tag Search" name="contentTags" size={7} onChange={handleChange}/></th>
         </thead>
         <thead className="thead-dark">
           <tr>
@@ -80,7 +82,10 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
         </thead>
         <tbody>
           {contents.map((content: content, i: number) => {
-            if(content.contentTags.toLowerCase().includes(tagFilter.toLowerCase()))
+            if(content.contentTags.toLowerCase().includes(filterValues.contentTags.toLowerCase())
+            && content.contentName.toLowerCase().includes(filterValues.contentName.toLowerCase())
+            && content.createdDate.includes(filterValues.createdDate.toLowerCase())
+            && content.updatedDate.includes(filterValues.updatedDate.toLowerCase()))
             {
               return <Content content={content} key={i} projectId={projectId}/>;  
             }
