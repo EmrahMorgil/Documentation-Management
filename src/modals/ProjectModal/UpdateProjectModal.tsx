@@ -48,7 +48,7 @@ const UpdateProjectModal: React.FC<IUpdateProjectModal> = ({ project }) => {
         let projectId = visibilityProject.projectId; 
         let userId = visibilityProject.userId;
         const updatedVisibilityProject: visibilityProjects = {id, projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent,visibilityRole,projectId,userId};
-        updateVisibilityProjectsApi(visibilityProject.id, updatedVisibilityProject)
+        setTimeout(function(){updateVisibilityProjectsApi(visibilityProject.id, updatedVisibilityProject)}, 500);
         return  updatedVisibilityProject
       }else{
         return visibilityProject;

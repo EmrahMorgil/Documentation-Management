@@ -1,8 +1,8 @@
 {
   "projects": [
     {
-      "id": "idCQTpvhJz-UgwemjN4orE9",
-      "projectName": "Okulqwe",
+      "id": "idkg_rqHqStP9LAabFtiZS0",
+      "projectName": "Okul",
       "createdDate": "9/5/2023",
       "updatedDate": "9/5/2023",
       "createdPerson": "admin",
@@ -11,8 +11,8 @@
       "visibilityRole": 0
     },
     {
-      "id": "iddX0VElomnQXmZINMAoozn",
-      "projectName": "Hastaneqwe",
+      "id": "idxneliHHagYS21mSERgbGl",
+      "projectName": "Hastane",
       "createdDate": "9/5/2023",
       "updatedDate": "9/5/2023",
       "createdPerson": "admin",
@@ -21,8 +21,8 @@
       "visibilityRole": 0
     },
     {
-      "id": "id15KDBLg5vZSesLRTHZwA6",
-      "projectName": "Kütüphaneqwe",
+      "id": "idMtWforkPVo1NY_2EPlP1C",
+      "projectName": "Kütüphane",
       "createdDate": "9/5/2023",
       "updatedDate": "9/5/2023",
       "createdPerson": "admin",
@@ -46,7 +46,7 @@
       "updatedPerson": "admin"
     },
     {
-      "id": "idx36r5BmQtKQ9jiNued1U-",
+      "id": "idyrKWqy1J7c2sXOAKUQR1U",
       "name": "Atay",
       "surname": "Morgil",
       "password": "123",
@@ -58,8 +58,8 @@
       "updatedPerson": "admin"
     },
     {
-      "id": "id0p0VhduZwLYxpEsommPw6",
-      "name": "Emrah",
+      "id": "idVkSyByR-d-GS3Pp1ouuSS",
+      "name": "Ömer",
       "surname": "Morgil",
       "password": "123",
       "role": 0,
@@ -70,8 +70,8 @@
       "updatedPerson": "admin"
     },
     {
-      "id": "idPRjdme_uK-uVhIqtRlVcg",
-      "name": "Ömer",
+      "id": "id43RNf2-GCJDcaHXxE8Sg4",
+      "name": "Emrah",
       "surname": "Morgil",
       "password": "123",
       "role": 0,
@@ -84,112 +84,121 @@
   ],
   "visibilityProjects": [
     {
-      "id": "k8Pp7SBcmCljNc9yEcxPp",
-      "projectName": "Okulqwe",
+      "id": "79YPCcrlZPUPq6Z3JPq66",
+      "projectName": "Okul",
       "createdDate": "9/5/2023",
       "updatedDate": "9/5/2023",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "totalContent": 0,
       "visibilityRole": 0,
-      "projectId": "idCQTpvhJz-UgwemjN4orE9",
-      "userId": "idx36r5BmQtKQ9jiNued1U-"
+      "visibility": true,
+      "userId": "idyrKWqy1J7c2sXOAKUQR1U",
+      "projectId": "idkg_rqHqStP9LAabFtiZS0"
     },
     {
-      "id": "3HNK0fIEYmsqF9wuE35mi",
-      "projectName": "Hastaneqwe",
+      "id": "Gu8SDwUVc9vRcARwVLEfT",
+      "projectName": "Hastane",
       "createdDate": "9/5/2023",
       "updatedDate": "9/5/2023",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "totalContent": 0,
       "visibilityRole": 0,
-      "projectId": "iddX0VElomnQXmZINMAoozn",
-      "userId": "idx36r5BmQtKQ9jiNued1U-"
+      "visibility": true,
+      "userId": "idyrKWqy1J7c2sXOAKUQR1U",
+      "projectId": "idxneliHHagYS21mSERgbGl"
     },
     {
-      "id": "wIwnrLvVGa0tCArMxUwAp",
-      "projectName": "Kütüphaneqwe",
+      "id": "L66IqScy-BpgTO6OAVAc4",
+      "projectName": "Kütüphane",
       "createdDate": "9/5/2023",
       "updatedDate": "9/5/2023",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "totalContent": 0,
       "visibilityRole": 0,
-      "projectId": "id15KDBLg5vZSesLRTHZwA6",
-      "userId": "idx36r5BmQtKQ9jiNued1U-"
+      "visibility": true,
+      "userId": "idyrKWqy1J7c2sXOAKUQR1U",
+      "projectId": "idMtWforkPVo1NY_2EPlP1C"
     },
     {
-      "id": "fsR4p9g5nTHxignt1Jmei",
-      "projectName": "Okulqwe",
+      "id": "_GZat2_jKPzOGP99D_XN9",
+      "projectName": "Okul",
       "createdDate": "9/5/2023",
       "updatedDate": "9/5/2023",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "totalContent": 0,
       "visibilityRole": 0,
-      "projectId": "idCQTpvhJz-UgwemjN4orE9",
-      "userId": "id0p0VhduZwLYxpEsommPw6"
+      "visibility": true,
+      "userId": "idVkSyByR-d-GS3Pp1ouuSS",
+      "projectId": "idkg_rqHqStP9LAabFtiZS0"
     },
     {
-      "id": "2k1RM1ZkJiVfVsyBVkWqC",
-      "projectName": "Hastaneqwe",
+      "id": "d_Jr6HjxGy7FTM3Ij3ISL",
+      "projectName": "Hastane",
       "createdDate": "9/5/2023",
       "updatedDate": "9/5/2023",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "totalContent": 0,
       "visibilityRole": 0,
-      "projectId": "iddX0VElomnQXmZINMAoozn",
-      "userId": "id0p0VhduZwLYxpEsommPw6"
+      "visibility": true,
+      "userId": "idVkSyByR-d-GS3Pp1ouuSS",
+      "projectId": "idxneliHHagYS21mSERgbGl"
     },
     {
-      "id": "d6iiolPfLWYMK2_BUC-EN",
-      "projectName": "Kütüphaneqwe",
+      "id": "f4AmLGWF1YxOKBvvfutO6",
+      "projectName": "Kütüphane",
       "createdDate": "9/5/2023",
       "updatedDate": "9/5/2023",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "totalContent": 0,
       "visibilityRole": 0,
-      "projectId": "id15KDBLg5vZSesLRTHZwA6",
-      "userId": "id0p0VhduZwLYxpEsommPw6"
+      "visibility": true,
+      "userId": "idVkSyByR-d-GS3Pp1ouuSS",
+      "projectId": "idMtWforkPVo1NY_2EPlP1C"
     },
     {
-      "id": "UF9L8Mw0Qw_hY4BLRjogf",
-      "projectName": "Okulqwe",
+      "id": "7dEtPDC0rA4wPC-DOEpq_",
+      "projectName": "Okul",
       "createdDate": "9/5/2023",
       "updatedDate": "9/5/2023",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "totalContent": 0,
       "visibilityRole": 0,
-      "projectId": "idCQTpvhJz-UgwemjN4orE9",
-      "userId": "idPRjdme_uK-uVhIqtRlVcg"
+      "visibility": true,
+      "userId": "id43RNf2-GCJDcaHXxE8Sg4",
+      "projectId": "idkg_rqHqStP9LAabFtiZS0"
     },
     {
-      "id": "DHQSVQSEGTLvHWvwIKw3e",
-      "projectName": "Hastaneqwe",
+      "id": "pblaJmOIJ5eWqtCliQz6L",
+      "projectName": "Hastane",
       "createdDate": "9/5/2023",
       "updatedDate": "9/5/2023",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "totalContent": 0,
       "visibilityRole": 0,
-      "projectId": "iddX0VElomnQXmZINMAoozn",
-      "userId": "idPRjdme_uK-uVhIqtRlVcg"
+      "visibility": true,
+      "userId": "id43RNf2-GCJDcaHXxE8Sg4",
+      "projectId": "idxneliHHagYS21mSERgbGl"
     },
     {
-      "id": "7svo-3rpgAe_TC7pEnS7h",
-      "projectName": "Kütüphaneqwe",
+      "id": "OK824lk_vgDjWJYyDNNaR",
+      "projectName": "Kütüphane",
       "createdDate": "9/5/2023",
       "updatedDate": "9/5/2023",
       "createdPerson": "admin",
       "updatedPerson": "admin",
       "totalContent": 0,
       "visibilityRole": 0,
-      "projectId": "id15KDBLg5vZSesLRTHZwA6",
-      "userId": "idPRjdme_uK-uVhIqtRlVcg"
+      "visibility": true,
+      "userId": "id43RNf2-GCJDcaHXxE8Sg4",
+      "projectId": "idMtWforkPVo1NY_2EPlP1C"
     }
   ]
 }

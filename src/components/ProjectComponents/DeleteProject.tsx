@@ -28,9 +28,10 @@ const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
     const newUserProjectAmount = users.map((user: user)=>{
       if(user.id===deletedItems.userId)
       {
+        debugger;
         updatedProjectAmount = {...user};
         updatedProjectAmount.totalProject--;
-        updateUsers(updatedProjectAmount.id, updatedProjectAmount);
+        setTimeout(function(){updateUsers(updatedProjectAmount.id, updatedProjectAmount)}, 500);
         return updatedProjectAmount;
       }else{
         return user;
