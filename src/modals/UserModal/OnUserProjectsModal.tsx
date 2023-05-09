@@ -3,19 +3,19 @@ import { project, user } from "../../types/Type";
 import OnUserProjectContainer from "../../components/ProjectComponents/OnUserProject/OnUserProjectContainer";
 
 interface IAddOnUserProjectsModal{
-  onUser?: user;
+  user: user;
 } 
 
-const OnUserProjectsModal: React.FC<IAddOnUserProjectsModal> = ({ onUser }) => {
+const OnUserProjectsModal: React.FC<IAddOnUserProjectsModal> = ({ user }) => {
   
   return (
     <div
-      className="modal fade" id={onUser?.id + "on"} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      className="modal fade" id={user.id + "on"} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog modal-xl" role="document">
         <div className="modal-content">
           <div className="modal-body">
             <div style={{display: "flex", justifyContent: "center",marginTop: "50px"}}>
-              {onUser?.totalProject === 0 ? <h3>This user has no projects</h3> : <OnUserProjectContainer onUser={onUser}/>}
+              {user.totalProject === 0 ? <h3>This user has no projects</h3> : <OnUserProjectContainer user={user}/>}
               
             </div>
           </div>

@@ -1,14 +1,11 @@
 import React from "react";
-import { user, visibilityProjects } from "../../../types/Type";
+import { IUserProp, user, visibilityProjects } from "../../../types/Type";
 import { RootState } from "../../../redux/store";
 import { useSelector } from "react-redux";
 import Project from "../Project";
 
-interface IOnUserProjects {
-  onUser?: user;
-}
 
-const OnUserProjects: React.FC<IOnUserProjects> = ({ onUser }) => {
+const OnUserProjects: React.FC<IUserProp> = ({ user }) => {
   const visibilityProjects = useSelector(
     (state: RootState) => state.projects.visibilityProjects
   );
@@ -31,14 +28,14 @@ const OnUserProjects: React.FC<IOnUserProjects> = ({ onUser }) => {
         </thead>
         <tbody>
           {visibilityProjects.map((visibilityProject: visibilityProjects, i: string) => {
-            if (onUser?.id === visibilityProject.userId) {
+            if (user.id === visibilityProject.userId) {
               return (
                 <>
                   <Project
                     project={visibilityProject}
                     key={i}
                     projectsControl="onUserDeleteProject"
-                    userId={onUser.id}
+                    userId={user.id}
                   />
                 </>
               );

@@ -117,9 +117,6 @@ export interface IUserProp{
     user: user;
   }
 
-export interface IOnUserProp{
-    onUser?: user;
-}
 
 export interface IUpdateUser{
     item: user,
