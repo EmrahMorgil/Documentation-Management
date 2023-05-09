@@ -16,6 +16,7 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
   const adminLoggedIn = useSelector((state:RootState)=>state.users.adminLoggedIn);
   const activeUser: user = useSelector((state: RootState)=>state.users.activeUser);
   const visibilityProjects = useSelector((state: RootState)=>state.projects.visibilityProjects);
+  const dispatch = useDispatch();
 
   const handleChange = (e: any) =>{
     setFilterValues({...filterValues, [e.target.name]: e.target.value});
@@ -25,7 +26,6 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
     }
   }
   
-  const dispatch = useDispatch();
 
   const sortByTotalContent = () => {
 
@@ -93,7 +93,7 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
   
 
   return (
-    <div className="container mt-5">
+    <div className="container">
       <table className="table table-striped">
       <thead className="thead-dark">
           <th scope="col"></th>
@@ -104,7 +104,7 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
           <th scope="col"></th>
           <th scope="col"></th>
           <th scope="col"><input name="visibilityRole" size={7} onChange={handleChange}/></th>
-          <th scope="col"></th>
+          {(projectsControl!=="adminLoggedInProjects" || !adminLoggedIn) && <th scope="col"></th>}
         </thead>
         <thead className="thead-dark">
           <tr>
@@ -122,7 +122,7 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
             <th onClick={sortByVisibilityRole} scope="col">Visibility Role
             {roleSorted.sorted  ? (roleSorted.isReversed ? "▲" : "▼"):null}
             </th>
-            <th scope="col">Actions</th>
+            {(projectsControl!=="adminLoggedInProjects" || !adminLoggedIn) && <th scope="col">Actions</th>}
           </tr>
         </thead>
         <tbody>

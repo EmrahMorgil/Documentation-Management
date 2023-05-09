@@ -7,9 +7,9 @@ import ProjectsList from "../components/ProjectComponents/ProjectsList";
 const Projects: React.FC = () => {
 
   return (
-    <>
+    <div>
       <ProjectsList projectsControl={"adminLoggedInProjects"} />
-    </>
+    </div>
   );
 };
 

@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
   );
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3 mb-5">
       <div className="container">
         <button
           className="navbar-toggler"
