@@ -30,12 +30,13 @@ const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
       {
         updatedProjectAmount = {...user};
         updatedProjectAmount.totalProject--;
+        updateUsers(updatedProjectAmount.id, updatedProjectAmount);
         return updatedProjectAmount;
       }else{
         return user;
       }
     });
-    updateUsers(updatedProjectAmount.id, updatedProjectAmount);
+    
     dispatch(setUsers(newUserProjectAmount));
   }
 
@@ -51,8 +52,8 @@ const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
     });
     dispatch(setVisibilityProjects(newArray));
 
-    // kullanıcının amount'unu azaltma işlemi
-    removeUserProjectAmount();
+    
+    
   }
 
 
@@ -69,7 +70,10 @@ const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
 
 
     //visibilityProjects'den silme işlemi
-    removeVisibilityProjectItem();
+    setTimeout(removeVisibilityProjectItem, 500);
+
+    // kullanıcının amount'unu azaltma işlemi
+    setTimeout(removeUserProjectAmount, 750);
 
   };
 

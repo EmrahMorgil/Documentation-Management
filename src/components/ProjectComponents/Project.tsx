@@ -38,10 +38,10 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
         </button>
         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <Link to={`/contentpanel/${project.id}`} className="dropdown-item">Contents</Link>
-        <DeleteProject project={project} />
           <button type="button" className="dropdown-item" data-toggle="modal" data-target={`#${project.id}`}>
               Detail
           </button>
+        <DeleteProject project={project} />
         </div>
       </div>
       <UpdateProjectModal project={project} />

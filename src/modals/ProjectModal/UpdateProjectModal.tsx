@@ -42,6 +42,7 @@ const UpdateProjectModal: React.FC<IUpdateProjectModal> = ({ project }) => {
     } = setUpdatedProject;
 
     const newArray: visibilityProjects = visibilityProjects.map((visibilityProject: visibilityProjects)=>{
+      
       if(visibilityProject.projectId==project.id)
       {
         let projectId = visibilityProject.projectId; 
