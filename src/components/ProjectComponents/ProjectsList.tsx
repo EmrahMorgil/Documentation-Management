@@ -103,7 +103,7 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
           <th scope="col"></th>
           <th scope="col"></th>
           <th scope="col"></th>
-          <th scope="col"><input name="visibilityRole" size={7} onChange={handleChange}/></th>
+          <th scope="col"></th>
           {(projectsControl!=="adminLoggedInProjects" || !adminLoggedIn) && <th scope="col"></th>}
         </thead>
         <thead className="thead-dark">

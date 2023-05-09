@@ -72,7 +72,7 @@ const AddUserModal: React.FC = () => {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: "150px",
+                marginTop: "50px",
               }}
             >
               <form>
