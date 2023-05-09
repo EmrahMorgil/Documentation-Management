@@ -12,7 +12,7 @@ import { deleteVisibilityProjectsApi } from "../../services/visibilityProjectSer
 import OnUserProjectRemoveButton from "./OnUserProject/OnUserProjectRemoveButton";
 
 interface IProject {
-  project: project;
+  project: any;
   projectsControl: string;
   userId?: string;
 }
@@ -46,7 +46,7 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
               <DeleteProject project={project} />
               <UpdateProject project={project} />
             </td>
-          ) : projectsControl ==="onUserDeleteProject" ? <td scope="row"><OnUserProjectRemoveButton userId={userId} projectId={project.id} /></td> : <></>}
+          ) : projectsControl ==="onUserDeleteProject" ? <td scope="row"><OnUserProjectRemoveButton userId={userId} projectId={project.id} /></td> : projectsControl ==="visibilityProjectsMap" ? <td scope="row"><Link to={`/contentpanel/${project.projectId}`} ><button className="btn btn-success">Contents</button></Link></td> : <></>}
         
       </tr>
     </>

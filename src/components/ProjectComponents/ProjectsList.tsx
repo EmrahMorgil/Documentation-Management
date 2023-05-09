@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { project } from "../../types/Type";
+import { project, user, visibilityProjects } from "../../types/Type";
 import Project from "./Project";
-import { setProjects } from "../../redux/projects/projectsSlice";
+import { setProjects, setVisibilityProjects } from "../../redux/projects/projectsSlice";
 
 
 const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userId?: string}) => {
@@ -13,7 +13,10 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
   const [totalSorted, setTotalSorted] = useState({sorted: "totalContent", isReversed: false});
   const [roleSorted, setRoleSorted] = useState({sorted: "visibilityRole", isReversed: false});
   const [filterValues, setFilterValues] = useState({projectName: "", createdDate: "", updatedDate: "", visibilityRole: 0});
-  
+  const adminLoggedIn = useSelector((state:RootState)=>state.users.adminLoggedIn);
+  const activeUser: user = useSelector((state: RootState)=>state.users.activeUser);
+  const visibilityProjects = useSelector((state: RootState)=>state.projects.visibilityProjects);
+
   const handleChange = (e: any) =>{
     setFilterValues({...filterValues, [e.target.name]: e.target.value});
     if(e.target.name==="visibilityRole")
@@ -25,7 +28,11 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
   const dispatch = useDispatch();
 
   const sortByTotalContent = () => {
-    const sortedData = [...projects].sort((a, b) => {
+
+    let variableProject;
+    activeUser.role===1 ? variableProject = projects : variableProject = visibilityProjects; 
+
+    const sortedData = [...variableProject].sort((a, b) => {
       if (totalSorted.isReversed) {
         return a.totalContent - b.totalContent;
       }
@@ -33,11 +40,15 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
     });
   
     dispatch(setProjects(sortedData));
+    dispatch(setVisibilityProjects(sortedData));
     setTotalSorted({ sorted: "totalContent", isReversed: !totalSorted.isReversed });
   };
   
   const sortByProjectName = () => {
-    const sortedData = [...projects].sort((a, b) => {
+    let variableProject;
+    activeUser.role===1 ? variableProject = projects : variableProject = visibilityProjects; 
+
+    const sortedData = [...variableProject].sort((a, b) => {
       if (projectSorted.isReversed) {
         return b.projectName.localeCompare(a.projectName);
       }
@@ -45,10 +56,15 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
     });
   
     dispatch(setProjects(sortedData));
+    dispatch(setVisibilityProjects(sortedData));
     setProjectSorted({ sorted: "projectName", isReversed: !projectSorted.isReversed });
   };
   const sortByVisibilityRole = () => {
-    const sortedData = [...projects].sort((a, b) => {
+
+    let variableProject;
+    activeUser.role===1 ? variableProject = projects : variableProject = visibilityProjects; 
+
+    const sortedData = [...variableProject].sort((a, b) => {
       if (roleSorted.isReversed) {
         return a.visibilityRole - b.visibilityRole;
       }
@@ -56,6 +72,7 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
     });
   
     dispatch(setProjects(sortedData));
+    dispatch(setVisibilityProjects(sortedData));
     setRoleSorted({ sorted: "visibilityRole", isReversed: !roleSorted.isReversed });
   };
 
@@ -74,7 +91,7 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
           <th scope="col"></th>
           <th scope="col"></th>
           <th scope="col"><input name="visibilityRole" size={7} onChange={handleChange}/></th>
-          {projectsControl!=="adminLoggedInProjects" && <th scope="col"></th>}
+          <th scope="col"></th>
         </thead>
         <thead className="thead-dark">
           <tr>
@@ -92,17 +109,28 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
             <th onClick={sortByVisibilityRole} scope="col">Visibility Role
             {roleSorted.sorted  ? (roleSorted.isReversed ? "▲" : "▼"):null}
             </th>
-            {projectsControl!=="adminLoggedInProjects" && <th scope="col">Actions</th>}
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
-          {projects.map((item: project, i: number) =>{
+          {adminLoggedIn ? projects.map((item: project, i: number) =>{
             if(item.projectName.toLowerCase().includes(filterValues.projectName.toLowerCase()) && item.createdDate.includes(filterValues.createdDate) && item.updatedDate.includes(filterValues.updatedDate))
             {
               return <Project project={item} key={i} projectsControl={projectsControl} userId={userId}/>
             }
           }
-          )}
+          ) 
+          : 
+          visibilityProjects.map((visibilityProject: visibilityProjects, i: number)=>{
+            if(activeUser.id===visibilityProject.userId)
+            {
+              if(visibilityProject.projectName.toLowerCase().includes(filterValues.projectName.toLowerCase()))
+              {
+                return <Project project={visibilityProject} key={i} projectsControl={"visibilityProjectsMap"}/>
+              }
+            }
+          })}
+          
         </tbody>
       </table>
     </div>
