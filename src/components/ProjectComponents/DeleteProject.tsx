@@ -13,7 +13,7 @@ interface IDeleteProject{
 
 const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
 
-  let deletedItems: visibilityProjects = {id: "", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "",  totalContent: 0, visibilityRole: 1, visibility: false, userId: "", projectId: ""};
+  let deletedItems: visibilityProjects = {id: "", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "",  totalContent: 0, visibilityRole: 1, userId: "", projectId: ""};
 
   
   const dispatch = useDispatch();
@@ -38,11 +38,6 @@ const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
     updateUsers(updatedProjectAmount.id, updatedProjectAmount);
     dispatch(setUsers(newUserProjectAmount));
   }
-
-
-
-
-
 
   const removeVisibilityProjectItem = () =>{
    

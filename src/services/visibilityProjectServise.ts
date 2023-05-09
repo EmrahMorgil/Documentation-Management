@@ -25,3 +25,7 @@ export const deleteVisibilityProjectsApi = async(id: string) => {
   await axios.delete(`http://localhost:3004/visibilityProjects/${id}`);
 };
 
+export const updateVisibilityProjectsApi = async(id: string, updatedVisibilityProject: visibilityProjects) => {
+  await axios.put(`http://localhost:3004/visibilityProjects/${id}`, updatedVisibilityProject);
+};
+

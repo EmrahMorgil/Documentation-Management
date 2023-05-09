@@ -48,10 +48,8 @@ const DeleteContent: React.FC<IDeleteContent> = ({id, projectId}) => {
     //api
     deleteContents(id);
 
-
     //delete amount
     setTimeout(deleteContentAmount, 100);
-
 
     const newArr = contents.filter((contents: content) => {
       if (contents.id !== id) {

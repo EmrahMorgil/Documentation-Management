@@ -50,13 +50,8 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
     dispatch(setProjects(newArr));
   };
 
-  const handleClick = async () => {
-    debugger;
-    if(newContent.contentName==="" || newContent.content==="")
-    {
-      toast.error("Please fill in all the blanks..");
-    }else{
 
+  const createNewContent = () =>{
     let date = new Date();
     let nowDate = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
     const updatedContent = { ...newContent };
@@ -66,13 +61,22 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
     updatedContent.createdPerson = activeUser.name;
     updatedContent.updatedPerson = activeUser.name;
     updatedContent.projectId = id;
-
     //api
     setTimeout(()=>dispatch(addNewContent(updatedContent)), 100);
     // addContents(updatedContent);
     setTimeout(()=>addContents(updatedContent), 500);
-    
+  }
 
+
+  const handleClick = async () => {
+    if(newContent.contentName==="" || newContent.content==="")
+    {
+      toast.error("Please fill in all the blanks..");
+    }else{
+
+    createNewContent();
+    
+    //clear content
     setNewContent({
       id: "",
       contentName: "",
@@ -89,7 +93,6 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
     //add amount
     setTimeout(addContentAmount, 100);
     toast.success("Content successfully added");
-
   }
   };
   const handleChange = (e: any) => {
