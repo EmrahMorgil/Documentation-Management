@@ -1,5 +1,5 @@
 import React from "react";
-import { setAdminLoggedIn, setUserLoggedIn } from "../redux/users/usersSlice";
+import { setActiveUser, setAdminLoggedIn, setUserLoggedIn } from "../redux/users/usersSlice";
 import { useDispatch } from "react-redux";
 
 const Logout: React.FC = () => {
@@ -8,6 +8,7 @@ const Logout: React.FC = () => {
   const handleClick = () => {
     dispatch(setAdminLoggedIn(false));
     dispatch(setUserLoggedIn(false));
+    dispatch(setActiveUser({}));
   };
 
   return (
