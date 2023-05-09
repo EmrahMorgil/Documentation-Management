@@ -2,17 +2,17 @@ import React from 'react'
 import { user } from '../../types/Type'
 import ProjectsList from '../../components/ProjectComponents/ProjectsList'
 
-const AddOnUserProjectsModal = ({addOnUserProject}: {addOnUserProject?: user}) => {
+const AddOnUserProjectsModal = ({user}: {user?: user}) => {
   return (
     <div
-      className="modal fade" id={addOnUserProject?.id + "add"} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      className="modal fade" id={user?.id + "add"} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog modal-xl" role="document">
         <div className="modal-content">
           <div className="modal-body">
 
         <h3 className='text-center mt-3'>Add Project</h3>
           <div style={{display: "flex", justifyContent: "center",marginTop: "50px"}}>
-            <ProjectsList projectsControl={"addUserOnProject"} userId={addOnUserProject?.id}/>
+            <ProjectsList projectsControl={"addUserOnProject"} userId={user?.id}/>
           </div>
           </div>
           <div className="modal-footer">

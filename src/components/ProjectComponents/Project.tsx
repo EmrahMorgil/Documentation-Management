@@ -1,15 +1,9 @@
 import React from "react";
-import { project, visibilityProjects } from "../../types/Type";
 import DeleteProject from "./DeleteProject";
-import AddContent from "../ContentComponents/ContentModalConnection/AddContent";
 import { Link } from "react-router-dom";
-import UpdateProject from "./ProjectModalConnection/UpdateProject";
 import OnUserProjectsContainer from "./OnUserProject/OnUserProjectsContainer";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
-import { setVisibilityProjects } from "../../redux/projects/projectsSlice";
-import { deleteVisibilityProjectsApi } from "../../services/visibilityProjectServise";
 import OnUserProjectRemoveButton from "./OnUserProject/OnUserProjectRemoveButton";
+import UpdateProjectModal from "../../modals/ProjectModal/UpdateProjectModal";
 
 interface IProject {
   project: any;
@@ -38,13 +32,19 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
           ) : projectsControl === "projectPanel" ? (
             <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
             {/* projectpanelde görünecekler */}
-              <Link to={`/contentpanel/${project.id}`}>
-                <button className="btn btn-success" style={{ width: "100px" }} >
-                  Content
-                </button>
-              </Link>
-              <DeleteProject project={project} />
-              <UpdateProject project={project} />
+            <div className="dropdown">
+        <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Options
+        </button>
+        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <Link to={`/contentpanel/${project.id}`} className="dropdown-item">Contents</Link>
+        <DeleteProject project={project} />
+          <button type="button" className="dropdown-item" data-toggle="modal" data-target={`#${project.id}`}>
+              Detail
+          </button>
+        </div>
+      </div>
+      <UpdateProjectModal project={project} />
             </td>
           ) : projectsControl ==="onUserDeleteProject" ? <td scope="row"><OnUserProjectRemoveButton userId={userId} projectId={project.id} /></td> : projectsControl ==="visibilityProjectsMap" ? <td scope="row"><Link to={`/contentpanel/${project.projectId}`} ><button className="btn btn-success">Contents</button></Link></td> : <></>}
         

@@ -62,7 +62,7 @@ const DeleteContent: React.FC<IDeleteContent> = ({id, projectId}) => {
   };
 
   return (
-    <button className="btn btn-danger" onClick={() => deleteContent(id)}>
+    <button className="dropdown-item" onClick={() => deleteContent(id)}>
       Delete
     </button>
   )

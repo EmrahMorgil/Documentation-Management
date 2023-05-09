@@ -1,9 +1,9 @@
 import React from "react";
 import DeleteUser from "./DeleteUser";
 import { IUserProp } from "../../types/Type";
-import UpdateUser from "./UserModalConnection/UpdateUser";
-import OnUserProjects from "./UserModalConnection/OnUserProjects";
-import AddOnUserProjects from "./UserModalConnection/AddOnUserProjects";
+import OnUserProjectsModal from "../../modals/UserModal/OnUserProjectsModal";
+import AddOnUserProjectsModal from "../../modals/UserModal/AddOnUserProjectsModal";
+import UpdateUserModal from "../../modals/UserModal/UpdateUserModal";
 
 const User: React.FC<IUserProp> = ({ user }) => {
   return (
@@ -20,10 +20,44 @@ const User: React.FC<IUserProp> = ({ user }) => {
         <td scope="row">{user.createdPerson}</td>
         <td scope="row">{user.updatedPerson}</td>
         <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
-          <OnUserProjects user={user} />
-          <AddOnUserProjects user={user}/>
-          <UpdateUser user={user} />
-          <DeleteUser id={user.id} />
+
+        <div className="dropdown">
+        <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Options
+        </button>
+        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <button
+        type="button"
+        className="btn btn-success w-100 dropdown-item"
+        data-toggle="modal"
+        data-target={`#${user.id}`+"on"}
+        >
+        Projects
+      </button>
+      <button
+        type="button"
+        className="btn btn-outline-success w-100 dropdown-item"
+        data-toggle="modal"
+        data-target={`#${user.id}` + "add"}
+      >
+        Add Project
+      </button>
+      <button
+        type="button"
+        className="btn btn-warning w-100 dropdown-item"
+        data-toggle="modal"
+        data-target={`#${user.id}`}
+      >
+        Detail
+      </button>
+      <DeleteUser id={user.id} />
+        </div>
+      </div>
+      
+      <OnUserProjectsModal user={user} />
+      <AddOnUserProjectsModal user={user} />
+      <UpdateUserModal user={user} />
+          
         </td>
       </tr>
     </>

@@ -79,7 +79,7 @@ const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
   };
 
   return (
-    <button className="btn btn-danger" onClick={() => deletedProject(project)} style={{width: "100px"}}>
+    <button className="btn btn-danger dropdown-item" onClick={() => deletedProject(project)} style={{width: "100px"}}>
       Delete
     </button>
   )
