@@ -95,11 +95,11 @@ const UpdateUserModal: React.FC<IUpdateUserModal> = ({ user }) => {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: "150px",
+                marginTop: "50px",
               }}
             >
               <form >
-                <div style={{marginBottom: "50px", width: "400px", textAlign: "center" }}><h3>Update User</h3></div>
+                <div style={{marginBottom: "25px", width: "400px", textAlign: "center" }}><h3>Update User</h3></div>
                 <div className="form-outline mb-4">
                 <label htmlFor="exampleInput">Name</label>
                   <input

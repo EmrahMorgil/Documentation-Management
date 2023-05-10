@@ -13,7 +13,7 @@ interface IDeleteProject{
 
 const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
 
-  let deletedItems: visibilityProjects = {id: "", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "",  totalContent: 0, visibilityRole: 1, visibility: false, userId: "", projectId: ""};
+  let deletedItems: visibilityProjects = {id: "", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "",  totalContent: 0, visibilityRole: 1, userId: "", projectId: ""};
 
   
   const dispatch = useDispatch();
@@ -28,21 +28,18 @@ const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
     const newUserProjectAmount = users.map((user: user)=>{
       if(user.id===deletedItems.userId)
       {
+        debugger;
         updatedProjectAmount = {...user};
         updatedProjectAmount.totalProject--;
+        setTimeout(function(){updateUsers(updatedProjectAmount.id, updatedProjectAmount)}, 500);
         return updatedProjectAmount;
       }else{
         return user;
       }
     });
-    updateUsers(updatedProjectAmount.id, updatedProjectAmount);
+    
     dispatch(setUsers(newUserProjectAmount));
   }
-
-
-
-
-
 
   const removeVisibilityProjectItem = () =>{
    
@@ -56,8 +53,8 @@ const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
     });
     dispatch(setVisibilityProjects(newArray));
 
-    // kullanıcının amount'unu azaltma işlemi
-    removeUserProjectAmount();
+    
+    
   }
 
 
@@ -74,12 +71,15 @@ const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
 
 
     //visibilityProjects'den silme işlemi
-    removeVisibilityProjectItem();
+    setTimeout(removeVisibilityProjectItem, 500);
+
+    // kullanıcının amount'unu azaltma işlemi
+    setTimeout(removeUserProjectAmount, 750);
 
   };
 
   return (
-    <button className="btn btn-danger" onClick={() => deletedProject(project)} style={{width: "100px"}}>
+    <button className="btn btn-danger dropdown-item" onClick={() => deletedProject(project)} style={{width: "100px"}}>
       Delete
     </button>
   )

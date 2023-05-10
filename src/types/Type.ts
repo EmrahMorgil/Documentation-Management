@@ -87,11 +87,10 @@ export class visibilityProjects{
     updatedPerson: string;
     totalContent: number;
     visibilityRole: number;
-    visibility: boolean;
     userId: string;
     projectId: string
 
-    constructor(id: string, projectName: string, createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string, totalContent: number, visibilityRole: number, visibility: boolean, userId: string, projectId: string)
+    constructor(id: string, projectName: string, createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string, totalContent: number, visibilityRole: number, userId: string, projectId: string)
     {
         this.id = id;
         this.projectName = projectName;
@@ -101,7 +100,6 @@ export class visibilityProjects{
         this.updatedPerson = updatedPerson;
         this.totalContent = totalContent;
         this.visibilityRole = visibilityRole;
-        this.visibility = visibility;
         this.userId = userId;
         this.projectId = projectId;
     }

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
-import { project } from "../../types/Type";
+import { project, visibilityProjects } from "../../types/Type";
 import { updateProjects } from "../../services/projectService"
-import { setProjects } from '../../redux/projects/projectsSlice';
+import { setProjects, setVisibilityProjects } from '../../redux/projects/projectsSlice';
+import { updateVisibilityProjectsApi } from "../../services/visibilityProjectServise";
 
 interface IUpdateProjectModal{
   project: project;
@@ -13,6 +14,7 @@ const UpdateProjectModal: React.FC<IUpdateProjectModal> = ({ project }) => {
     const dispatch = useDispatch();
     const projects = useSelector((state: RootState) => state.projects.projects);
     const activeUser = useSelector((state: RootState) => state.users.activeUser.name);
+    const visibilityProjects = useSelector((state: RootState)=>state.projects.visibilityProjects);
 
   const [updatedProject, setUpdatedProject] = useState<project>({
     id: project.id,
@@ -25,6 +27,37 @@ const UpdateProjectModal: React.FC<IUpdateProjectModal> = ({ project }) => {
     visibilityRole: project.visibilityRole,
   });
   
+
+  const updateVisibilityProjectItem = () =>{
+    const setUpdatedProject = { ...updatedProject };
+    const {
+      id,
+      projectName,
+      createdDate,
+      updatedDate,
+      createdPerson,
+      updatedPerson,
+      totalContent,
+      visibilityRole,
+    } = setUpdatedProject;
+
+    const newArray: visibilityProjects = visibilityProjects.map((visibilityProject: visibilityProjects)=>{
+      
+      if(visibilityProject.projectId==project.id)
+      {
+        let projectId = visibilityProject.projectId; 
+        let userId = visibilityProject.userId;
+        const updatedVisibilityProject: visibilityProjects = {id, projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent,visibilityRole,projectId,userId};
+        setTimeout(function(){updateVisibilityProjectsApi(visibilityProject.id, updatedVisibilityProject)}, 500);
+        return  updatedVisibilityProject
+      }else{
+        return visibilityProject;
+      }
+    });
+    dispatch(setVisibilityProjects(newArray));
+
+  }
+
 
   const updateProject = async (updateProject: project) => {
     let date = new Date();
@@ -62,6 +95,9 @@ const UpdateProjectModal: React.FC<IUpdateProjectModal> = ({ project }) => {
       return projects;
     });
     dispatch(setProjects(newArr));
+
+    //visibilityProject'de var ise oradan da update işlemi yapılıyor.
+    updateVisibilityProjectItem();
   };
 
   const handleChange = (e: any) => {
