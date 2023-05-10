@@ -1,11 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
 import DeleteUser from "./DeleteUser";
-import { IUserProp } from "../../types/Type";
+import { IUserProp, visibilityProjects } from "../../types/Type";
 import OnUserProjectsModal from "../../modals/UserModal/OnUserProjectsModal";
 import AddOnUserProjectsModal from "../../modals/UserModal/AddOnUserProjectsModal";
 import UpdateUserModal from "../../modals/UserModal/UpdateUserModal";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 const User: React.FC<IUserProp> = ({ user }) => {
+
+  const visibilityProjects = useSelector((state:RootState)=>state.projects.visibilityProjects);
+
+  const onUserProjectLength = ()=>{
+    return visibilityProjects.filter((item: visibilityProjects)=>(item.userId==user.id)).length;
+  }
+
+  
+
   return (
     <>
       <tr>
@@ -14,7 +25,7 @@ const User: React.FC<IUserProp> = ({ user }) => {
         <td scope="row">{user.surname}</td>
         <td scope="row">{user.password}</td>
         <td scope="row">{user.role}</td>
-        <td scope="row">{user.totalProject}</td>
+        <td scope="row">{onUserProjectLength()}</td>
         <td scope="row">{user.createdDate}</td>
         <td scope="row">{user.updatedDate}</td>
         <td scope="row">{user.createdPerson}</td>

@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getUsersAsync } from "../services/userService";
 import { RootState } from "../redux/store";
-import LoginUser from "../components/UserComponents/LoginUser";
+import LoginUser from "./UserComponents/LoginUser";
 import { Navigate } from "react-router";
 import { getProjectsAsync } from "../services/projectService";
 import { getVisibilityProjectsAsync } from "../services/visibilityProjectServise";
 
-const Login: React.FC = () => {
+const LoginControl: React.FC = () => {
   const dispatch = useDispatch();
   const userLoggedIn = useSelector((state: RootState) => state.users.userLoggedIn);
   const adminLoggedIn = useSelector((state: RootState) => state.users.adminLoggedIn);
@@ -28,4 +28,4 @@ const Login: React.FC = () => {
   }
 };
 
-export default Login;
+export default LoginControl;

@@ -53,7 +53,7 @@ const Content: React.FC<IContent> = ({ content, projectId }) => {
                   >
                     Detail
                   </button>
-                  <DeleteContent id={content.id} projectId={projectId} />
+                  <DeleteContent contentId={content.id} projectId={projectId} />
                 </div>
               </div>
               <UpdateContentModal item={content} />

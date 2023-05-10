@@ -8,11 +8,11 @@ import { updateProjects } from '../../services/projectService';
 import { setProjects } from '../../redux/projects/projectsSlice';
 
 interface IDeleteContent{
-  id: string;
+  contentId: string;
   projectId?: string;
 }
 
-const DeleteContent: React.FC<IDeleteContent> = ({id, projectId}) => {
+const DeleteContent: React.FC<IDeleteContent> = ({contentId, projectId}) => {
 
 
   const dispatch = useDispatch();
@@ -60,7 +60,7 @@ const DeleteContent: React.FC<IDeleteContent> = ({id, projectId}) => {
   };
 
   return (
-    <button className="dropdown-item" onClick={() => deleteContent(id)}>
+    <button className="dropdown-item" onClick={() => deleteContent(contentId)}>
       Delete
     </button>
   )

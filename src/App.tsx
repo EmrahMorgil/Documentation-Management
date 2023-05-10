@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
+import LoginControl from "./components/LoginControl";
 import { useSelector } from "react-redux";
 import { RootState } from "./redux/store";
 import Projects from "./pages/Projects";
@@ -9,7 +9,7 @@ import ProjectPanel from "./pages/ProjectPanel";
 import Protected from "./components/Protected";
 import ContentPanel from "./pages/ContentPanel";
 import "./styles/App.css"
-import Navbar from "./pages/Navbar";
+import Navbar from "./components/Navbar";
 
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
     <>
     {activeUser.id && <Navbar />} 
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<LoginControl />} />
         <Route path="/projects" element={<Protected loggedIn={adminLoggedIn || userLoggedIn}><Projects/></Protected>} />
         <Route path="/userpanel" element={<Protected loggedIn={adminLoggedIn}><UserPanel /></Protected>}/>
         <Route path="/projectpanel" element={<Protected loggedIn={adminLoggedIn}><ProjectPanel /></Protected>}/>
