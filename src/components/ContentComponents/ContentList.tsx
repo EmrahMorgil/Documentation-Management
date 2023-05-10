@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { content } from "../../types/Type";
 import Content from "./Content";
-import { setContents } from "../../redux/contents/contentsSlice";
+import { setAllContents } from "../../redux/contents/contentsSlice";
 
 
 interface IContentList{
@@ -30,7 +30,7 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
       return b.version - a.version;
     });
   
-    dispatch(setContents(sortedData));
+    dispatch(setAllContents(sortedData));
     setVersionSorted({ sorted: "version", isReversed: !versionSorted.isReversed });
   };
 
@@ -42,7 +42,7 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
       return a.contentName.localeCompare(b.contentName);
     });
   
-     dispatch(setContents(sortedData));
+     dispatch(setAllContents(sortedData));
     setContentSorted({ sorted: "contentName", isReversed: !contentSorted.isReversed });
   };
 

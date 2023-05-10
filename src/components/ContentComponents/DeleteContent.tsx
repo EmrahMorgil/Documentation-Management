@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { content, project } from '../../types/Type';
 import { deleteContents } from '../../services/contentService';
-import { setContents } from '../../redux/contents/contentsSlice';
+import { setAllContents, setSelectContents } from '../../redux/contents/contentsSlice';
 import { updateProjects } from '../../services/projectService';
 import { setProjects } from '../../redux/projects/projectsSlice';
 
@@ -16,47 +16,28 @@ const DeleteContent: React.FC<IDeleteContent> = ({contentId, projectId}) => {
 
 
   const dispatch = useDispatch();
-  const contents = useSelector((state: RootState) => state.contents.contents);
-
-
-  const projects = useSelector((state:RootState)=>state.projects.projects);
-
-
-  //amount
-  // const deleteContentAmount = () =>{
-
-  //   let updatedContentAmount: project ={id:"", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalContent: 0, visibilityRole: 1};
-
-  //   let newArray = projects.map((item: project)=>{
-  //     if(item.id === projectId)
-  //     {
-  //       updatedContentAmount = {...item};
-  //       updatedContentAmount.totalContent--;
-
-  //       return updatedContentAmount;
-  //     }
-  //     return item;
-  //   })
-    
-  //   updateProjects(updatedContentAmount.id, updatedContentAmount);
-
-  //   dispatch(setProjects(newArray));
-  // }
+  const allContents = useSelector((state: RootState) => state.contents.allContents);
+  const selectContents = useSelector((state: RootState) => state.contents.selectContents);
 
 
   const deleteContent = (id: string) => {
     //api
     deleteContents(id);
 
-    //delete amount
-    // setTimeout(deleteContentAmount, 100);
 
-    const newArr = contents.filter((contents: content) => {
+    const newArr = allContents.filter((contents: content) => {
       if (contents.id !== id) {
         return contents;
       }
     });
-    dispatch(setContents(newArr));
+
+    const newArray = selectContents.filter((contents: content) => {
+      if (contents.id !== id) {
+        return contents;
+      }
+    });
+    dispatch(setAllContents(newArr));
+    dispatch(setSelectContents(newArray));
   };
 
   return (

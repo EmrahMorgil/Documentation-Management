@@ -12,10 +12,14 @@ export const contentsSlice = createSlice({
   initialState,
   reducers: {
     addNewContent: (state, action)=>{
-        state.contents.push(action.payload);
+        state.allContents.push(action.payload);
+        state.selectContents.push(action.payload);
       },
-      setContents: (state, action)=>{
-        state.contents = action.payload;
+      setSelectContents: (state, action)=>{
+        state.selectContents = action.payload;
+      },
+      setAllContents: (state, action)=>{
+        state.allContents = action.payload;
       },
   },
   extraReducers: (builder) => {
@@ -33,4 +37,4 @@ export const contentsSlice = createSlice({
 });
 
 export default contentsSlice.reducer;
-export const {addNewContent, setContents} = contentsSlice.actions;
+export const {addNewContent, setSelectContents, setAllContents } = contentsSlice.actions;

@@ -16,7 +16,6 @@ interface IAddContentModal{
 const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
   const dispatch = useDispatch();
   const activeUser = useSelector((state: RootState) => state.users.activeUser);
-  const projects = useSelector((state: RootState) => state.projects.projects);
 
   const [newContent, setNewContent] = useState<content>({
     id: "",
@@ -31,24 +30,6 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
     projectId: id,
   });
 
-  // const addContentAmount = () => {
-
-  //   let updatedContentAmount: project ={id:"", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalContent: 0, visibilityRole: 1};
-  //   let newArr = projects.map((item: project) => {
-  //     if (item.id === id) {
-  //       updatedContentAmount = { ...item };
-  //       updatedContentAmount.totalContent++;
-  
-  //       return updatedContentAmount;
-  //     }
-  //     return item;
-  //   });
-    
-  //   //api amount
-  //   updateProjects(updatedContentAmount.id, updatedContentAmount);
-
-  //   dispatch(setProjects(newArr));
-  // };
 
 
   const createNewContent = () =>{
