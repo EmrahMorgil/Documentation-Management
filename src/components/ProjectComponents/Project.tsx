@@ -24,8 +24,6 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
   }
 
 
-  
-
   return (
     <>
       <tr>
