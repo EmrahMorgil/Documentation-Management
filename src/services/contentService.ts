@@ -10,6 +10,13 @@ export const getContentsAsync: any = createAsyncThunk("contents/getContentsAsync
 }
 );
 
+export const getAllContentsAsync: any = createAsyncThunk("allContents/getAllContentsAsync", async () => {
+  const res = await axios.get(`http://localhost:3004/contents`);
+  return res.data;
+}
+);
+
+
 export const addContents = async(updatedContent: any)=>{
     await axios.post("http://localhost:3004/contents", updatedContent);
   }

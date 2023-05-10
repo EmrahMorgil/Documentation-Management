@@ -13,7 +13,7 @@ interface IDeleteProject{
 
 const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
 
-  let deletedItems: visibilityProjects = {id: "", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "",  totalContent: 0, visibilityRole: 1, userId: "", projectId: ""};
+  let deletedItems: visibilityProjects = {id: "", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", visibilityRole: 1, userId: "", projectId: ""};
 
   
   const dispatch = useDispatch();
@@ -23,23 +23,23 @@ const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
 
 
 
-  const removeUserProjectAmount = ()=>{
-    let updatedProjectAmount: user ={id:"", name: "", surname: "", password: "", role: 0, createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalProject: 0};
-    const newUserProjectAmount = users.map((user: user)=>{
-      if(user.id===deletedItems.userId)
-      {
-        debugger;
-        updatedProjectAmount = {...user};
-        updatedProjectAmount.totalProject--;
-        setTimeout(function(){updateUsers(updatedProjectAmount.id, updatedProjectAmount)}, 500);
-        return updatedProjectAmount;
-      }else{
-        return user;
-      }
-    });
+  // const removeUserProjectAmount = ()=>{
+  //   let updatedProjectAmount: user ={id:"", name: "", surname: "", password: "", role: 0, createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalProject: 0};
+  //   const newUserProjectAmount = users.map((user: user)=>{
+  //     if(user.id===deletedItems.userId)
+  //     {
+  //       debugger;
+  //       updatedProjectAmount = {...user};
+  //       updatedProjectAmount.totalProject--;
+  //       setTimeout(function(){updateUsers(updatedProjectAmount.id, updatedProjectAmount)}, 500);
+  //       return updatedProjectAmount;
+  //     }else{
+  //       return user;
+  //     }
+  //   });
     
-    dispatch(setUsers(newUserProjectAmount));
-  }
+  //   dispatch(setUsers(newUserProjectAmount));
+  // }
 
   const removeVisibilityProjectItem = () =>{
    
@@ -74,7 +74,7 @@ const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
     setTimeout(removeVisibilityProjectItem, 500);
 
     // kullanıcının amount'unu azaltma işlemi
-    setTimeout(removeUserProjectAmount, 750);
+    // setTimeout(removeUserProjectAmount, 750);
 
   };
 

@@ -11,7 +11,7 @@ interface IContentList{
 }
 
 const ContentList: React.FC<IContentList> = ({projectId}) => {
-  const contents = useSelector((state: RootState) => state.contents.contents);
+  const selectContents = useSelector((state: RootState) => state.contents.selectContents);
   const [filterValues, setFilterValues] = useState({ contentName:"", createdDate: "", updatedDate: "",contentTags: ""});
   const [contentSorted, setContentSorted] = useState({ sorted: "contentName", isReversed: false })
   const [versionSorted, setVersionSorted] = useState({sorted: "version", isReversed: false});
@@ -23,7 +23,7 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
 
 
   const sortByVersionContent = () => {
-    const sortedData = [...contents].sort((a, b) => {
+    const sortedData = [...selectContents].sort((a, b) => {
       if (versionSorted.isReversed) {
         return a.version - b.version;
       }
@@ -35,7 +35,7 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
   };
 
   const sortByContentName = () => {
-    const sortedData = [...contents].sort((a, b) => {
+    const sortedData = [...selectContents].sort((a, b) => {
       if (contentSorted.isReversed) {
         return b.contentName.localeCompare(a.contentName);
       }
@@ -81,7 +81,7 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
           </tr>
         </thead>
         <tbody>
-          {contents.map((content: content, i: number) => {
+          {selectContents.map((content: content, i: number) => {
             if(content.contentTags.toLowerCase().includes(filterValues.contentTags.toLowerCase())
             && content.contentName.toLowerCase().includes(filterValues.contentName.toLowerCase())
             && content.createdDate.includes(filterValues.createdDate.toLowerCase())

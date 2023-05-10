@@ -31,24 +31,24 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
     projectId: id,
   });
 
-  const addContentAmount = () => {
+  // const addContentAmount = () => {
 
-    let updatedContentAmount: project ={id:"", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalContent: 0, visibilityRole: 1};
-    let newArr = projects.map((item: project) => {
-      if (item.id === id) {
-        updatedContentAmount = { ...item };
-        updatedContentAmount.totalContent++;
+  //   let updatedContentAmount: project ={id:"", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalContent: 0, visibilityRole: 1};
+  //   let newArr = projects.map((item: project) => {
+  //     if (item.id === id) {
+  //       updatedContentAmount = { ...item };
+  //       updatedContentAmount.totalContent++;
   
-        return updatedContentAmount;
-      }
-      return item;
-    });
+  //       return updatedContentAmount;
+  //     }
+  //     return item;
+  //   });
     
-    //api amount
-    updateProjects(updatedContentAmount.id, updatedContentAmount);
+  //   //api amount
+  //   updateProjects(updatedContentAmount.id, updatedContentAmount);
 
-    dispatch(setProjects(newArr));
-  };
+  //   dispatch(setProjects(newArr));
+  // };
 
 
   const createNewContent = () =>{
@@ -91,7 +91,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
     });
 
     //add amount
-    setTimeout(addContentAmount, 100);
+    // setTimeout(addContentAmount, 100);
     toast.success("Content successfully added");
   }
   };

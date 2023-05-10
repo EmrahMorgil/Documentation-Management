@@ -23,25 +23,25 @@ const DeleteContent: React.FC<IDeleteContent> = ({contentId, projectId}) => {
 
 
   //amount
-  const deleteContentAmount = () =>{
+  // const deleteContentAmount = () =>{
 
-    let updatedContentAmount: project ={id:"", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalContent: 0, visibilityRole: 1};
+  //   let updatedContentAmount: project ={id:"", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalContent: 0, visibilityRole: 1};
 
-    let newArray = projects.map((item: project)=>{
-      if(item.id === projectId)
-      {
-        updatedContentAmount = {...item};
-        updatedContentAmount.totalContent--;
+  //   let newArray = projects.map((item: project)=>{
+  //     if(item.id === projectId)
+  //     {
+  //       updatedContentAmount = {...item};
+  //       updatedContentAmount.totalContent--;
 
-        return updatedContentAmount;
-      }
-      return item;
-    })
+  //       return updatedContentAmount;
+  //     }
+  //     return item;
+  //   })
     
-    updateProjects(updatedContentAmount.id, updatedContentAmount);
+  //   updateProjects(updatedContentAmount.id, updatedContentAmount);
 
-    dispatch(setProjects(newArray));
-  }
+  //   dispatch(setProjects(newArray));
+  // }
 
 
   const deleteContent = (id: string) => {
@@ -49,7 +49,7 @@ const DeleteContent: React.FC<IDeleteContent> = ({contentId, projectId}) => {
     deleteContents(id);
 
     //delete amount
-    setTimeout(deleteContentAmount, 100);
+    // setTimeout(deleteContentAmount, 100);
 
     const newArr = contents.filter((contents: content) => {
       if (contents.id !== id) {

@@ -1,9 +1,13 @@
-import React from "react";
+import React, {useEffect} from "react";
 import DeleteProject from "./DeleteProject";
 import { Link } from "react-router-dom";
 import OnUserProjectsContainer from "./OnUserProject/OnUserProjectsContainer";
 import OnUserProjectRemoveButton from "./OnUserProject/OnUserProjectRemoveButton";
 import UpdateProjectModal from "../../modals/ProjectModal/UpdateProjectModal";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+import { content, visibilityProjects } from "../../types/Type";
+import { getContentsAsync } from "../../services/contentService";
 
 interface IProject {
   project: any;
@@ -12,6 +16,15 @@ interface IProject {
 }
 
 const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
+
+  const allContents = useSelector((state:RootState)=>state.contents.allContents);
+
+  const projectLength = ()=>{
+    return allContents.filter((content: content)=>(content.projectId==project.id)).length;
+  }
+
+
+  
 
   return (
     <>
@@ -22,7 +35,7 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
         <td scope="row">{project.updatedDate}</td>
         <td scope="row">{project.createdPerson}</td>
         <td scope="row">{project.updatedPerson}</td>
-        <td scope="row">{project.totalContent}</td>
+        <td scope="row">{projectLength()}</td>
         <td scope="row">{project.visibilityRole}</td>
           {projectsControl==="addUserOnProject" ? (
             <td scope="row" style={{ display: "flex", flexDirection: "column" }}>

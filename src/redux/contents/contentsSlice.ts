@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getContentsAsync } from "../../services/contentService";
+import { getAllContentsAsync, getContentsAsync } from "../../services/contentService";
 
 const initialState: any = {
-  contents: [],
+  allContents: [],
+  selectContents: [],
   isLoading: "loading",
 };
 
@@ -22,8 +23,11 @@ export const contentsSlice = createSlice({
       state.isLoading = "loading";
     });
     builder.addCase(getContentsAsync.fulfilled, (state, action) => {
-      state.contents = action.payload;
+      state.selectContents = action.payload;
       state.isLoading = "fulfilled";
+    });
+    builder.addCase(getAllContentsAsync.fulfilled, (state, action)=>{
+      state.allContents = action.payload;
     });
   },
 });

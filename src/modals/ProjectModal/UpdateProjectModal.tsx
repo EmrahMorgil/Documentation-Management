@@ -23,7 +23,6 @@ const UpdateProjectModal: React.FC<IUpdateProjectModal> = ({ project }) => {
     updatedDate: project.updatedDate,
     createdPerson: project.createdPerson,
     updatedPerson: project.updatedPerson,
-    totalContent: project.totalContent,
     visibilityRole: project.visibilityRole,
   });
   
@@ -37,7 +36,6 @@ const UpdateProjectModal: React.FC<IUpdateProjectModal> = ({ project }) => {
       updatedDate,
       createdPerson,
       updatedPerson,
-      totalContent,
       visibilityRole,
     } = setUpdatedProject;
 
@@ -47,7 +45,7 @@ const UpdateProjectModal: React.FC<IUpdateProjectModal> = ({ project }) => {
       {
         let projectId = visibilityProject.projectId; 
         let userId = visibilityProject.userId;
-        const updatedVisibilityProject: visibilityProjects = {id, projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent,visibilityRole,projectId,userId};
+        const updatedVisibilityProject: visibilityProjects = {id, projectName, createdDate, updatedDate, createdPerson, updatedPerson,visibilityRole,projectId,userId};
         setTimeout(function(){updateVisibilityProjectsApi(visibilityProject.id, updatedVisibilityProject)}, 500);
         return  updatedVisibilityProject
       }else{
@@ -73,7 +71,6 @@ const UpdateProjectModal: React.FC<IUpdateProjectModal> = ({ project }) => {
       updatedDate,
       createdPerson,
       updatedPerson,
-      totalContent,
       visibilityRole,
     } = setUpdatedProject;
 
@@ -88,7 +85,6 @@ const UpdateProjectModal: React.FC<IUpdateProjectModal> = ({ project }) => {
           updatedDate,
           createdPerson,
           updatedPerson,
-          totalContent,
           visibilityRole,
         };
       }

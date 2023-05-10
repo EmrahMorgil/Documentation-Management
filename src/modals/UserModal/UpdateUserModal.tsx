@@ -25,7 +25,6 @@ const UpdateUserModal: React.FC<IUpdateUserModal> = ({ user }) => {
     createdDate: user.createdDate,
     updatedDate: user.updatedDate,
     updatedPerson: user.updatedPerson,
-    totalProject: user.totalProject,
   });
 
   const updateUser = async (updateUser: user) => {
@@ -34,7 +33,6 @@ const UpdateUserModal: React.FC<IUpdateUserModal> = ({ user }) => {
     const setUpdatedUser = { ...updatedUser };
     setUpdatedUser.updatedDate = nowDate;
     setUpdatedUser.updatedPerson = activeUser;
-    setUpdatedUser.totalProject = updateUser.totalProject;
     
 
     const {
@@ -64,7 +62,6 @@ const UpdateUserModal: React.FC<IUpdateUserModal> = ({ user }) => {
           createdDate,
           updatedDate,
           updatedPerson,
-          totalProject: updateUser.totalProject,
         };
       }
       return users;

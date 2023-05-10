@@ -18,22 +18,22 @@ const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId
   const dispatch = useDispatch();
 
 
-  const removeProjectAmount = ()=>{
-    let updatedProjectAmount: user ={id:"", name: "", surname: "", password: "", role: 0, createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalProject: 0};
-    const newUserArray = users.map((user: user)=>{
+  // const removeProjectAmount = ()=>{
+  //   let updatedProjectAmount: user ={id:"", name: "", surname: "", password: "", role: 0, createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalProject: 0};
+  //   const newUserArray = users.map((user: user)=>{
       
-      if(user.id===userId)
-      {
-        updatedProjectAmount = {...user};
-        updatedProjectAmount.totalProject--;
-        return updatedProjectAmount;
-      }
-      return user;
-    });
+  //     if(user.id===userId)
+  //     {
+  //       updatedProjectAmount = {...user};
+  //       updatedProjectAmount.totalProject--;
+  //       return updatedProjectAmount;
+  //     }
+  //     return user;
+  //   });
     
-    updateUsers(updatedProjectAmount.id, updatedProjectAmount);
-    dispatch(setUsers(newUserArray));
-  }
+  //   updateUsers(updatedProjectAmount.id, updatedProjectAmount);
+  //   dispatch(setUsers(newUserArray));
+  // }
 
 
   const handleClick = () => {
@@ -49,7 +49,7 @@ const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId
     //api    
     deleteVisibilityProjectsApi(projectId);
     
-    setTimeout(removeProjectAmount, 100)
+    // setTimeout(removeProjectAmount, 100)
   };
 
   return (

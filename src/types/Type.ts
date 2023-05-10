@@ -5,10 +5,9 @@ export class project{
     updatedDate: string;
     createdPerson: string;
     updatedPerson: string;
-    totalContent: number;
     visibilityRole: number;
 
-    constructor(id: string, projectName: string, createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string, totalContent: number, visibilityRole: number)
+    constructor(id: string, projectName: string, createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string, visibilityRole: number)
     {
         this.id = id;
         this.projectName = projectName;
@@ -16,7 +15,6 @@ export class project{
         this.updatedDate = updatedDate;
         this.createdPerson = createdPerson;
         this.updatedPerson = updatedPerson;
-        this.totalContent = totalContent;
         this.visibilityRole = visibilityRole;
     }
 }
@@ -60,9 +58,8 @@ export class user{
     updatedDate: string;
     createdPerson: string;
     updatedPerson: string;
-    totalProject: number;
 
-    constructor(id: string, name: string, surname: string, password: string, role: userRole,createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string, totalProject: number)
+    constructor(id: string, name: string, surname: string, password: string, role: userRole,createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string)
     {
         this.id = id;
         this.name = name;
@@ -73,7 +70,6 @@ export class user{
         this.updatedDate = updatedDate;
         this.createdPerson = createdPerson;
         this.updatedPerson = updatedPerson;
-        this.totalProject = totalProject;
     }
 
 }
@@ -85,12 +81,11 @@ export class visibilityProjects{
     updatedDate: string;
     createdPerson: string;
     updatedPerson: string;
-    totalContent: number;
     visibilityRole: number;
     userId: string;
     projectId: string
 
-    constructor(id: string, projectName: string, createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string, totalContent: number, visibilityRole: number, userId: string, projectId: string)
+    constructor(id: string, projectName: string, createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string, visibilityRole: number, userId: string, projectId: string)
     {
         this.id = id;
         this.projectName = projectName;
@@ -98,7 +93,6 @@ export class visibilityProjects{
         this.updatedDate = updatedDate;
         this.createdPerson = createdPerson;
         this.updatedPerson = updatedPerson;
-        this.totalContent = totalContent;
         this.visibilityRole = visibilityRole;
         this.userId = userId;
         this.projectId = projectId;
