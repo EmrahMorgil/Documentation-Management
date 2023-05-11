@@ -37,7 +37,6 @@ const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId
 
 
   const handleClick = () => {
-
     
     const newArr = visibilityProjects.filter((item: visibilityProjects, i:number)=>{
       if(item.id!==projectId)
@@ -49,7 +48,7 @@ const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId
     //api    
     deleteVisibilityProjectsApi(projectId);
     
-    setTimeout(removeProjectAmount, 100)
+    setTimeout(removeProjectAmount, 100);
   };
 
   return (

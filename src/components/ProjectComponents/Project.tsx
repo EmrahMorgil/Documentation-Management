@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import DeleteProject from "./DeleteProject";
 import { Link } from "react-router-dom";
-import OnUserProjectsContainer from "./OnUserProject/OnUserProjectsContainer";
 import OnUserProjectRemoveButton from "./OnUserProject/OnUserProjectRemoveButton";
 import UpdateProjectModal from "../../modals/ProjectModal/UpdateProjectModal";
+import { visibilityProjects } from "../../types/Type";
+import { RootState } from "../../redux/store";
+import { useSelector } from "react-redux";
+import OnUserProjectAddButton from "./OnUserProject/OnUserProjectAddButton";
 
 interface IProject {
   project: any;
@@ -12,6 +15,17 @@ interface IProject {
 }
 
 const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
+
+
+  
+  const visibilityProjects = useSelector((state: RootState)=>state.projects.visibilityProjects);
+
+  
+
+  // const visibilityChange = () =>{
+  //   setVisibilityControl(false);
+  // }
+
 
   return (
     <>
@@ -27,7 +41,7 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
           {projectsControl==="addUserOnProject" ? (
             <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
             {/* kullanıcının üzerine proje ekleme */}
-            <OnUserProjectsContainer project={project} userId={userId}/>
+            <OnUserProjectAddButton userId={userId} project={project} />
             </td>
           ) : projectsControl === "projectPanel" ? (
             <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
@@ -46,7 +60,11 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
       </div>
       <UpdateProjectModal project={project} />
             </td>
-          ) : projectsControl ==="onUserDeleteProject" ? <td scope="row"><OnUserProjectRemoveButton userId={userId} projectId={project.id} /></td> : projectsControl ==="visibilityProjectsMap" ? <td scope="row"><Link to={`/contentpanel/${project.projectId}`} ><button className="btn btn-success">Contents</button></Link></td> : <></>}
+          ) : projectsControl ==="onUserDeleteProject" ? 
+          
+          <td scope="row">
+            {/* kullanıcının üzerinden proje silme */}
+            <OnUserProjectRemoveButton userId={userId} projectId={project.id} /></td> : projectsControl ==="visibilityProjectsMap" ? <td scope="row"><Link to={`/contentpanel/${project.projectId}`} ><button className="btn btn-success">Contents</button></Link></td> : <></>}
         
       </tr>
     </>
