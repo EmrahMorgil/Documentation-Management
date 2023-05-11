@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../redux/store";
 import { content, user } from "../../types/Type";
+import { setContents } from "../../redux/contents/contentsSlice";
 import { updateContents } from "../../services/contentService";
-import { setAllContents, setSelectContents } from "../../redux/contents/contentsSlice";
 
 interface IUpdateContentModal{
   item: content
@@ -13,9 +13,7 @@ const UpdateContentModal: React.FC<IUpdateContentModal> = ({ item }) => {
 
   const adminLoggedIn = useSelector((state: RootState)=>state.users.adminLoggedIn);
 
-  const allContents = useSelector((state: RootState) => state.contents.allContents);
-  const selectContents = useSelector((state: RootState) => state.contents.selectContents);
-
+  const contents = useSelector((state: RootState) => state.contents.contents);
   const dispatch = useDispatch();
   const activeUser = useSelector(
     (state: RootState) => state.users.activeUser.name
@@ -56,22 +54,24 @@ const UpdateContentModal: React.FC<IUpdateContentModal> = ({ item }) => {
     updateContents(item.id, setUpdatedContent);
     //api
 
-    const newArr = allContents.map((contents: content) => {
+    const newArr = contents.map((contents: content) => {
       if (contents.id === item.id) {
-        return {id,contentName,createdPerson,updatedPerson,createdDate,updatedDate,version,content,contentTags,projectId,};
+        return {
+          id,
+          contentName,
+          createdPerson,
+          updatedPerson,
+          createdDate,
+          updatedDate,
+          version,
+          content,
+          contentTags,
+          projectId,
+        };
       }
       return contents;
     });
-
-    const newArray = selectContents.map((contents: content) => {
-      if (contents.id === item.id) {
-        return {id,contentName,createdPerson,updatedPerson,createdDate,updatedDate,version,content,contentTags,projectId,};
-      }
-      return contents;
-    });
-
-    dispatch(setAllContents(newArr));
-    dispatch(setSelectContents(newArray));
+    dispatch(setContents(newArr));
   };
 
   const handleChange = (e: any) => {

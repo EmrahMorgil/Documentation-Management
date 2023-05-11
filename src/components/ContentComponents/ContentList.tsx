@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { content } from "../../types/Type";
 import Content from "./Content";
-import { setAllContents } from "../../redux/contents/contentsSlice";
+import { setContents } from "../../redux/contents/contentsSlice";
 
 
 interface IContentList{
@@ -11,7 +11,7 @@ interface IContentList{
 }
 
 const ContentList: React.FC<IContentList> = ({projectId}) => {
-  const selectContents = useSelector((state: RootState) => state.contents.selectContents);
+  const contents = useSelector((state: RootState) => state.contents.contents);
   const [filterValues, setFilterValues] = useState({ contentName:"", createdDate: "", updatedDate: "",contentTags: ""});
   const [contentSorted, setContentSorted] = useState({ sorted: "contentName", isReversed: false })
   const [versionSorted, setVersionSorted] = useState({sorted: "version", isReversed: false});
@@ -23,26 +23,26 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
 
 
   const sortByVersionContent = () => {
-    const sortedData = [...selectContents].sort((a, b) => {
+    const sortedData = [...contents].sort((a, b) => {
       if (versionSorted.isReversed) {
         return a.version - b.version;
       }
       return b.version - a.version;
     });
   
-    dispatch(setAllContents(sortedData));
+    dispatch(setContents(sortedData));
     setVersionSorted({ sorted: "version", isReversed: !versionSorted.isReversed });
   };
 
   const sortByContentName = () => {
-    const sortedData = [...selectContents].sort((a, b) => {
+    const sortedData = [...contents].sort((a, b) => {
       if (contentSorted.isReversed) {
         return b.contentName.localeCompare(a.contentName);
       }
       return a.contentName.localeCompare(b.contentName);
     });
   
-     dispatch(setAllContents(sortedData));
+     dispatch(setContents(sortedData));
     setContentSorted({ sorted: "contentName", isReversed: !contentSorted.isReversed });
   };
 
@@ -81,7 +81,7 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
           </tr>
         </thead>
         <tbody>
-          {selectContents.map((content: content, i: number) => {
+          {contents.map((content: content, i: number) => {
             if(content.contentTags.toLowerCase().includes(filterValues.contentTags.toLowerCase())
             && content.contentName.toLowerCase().includes(filterValues.contentName.toLowerCase())
             && content.createdDate.includes(filterValues.createdDate.toLowerCase())

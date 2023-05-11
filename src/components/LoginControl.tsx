@@ -6,7 +6,6 @@ import LoginUser from "./UserComponents/LoginUser";
 import { Navigate } from "react-router";
 import { getProjectsAsync } from "../services/projectService";
 import { getVisibilityProjectsAsync } from "../services/visibilityProjectServise";
-import { getAllContentsAsync } from "../services/contentService";
 
 const LoginControl: React.FC = () => {
   const dispatch = useDispatch();
@@ -18,7 +17,6 @@ const LoginControl: React.FC = () => {
     dispatch(getUsersAsync());
     dispatch(getProjectsAsync());
     dispatch(getVisibilityProjectsAsync())
-    dispatch(getAllContentsAsync());
   }, [dispatch]);
 
 

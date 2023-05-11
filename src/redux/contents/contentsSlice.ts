@@ -1,9 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllContentsAsync, getContentsAsync } from "../../services/contentService";
+import { getContentsAsync } from "../../services/contentService";
 
 const initialState: any = {
-  allContents: [],
-  selectContents: [],
+  contents: [],
   isLoading: "loading",
 };
 
@@ -12,14 +11,10 @@ export const contentsSlice = createSlice({
   initialState,
   reducers: {
     addNewContent: (state, action)=>{
-        state.allContents.push(action.payload);
-        state.selectContents.push(action.payload);
+        state.contents.push(action.payload);
       },
-      setSelectContents: (state, action)=>{
-        state.selectContents = action.payload;
-      },
-      setAllContents: (state, action)=>{
-        state.allContents = action.payload;
+      setContents: (state, action)=>{
+        state.contents = action.payload;
       },
   },
   extraReducers: (builder) => {
@@ -27,14 +22,11 @@ export const contentsSlice = createSlice({
       state.isLoading = "loading";
     });
     builder.addCase(getContentsAsync.fulfilled, (state, action) => {
-      state.selectContents = action.payload;
+      state.contents = action.payload;
       state.isLoading = "fulfilled";
-    });
-    builder.addCase(getAllContentsAsync.fulfilled, (state, action)=>{
-      state.allContents = action.payload;
     });
   },
 });
 
 export default contentsSlice.reducer;
-export const {addNewContent, setSelectContents, setAllContents } = contentsSlice.actions;
+export const {addNewContent, setContents} = contentsSlice.actions;

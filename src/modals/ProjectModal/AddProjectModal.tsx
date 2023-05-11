@@ -20,6 +20,7 @@ const AddProjectModal: React.FC = () => {
         updatedDate: "2023",
         createdPerson: "emrah",
         updatedPerson: "emrah",
+        totalContent: 0,
         visibilityRole: 0,
       });
       
@@ -45,7 +46,7 @@ const AddProjectModal: React.FC = () => {
         createNewProject();
   
         //proje ekledikten sonra alanların temizlenmesi.
-        setNewProject({id: "",projectName: "",createdDate: "",updatedDate: "",createdPerson: "",updatedPerson: "",visibilityRole: 0});
+        setNewProject({id: "",projectName: "",createdDate: "",updatedDate: "",createdPerson: "",updatedPerson: "",totalContent: 0,visibilityRole: 0});
         toast.success("Project successfully added");
       }
     const handleChange = (e: any) =>{

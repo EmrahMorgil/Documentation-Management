@@ -22,22 +22,22 @@ const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, pro
   const dispatch = useDispatch();
 
 
-  // const addProjectAmount = async()=>{
-  //   let updatedProjectAmount: user ={id:"", name: "", surname: "", password: "", role: 0, createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalProject: 0};
-  //   const newUserArray = users.map((user: user)=>{
-  //     if(user.id===userId)
-  //     {
-  //       updatedProjectAmount = {...user};
-  //       updatedProjectAmount.totalProject++;
-  //       return updatedProjectAmount
-  //     }
-  //     return user;
-  //   });
+  const addProjectAmount = async()=>{
+    let updatedProjectAmount: user ={id:"", name: "", surname: "", password: "", role: 0, createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalProject: 0};
+    const newUserArray = users.map((user: user)=>{
+      if(user.id===userId)
+      {
+        updatedProjectAmount = {...user};
+        updatedProjectAmount.totalProject++;
+        return updatedProjectAmount
+      }
+      return user;
+    });
 
-  //   await updateUsers(updatedProjectAmount.id, updatedProjectAmount);
+    await updateUsers(updatedProjectAmount.id, updatedProjectAmount);
 
-  //   dispatch(setUsers(newUserArray));
-  // }
+    dispatch(setUsers(newUserArray));
+  }
 
   const handleClick = () => {
  
@@ -62,13 +62,13 @@ const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, pro
   
       if(!newArr.includes(false) || newArr.length ===0)
       {
-      const {projectName, createdDate, updatedDate, createdPerson, updatedPerson, visibilityRole } = project;
+      const {projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole } = project;
       const randomId = nanoid();
-      const newItem = {id: randomId, projectName, createdDate, updatedDate, createdPerson, updatedPerson, visibilityRole, visibility: true, userId, projectId: project.id};
+      const newItem = {id: randomId, projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole, visibility: true, userId, projectId: project.id};
       addVisibilityProjectsApi(newItem);
       dispatch(addVisibilityProjects(newItem));
       
-      // setTimeout(addProjectAmount, 100);
+      setTimeout(addProjectAmount, 100);
       toast.success("Project successfully added on user!");
     }else{
       toast.error("Already added on user!");

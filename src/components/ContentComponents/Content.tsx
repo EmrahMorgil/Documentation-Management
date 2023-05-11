@@ -11,7 +11,9 @@ interface IContent {
 }
 
 const Content: React.FC<IContent> = ({ content, projectId }) => {
-  const adminLoggedIn = useSelector((state: RootState) => state.users.adminLoggedIn);
+  const adminLoggedIn = useSelector(
+    (state: RootState) => state.users.adminLoggedIn
+  );
 
   return (
     <>

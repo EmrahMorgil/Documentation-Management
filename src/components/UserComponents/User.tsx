@@ -12,8 +12,10 @@ const User: React.FC<IUserProp> = ({ user }) => {
   const visibilityProjects = useSelector((state:RootState)=>state.projects.visibilityProjects);
 
   const onUserProjectLength = ()=>{
-    return visibilityProjects.filter((visibilityProject: visibilityProjects)=>(visibilityProject.userId==user.id)).length;
+    return visibilityProjects.filter((item: visibilityProjects)=>(item.userId==user.id)).length;
   }
+
+  
 
   return (
     <>

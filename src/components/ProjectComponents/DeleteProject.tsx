@@ -13,14 +13,33 @@ interface IDeleteProject{
 
 const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
 
-  let deletedItems: visibilityProjects = {id: "", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", visibilityRole: 1, userId: "", projectId: ""};
+  let deletedItems: visibilityProjects = {id: "", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "",  totalContent: 0, visibilityRole: 1, userId: "", projectId: ""};
 
   
   const dispatch = useDispatch();
   const projects = useSelector((state: RootState) => state.projects.projects);
   const visibilityProjects = useSelector((state: RootState)=>state.projects.visibilityProjects);
- 
+  const users = useSelector((state: RootState)=>state.users.users);
 
+
+
+  const removeUserProjectAmount = ()=>{
+    let updatedProjectAmount: user ={id:"", name: "", surname: "", password: "", role: 0, createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalProject: 0};
+    const newUserProjectAmount = users.map((user: user)=>{
+      if(user.id===deletedItems.userId)
+      {
+        debugger;
+        updatedProjectAmount = {...user};
+        updatedProjectAmount.totalProject--;
+        setTimeout(function(){updateUsers(updatedProjectAmount.id, updatedProjectAmount)}, 500);
+        return updatedProjectAmount;
+      }else{
+        return user;
+      }
+    });
+    
+    dispatch(setUsers(newUserProjectAmount));
+  }
 
   const removeVisibilityProjectItem = () =>{
    
@@ -53,6 +72,9 @@ const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
 
     //visibilityProjects'den silme işlemi
     setTimeout(removeVisibilityProjectItem, 500);
+
+    // kullanıcının amount'unu azaltma işlemi
+    setTimeout(removeUserProjectAmount, 750);
 
   };
 
