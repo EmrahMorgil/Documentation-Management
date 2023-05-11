@@ -10,10 +10,10 @@ import { setProjects } from "../../redux/projects/projectsSlice";
 import {toast} from "react-toastify";
 
 interface IAddContentModal{
-  id: string;
+  projectId: string;
 }
 
-const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
+const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
   const dispatch = useDispatch();
   const activeUser = useSelector((state: RootState) => state.users.activeUser);
   const projects = useSelector((state: RootState) => state.projects.projects);
@@ -28,14 +28,14 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
     version: 0,
     content: "",
     contentTags: "",
-    projectId: id,
+    projectId: projectId,
   });
 
   const addContentAmount = () => {
 
     let updatedContentAmount: project ={id:"", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalContent: 0, visibilityRole: 1};
     let newArr = projects.map((item: project) => {
-      if (item.id === id) {
+      if (item.id === projectId) {
         updatedContentAmount = { ...item };
         updatedContentAmount.totalContent++;
   
@@ -60,7 +60,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
     updatedContent.updatedDate = nowDate;
     updatedContent.createdPerson = activeUser.name;
     updatedContent.updatedPerson = activeUser.name;
-    updatedContent.projectId = id;
+    updatedContent.projectId = projectId;
     //api
     setTimeout(()=>dispatch(addNewContent(updatedContent)), 100);
     // addContents(updatedContent);
@@ -102,7 +102,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ id }) => {
   return (
     <div
       className="modal fade"
-      id={`${id}`}
+      id={`${projectId}`}
       role="dialog"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"

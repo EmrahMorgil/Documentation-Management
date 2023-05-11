@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getContentsAsync } from "../../services/contentService";
+import { getAllContentsAsync, getContentsAsync } from "../../services/contentService";
 
 const initialState: any = {
   contents: [],
+  allContents: [],
   isLoading: "loading",
 };
 
@@ -12,10 +13,14 @@ export const contentsSlice = createSlice({
   reducers: {
     addNewContent: (state, action)=>{
         state.contents.push(action.payload);
+        state.allContents.push(action.payload);
       },
       setContents: (state, action)=>{
         state.contents = action.payload;
       },
+      setAllContents: (state, action)=>{
+        state.allContents = action.payload;
+      }
   },
   extraReducers: (builder) => {
     builder.addCase(getContentsAsync.pending, (state, action)=>{
@@ -25,8 +30,11 @@ export const contentsSlice = createSlice({
       state.contents = action.payload;
       state.isLoading = "fulfilled";
     });
+    builder.addCase(getAllContentsAsync.fulfilled, (state, action) => {
+      state.allContents = action.payload;
+    });
   },
 });
 
 export default contentsSlice.reducer;
-export const {addNewContent, setContents} = contentsSlice.actions;
+export const {addNewContent, setContents, setAllContents} = contentsSlice.actions;

@@ -3,7 +3,7 @@ import DeleteProject from "./DeleteProject";
 import { Link } from "react-router-dom";
 import OnUserProjectRemoveButton from "./OnUserProject/OnUserProjectRemoveButton";
 import UpdateProjectModal from "../../modals/ProjectModal/UpdateProjectModal";
-import { visibilityProjects } from "../../types/Type";
+import { content, project, visibilityProjects } from "../../types/Type";
 import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
 import OnUserProjectAddButton from "./OnUserProject/OnUserProjectAddButton";
@@ -16,16 +16,16 @@ interface IProject {
 
 const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
 
+  const allContents = useSelector((state: RootState)=>state.contents.allContents);
 
-  
-  const visibilityProjects = useSelector((state: RootState)=>state.projects.visibilityProjects);
-
-  
-
-  // const visibilityChange = () =>{
-  //   setVisibilityControl(false);
-  // }
-
+  const totalContent = ()=>{
+    if(project.projectId)
+    {
+      return allContents.filter((content: content)=>(content.projectId==project.projectId)).length
+    }else{
+      return allContents.filter((content: content)=>(content.projectId==project.id)).length
+    }
+  }
 
   return (
     <>
@@ -36,7 +36,7 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
         <td scope="row">{project.updatedDate}</td>
         <td scope="row">{project.createdPerson}</td>
         <td scope="row">{project.updatedPerson}</td>
-        <td scope="row">{project.totalContent}</td>
+        <td scope="row">{totalContent()}</td>
         <td scope="row">{project.visibilityRole}</td>
           {projectsControl==="addUserOnProject" ? (
             <td scope="row" style={{ display: "flex", flexDirection: "column" }}>

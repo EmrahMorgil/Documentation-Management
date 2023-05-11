@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { content, project } from '../../types/Type';
 import { deleteContents } from '../../services/contentService';
-import { setContents } from '../../redux/contents/contentsSlice';
+import { setAllContents, setContents } from '../../redux/contents/contentsSlice';
 import { updateProjects } from '../../services/projectService';
 import { setProjects } from '../../redux/projects/projectsSlice';
 
@@ -17,7 +17,7 @@ const DeleteContent: React.FC<IDeleteContent> = ({contentId, projectId}) => {
 
   const dispatch = useDispatch();
   const contents = useSelector((state: RootState) => state.contents.contents);
-
+  const allContents = useSelector((state: RootState) => state.contents.allContents);
 
   const projects = useSelector((state:RootState)=>state.projects.projects);
 
@@ -56,7 +56,14 @@ const DeleteContent: React.FC<IDeleteContent> = ({contentId, projectId}) => {
         return contents;
       }
     });
+    const newArray = allContents.filter((contents: content)=>{
+      if(contents.id !== id)
+      {
+        return contents;
+      }
+    })
     dispatch(setContents(newArr));
+    dispatch(setAllContents(newArray));
   };
 
   return (

@@ -24,7 +24,7 @@ const ContentPanel: React.FC = () => {
       ) : (
         <>
           <div className='container d-flex mt-5'>
-            {adminLoggedIn && <AddContent id={String(id)} />}
+            {adminLoggedIn && <AddContent projectId={String(id)} />}
             <Link to={adminLoggedIn ? "/projectpanel" : "/projects"}>
               <button className="btn btn-danger">Back</button>
             </Link>
