@@ -1,13 +1,12 @@
-import React, {useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import DeleteProject from "./DeleteProject";
 import { Link } from "react-router-dom";
-import OnUserProjectsContainer from "./OnUserProject/OnUserProjectsContainer";
 import OnUserProjectRemoveButton from "./OnUserProject/OnUserProjectRemoveButton";
 import UpdateProjectModal from "../../modals/ProjectModal/UpdateProjectModal";
-import { useDispatch, useSelector } from "react-redux";
+import { visibilityProjects } from "../../types/Type";
 import { RootState } from "../../redux/store";
-import { content, visibilityProjects } from "../../types/Type";
-import { getContentsAsync } from "../../services/contentService";
+import { useSelector } from "react-redux";
+import OnUserProjectAddButton from "./OnUserProject/OnUserProjectAddButton";
 
 interface IProject {
   project: any;
@@ -17,11 +16,15 @@ interface IProject {
 
 const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
 
-  const allContents = useSelector((state:RootState)=>state.contents.allContents);
 
-  const projectLength = ()=>{
-    return allContents.filter((content: content)=>(content.projectId==project.id)).length;
-  }
+  
+  const visibilityProjects = useSelector((state: RootState)=>state.projects.visibilityProjects);
+
+  
+
+  // const visibilityChange = () =>{
+  //   setVisibilityControl(false);
+  // }
 
 
   return (
@@ -33,12 +36,12 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
         <td scope="row">{project.updatedDate}</td>
         <td scope="row">{project.createdPerson}</td>
         <td scope="row">{project.updatedPerson}</td>
-        <td scope="row">{projectLength()}</td>
+        <td scope="row">{project.totalContent}</td>
         <td scope="row">{project.visibilityRole}</td>
           {projectsControl==="addUserOnProject" ? (
             <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
             {/* kullanıcının üzerine proje ekleme */}
-            <OnUserProjectsContainer project={project} userId={userId}/>
+            <OnUserProjectAddButton userId={userId} project={project} />
             </td>
           ) : projectsControl === "projectPanel" ? (
             <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
@@ -57,7 +60,11 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
       </div>
       <UpdateProjectModal project={project} />
             </td>
-          ) : projectsControl ==="onUserDeleteProject" ? <td scope="row"><OnUserProjectRemoveButton userId={userId} projectId={project.id} /></td> : projectsControl ==="visibilityProjectsMap" ? <td scope="row"><Link to={`/contentpanel/${project.projectId}`} ><button className="btn btn-success">Contents</button></Link></td> : <></>}
+          ) : projectsControl ==="onUserDeleteProject" ? 
+          
+          <td scope="row">
+            {/* kullanıcının üzerinden proje silme */}
+            <OnUserProjectRemoveButton userId={userId} projectId={project.id} /></td> : projectsControl ==="visibilityProjectsMap" ? <td scope="row"><Link to={`/contentpanel/${project.projectId}`} ><button className="btn btn-success">Contents</button></Link></td> : <></>}
         
       </tr>
     </>

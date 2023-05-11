@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { project, user, visibilityProjects } from "../../../types/Type";
@@ -15,11 +15,10 @@ interface IOnUserProjectAddButton{
   project: project;
 }
 
-const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, project }) => {
+const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, project}) => {
   
   const users = useSelector((state: RootState)=>state.users.users);
   const visibilityProjects = useSelector((state: RootState)=>state.projects.visibilityProjects);
-
   const dispatch = useDispatch();
 
 
@@ -41,18 +40,13 @@ const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, pro
   // }
 
   const handleClick = () => {
-    debugger;
-
-
+ 
     const newUser: user = users.find((user: user)=>{
       if(user.id===userId)
       {
         return user;
       }
     });
-
-    console.log(newUser);
-    
 
     const newArr = visibilityProjects.map((visibilityProject: visibilityProjects)=>{
       if(visibilityProject.projectId===project.id && visibilityProject.userId=== userId)
@@ -61,7 +55,7 @@ const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, pro
       }else{
         return true;
       }
-    })
+    });
 
     if(newUser.role===project.visibilityRole)
     {
@@ -84,10 +78,16 @@ const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, pro
   }
   };
 
+  const visibility = () =>{
+    return visibilityProjects.find((item: visibilityProjects)=>(item.projectId===project.id && item.userId===userId));
+  }
+
+
   return (
     <button
       className="btn btn-success"
       onClick={handleClick}
+      disabled={visibility()}
     >
       Add
     </button>
