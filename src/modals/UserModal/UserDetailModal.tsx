@@ -5,7 +5,6 @@ import { IUserProp, user } from "../../types/Type";
 import { updateUsers } from "../../services/userService";
 import { setUsers } from "../../redux/users/usersSlice";
 
-
 const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
   const users = useSelector((state: RootState) => state.users.users);
   const dispatch = useDispatch();
@@ -27,12 +26,12 @@ const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
 
   const updateUser = async (updateUser: user) => {
     let date = new Date();
-    let nowDate = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+    let nowDate =
+      date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
     const setUpdatedUser = { ...updatedUser };
     setUpdatedUser.updatedDate = nowDate;
     setUpdatedUser.updatedPerson = activeUser;
     setUpdatedUser.totalProject = updateUser.totalProject;
-    
 
     const {
       id,
@@ -69,11 +68,25 @@ const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
     dispatch(setUsers(newArr));
   };
 
+  const undoUser = () => {
+    setUpdatedUser({
+      id: user.id,
+      name: user.name,
+      surname: user.surname,
+      password: user.password,
+      role: user.role,
+      createdPerson: user.createdPerson,
+      createdDate: user.createdDate,
+      updatedDate: user.updatedDate,
+      updatedPerson: user.updatedPerson,
+      totalProject: user.totalProject,
+    });
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUpdatedUser({ ...updatedUser, [e.target.name]: e.target.value });
-    if(e.target.name==="role")
-    {
-      setUpdatedUser({...updatedUser, role: Number(e.target.value)})
+    if (e.target.name === "role") {
+      setUpdatedUser({ ...updatedUser, role: Number(e.target.value) });
     }
   };
 
@@ -95,10 +108,18 @@ const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
                 marginTop: "50px",
               }}
             >
-              <form >
-                <div style={{marginBottom: "25px", width: "400px", textAlign: "center" }}><h3>Update User</h3></div>
+              <form>
+                <div
+                  style={{
+                    marginBottom: "25px",
+                    width: "400px",
+                    textAlign: "center",
+                  }}
+                >
+                  <h3>Update User</h3>
+                </div>
                 <div className="form-outline mb-4">
-                <label htmlFor="exampleInput">Name</label>
+                  <label htmlFor="exampleInput">Name</label>
                   <input
                     type="text"
                     value={updatedUser.name}
@@ -109,7 +130,7 @@ const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
                 </div>
 
                 <div className="form-outline mb-4">
-                <label htmlFor="exampleInput">Surname</label>
+                  <label htmlFor="exampleInput">Surname</label>
                   <input
                     type="text"
                     value={updatedUser.surname}
@@ -120,7 +141,7 @@ const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
                 </div>
 
                 <div className="form-outline mb-4">
-                <label htmlFor="exampleInputPassword1">Password</label>
+                  <label htmlFor="exampleInputPassword1">Password</label>
                   <input
                     type="text"
                     value={updatedUser.password}
@@ -131,7 +152,7 @@ const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
                 </div>
 
                 <div className="form-outline mb-4">
-                <label htmlFor="exampleInputRole1">Role</label>
+                  <label htmlFor="exampleInputRole1">Role</label>
                   <input
                     type="text"
                     value={updatedUser.role}
@@ -150,6 +171,13 @@ const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
               data-dismiss="modal"
             >
               Close
+            </button>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={undoUser}
+            >
+              Undo Changes
             </button>
             <button
               type="button"
