@@ -68,7 +68,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
   }
 
 
-  const handleClick = async () => {
+  const addContent = async () => {
     if(newContent.contentName==="" || newContent.content==="")
     {
       toast.error("Please fill in all the blanks..");
@@ -190,7 +190,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
               type="button"
               className="btn btn-success"
               data-dismiss="modal"
-              onClick={handleClick}
+              onClick={addContent}
             >
               Add
             </button>

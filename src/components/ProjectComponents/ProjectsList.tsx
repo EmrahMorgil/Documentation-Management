@@ -104,7 +104,7 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
           <th scope="col"></th>
           <th scope="col"></th>
           <th scope="col"></th>
-          {(projectsControl!=="adminLoggedInProjects" || !adminLoggedIn) && <th scope="col"></th>}
+          {(projectsControl!=="allProjects" || !adminLoggedIn) && <th scope="col"></th>}
         </thead>
         <thead className="thead-dark">
           <tr>
@@ -122,7 +122,7 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
             <th onClick={sortByVisibilityRole} scope="col">Visibility Role
             {roleSorted.sorted  ? (roleSorted.isReversed ? "▲" : "▼"):null}
             </th>
-            {(projectsControl!=="adminLoggedInProjects" || !adminLoggedIn) && <th scope="col">Actions</th>}
+            {(projectsControl!=="allProjects" || !adminLoggedIn) && <th scope="col">Actions</th>}
           </tr>
         </thead>
         <tbody>

@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../redux/store";
-import { user } from "../../types/Type";
+import { IUserProp, user } from "../../types/Type";
 import { updateUsers } from "../../services/userService";
 import { setUsers } from "../../redux/users/usersSlice";
 
-interface IUpdateUserModal{
-  user: user;
-}
 
-const UpdateUserModal: React.FC<IUpdateUserModal> = ({ user }) => {
+const UpdateUserModal: React.FC<IUserProp> = ({ user }) => {
   const users = useSelector((state: RootState) => state.users.users);
   const dispatch = useDispatch();
   const activeUser = useSelector(

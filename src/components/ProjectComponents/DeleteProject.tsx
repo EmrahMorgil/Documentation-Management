@@ -2,16 +2,13 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { deleteProjects } from '../../services/projectService';
-import { project, user, visibilityProjects } from '../../types/Type';
+import { IProjectProp, project, user, visibilityProjects } from '../../types/Type';
 import { setProjects, setVisibilityProjects } from '../../redux/projects/projectsSlice';
 import { updateUsers } from '../../services/userService';
 import { setUsers } from '../../redux/users/usersSlice';
 
-interface IDeleteProject{
-  project: project;
-}
 
-const DeleteProject: React.FC<IDeleteProject> = ({project}) => {
+const DeleteProject: React.FC<IProjectProp> = ({project}) => {
 
   let deletedItems: visibilityProjects = {id: "", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "",  totalContent: 0, visibilityRole: 1, userId: "", projectId: ""};
 

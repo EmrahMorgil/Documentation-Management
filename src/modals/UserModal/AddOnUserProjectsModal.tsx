@@ -1,8 +1,8 @@
 import React from 'react'
-import { user } from '../../types/Type'
+import {IUserProp } from '../../types/Type'
 import ProjectsList from '../../components/ProjectComponents/ProjectsList'
 
-const AddOnUserProjectsModal = ({user}: {user?: user}) => {
+const AddOnUserProjectsModal: React.FC<IUserProp> = ({user}) => {
   return (
     <div
       className="modal fade" id={user?.id + "add"} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

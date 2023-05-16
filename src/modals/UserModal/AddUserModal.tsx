@@ -5,11 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { addNewUser } from "../../redux/users/usersSlice";
 import {toast} from "react-toastify";
+import { user } from "../../types/Type";
 
 const AddUserModal: React.FC = () => {
   const dispatch = useDispatch();
   const activeUser = useSelector((state: RootState) => state.users.activeUser);
-  const [newUser, setNewUser] = useState({
+  const [newUser, setNewUser] = useState<user>({
     id: "",
     name: "",
     surname: "",
@@ -22,7 +23,7 @@ const AddUserModal: React.FC = () => {
     updatedPerson: "emrah",
   });
 
-  const handleClick = async () => {
+  const addUser = async () => {
     let date = new Date();
     let nowDate = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
 
@@ -53,7 +54,7 @@ const AddUserModal: React.FC = () => {
     toast.success("user successfully added");
   };
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
   };
 
@@ -125,7 +126,7 @@ const AddUserModal: React.FC = () => {
               type="button"
               className="btn btn-success"
               data-dismiss="modal"
-              onClick={handleClick}
+              onClick={addUser}
             >
               Add
             </button>

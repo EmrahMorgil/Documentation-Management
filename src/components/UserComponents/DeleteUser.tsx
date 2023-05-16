@@ -2,24 +2,21 @@ import React from "react";
 import { deleteUsers } from "../../services/userService";
 import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
-import { user } from "../../types/Type";
+import { IUserProp, user } from "../../types/Type";
 import { useDispatch } from "react-redux";
 import { setUsers } from "../../redux/users/usersSlice";
 
-interface Id{
-  id: string;
-}
 
-const DeleteUser: React.FC<Id> = ({ id }) => {
+const DeleteUser: React.FC<IUserProp> = ({ user }) => {
   const dispatch = useDispatch();
   const users = useSelector((state: RootState) => state.users.users);
 
-  const deleteUser = (id: string) => {
-    deleteUsers(id);
+  const deleteUser = (user: user) => {
+    deleteUsers(user.id);
     //api
 
     const newArr = users.filter((users: user) => {
-      if (users.id !== id) {
+      if (users.id !== user.id) {
         return users;
       }
     });
@@ -27,7 +24,7 @@ const DeleteUser: React.FC<Id> = ({ id }) => {
   };
 
   return (
-    <button className="btn btn-danger w-100 dropdown-item" onClick={() => deleteUser(id)}>
+    <button className="btn btn-danger w-100 dropdown-item" onClick={() => deleteUser(user)}>
       Delete
     </button>
   );

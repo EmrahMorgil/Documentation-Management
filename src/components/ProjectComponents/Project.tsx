@@ -3,16 +3,12 @@ import DeleteProject from "./DeleteProject";
 import { Link } from "react-router-dom";
 import OnUserProjectRemoveButton from "./OnUserProject/OnUserProjectRemoveButton";
 import UpdateProjectModal from "../../modals/ProjectModal/UpdateProjectModal";
-import { content, project, visibilityProjects } from "../../types/Type";
+import { IProject, content } from "../../types/Type";
 import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
 import OnUserProjectAddButton from "./OnUserProject/OnUserProjectAddButton";
 
-interface IProject {
-  project: any;
-  projectsControl: string;
-  userId?: string;
-}
+
 
 const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
 

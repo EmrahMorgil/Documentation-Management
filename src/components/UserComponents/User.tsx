@@ -61,7 +61,7 @@ const User: React.FC<IUserProp> = ({ user }) => {
       >
         Detail
       </button>
-      <DeleteUser id={user.id} />
+      <DeleteUser user={user} />
         </div>
       </div>
       

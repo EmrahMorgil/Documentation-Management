@@ -115,11 +115,31 @@ export interface IUserProp{
     user: user;
   }
 
+export interface IProjectProp{
+    project: project;
+}
+
+export interface IContentProp{
+    item: content;
+}
+
+//   export interface IUser{
+//     user?: user;
+//   }
+
+
 
 export interface IUpdateUser{
     item: user,
     setUpdateControl: React.Dispatch<React.SetStateAction<boolean>>,
   }
-  export interface IProject {
-    item: project;
+export interface IProject {
+    project: any;
+    projectsControl: string;
+    userId?: string;
   }
+
+  export interface IProtected{
+    loggedIn: boolean,
+    children: any,
+} 

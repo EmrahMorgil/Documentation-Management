@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
-import { project, visibilityProjects } from "../../types/Type";
+import { IProjectProp, project, visibilityProjects } from "../../types/Type";
 import { updateProjects } from "../../services/projectService"
 import { setProjects, setVisibilityProjects } from '../../redux/projects/projectsSlice';
 import { updateVisibilityProjectsApi } from "../../services/visibilityProjectServise";
 
-interface IUpdateProjectModal{
-  project: project;
-}
-
-const UpdateProjectModal: React.FC<IUpdateProjectModal> = ({ project }) => {
+const UpdateProjectModal: React.FC<IProjectProp> = ({ project }) => {
     const dispatch = useDispatch();
     const projects = useSelector((state: RootState) => state.projects.projects);
     const activeUser = useSelector((state: RootState) => state.users.activeUser.name);

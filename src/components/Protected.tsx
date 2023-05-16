@@ -1,10 +1,7 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
+import { IProtected } from "../types/Type";
 
-interface IProtected{
-    loggedIn: boolean,
-    children: any,
-} 
 
 const Protected: React.FC<IProtected> = ({ loggedIn, children }) => {
   if (!loggedIn) {

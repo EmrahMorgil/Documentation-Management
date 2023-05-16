@@ -8,7 +8,7 @@ const Projects: React.FC = () => {
 
   return (
     <div>
-      <ProjectsList projectsControl={"adminLoggedInProjects"} />
+      <ProjectsList projectsControl={"allProjects"} />
     </div>
   );
 };

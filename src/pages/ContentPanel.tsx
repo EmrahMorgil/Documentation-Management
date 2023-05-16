@@ -15,7 +15,7 @@ const ContentPanel: React.FC = () => {
 
   useEffect(() => {
     dispatch(getContentsAsync(id));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
