@@ -1,14 +1,10 @@
 import React from "react";
-import { content } from "../../types/Type";
+import { IContent, content } from "../../types/Type";
 import DeleteContent from "./DeleteContent";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import UpdateContentModal from "../../modals/ContentModal/UpdateContentModal";
 
-interface IContent {
-  content: content;
-  projectId?: string;
-}
 
 const Content: React.FC<IContent> = ({ content, projectId }) => {
   const adminLoggedIn = useSelector(
@@ -56,7 +52,7 @@ const Content: React.FC<IContent> = ({ content, projectId }) => {
                   <DeleteContent contentId={content.id} projectId={projectId} />
                 </div>
               </div>
-              <UpdateContentModal item={content} />
+              <UpdateContentModal content={content} />
             </>
           ) : (
             <>
@@ -68,7 +64,7 @@ const Content: React.FC<IContent> = ({ content, projectId }) => {
               >
                 Detail
               </button>
-              <UpdateContentModal item={content} />
+              <UpdateContentModal content={content} />
             </>
           )}
         </td>

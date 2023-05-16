@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { user } from "../types/Type";
-import {
-  setUserLoggedIn,
-  setAdminLoggedIn,
-  setActiveUser,
-} from "../redux/users/usersSlice";
+import {setUserLoggedIn,setAdminLoggedIn,setActiveUser} from "../redux/users/usersSlice";
 import {toast} from "react-toastify";
 
 const LoginUser: React.FC = () => {

@@ -120,24 +120,59 @@ export interface IProjectProp{
 }
 
 export interface IContentProp{
-    item: content;
+    content: content;
 }
 
-//   export interface IUser{
-//     user?: user;
-//   }
 
-
-
-export interface IUpdateUser{
-    item: user,
-    setUpdateControl: React.Dispatch<React.SetStateAction<boolean>>,
-  }
 export interface IProject {
     project: any;
     projectsControl: string;
     userId?: string;
   }
+
+export interface IContent {
+    content: content;
+    projectId?: string;
+  }
+
+
+
+
+
+export  interface IContentList{
+    projectId?: string;
+  }
+
+export interface IDeleteContent{
+    contentId: string;
+    projectId?: string;
+  }
+
+ export  interface IAddContent{
+    projectId: string;
+  }
+
+ export interface IOnUserProjectAddButton{
+    userId?: string;
+    project: project;
+  }
+
+  export interface IOnUserProjectRemoveButton{
+    userId?: string;
+    projectId: string;
+  }
+
+  export interface IProjectsList{
+    projectsControl: string;
+    userId?: string;
+  }
+
+  export interface IAddContentModal{
+    projectId: string;
+  }
+
+
+
 
   export interface IProtected{
     loggedIn: boolean,

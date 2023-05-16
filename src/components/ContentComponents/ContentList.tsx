@@ -1,14 +1,10 @@
 import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { content } from "../../types/Type";
+import { IContentList, content } from "../../types/Type";
 import Content from "./Content";
 import { setContents } from "../../redux/contents/contentsSlice";
 
-
-interface IContentList{
-  projectId?: string;
-}
 
 const ContentList: React.FC<IContentList> = ({projectId}) => {
   const contents = useSelector((state: RootState) => state.contents.contents);

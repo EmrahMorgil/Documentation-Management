@@ -1,16 +1,13 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
-import { content, project } from '../../types/Type';
+import { IDeleteContent, content, project } from '../../types/Type';
 import { deleteContents } from '../../services/contentService';
 import { setAllContents, setContents } from '../../redux/contents/contentsSlice';
 import { updateProjects } from '../../services/projectService';
 import { setProjects } from '../../redux/projects/projectsSlice';
 
-interface IDeleteContent{
-  contentId: string;
-  projectId?: string;
-}
+
 
 const DeleteContent: React.FC<IDeleteContent> = ({contentId, projectId}) => {
 

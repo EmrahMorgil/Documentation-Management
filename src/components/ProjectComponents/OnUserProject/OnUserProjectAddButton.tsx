@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
-import { project, user, visibilityProjects } from "../../../types/Type";
+import { IOnUserProjectAddButton, project, user, visibilityProjects } from "../../../types/Type";
 import { setUsers } from "../../../redux/users/usersSlice";
 import { updateUsers } from "../../../services/userService";
 import { addVisibilityProjectsApi } from "../../../services/visibilityProjectServise";
@@ -10,10 +10,7 @@ import { nanoid } from "nanoid";
 import {toast} from "react-toastify";
 
 
-interface IOnUserProjectAddButton{
-  userId?: string;
-  project: project;
-}
+
 
 const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, project}) => {
   

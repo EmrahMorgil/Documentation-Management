@@ -5,13 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { addContents } from "../../services/contentService";
 import { addNewContent } from "../../redux/contents/contentsSlice";
 import {updateProjects} from "../../services/projectService";
-import { content, project } from "../../types/Type";
+import { IAddContentModal, content, project } from "../../types/Type";
 import { setProjects } from "../../redux/projects/projectsSlice";
 import {toast} from "react-toastify";
 
-interface IAddContentModal{
-  projectId: string;
-}
 
 const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
   const dispatch = useDispatch();

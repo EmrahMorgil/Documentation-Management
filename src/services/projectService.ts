@@ -9,7 +9,7 @@ export const getProjectsAsync: any = createAsyncThunk("products/getProductsAsync
   }
 );
 
-export const addProjects = async(updatedProject: any)=>{
+export const addProjects = async(updatedProject: project)=>{
   await axios.post("http://localhost:3004/projects", updatedProject);
 }
 

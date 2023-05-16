@@ -5,7 +5,7 @@ import { IContentProp, content, user } from "../../types/Type";
 import { setContents } from "../../redux/contents/contentsSlice";
 import { updateContents } from "../../services/contentService";
 
-const UpdateContentModal: React.FC<IContentProp> = ({ item }) => {
+const UpdateContentModal: React.FC<IContentProp> = ({ content }) => {
 
   const adminLoggedIn = useSelector((state: RootState)=>state.users.adminLoggedIn);
 
@@ -15,16 +15,16 @@ const UpdateContentModal: React.FC<IContentProp> = ({ item }) => {
     (state: RootState) => state.users.activeUser.name
   );
   const [updatedContent, setUpdatedContent] = useState<content>({
-    id: item.id,
-    contentName: item.contentName,
-    createdPerson: item.createdPerson,
-    updatedPerson: item.updatedPerson,
-    createdDate: item.createdDate,
-    updatedDate: item.updatedDate,
-    version: item.version,
-    content: item.content,
-    contentTags: item.contentTags,
-    projectId: item.projectId,
+    id: content.id,
+    contentName: content.contentName,
+    createdPerson: content.createdPerson,
+    updatedPerson: content.updatedPerson,
+    createdDate: content.createdDate,
+    updatedDate: content.updatedDate,
+    version: content.version,
+    content: content.content,
+    contentTags: content.contentTags,
+    projectId: content.projectId,
   });
 
   const updateContent = async (item: content) => {
@@ -77,7 +77,7 @@ const UpdateContentModal: React.FC<IContentProp> = ({ item }) => {
   return (
     <div
       className="modal fade"
-      id={item.id}
+      id={content.id}
       role="dialog"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
@@ -217,7 +217,7 @@ const UpdateContentModal: React.FC<IContentProp> = ({ item }) => {
               type="button"
               className="btn btn-warning"
               data-dismiss="modal"
-              onClick={() => updateContent(item)}
+              onClick={() => updateContent(content)}
             >
               Update
             </button>}

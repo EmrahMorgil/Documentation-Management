@@ -3,7 +3,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { content } from "../types/Type";
 
 
-
 export const getContentsAsync: any = createAsyncThunk("contents/getContentsAsync", async (id) => {
   const res = await axios.get(`http://localhost:3004/projects/${id}/contents`);
   return res.data;
@@ -16,7 +15,7 @@ export const getAllContentsAsync: any = createAsyncThunk("allContents/getAllCont
 }
 );
 
-export const addContents = async(updatedContent: any)=>{
+export const addContents = async(updatedContent: content)=>{
     await axios.post("http://localhost:3004/contents", updatedContent);
   }
 

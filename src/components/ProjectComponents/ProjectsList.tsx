@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { project, user, visibilityProjects } from "../../types/Type";
+import { IProjectsList, project, user, visibilityProjects } from "../../types/Type";
 import Project from "./Project";
 import { setProjects, setVisibilityProjects } from "../../redux/projects/projectsSlice";
 
 
-const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userId?: string}) => {
+
+const ProjectsList: React.FC<IProjectsList> = ({projectsControl, userId}) => {
   
   const projects = useSelector((state: RootState) => state.projects.projects);
   const [projectSorted, setProjectSorted] = useState({ sorted: "projectName", isReversed: false });

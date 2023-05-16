@@ -1,16 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
-import { project, user, visibilityProjects } from "../../../types/Type";
+import { IOnUserProjectRemoveButton, project, user, visibilityProjects } from "../../../types/Type";
 import { updateUsers } from "../../../services/userService";
 import { setUsers } from "../../../redux/users/usersSlice";
 import { setVisibilityProjects } from "../../../redux/projects/projectsSlice";
 import { deleteVisibilityProjectsApi } from "../../../services/visibilityProjectServise";
 
-interface IOnUserProjectRemoveButton{
-  userId?: string;
-  projectId: string;
-}
 
 const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId, projectId}) => {
   const users = useSelector((state: RootState) => state.users.users);
