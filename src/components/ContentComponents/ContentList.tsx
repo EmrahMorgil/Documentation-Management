@@ -7,9 +7,12 @@ import { setContents } from "../../redux/contents/contentsSlice";
 
 
 const ContentList: React.FC<IContentList> = ({projectId}) => {
+
   const contents = useSelector((state: RootState) => state.contents.contents);
   const [filterValues, setFilterValues] = useState({ contentName:"", createdDate: "", updatedDate: "",contentTags: ""});
-  const [contentSorted, setContentSorted] = useState({ sorted: "contentName", isReversed: false })
+  const [contentNameSorted, setContentNameSorted] = useState({ sorted: "contentName", isReversed: false })
+  const [createdDateSorted, setCreatedDateSorted] = useState({sorted: "createdDate", isReversed: false});
+  const [updatedDateSorted, setUpdatedDateSorted] = useState({sorted: "updatedDate", isReversed: false});
   const [versionSorted, setVersionSorted] = useState({sorted: "version", isReversed: false});
   const dispatch = useDispatch();
 
@@ -32,16 +35,51 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
 
   const sortByContentName = () => {
     const sortedData = [...contents].sort((a, b) => {
-      if (contentSorted.isReversed) {
+      if (contentNameSorted.isReversed) {
         return b.contentName.localeCompare(a.contentName);
       }
       return a.contentName.localeCompare(b.contentName);
     });
   
      dispatch(setContents(sortedData));
-    setContentSorted({ sorted: "contentName", isReversed: !contentSorted.isReversed });
+     setContentNameSorted({ sorted: "contentName", isReversed: !contentNameSorted.isReversed });
   };
 
+  const sortByCreatedDate = () => {
+
+
+    const sortedData = [...contents].sort((a, b)=>{
+      let dateA: any = new Date(a.createdDate.split("/").reverse().join("/"));
+      let dateB: any = new Date(b.createdDate.split("/").reverse().join("/"));
+      if(createdDateSorted.isReversed)
+      {
+        return dateA - dateB;
+      }
+      return dateB - dateA;
+    });
+
+    dispatch(setContents(sortedData));
+    setCreatedDateSorted({sorted: "createdDate", isReversed: !createdDateSorted.isReversed});
+
+  };
+
+
+  const sortByUpdatedDate = () => {
+
+    const sortedData = [...contents].sort((a, b)=>{
+      let dateA: any = new Date(a.updatedDate.split("/").reverse().join("/"));
+      let dateB: any = new Date(b.updatedDate.split("/").reverse().join("/"));
+      if(updatedDateSorted.isReversed)
+      {
+        return dateA - dateB;
+      }
+      return dateB - dateA;
+    });
+
+    dispatch(setContents(sortedData));
+    setUpdatedDateSorted({sorted: "updatedDate", isReversed: !updatedDateSorted.isReversed});
+
+  };
 
 
   return (
@@ -62,10 +100,14 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
           <tr>
             <th scope="col">ID</th>
             <th onClick={sortByContentName} scope="col">Content Name
-            {contentSorted.sorted ? (contentSorted.isReversed ? "▲" : "▼"):null}
+            {contentNameSorted.sorted ? (contentNameSorted.isReversed ? "▲" : "▼"):null}
              </th>
-            <th scope="col">Created Date</th>
-            <th scope="col">Updated Date</th>
+            <th onClick={sortByCreatedDate} scope="col">Created Date
+            {createdDateSorted.sorted ? (createdDateSorted.isReversed ? "▲" : "▼"):null}
+            </th>
+            <th onClick={sortByUpdatedDate} scope="col">Updated Date
+            {updatedDateSorted.sorted ? (updatedDateSorted.isReversed ? "▲" : "▼"):null}
+            </th>
             <th scope="col">Created Person</th>
             <th scope="col">Updated Person</th>
             <th onClick={sortByVersionContent}  scope="col">Content Version
