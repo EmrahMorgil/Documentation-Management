@@ -12,6 +12,8 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
   const [projectSorted, setProjectSorted] = useState({ sorted: "projectName", isReversed: false });
   const [totalSorted, setTotalSorted] = useState({sorted: "totalContent", isReversed: false});
   const [roleSorted, setRoleSorted] = useState({sorted: "visibilityRole", isReversed: false});
+  const [createdDateSorted, setCreatedDateSorted] = useState({sorted: "createdDate", isReversed: false});
+  const [updatedDateSorted, setUpdatedDateSorted] = useState({sorted: "updatedDate", isReversed: false});
   const [filterValues, setFilterValues] = useState({projectName: "", createdDate: "", updatedDate: "", visibilityRole: 0});
   const adminLoggedIn = useSelector((state:RootState)=>state.users.adminLoggedIn);
   const activeUser: user = useSelector((state: RootState)=>state.users.activeUser);
@@ -89,7 +91,55 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
     setRoleSorted({ sorted: "visibilityRole", isReversed: !roleSorted.isReversed });
   };
 
+  const sortByCreatedDate = () => {
 
+    let variableProject;
+    activeUser.role===1 ? variableProject = projects : variableProject = visibilityProjects; 
+
+    const sortedData = [...variableProject].sort((a, b)=>{
+      let dateA: any = new Date(a.createdDate.split("/").reverse().join("/"));
+      let dateB: any = new Date(b.createdDate.split("/").reverse().join("/"));
+      if(createdDateSorted.isReversed)
+      {
+        return dateA - dateB;
+      }
+      return dateB - dateA;
+    });
+
+    if(activeUser.role===0)
+    {
+      dispatch(setVisibilityProjects(sortedData))
+    }else{
+      dispatch(setProjects(sortedData));
+    }
+    setCreatedDateSorted({sorted: "createdDate", isReversed: !createdDateSorted.isReversed});
+
+  };
+
+  const sortByUpdatedDate = () => {
+
+    let variableProject;
+    activeUser.role===1 ? variableProject = projects : variableProject = visibilityProjects; 
+
+    const sortedData = [...variableProject].sort((a, b)=>{
+      let dateA: any = new Date(a.updatedDate.split("/").reverse().join("/"));
+      let dateB: any = new Date(b.updatedDate.split("/").reverse().join("/"));
+      if(updatedDateSorted.isReversed)
+      {
+        return dateA - dateB;
+      }
+      return dateB - dateA;
+    });
+
+    if(activeUser.role===0)
+    {
+      dispatch(setVisibilityProjects(sortedData))
+    }else{
+      dispatch(setProjects(sortedData));
+    }
+    setUpdatedDateSorted({sorted: "updatedDate", isReversed: !updatedDateSorted.isReversed});
+
+  };
   
 
   return (
@@ -112,8 +162,12 @@ const ProjectsList = ({projectsControl, userId}: {projectsControl: string, userI
             <th onClick={sortByProjectName} scope="col">Project Name
            {projectSorted.sorted ? (projectSorted.isReversed ? "▲" : "▼"):null}
          </th>
-            <th scope="col">Created Date</th>
-            <th scope="col">Updated Date</th>
+            <th onClick={sortByCreatedDate} scope="col">Created Date
+            {createdDateSorted.sorted ? (createdDateSorted.isReversed ? "▲" : "▼"):null}
+            </th>
+            <th onClick={sortByUpdatedDate} scope="col">Updated Date
+            {updatedDateSorted.sorted ? (updatedDateSorted.isReversed ? "▲" : "▼"):null}
+            </th>
             <th scope="col">Created Person</th>
             <th scope="col">Updated Person</th>
             <th onClick={sortByTotalContent} scope="col">Total Content 
