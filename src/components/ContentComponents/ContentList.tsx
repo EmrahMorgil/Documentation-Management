@@ -99,18 +99,18 @@ const ContentList: React.FC<IContentList> = ({projectId}) => {
         <thead className="thead-dark">
           <tr>
             <th scope="col">ID</th>
-            <th onClick={sortByContentName} scope="col">Content Name
+            <th onClick={sortByContentName} className="pointer" scope="col">Content Name
             {contentNameSorted.sorted ? (contentNameSorted.isReversed ? "▲" : "▼"):null}
              </th>
-            <th onClick={sortByCreatedDate} scope="col">Created Date
+            <th onClick={sortByCreatedDate} className="pointer" scope="col">Created Date
             {createdDateSorted.sorted ? (createdDateSorted.isReversed ? "▲" : "▼"):null}
             </th>
-            <th onClick={sortByUpdatedDate} scope="col">Updated Date
+            <th onClick={sortByUpdatedDate} className="pointer" scope="col">Updated Date
             {updatedDateSorted.sorted ? (updatedDateSorted.isReversed ? "▲" : "▼"):null}
             </th>
             <th scope="col">Created Person</th>
             <th scope="col">Updated Person</th>
-            <th onClick={sortByVersionContent}  scope="col">Content Version
+            <th onClick={sortByVersionContent} className="pointer" scope="col">Content Version
             {versionSorted.sorted ? (versionSorted.isReversed ? "▲" : "▼"):null}
              </th>
             <th scope="col">Content</th>

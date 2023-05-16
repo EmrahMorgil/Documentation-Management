@@ -160,21 +160,21 @@ const ProjectsList: React.FC<IProjectsList> = ({projectsControl, userId}) => {
         <thead className="thead-dark">
           <tr>
             <th scope="col">ID</th>
-            <th onClick={sortByProjectName} scope="col">Project Name
+            <th onClick={sortByProjectName} className="pointer" scope="col">Project Name
            {projectSorted.sorted ? (projectSorted.isReversed ? "▲" : "▼"):null}
          </th>
-            <th onClick={sortByCreatedDate} scope="col">Created Date
+            <th onClick={sortByCreatedDate} className="pointer" scope="col">Created Date
             {createdDateSorted.sorted ? (createdDateSorted.isReversed ? "▲" : "▼"):null}
             </th>
-            <th onClick={sortByUpdatedDate} scope="col">Updated Date
+            <th onClick={sortByUpdatedDate} className="pointer" scope="col">Updated Date
             {updatedDateSorted.sorted ? (updatedDateSorted.isReversed ? "▲" : "▼"):null}
             </th>
             <th scope="col">Created Person</th>
             <th scope="col">Updated Person</th>
-            <th onClick={sortByTotalContent} scope="col">Total Content 
+            <th onClick={sortByTotalContent} className="pointer" scope="col">Total Content 
           {totalSorted.sorted  ? (totalSorted.isReversed ? "▲" : "▼"):null}
             </th>
-            <th onClick={sortByVisibilityRole} scope="col">Visibility Role
+            <th onClick={sortByVisibilityRole} className="pointer" scope="col">Visibility Role
             {roleSorted.sorted  ? (roleSorted.isReversed ? "▲" : "▼"):null}
             </th>
             {(projectsControl!=="allProjects" || !adminLoggedIn) && <th scope="col">Actions</th>}
