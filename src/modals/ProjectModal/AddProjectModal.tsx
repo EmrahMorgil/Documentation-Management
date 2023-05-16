@@ -28,7 +28,6 @@ const AddProjectModal: React.FC = () => {
 
       const createNewProject = ()=>{
         const updatedProject = { ...newProject };
-        // let nowDate = new Date().toString().substring(0, 24);
         let date = new Date();
         let nowDate = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
 
@@ -41,7 +40,7 @@ const AddProjectModal: React.FC = () => {
         addProjects(updatedProject);
       }
 
-    const handleClick = () =>{
+    const addProject = () =>{
         
         createNewProject();
   
@@ -111,7 +110,7 @@ const AddProjectModal: React.FC = () => {
               type="button"
               className="btn btn-success"
               data-dismiss="modal"
-              onClick={handleClick}
+              onClick={addProject}
             >
               Add
             </button>

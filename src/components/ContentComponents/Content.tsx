@@ -1,5 +1,5 @@
 import React from "react";
-import { IContent, content } from "../../types/Type";
+import { IContent } from "../../types/Type";
 import DeleteContent from "./DeleteContent";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";

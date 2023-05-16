@@ -6,7 +6,7 @@ import { updateUsers } from "../../services/userService";
 import { setUsers } from "../../redux/users/usersSlice";
 
 
-const UpdateUserModal: React.FC<IUserProp> = ({ user }) => {
+const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
   const users = useSelector((state: RootState) => state.users.users);
   const dispatch = useDispatch();
   const activeUser = useSelector(
@@ -166,4 +166,4 @@ const UpdateUserModal: React.FC<IUserProp> = ({ user }) => {
   );
 };
 
-export default UpdateUserModal;
+export default UserDetailModal;

@@ -6,7 +6,7 @@ import { updateProjects } from "../../services/projectService"
 import { setProjects, setVisibilityProjects } from '../../redux/projects/projectsSlice';
 import { updateVisibilityProjectsApi } from "../../services/visibilityProjectServise";
 
-const UpdateProjectModal: React.FC<IProjectProp> = ({ project }) => {
+const ProjectDetailModal: React.FC<IProjectProp> = ({ project }) => {
     const dispatch = useDispatch();
     const projects = useSelector((state: RootState) => state.projects.projects);
     const activeUser = useSelector((state: RootState) => state.users.activeUser.name);
@@ -123,7 +123,7 @@ const UpdateProjectModal: React.FC<IProjectProp> = ({ project }) => {
             }}
           >
             <form>
-             <div style={{marginBottom: "75px", width: "400px", textAlign: "center" }}> <h3>Update Project</h3></div>
+             <div style={{marginBottom: "75px", width: "400px", textAlign: "center" }}> <h3>Project Detail</h3></div>
               <div className="form-outline mb-4">
               <label htmlFor="exampleInput">Project Name</label>
                 <input
@@ -173,4 +173,4 @@ const UpdateProjectModal: React.FC<IProjectProp> = ({ project }) => {
   )
 }
 
-export default UpdateProjectModal
+export default ProjectDetailModal

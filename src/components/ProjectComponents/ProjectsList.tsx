@@ -123,13 +123,13 @@ const ProjectsList: React.FC<IProjectsList> = ({projectsControl, userId}) => {
     activeUser.role===1 ? variableProject = projects : variableProject = visibilityProjects; 
 
     const sortedData = [...variableProject].sort((a, b)=>{
-      let dateA: any = new Date(a.updatedDate.split("/").reverse().join("/"));
-      let dateB: any = new Date(b.updatedDate.split("/").reverse().join("/"));
+      let dateA: Date = new Date(a.updatedDate.split("/").reverse().join("/"));
+      let dateB: Date = new Date(b.updatedDate.split("/").reverse().join("/"));
       if(updatedDateSorted.isReversed)
       {
-        return dateA - dateB;
+        return Number(dateA) - Number(dateB);
       }
-      return dateB - dateA;
+      return Number(dateB) - Number(dateA);
     });
 
     if(activeUser.role===0)
