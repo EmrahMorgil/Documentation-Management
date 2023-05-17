@@ -7,11 +7,10 @@ import { setUsers } from "../../redux/users/usersSlice";
 
 const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
   const [inputValue, setInputValue] = useState('');
-  const [isDisabled, setIsDisabled] = useState(true);
   const users = useSelector((state: RootState) => state.users.users);
   const dispatch = useDispatch();
   const activeUser = useSelector((state: RootState) => state.users.activeUser.name);
-  const [updateButtonActive, setUpdateButtonActive] = useState(true);
+  const [buttonActive, setButtonActive] = useState(true);
   const [updatedUser, setUpdatedUser] = useState<user>({
     id: user.id,
     name: user.name,
@@ -85,24 +84,18 @@ const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    
-    
     setUpdatedUser({ ...updatedUser, [e.target.name]: e.target.value });
     if (e.target.name === "role") {
       setUpdatedUser({ ...updatedUser, role: Number(e.target.value) });
     }
-
-
-    
-    
   };
 
   useEffect(() => {
     if(JSON.stringify(updatedUser)==JSON.stringify(user))
     {
-      setUpdateButtonActive(true);
+      setButtonActive(true);
     }else{
-      setUpdateButtonActive(false);
+      setButtonActive(false);
     }
 
   }, [updatedUser])
@@ -192,10 +185,10 @@ const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
               Close
             </button>
             <button
-            disabled={isDisabled}
               type="button"
               className="btn btn-primary"
               onClick={undoUser}
+              disabled={buttonActive}
             >
               Undo Changes
             </button>
@@ -204,7 +197,7 @@ const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
               className="btn btn-warning"
               data-dismiss="modal"
               onClick={() => updateUser(user)}
-              disabled={updateButtonActive}
+              disabled={buttonActive}
             >
               Update
             </button>

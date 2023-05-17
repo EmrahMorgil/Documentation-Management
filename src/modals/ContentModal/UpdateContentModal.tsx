@@ -9,7 +9,7 @@ const UpdateContentModal: React.FC<IContentProp> = ({ content }) => {
   const adminLoggedIn = useSelector(
     (state: RootState) => state.users.adminLoggedIn
   );
-  const [updateButtonActive, setUpdateButtonActive] = useState(true);
+  const [buttonActive, setButtonActive] = useState(true);
   const contents = useSelector((state: RootState) => state.contents.contents);
   const dispatch = useDispatch();
   const activeUser = useSelector(
@@ -98,9 +98,9 @@ const UpdateContentModal: React.FC<IContentProp> = ({ content }) => {
       updatedContent.content == content.content &&
       updatedContent.contentTags == content.contentTags
     ) {
-      setUpdateButtonActive(true);
+      setButtonActive(true);
     } else {
-      setUpdateButtonActive(false);
+      setButtonActive(false);
     }
   }, [updatedContent]);
 
@@ -276,6 +276,7 @@ const UpdateContentModal: React.FC<IContentProp> = ({ content }) => {
                 type="button"
                 className="btn btn-primary"
                 onClick={undoContent}
+                disabled={buttonActive}
               >
                 Undo Changes
               </button>
@@ -286,7 +287,7 @@ const UpdateContentModal: React.FC<IContentProp> = ({ content }) => {
                 type="button"
                 className="btn btn-warning"
                 data-dismiss="modal"
-                disabled={updateButtonActive}
+                disabled={buttonActive}
                 onClick={() => updateContent(content)}
               >
                 Update

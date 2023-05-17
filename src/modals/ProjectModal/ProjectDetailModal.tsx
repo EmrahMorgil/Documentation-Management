@@ -11,7 +11,7 @@ const ProjectDetailModal: React.FC<IProjectProp> = ({ project }) => {
     const projects = useSelector((state: RootState) => state.projects.projects);
     const activeUser = useSelector((state: RootState) => state.users.activeUser.name);
     const visibilityProjects = useSelector((state: RootState)=>state.projects.visibilityProjects);
-    const [updateButtonActive, setUpdateButtonActive] = useState(true);
+    const [buttonActive, setButtonActive] = useState(true);
 
   const [updatedProject, setUpdatedProject] = useState<project>({
     id: project.id,
@@ -122,9 +122,9 @@ const ProjectDetailModal: React.FC<IProjectProp> = ({ project }) => {
   useEffect(() => {
      if(JSON.stringify(updatedProject)==JSON.stringify(project))
      {
-       setUpdateButtonActive(true);
+      setButtonActive(true);
      }else{
-       setUpdateButtonActive(false);
+      setButtonActive(false);
      }
  
    }, [updatedProject])
@@ -186,6 +186,7 @@ const ProjectDetailModal: React.FC<IProjectProp> = ({ project }) => {
                 type="button"
                 className="btn btn-primary"
                 onClick={undoProject}
+                disabled={buttonActive}
               >
                 Undo Changes
               </button>
@@ -194,7 +195,7 @@ const ProjectDetailModal: React.FC<IProjectProp> = ({ project }) => {
               className="btn btn-warning"
               data-dismiss="modal"
               onClick={() => updateProject(project)}
-              disabled={updateButtonActive}
+              disabled={buttonActive}
             >
               Update
             </button>
