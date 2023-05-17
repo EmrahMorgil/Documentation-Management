@@ -24,10 +24,6 @@ const ProjectsList: React.FC<IProjectsList> = ({ projectsControl, userId }) => {
     }
   };
 
-
-
-  
-
   return (
     <div className="container">
       <table className="table table-striped">

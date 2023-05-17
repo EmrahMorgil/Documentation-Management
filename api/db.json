@@ -174,12 +174,12 @@
     },
     {
       "id": "idrns2DvjvxmAjovnMZh_AZ",
-      "contentName": "test",
-      "createdDate": "16/5/2023",
-      "updatedDate": "16/5/2023",
+      "contentName": "testw",
       "createdPerson": "admin",
       "updatedPerson": "admin",
-      "version": 0,
+      "createdDate": "16/5/2023",
+      "updatedDate": "17/5/2023",
+      "version": "0.1",
       "content": "test",
       "contentTags": "öğrenci",
       "projectId": "idF80LvffnIJcb0P7VVyT6B"
