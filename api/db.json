@@ -269,6 +269,18 @@
       "updatedDate": "16/5/2023",
       "updatedPerson": "admin",
       "totalProject": 2
+    },
+    {
+      "id": "id7XK07cx9s0bGNz6edsJ5w",
+      "name": "Ömer",
+      "surname": "Mor",
+      "password": "1234",
+      "role": 0,
+      "createdPerson": "admin",
+      "createdDate": "17/5/2023",
+      "updatedDate": "17/5/2023",
+      "updatedPerson": "admin",
+      "totalProject": 0
     }
   ],
   "visibilityProjects": [
