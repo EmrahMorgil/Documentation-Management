@@ -50,7 +50,7 @@ const [selected, setSelected] = useState("");
           )}
         </div>
         <div>
-          <button className="btnUserInfo" style={{cursor:"context-menu"}}>
+          <button className="btn btn-primary" style={{cursor:"context-menu", pointerEvents: "none"}}>
             Welcome {activeUser.name}
           </button>
           <Logout />
