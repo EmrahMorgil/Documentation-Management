@@ -43,11 +43,13 @@ const LoginUser: React.FC = () => {
   };
 
   return (
+    <>
     <div
       style={{ display: "flex", justifyContent: "center", marginTop: "150px" }}
     >
-      <form style={{ width: "400px", textAlign: "center" }}>
-        <h3>Login</h3>
+      <form className="card shadow-2-strong" style={{ width: "400px", textAlign: "center" }}>
+      <div className="card-body p-5 text-center">
+        <h3 className="mb-5">Sign in</h3>
         <div className="form-outline mb-4">
           <input
             type="text"
@@ -70,7 +72,7 @@ const LoginUser: React.FC = () => {
         </div>
         {error && <p style={{color: "red"}}>{error}</p>}
         <input className="form-check-input" type="checkbox" value="" id="form2Example31" checked={rememberButton} onClick={()=>setRememberButton(!rememberButton)} />
-        <label className="form-check-label"> Remember me </label>
+        <label className="form-check-label mb-3"> Remember me </label>
         <button
           type="button"
           onClick={handleClick}
@@ -78,8 +80,10 @@ const LoginUser: React.FC = () => {
         >
           Sign in
         </button>
+        </div>
       </form>
     </div>
+    </>
   );
 };
 

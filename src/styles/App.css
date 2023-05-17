@@ -16,22 +16,6 @@
     justify-content: center;
 }
 
-.btnUserInfo{
-  color: white;
-  background-color: rgba(11,94,215,255);
-  width: auto;
-  border-radius: 5px;
-  border-color: transparent;
-  height: 2.3rem;
-  vertical-align: -0.5px;
-  pointer-events: none;
-  user-select: none;
-}
-
-.btnUserInfo:active{
-  box-shadow: none;
-}
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
