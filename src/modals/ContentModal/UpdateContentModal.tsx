@@ -158,8 +158,6 @@ const UpdateContentModal: React.FC<IContentProp> = ({ content }) => {
                         style={{ border: "1px solid black" }}
                         value={updatedContent.version}
                         name="version"
-                        max={0.9}
-                        min={0.1}
                         step={0.1}
                         className="form-control"
                         onChange={handleChange}
