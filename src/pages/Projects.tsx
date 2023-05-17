@@ -11,27 +11,15 @@ import Loading from "../components/Loading";
 const Projects: React.FC = () => {
   const dispatch = useDispatch();
   const projects = useSelector((state: RootState) => state.projects.projects);
-  const allContents = useSelector(
-    (state: RootState) => state.contents.allContents
-  );
+  const allContents = useSelector((state: RootState) => state.contents.allContents);
   const users = useSelector((state: RootState) => state.users.users);
-  const visibilityProjects = useSelector(
-    (state: RootState) => state.projects.visibilityProjects
-  );
+  const visibilityProjects = useSelector((state: RootState) => state.projects.visibilityProjects);
 
   //pending
-  const projectsIsLoading = useSelector(
-    (state: RootState) => state.projects.projectsIsLoading
-  );
-  const usersIsLoading = useSelector(
-    (state: RootState) => state.users.usersIsLoading
-  );
-  const visibilityProjectsIsLoading = useSelector(
-    (state: RootState) => state.projects.visibilityProjectsIsLoading
-  );
-  const allContentsIsLoading = useSelector(
-    (state: RootState) => state.contents.allContentsIsLoading
-  );
+  const projectsIsLoading = useSelector((state: RootState) => state.projects.projectsIsLoading);
+  const usersIsLoading = useSelector((state: RootState) => state.users.usersIsLoading);
+  const visibilityProjectsIsLoading = useSelector((state: RootState) => state.projects.visibilityProjectsIsLoading);
+  const allContentsIsLoading = useSelector((state: RootState) => state.contents.allContentsIsLoading);
 
   useEffect(() => {
     if (projects.length == 0) dispatch(getProjectsAsync());

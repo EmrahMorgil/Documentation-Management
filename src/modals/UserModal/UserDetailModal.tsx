@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../redux/store";
 import { IUserProp, user } from "../../types/Type";
@@ -8,9 +8,8 @@ import { setUsers } from "../../redux/users/usersSlice";
 const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
   const users = useSelector((state: RootState) => state.users.users);
   const dispatch = useDispatch();
-  const activeUser = useSelector(
-    (state: RootState) => state.users.activeUser.name
-  );
+  const activeUser = useSelector((state: RootState) => state.users.activeUser.name);
+  const [updateButtonActive, setUpdateButtonActive] = useState(true);
   const [updatedUser, setUpdatedUser] = useState<user>({
     id: user.id,
     name: user.name,
@@ -89,6 +88,18 @@ const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
       setUpdatedUser({ ...updatedUser, role: Number(e.target.value) });
     }
   };
+
+  useEffect(() => {
+    if(JSON.stringify(updatedUser)==JSON.stringify(user))
+    {
+      setUpdateButtonActive(true);
+    }else{
+      setUpdateButtonActive(false);
+    }
+
+  }, [updatedUser])
+  
+  
 
   return (
     <div
@@ -184,6 +195,7 @@ const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
               className="btn btn-warning"
               data-dismiss="modal"
               onClick={() => updateUser(user)}
+              disabled={updateButtonActive}
             >
               Update
             </button>
