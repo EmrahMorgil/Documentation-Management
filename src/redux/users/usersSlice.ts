@@ -4,9 +4,9 @@ import { getUsersAsync } from "../../services/userService";
 
 const initialState: any = {
   users: [],
-  userLoggedIn: JSON.parse(String(localStorage.getItem("userLoggedIn"))),
-  adminLoggedIn: JSON.parse(String(localStorage.getItem("adminLoggedIn"))),
-  activeUser: JSON.parse(String(localStorage.getItem("activeUser"))),
+  userLoggedIn: JSON.parse(String(localStorage.getItem("userLoggedIn"))) !== true && false ? false : JSON.parse(String(localStorage.getItem("userLoggedIn"))),
+  adminLoggedIn: JSON.parse(String(localStorage.getItem("adminLoggedIn"))) !== true && false ? false : JSON.parse(String(localStorage.getItem("adminLoggedIn"))),
+  activeUser: JSON.parse(String(localStorage.getItem("userLoggedIn"))) === true || JSON.parse(String(localStorage.getItem("adminLoggedIn"))) === true ? JSON.parse(String(localStorage.getItem("activeUser"))) : {},
   usersIsLoading: "loading"
 };
 
