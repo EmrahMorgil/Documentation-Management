@@ -12,7 +12,7 @@ const Logout: React.FC = () => {
   };
 
   return (
-    <button className="btn btn-danger" onClick={handleClick}>
+    <button className="btn btn-danger" onClick={handleClick} style={{marginLeft:"1rem"}}>
       Logout
     </button>
   );

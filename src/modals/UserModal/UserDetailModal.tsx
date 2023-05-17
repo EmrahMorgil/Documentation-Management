@@ -7,6 +7,8 @@ import { setUsers } from "../../redux/users/usersSlice";
 
 
 const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
+  const [inputValue, setInputValue] = useState('');
+  const [isDisabled, setIsDisabled] = useState(true);
   const users = useSelector((state: RootState) => state.users.users);
   const dispatch = useDispatch();
   const activeUser = useSelector(
@@ -70,11 +72,17 @@ const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    
+    
     setUpdatedUser({ ...updatedUser, [e.target.name]: e.target.value });
     if(e.target.name==="role")
     {
       setUpdatedUser({...updatedUser, role: Number(e.target.value)})
     }
+
+
+    
+    
   };
 
   return (
@@ -101,7 +109,7 @@ const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
                 <label htmlFor="exampleInput">Name</label>
                   <input
                     type="text"
-                    value={updatedUser.name}
+                    value={updatedUser.name} 
                     name="name"
                     className="form-control"
                     onChange={handleChange}
@@ -152,6 +160,7 @@ const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
               Close
             </button>
             <button
+            disabled={isDisabled}
               type="button"
               className="btn btn-warning"
               data-dismiss="modal"

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import Logout from "../logout/Logout";
 import { RootState } from "../redux/store";
@@ -10,6 +10,8 @@ const Navbar: React.FC = () => {
     (state: RootState) => state.users.activeUser
   );
 
+const [selected, setSelected] = useState("1")
+    
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3 mb-5">
       <div className="container">
@@ -21,22 +23,26 @@ const Navbar: React.FC = () => {
           aria-controls="navbarTogglerDemo03"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          
         >
           <span className="navbar-toggler-icon" />
         </button>
-        <Link className="navbar-brand" to={"/projects"}>
-          Project Management
-        </Link>
-        <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
+        
+        <div className="collapse navbar-collapse d-flex" id="navbarTogglerDemo03">
           {activeUser.role === 1 && (
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li className="nav-item">
-                <Link className="nav-link" to={"/userpanel"}>
+              <li className={selected === '1' ? 'nav-item active' : 'nav-item'}>
+              <Link className="navbar-brand" to={"/projects"} onClick={() => setSelected("1")}>
+               Project Management
+              </Link>
+              </li>
+              <li className={selected === '2' ? 'nav-item active' : 'nav-item'}>
+                <Link className="nav-link" to={"/userpanel"} onClick={() => setSelected("2")}>
                   User Control Panel
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"/projectpanel"}>
+              <li className={selected === '3' ? 'nav-item active' : 'nav-item'} >
+                <Link className="nav-link" to={"/projectpanel"} onClick={() => setSelected("3")}>
                   Project & Content Control Panel
                 </Link>
               </li>
@@ -44,7 +50,7 @@ const Navbar: React.FC = () => {
           )}
         </div>
         <div>
-          <button className="btn btn-primary mr-3">
+          <button className="btnUserInfo" style={{cursor:"context-menu"}}>
             Welcome {activeUser.name}
           </button>
           <Logout />
