@@ -7,6 +7,7 @@ const initialState: any = {
   userLoggedIn: JSON.parse(String(localStorage.getItem("userLoggedIn"))),
   adminLoggedIn: JSON.parse(String(localStorage.getItem("adminLoggedIn"))),
   activeUser: JSON.parse(String(localStorage.getItem("activeUser"))),
+  usersIsLoading: "loading"
 };
 
 export const usersSlice = createSlice({
@@ -33,8 +34,12 @@ export const usersSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(getUsersAsync.pending, (state, action)=>{
+      state.usersIsLoading = "loading";
+    });
     builder.addCase(getUsersAsync.fulfilled, (state, action) => {
       state.users = action.payload;
+      state.usersIsLoading = "fulfilled";
     });
   },
 });

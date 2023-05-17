@@ -49,6 +49,16 @@
       "updatedPerson": "admin",
       "totalContent": 1,
       "visibilityRole": "1"
+    },
+    {
+      "id": "idoPGwmAj2BRZaAJFFykJZ8",
+      "projectName": "Antalya",
+      "createdDate": "17/5/2023",
+      "updatedDate": "17/5/2023",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
+      "visibilityRole": 0
     }
   ],
   "contents": [

@@ -4,7 +4,8 @@ import { getAllContentsAsync, getContentsAsync } from "../../services/contentSer
 const initialState: any = {
   contents: [],
   allContents: [],
-  isLoading: "loading",
+  contentsIsLoading: "loading",
+  allContentsIsLoading: "loading",
 };
 
 export const contentsSlice = createSlice({
@@ -24,14 +25,18 @@ export const contentsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(getContentsAsync.pending, (state, action)=>{
-      state.isLoading = "loading";
+      state.contentsIsLoading = "loading";
+    });
+    builder.addCase(getAllContentsAsync.pending, (state, action)=>{
+      state.allContentsIsLoading = "loading";
     });
     builder.addCase(getContentsAsync.fulfilled, (state, action) => {
       state.contents = action.payload;
-      state.isLoading = "fulfilled";
+      state.contentsIsLoading = "fulfilled";
     });
     builder.addCase(getAllContentsAsync.fulfilled, (state, action) => {
       state.allContents = action.payload;
+      state.allContentsIsLoading = "fulfilled";
     });
   },
 });
