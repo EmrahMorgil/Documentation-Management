@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Logout from "../logout/Logout";
 import { RootState } from "../redux/store";
@@ -10,8 +10,11 @@ const Navbar: React.FC = () => {
     (state: RootState) => state.users.activeUser
   );
 
-const [selected, setSelected] = useState("");
-    
+  let getPath = new URL(window.location.href).pathname.split("/");
+  let lastPath = getPath[getPath.length - 1];
+
+  const [selected, setSelected] = useState(lastPath ? lastPath : "projects");
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3 mb-5">
       <div className="container">
@@ -23,34 +26,76 @@ const [selected, setSelected] = useState("");
           aria-controls="navbarTogglerDemo03"
           aria-expanded="false"
           aria-label="Toggle navigation"
-          
         >
           <span className="navbar-toggler-icon" />
         </button>
-        
-        <div className="collapse navbar-collapse d-flex" id="navbarTogglerDemo03">
-          {activeUser.role === 1 && (
+
+        <div
+          className="collapse navbar-collapse d-flex"
+          id="navbarTogglerDemo03"
+        >
+          {activeUser.role === 1 ? (
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li className={selected === 'projects' ? 'nav-item active' : 'nav-item'}>
-              <Link className="nav-link" to={"/projects"} onClick={() => setSelected("projects")}>
-               Project Management
-              </Link>
+              <li
+                className={
+                  selected === "projects" ? "nav-item active" : "nav-item"
+                }
+              >
+                
+                <>
+                <svg style={{width: "25px", height: "25px", color: "white"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+  <path fillRule="evenodd" d="M15.988 3.012A2.25 2.25 0 0118 5.25v6.5A2.25 2.25 0 0115.75 14H13.5V7A2.5 2.5 0 0011 4.5H8.128a2.252 2.252 0 011.884-1.488A2.25 2.25 0 0112.25 1h1.5a2.25 2.25 0 012.238 2.012zM11.5 3.25a.75.75 0 01.75-.75h1.5a.75.75 0 01.75.75v.25h-3v-.25z" clipRule="evenodd" />
+  <path fillRule="evenodd" d="M2 7a1 1 0 011-1h8a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V7zm2 3.25a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75zm0 3.5a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75z" clipRule="evenodd" />
+</svg>
+
+
+              </>
+                <Link
+                  className="nav-link navbar-brand"
+                  to={"/projects"}
+                  onClick={() => setSelected("projects")}
+                >
+                  Project Management
+                </Link>
               </li>
-              <li className={selected === 'userpanel' ? 'nav-item active' : 'nav-item'}>
-                <Link className="nav-link" to={"/userpanel"} onClick={() => setSelected("userpanel")}>
+              <li
+                className={
+                  selected === "userpanel" ? "nav-item active" : "nav-item"
+                }
+              >
+                <Link
+                  className="nav-link"
+                  to={"/userpanel"}
+                  onClick={() => setSelected("userpanel")}
+                >
                   User Control Panel
                 </Link>
               </li>
-              <li className={selected === 'projectpanel' ? 'nav-item active' : 'nav-item'} >
-                <Link className="nav-link" to={"/projectpanel"} onClick={() => setSelected("projectpanel")}>
+              <li
+                className={
+                  selected === "projectpanel" ? "nav-item active" : "nav-item"
+                }
+              >
+                <Link
+                  className="nav-link"
+                  to={"/projectpanel"}
+                  onClick={() => setSelected("projectpanel")}
+                >
                   Project & Content Control Panel
                 </Link>
               </li>
             </ul>
+          ) : (
+            <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li className="nav-item active nav-link navbar-brand">Project Management</li>
+            </ul>
           )}
         </div>
         <div>
-          <button className="btn btn-primary" style={{cursor:"context-menu", pointerEvents: "none"}}>
+          <button
+            className="btn btn-primary"
+            style={{ cursor: "context-menu", pointerEvents: "none" }}
+          >
             Welcome {activeUser.name}
           </button>
           <Logout />
