@@ -6,6 +6,7 @@ import {setUserLoggedIn,setAdminLoggedIn,setActiveUser} from "../redux/users/use
 import {toast} from "react-toastify";
 
 const LoginUser: React.FC = () => {
+  const [rememberButton, setRememberButton] = useState(false)
   const dispatch = useDispatch();
   const [userLogin, setUserLogin] = useState({ name: "", password: "" });
   const users = useSelector((state: RootState) => state.users.users);
@@ -23,12 +24,13 @@ const LoginUser: React.FC = () => {
         if (item.role === 0) {
           toast.success("Kullanıcı Girişi Başarılı...");
           dispatch(setUserLoggedIn(true));
+          {rememberButton && localStorage.setItem("userLoggedIn", JSON.stringify(true))}
         } else {
           toast.success("Admin Login Successfully!");
           dispatch(setAdminLoggedIn(true));
+          {rememberButton && localStorage.setItem("adminLoggedIn", JSON.stringify(true))}
         }
-        localStorage.setItem("name", item.name);
-        localStorage.setItem("password", item.password);
+        {rememberButton && localStorage.setItem("activeUser", JSON.stringify(item))}
         dispatch(setActiveUser(item));
       }else{
         setError("Kullanıcı Adı Ya da Şifre Hatalı");
@@ -67,6 +69,8 @@ const LoginUser: React.FC = () => {
           />
         </div>
         {error && <p style={{color: "red"}}>{error}</p>}
+        <input className="form-check-input" type="checkbox" value="" id="form2Example31" checked={rememberButton} onClick={()=>setRememberButton(!rememberButton)} />
+        <label className="form-check-label"> Remember me </label>
         <button
           type="button"
           onClick={handleClick}

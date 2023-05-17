@@ -4,9 +4,10 @@ import { getUsersAsync } from "../../services/userService";
 
 const initialState: any = {
   users: [],
-  userLoggedIn: false,
-  adminLoggedIn: false,
-  activeUser: {},
+  userLoggedIn: JSON.parse(String(localStorage.getItem("userLoggedIn"))),
+  adminLoggedIn: JSON.parse(String(localStorage.getItem("adminLoggedIn"))),
+  activeUser: JSON.parse(String(localStorage.getItem("activeUser"))),
+  usersIsLoading: "loading"
 };
 
 export const usersSlice = createSlice({
@@ -15,6 +16,9 @@ export const usersSlice = createSlice({
   reducers: {
     setUserLoggedIn: (state, action) => {
       state.userLoggedIn = action.payload;
+    },
+    setPageControl: (state, action)=>{
+      state.pageControl = action.payload;
     },
     setAdminLoggedIn: (state, action) => {
       state.adminLoggedIn = action.payload;
@@ -30,11 +34,15 @@ export const usersSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(getUsersAsync.pending, (state, action)=>{
+      state.usersIsLoading = "loading";
+    });
     builder.addCase(getUsersAsync.fulfilled, (state, action) => {
       state.users = action.payload;
+      state.usersIsLoading = "fulfilled";
     });
   },
 });
 
 export default usersSlice.reducer;
-export const { setUserLoggedIn, setAdminLoggedIn, setActiveUser, setUsers, addNewUser } = usersSlice.actions;
+export const { setUserLoggedIn, setAdminLoggedIn, setActiveUser, setUsers, addNewUser, setPageControl } = usersSlice.actions;

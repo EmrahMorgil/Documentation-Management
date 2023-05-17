@@ -10,7 +10,7 @@ import Loading from "../components/Loading";
 const ContentPanel: React.FC = () => {
   const dispatch = useDispatch();
   let { id } = useParams();
-  const isLoading = useSelector((state: RootState) => state.contents.isLoading);
+  const contentsIsLoading = useSelector((state: RootState) => state.contents.contentsIsLoading);
   const adminLoggedIn = useSelector((state:RootState)=>state.users.adminLoggedIn);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const ContentPanel: React.FC = () => {
 
   return (
     <>
-      {isLoading === "loading" ? (
+      {contentsIsLoading === "loading" ? (
         <Loading />
       ) : (
         <>

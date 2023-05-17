@@ -9,6 +9,9 @@ const Logout: React.FC = () => {
     dispatch(setAdminLoggedIn(false));
     dispatch(setUserLoggedIn(false));
     dispatch(setActiveUser({}));
+    localStorage.setItem("userLoggedIn", JSON.stringify(false));
+    localStorage.setItem("adminLoggedIn", JSON.stringify(false));
+    localStorage.setItem("activeUser", JSON.stringify({}));
   };
 
   return (

@@ -49,6 +49,16 @@
       "updatedPerson": "admin",
       "totalContent": 1,
       "visibilityRole": "1"
+    },
+    {
+      "id": "idoPGwmAj2BRZaAJFFykJZ8",
+      "projectName": "Antalya",
+      "createdDate": "17/5/2023",
+      "updatedDate": "17/5/2023",
+      "createdPerson": "admin",
+      "updatedPerson": "admin",
+      "totalContent": 0,
+      "visibilityRole": 0
     }
   ],
   "contents": [
@@ -67,10 +77,10 @@
     {
       "id": "id2dglUZ8XtDxjGDoaj3xv6",
       "contentName": "test2",
-      "createdDate": "9/5/2023",
-      "updatedDate": "2/5/2023",
       "createdPerson": "admin",
       "updatedPerson": "admin",
+      "createdDate": "9/5/2023",
+      "updatedDate": "17/5/2023",
       "version": 0,
       "content": "test2",
       "contentTags": "",
@@ -227,11 +237,11 @@
       "name": "Emrah",
       "surname": "Morgil",
       "password": "123",
-      "role": 1,
+      "role": 0,
       "createdPerson": "admin",
       "createdDate": "16/5/2023",
       "updatedDate": "16/5/2023",
-      "updatedPerson": "admin",
+      "updatedPerson": "Emrah",
       "totalProject": 2
     },
     {
@@ -245,18 +255,6 @@
       "updatedDate": "16/5/2023",
       "updatedPerson": "admin",
       "totalProject": 2
-    },
-    {
-      "id": "id9oelmm0b4G2zPTTOneWpa",
-      "name": "rgrw",
-      "surname": "ge",
-      "password": "123",
-      "role": 0,
-      "totalProject": 0,
-      "createdDate": "16/5/2023",
-      "updatedDate": "16/5/2023",
-      "createdPerson": "admin",
-      "updatedPerson": "admin"
     }
   ],
   "visibilityProjects": [

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { IProjectProp, project, visibilityProjects } from "../../types/Type";
@@ -11,6 +11,7 @@ const ProjectDetailModal: React.FC<IProjectProp> = ({ project }) => {
     const projects = useSelector((state: RootState) => state.projects.projects);
     const activeUser = useSelector((state: RootState) => state.users.activeUser.name);
     const visibilityProjects = useSelector((state: RootState)=>state.projects.visibilityProjects);
+    const [updateButtonActive, setUpdateButtonActive] = useState(true);
 
   const [updatedProject, setUpdatedProject] = useState<project>({
     id: project.id,
@@ -104,6 +105,30 @@ const ProjectDetailModal: React.FC<IProjectProp> = ({ project }) => {
     }
   };
 
+  const undoProject = () => {
+    setUpdatedProject({
+      id: project.id,
+      projectName: project.projectName,
+      createdDate: project.createdDate,
+      updatedDate: project.updatedDate,
+      createdPerson: project.createdPerson,
+      updatedPerson: project.updatedPerson,
+      totalContent: project.totalContent,
+      visibilityRole: project.visibilityRole,
+    });
+  };
+
+
+  useEffect(() => {
+     if(JSON.stringify(updatedProject)==JSON.stringify(project))
+     {
+       setUpdateButtonActive(true);
+     }else{
+       setUpdateButtonActive(false);
+     }
+ 
+   }, [updatedProject])
+
   return (
     <div
     className="modal fade"
@@ -158,10 +183,18 @@ const ProjectDetailModal: React.FC<IProjectProp> = ({ project }) => {
               Close
             </button>
             <button
+                type="button"
+                className="btn btn-primary"
+                onClick={undoProject}
+              >
+                Undo Changes
+              </button>
+            <button
               type="button"
               className="btn btn-warning"
               data-dismiss="modal"
               onClick={() => updateProject(project)}
+              disabled={updateButtonActive}
             >
               Update
             </button>
