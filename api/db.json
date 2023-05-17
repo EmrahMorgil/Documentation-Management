@@ -227,11 +227,11 @@
       "name": "Emrah",
       "surname": "Morgil",
       "password": "123",
-      "role": 1,
+      "role": 0,
       "createdPerson": "admin",
       "createdDate": "16/5/2023",
       "updatedDate": "16/5/2023",
-      "updatedPerson": "admin",
+      "updatedPerson": "Emrah",
       "totalProject": 2
     },
     {
@@ -245,18 +245,6 @@
       "updatedDate": "16/5/2023",
       "updatedPerson": "admin",
       "totalProject": 2
-    },
-    {
-      "id": "id9oelmm0b4G2zPTTOneWpa",
-      "name": "rgrw",
-      "surname": "ge",
-      "password": "123",
-      "role": 0,
-      "totalProject": 0,
-      "createdDate": "16/5/2023",
-      "updatedDate": "16/5/2023",
-      "createdPerson": "admin",
-      "updatedPerson": "admin"
     }
   ],
   "visibilityProjects": [

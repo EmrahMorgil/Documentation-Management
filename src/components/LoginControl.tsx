@@ -12,13 +12,10 @@ const LoginControl: React.FC = () => {
   const dispatch = useDispatch();
   const userLoggedIn = useSelector((state: RootState) => state.users.userLoggedIn);
   const adminLoggedIn = useSelector((state: RootState) => state.users.adminLoggedIn);
-  
+  const pageControl = useSelector((state: RootState) => state.users.pageControl);
 
   useEffect(() => {
     dispatch(getUsersAsync());
-    dispatch(getProjectsAsync());
-    dispatch(getVisibilityProjectsAsync());
-    dispatch(getAllContentsAsync());
   }, [dispatch]);
 
 
