@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { user } from "../../../types/Type";
-import { RootState } from "../../../redux/store";
+import { user } from "../../../../types/Type";
+import { RootState } from "../../../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setProjects,
   setVisibilityProjects,
-} from "../../../redux/projects/projectsSlice";
+} from "../../../../redux/projects/projectsSlice";
 
 const SortByVisibilityRole: React.FC = () => {
   const [roleSorted, setRoleSorted] = useState({

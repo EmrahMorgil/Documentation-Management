@@ -1,33 +1,18 @@
 import React, { useState } from "react";
-import { user } from "../../../types/Type";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../redux/store";
-import {
-  setProjects,
-  setVisibilityProjects,
-} from "../../../redux/projects/projectsSlice";
+import { RootState } from "../../../../redux/store";
+import { setContents } from "../../../../redux/contents/contentsSlice";
 
 const SortByCreatedDate: React.FC = () => {
+  const dispatch = useDispatch();
+  const contents = useSelector((state: RootState) => state.contents.contents);
   const [createdDateSorted, setCreatedDateSorted] = useState({
     sorted: "createdDate",
     isReversed: false,
   });
-  const activeUser: user = useSelector(
-    (state: RootState) => state.users.activeUser
-  );
-  const dispatch = useDispatch();
-  const projects = useSelector((state: RootState) => state.projects.projects);
-  const visibilityProjects = useSelector(
-    (state: RootState) => state.projects.visibilityProjects
-  );
 
   const sortCreatedDate = () => {
-    let variableProject;
-    activeUser.role === 1
-      ? (variableProject = projects)
-      : (variableProject = visibilityProjects);
-
-    const sortedData = [...variableProject].sort((a, b) => {
+    const sortedData = [...contents].sort((a, b) => {
       let dateA: any = new Date(a.createdDate.split("/").reverse().join("/"));
       let dateB: any = new Date(b.createdDate.split("/").reverse().join("/"));
       if (createdDateSorted.isReversed) {
@@ -36,11 +21,7 @@ const SortByCreatedDate: React.FC = () => {
       return dateB - dateA;
     });
 
-    if (activeUser.role === 0) {
-      dispatch(setVisibilityProjects(sortedData));
-    } else {
-      dispatch(setProjects(sortedData));
-    }
+    dispatch(setContents(sortedData));
     setCreatedDateSorted({
       sorted: "createdDate",
       isReversed: !createdDateSorted.isReversed,

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { RootState } from "../../../redux/store";
+import { RootState } from "../../../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
-import { setContents } from "../../../redux/contents/contentsSlice";
+import { setContents } from "../../../../redux/contents/contentsSlice";
 
 const SortByContentName: React.FC = () => {
   const [contentNameSorted, setContentNameSorted] = useState({

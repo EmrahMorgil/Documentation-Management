@@ -1,37 +1,38 @@
 import React, { useState } from "react";
+import { user } from "../../../../types/Type";
+import { RootState } from "../../../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../redux/store";
-import { user } from "../../../types/Type";
 import {
   setProjects,
   setVisibilityProjects,
-} from "../../../redux/projects/projectsSlice";
+} from "../../../../redux/projects/projectsSlice";
 
-const SortByProjectName: React.FC = () => {
-  const dispatch = useDispatch();
+const sortByTotalContent: React.FC = () => {
   const activeUser: user = useSelector(
     (state: RootState) => state.users.activeUser
   );
+  const dispatch = useDispatch();
   const projects = useSelector((state: RootState) => state.projects.projects);
   const visibilityProjects = useSelector(
     (state: RootState) => state.projects.visibilityProjects
   );
-  const [projectSorted, setProjectSorted] = useState({
-    sorted: "projectName",
+
+  const [totalSorted, setTotalSorted] = useState({
+    sorted: "totalContent",
     isReversed: false,
   });
 
-  const sortProjectName = () => {
+  const sortTotalContent = () => {
     let variableProject;
     activeUser.role === 1
       ? (variableProject = projects)
       : (variableProject = visibilityProjects);
 
     const sortedData = [...variableProject].sort((a, b) => {
-      if (projectSorted.isReversed) {
-        return b.projectName.localeCompare(a.projectName);
+      if (totalSorted.isReversed) {
+        return a.totalContent - b.totalContent;
       }
-      return a.projectName.localeCompare(b.projectName);
+      return b.totalContent - a.totalContent;
     });
 
     if (activeUser.role === 0) {
@@ -39,18 +40,17 @@ const SortByProjectName: React.FC = () => {
     } else {
       dispatch(setProjects(sortedData));
     }
-    setProjectSorted({
-      sorted: "projectName",
-      isReversed: !projectSorted.isReversed,
+    setTotalSorted({
+      sorted: "totalContent",
+      isReversed: !totalSorted.isReversed,
     });
   };
-
   return (
-    <th onClick={sortProjectName} className="pointer" scope="col">
-      Project Name
-      {projectSorted.sorted ? (projectSorted.isReversed ? "▲" : "▼") : null}
+    <th onClick={sortTotalContent} className="pointer" scope="col">
+      Total Content
+      {totalSorted.sorted ? (totalSorted.isReversed ? "▲" : "▼") : null}
     </th>
   );
 };
 
-export default SortByProjectName;
+export default sortByTotalContent;

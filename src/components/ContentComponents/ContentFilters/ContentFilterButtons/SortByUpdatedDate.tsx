@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../redux/store";
-import { setContents } from "../../../redux/contents/contentsSlice";
+import { RootState } from "../../../../redux/store";
+import { setContents } from "../../../../redux/contents/contentsSlice";
 
 const SortByUpdatedDate: React.FC = () => {
   const dispatch = useDispatch();
