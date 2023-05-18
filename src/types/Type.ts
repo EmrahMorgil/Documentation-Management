@@ -178,3 +178,46 @@ export interface IDeleteContent{
     loggedIn: boolean,
     children: any,
 } 
+
+
+
+export interface IUserDetailUpdateButton {
+  user: user;
+  updatedUser: user;
+  buttonActive: boolean;
+  setButtonActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface IUserDetailUndoButton{
+  user: user,
+  updatedUser: user,
+  setUpdatedUser: React.Dispatch<React.SetStateAction<user>>,
+  buttonActive: boolean,
+}
+
+export interface IProjectDetailUndoButton{
+  project: project;
+  setUpdatedProject: React.Dispatch<React.SetStateAction<project>>;
+  buttonActive: boolean;
+}
+
+export interface IProjectDetailUpdateButton{
+  project: project;
+  buttonActive: boolean;
+  setButtonActive: React.Dispatch<React.SetStateAction<boolean>>;
+  updatedProject: project;
+}
+
+export interface IContentDetailUndoButton{
+  content: content,
+  updatedContent: content,
+  setUpdatedContent: React.Dispatch<React.SetStateAction<content>>,
+  buttonActive: boolean,
+}
+
+export interface IContentDetailUpdateButton {
+  content: content;
+  updatedContent: content;
+  buttonActive: boolean;
+  setButtonActive: React.Dispatch<React.SetStateAction<boolean>>;
+}

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
-import { addUsers } from "../../services/userService";
+import { addUsers } from "../../../services/userService";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
-import { addNewUser } from "../../redux/users/usersSlice";
+import { RootState } from "../../../redux/store";
+import { addNewUser } from "../../../redux/users/usersSlice";
 import {toast} from "react-toastify";
-import { user } from "../../types/Type";
+import { user } from "../../../types/Type";
 
 const AddUserModal: React.FC = () => {
   const dispatch = useDispatch();

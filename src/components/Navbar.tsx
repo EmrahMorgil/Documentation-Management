@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
         >
           {activeUser.role === 1 ? (
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li>
+              <li className="nav-item">
                 <>
                   <svg
                     style={{ width: "25px", height: "25px", color: "white" }}
@@ -56,12 +56,12 @@ const Navbar: React.FC = () => {
                   Project Management
                 </NavLink>
               </li>
-              <li>
+              <li className="nav-item">
                 <NavLink className="nav-link" to={"/userpanel"}>
                   User Control Panel
                 </NavLink>
               </li>
-              <li>
+              <li className="nav-item">
                 <NavLink className="nav-link" to={"/projectpanel"}>
                   Project & Content Control Panel
                 </NavLink>

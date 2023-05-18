@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
-import { RootState } from "../../redux/store";
+import { RootState } from "../../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
-import { addContents } from "../../services/contentService";
-import { addNewContent } from "../../redux/contents/contentsSlice";
-import {updateProjects} from "../../services/projectService";
-import { IAddContentModal, content, project } from "../../types/Type";
-import { setProjects } from "../../redux/projects/projectsSlice";
+import { addContents } from "../../../services/contentService";
+import { addNewContent } from "../../../redux/contents/contentsSlice";
+import {updateProjects} from "../../../services/projectService";
+import { IAddContentModal, content, project } from "../../../types/Type";
+import { setProjects } from "../../../redux/projects/projectsSlice";
 import {toast} from "react-toastify";
 
 

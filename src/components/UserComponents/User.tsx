@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import DeleteUser from "./DeleteUser";
 import { IUserProp, visibilityProjects } from "../../types/Type";
-import OnUserProjectsModal from "../../modals/UserModal/OnUserProjectsModal";
-import AddOnUserProjectsModal from "../../modals/UserModal/AddOnUserProjectsModal";
-import UserDetailModal from "../../modals/UserModal/UserDetailModal";
+import OnUserProjectsModal from "../../modals/UserModal/OnUser/OnUserProjectsModal";
+import AddOnUserProjectsModal from "../../modals/UserModal/OnUser/AddOnUserProjectsModal";
+import UserDetailModal from "../../modals/UserModal/UserDetail/UserDetailModal";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 
