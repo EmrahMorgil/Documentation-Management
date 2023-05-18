@@ -63,12 +63,12 @@
       "name": "admin",
       "surname": "admin",
       "password": "123",
-      "role": 0,
-      "totalProject": 0,
-      "createdDate": "2023-05-18T11:15:11.603Z",
-      "updatedDate": "2023-05-18T11:15:11.603Z",
+      "role": 1,
       "createdPerson": "admin",
-      "updatedPerson": "admin"
+      "createdDate": "2023-05-18T11:15:11.603Z",
+      "updatedDate": "2023-05-18T12:01:35.137Z",
+      "updatedPerson": "admin",
+      "totalProject": 0
     },
     {
       "id": "idy8sADLQApbXBgUb-4GrFf",
