@@ -104,9 +104,9 @@ const ProjectDetailModal: React.FC<IProjectProp> = ({ project }) => {
             />
             <ProjectDetailUpdateButton
               project={project}
+              updatedProject={updatedProject}
               buttonActive={buttonActive}
               setButtonActive={setButtonActive}
-              updatedProject={updatedProject}
             />
           </div>
         </div>

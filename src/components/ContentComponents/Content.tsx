@@ -3,7 +3,7 @@ import { IContent } from "../../types/Type";
 import DeleteContent from "./DeleteContent";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import UpdateContentModal from "../../modals/ContentModal/UpdateContentModal";
+import ContentDetailModal from "../../modals/ContentModal/ContentDetailModal";
 
 
 const Content: React.FC<IContent> = ({ content, projectId }) => {
@@ -52,7 +52,7 @@ const Content: React.FC<IContent> = ({ content, projectId }) => {
                   <DeleteContent contentId={content.id} projectId={projectId} />
                 </div>
               </div>
-              <UpdateContentModal content={content} />
+              <ContentDetailModal content={content} />
             </>
           ) : (
             <>
@@ -64,7 +64,7 @@ const Content: React.FC<IContent> = ({ content, projectId }) => {
               >
                 Detail
               </button>
-              <UpdateContentModal content={content} />
+              <ContentDetailModal content={content} />
             </>
           )}
         </td>
