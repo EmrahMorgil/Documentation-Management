@@ -7,7 +7,7 @@ import {
   setVisibilityProjects,
 } from "../../../../redux/projects/projectsSlice";
 
-const sortByTotalContent: React.FC = () => {
+const SortByTotalContent: React.FC = () => {
   const activeUser: user = useSelector(
     (state: RootState) => state.users.activeUser
   );
@@ -53,4 +53,4 @@ const sortByTotalContent: React.FC = () => {
   );
 };
 
-export default sortByTotalContent;
+export default SortByTotalContent;
