@@ -1,5 +1,10 @@
 import React from "react";
 import ProjectRefresh from "../../ProjectRefresh";
+import { DateRangePicker } from "rsuite";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../../redux/store";
+import { project } from "../../../../types/Type";
+import { setProjects } from "../../../../redux/projects/projectsSlice";
 
 export interface IProjectFilterInputs {
   filterValues: {
@@ -33,6 +38,27 @@ const ProjectFilterInputs: React.FC<IProjectFilterInputs> = ({
     }
   };
 
+  const projects = useSelector((state: RootState)=>state.projects.projects);
+  const dispatch = useDispatch();
+
+  const handleDateChange = (value: any) => {
+
+    // var dateArray = [new Date('2023-01-01'), new Date('2023-02-15'), new Date('2023-03-20'), new Date('2023-04-10')];
+
+    var startDate = new Date(value[0] && value[0]);
+    var endDate = new Date(value[1] && value[1]);
+
+    var filteredDates = projects.filter(function(date: project) {
+      debugger;
+      return new Date(date.createdDate) >= startDate && new Date(date.createdDate) <= endDate;
+    });
+    // console.log(filteredDates);
+    dispatch(setProjects(filteredDates));
+
+    console.log('Başlangıç Tarihi:', new Date(value[0]).toLocaleDateString());
+    console.log('Bitiş Tarihi:', new Date(value[1]).toLocaleDateString());
+  };
+
   return (
     <thead className="thead-dark" style={{textAlign: "center"}}>
       <th scope="col">
@@ -64,12 +90,7 @@ const ProjectFilterInputs: React.FC<IProjectFilterInputs> = ({
         />
       </th>
       <th scope="col">
-        <input
-          placeholder="Created..."
-          name="createdDate"
-          size={7}
-          onChange={handleChange}
-        />
+      <DateRangePicker cleanable onChange={handleDateChange} onClick={()=>console.log("tıklandı")}/>
       </th>
       <th scope="col">
         <input
