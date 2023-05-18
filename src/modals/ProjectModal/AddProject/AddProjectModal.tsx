@@ -16,8 +16,8 @@ const AddProjectModal: React.FC = () => {
     const [newProject, setNewProject] = useState<project>({
         id: "",
         projectName: "",
-        createdDate: "2023",
-        updatedDate: "2023",
+        createdDate: new Date(),
+        updatedDate: new Date(),
         createdPerson: "emrah",
         updatedPerson: "emrah",
         totalContent: 0,
@@ -28,12 +28,9 @@ const AddProjectModal: React.FC = () => {
 
       const createNewProject = ()=>{
         const updatedProject = { ...newProject };
-        let date = new Date();
-        let nowDate = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
-
         updatedProject.id = "id"+nanoid();
-        updatedProject.createdDate = nowDate;
-        updatedProject.updatedDate = nowDate;
+        updatedProject.createdDate = new Date();
+        updatedProject.updatedDate = new Date();
         updatedProject.createdPerson = activeUser.name;
         updatedProject.updatedPerson = activeUser.name;
         dispatch(addNewProject(updatedProject));
@@ -41,11 +38,11 @@ const AddProjectModal: React.FC = () => {
       }
 
     const addProject = () =>{
-        
+
         createNewProject();
   
         //proje ekledikten sonra alanların temizlenmesi.
-        setNewProject({id: "",projectName: "",createdDate: "",updatedDate: "",createdPerson: "",updatedPerson: "",totalContent: 0,visibilityRole: 0});
+        setNewProject({id: "",projectName: "",createdDate: new Date(""),updatedDate: new Date(""),createdPerson: "",updatedPerson: "",totalContent: 0,visibilityRole: 0});
         toast.success("Project successfully added");
       }
     const handleChange = (e: any) =>{

@@ -43,9 +43,7 @@ const ProjectsList: React.FC<IProjectsList> = ({ projectsControl, userId }) => {
                 if (
                   item.projectName
                     .toLowerCase()
-                    .includes(filterValues.projectName.toLowerCase()) &&
-                  item.createdDate.includes(filterValues.createdDate) &&
-                  item.updatedDate.includes(filterValues.updatedDate)
+                    .includes(filterValues.projectName.toLowerCase())
                 ) {
                   return (
                     <Project

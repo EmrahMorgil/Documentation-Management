@@ -44,13 +44,8 @@ const ContentList: React.FC<IContentList> = ({ projectId }) => {
                 .includes(filterValues.contentTags.toLowerCase()) &&
               content.contentName
                 .toLowerCase()
-                .includes(filterValues.contentName.toLowerCase()) &&
-              content.createdDate.includes(
-                filterValues.createdDate.toLowerCase()
-              ) &&
-              content.updatedDate.includes(
-                filterValues.updatedDate.toLowerCase()
-              )
+                .includes(filterValues.contentName.toLowerCase()) 
+              
             ) {
               return (
                 <Content content={content} key={i} projectId={projectId} />

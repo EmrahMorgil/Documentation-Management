@@ -17,20 +17,18 @@ const AddUserModal: React.FC = () => {
     password: "",
     role: 0,
     totalProject: 0,
-    createdDate: "2023",
-    updatedDate: "2023",
+    createdDate: new Date(),
+    updatedDate: new Date(),
     createdPerson: "emrah",
     updatedPerson: "emrah",
   });
 
   const addUser = async () => {
-    let date = new Date();
-    let nowDate = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
 
     const updatedUser = { ...newUser };
     updatedUser.id = "id"+nanoid();
-    updatedUser.createdDate = nowDate;
-    updatedUser.updatedDate = nowDate;
+    updatedUser.createdDate = new Date();
+    updatedUser.updatedDate = new Date();
     updatedUser.createdPerson = activeUser.name;
     updatedUser.updatedPerson = activeUser.name;
 
@@ -46,8 +44,8 @@ const AddUserModal: React.FC = () => {
       password: "",
       role: 0,
       totalProject: 0,
-      createdDate: "",
-      updatedDate: "",
+      createdDate: new Date,
+      updatedDate: new Date,
       createdPerson: "",
       updatedPerson: "",
     });

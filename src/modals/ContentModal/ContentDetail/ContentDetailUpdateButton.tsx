@@ -19,11 +19,9 @@ const ContentDetailUpdateButton: React.FC<IContentDetailUpdateButton> = ({
 
   const updateContent = async (item: content) => {
     setButtonActive(true);
-    let date = new Date();
-    let nowDate =
-      date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+    
     const setUpdatedContent = { ...updatedContent };
-    setUpdatedContent.updatedDate = nowDate;
+    setUpdatedContent.updatedDate = new Date();;
     setUpdatedContent.updatedPerson = activeUser;
 
     const {

@@ -22,7 +22,7 @@ const DeleteContent: React.FC<IDeleteContent> = ({contentId, projectId}) => {
   //amount
   const deleteContentAmount = () =>{
 
-    let updatedContentAmount: project ={id:"", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalContent: 0, visibilityRole: 1};
+    let updatedContentAmount: project ={id:"", projectName: "", createdDate: new Date, updatedDate: new Date, createdPerson: "", updatedPerson: "", totalContent: 0, visibilityRole: 1};
 
     let newArray = projects.map((item: project)=>{
       if(item.id === projectId)

@@ -30,8 +30,8 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
       <tr style={{textAlign: "center"}}>
         <td>{project.id.substring(0, 2) + "..."}</td>
         <td>{project.projectName}</td>
-        <td>{project.createdDate}</td>
-        <td>{project.updatedDate}</td>
+        <td>{(new Date(project.createdDate)).toLocaleDateString()}</td>
+        <td>{(new Date(project.updatedDate)).toLocaleDateString()}</td>
         <td>{project.createdPerson}</td>
         <td>{project.updatedPerson}</td>
         <td>{totalContent()}</td>

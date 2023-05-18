@@ -18,8 +18,8 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
   const [newContent, setNewContent] = useState<content>({
     id: "",
     contentName: "",
-    createdDate: "2023",
-    updatedDate: "2023",
+    createdDate: new Date(),
+    updatedDate: new Date(),
     createdPerson: "emrah",
     updatedPerson: "emrah",
     version: 0,
@@ -30,7 +30,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
 
   const addContentAmount = () => {
 
-    let updatedContentAmount: project ={id:"", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalContent: 0, visibilityRole: 1};
+    let updatedContentAmount: project ={id:"", projectName: "", createdDate: new Date, updatedDate: new Date, createdPerson: "", updatedPerson: "", totalContent: 0, visibilityRole: 1};
     let newArr = projects.map((item: project) => {
       if (item.id === projectId) {
         updatedContentAmount = { ...item };
@@ -49,12 +49,11 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
 
 
   const createNewContent = () =>{
-    let date = new Date();
-    let nowDate = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear();
+ 
     const updatedContent = { ...newContent };
     updatedContent.id = "id"+nanoid();
-    updatedContent.createdDate = nowDate;
-    updatedContent.updatedDate = nowDate;
+    updatedContent.createdDate = new Date();
+    updatedContent.updatedDate = new Date();
     updatedContent.createdPerson = activeUser.name;
     updatedContent.updatedPerson = activeUser.name;
     updatedContent.projectId = projectId;
@@ -77,8 +76,8 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
     setNewContent({
       id: "",
       contentName: "",
-      createdDate: "",
-      updatedDate: "",
+      createdDate: new Date,
+      updatedDate: new Date,
       createdPerson: "",
       updatedPerson: "",
       version: 0,

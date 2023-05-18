@@ -1,14 +1,14 @@
 export class project{
     id: string;
     projectName: string;
-    createdDate: string;
-    updatedDate: string;
+    createdDate: Date;
+    updatedDate: Date;
     createdPerson: string;
     updatedPerson: string;
     totalContent: number;
     visibilityRole: number;
 
-    constructor(id: string, projectName: string, createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string, totalContent: number, visibilityRole: number)
+    constructor(id: string, projectName: string, createdDate: Date, updatedDate: Date, createdPerson: string, updatedPerson: string, totalContent: number, visibilityRole: number)
     {
         this.id = id;
         this.projectName = projectName;
@@ -24,8 +24,8 @@ export class project{
 export class content{
     id: string;
     contentName: string;
-    createdDate: string;
-    updatedDate: string;
+    createdDate: Date;
+    updatedDate: Date;
     createdPerson: string;
     updatedPerson: string;
     version: number;
@@ -33,7 +33,7 @@ export class content{
     contentTags: string;
     projectId: string;
 
-    constructor(id: string, contentName: string, createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string, version: number, content: string, contentTags: string, projectId: string)
+    constructor(id: string, contentName: string, createdDate: Date, updatedDate: Date, createdPerson: string, updatedPerson: string, version: number, content: string, contentTags: string, projectId: string)
     {
         this.id = id;
         this.contentName = contentName;
@@ -56,13 +56,13 @@ export class user{
     surname: string;
     password: string;
     role: userRole;
-    createdDate: string;
-    updatedDate: string;
+    createdDate: Date;
+    updatedDate: Date;
     createdPerson: string;
     updatedPerson: string;
     totalProject: number;
 
-    constructor(id: string, name: string, surname: string, password: string, role: userRole,createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string, totalProject: number)
+    constructor(id: string, name: string, surname: string, password: string, role: userRole,createdDate: Date, updatedDate: Date, createdPerson: string, updatedPerson: string, totalProject: number)
     {
         this.id = id;
         this.name = name;
@@ -81,8 +81,8 @@ export class user{
 export class visibilityProjects{
     id: string;
     projectName: string;
-    createdDate: string;
-    updatedDate: string;
+    createdDate: Date;
+    updatedDate: Date;
     createdPerson: string;
     updatedPerson: string;
     totalContent: number;
@@ -90,7 +90,7 @@ export class visibilityProjects{
     userId: string;
     projectId: string
 
-    constructor(id: string, projectName: string, createdDate: string, updatedDate: string, createdPerson: string, updatedPerson: string, totalContent: number, visibilityRole: number, userId: string, projectId: string)
+    constructor(id: string, projectName: string, createdDate: Date, updatedDate: Date, createdPerson: string, updatedPerson: string, totalContent: number, visibilityRole: number, userId: string, projectId: string)
     {
         this.id = id;
         this.projectName = projectName;

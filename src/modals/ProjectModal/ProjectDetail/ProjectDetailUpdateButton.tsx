@@ -73,11 +73,9 @@ const ProjectDetailUpdateButton: React.FC<IProjectDetailUpdateButton> = ({
 
   const updateProject = async (updateProject: project) => {
     setButtonActive(true);
-    let date = new Date();
-    let nowDate =
-      date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+
     const setUpdatedProject = { ...updatedProject };
-    setUpdatedProject.updatedDate = nowDate;
+    setUpdatedProject.updatedDate = new Date();
     setUpdatedProject.updatedPerson = activeUser;
 
     const {

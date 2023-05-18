@@ -8,7 +8,7 @@ import { setProjects, setVisibilityProjects } from '../../redux/projects/project
 
 const DeleteProject: React.FC<IProjectProp> = ({project}) => {
 
-  let deletedItems: visibilityProjects = {id: "", projectName: "", createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "",  totalContent: 0, visibilityRole: 1, userId: "", projectId: ""};
+  let deletedItems: visibilityProjects = {id: "", projectName: "", createdDate: new Date, updatedDate: new Date, createdPerson: "", updatedPerson: "",  totalContent: 0, visibilityRole: 1, userId: "", projectId: ""};
 
   
   const dispatch = useDispatch();

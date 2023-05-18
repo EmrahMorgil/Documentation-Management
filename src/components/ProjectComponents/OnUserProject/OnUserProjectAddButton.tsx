@@ -20,7 +20,7 @@ const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, pro
 
 
   const addProjectAmount = async()=>{
-    let updatedProjectAmount: user ={id:"", name: "", surname: "", password: "", role: 0, createdDate: "", updatedDate: "", createdPerson: "", updatedPerson: "", totalProject: 0};
+    let updatedProjectAmount: user ={id:"", name: "", surname: "", password: "", role: 0, createdDate: new Date, updatedDate: new Date, createdPerson: "", updatedPerson: "", totalProject: 0};
     const newUserArray = users.map((user: user)=>{
       if(user.id===userId)
       {

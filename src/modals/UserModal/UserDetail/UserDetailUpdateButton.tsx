@@ -16,11 +16,8 @@ const UserDetailUpdateButton: React.FC<IUserDetailUpdateButton> = ({user,updated
 
   const updateUser = async (updateUser: user) => {
     setButtonActive(true);
-    let date = new Date();
-    let nowDate =
-      date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
     const setUpdatedUser = { ...updatedUser };
-    setUpdatedUser.updatedDate = nowDate;
+    setUpdatedUser.updatedDate = new Date();;
     setUpdatedUser.updatedPerson = activeUser;
     setUpdatedUser.totalProject = updateUser.totalProject;
 
