@@ -1,5 +1,5 @@
 import React from "react";
-import { IProjectDetailUpdateButton, project, visibilityProjects } from "../../../types/Type";
+import { IProjectDetailUpdateButton, project, user, visibilityProjects } from "../../../types/Type";
 import { updateProjects } from "../../../services/projectService";
 import { RootState } from "../../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,8 +19,8 @@ const ProjectDetailUpdateButton: React.FC<IProjectDetailUpdateButton> = ({
 }) => {
   const dispatch = useDispatch();
   const projects = useSelector((state: RootState) => state.projects.projects);
-  const activeUser = useSelector(
-    (state: RootState) => state.users.activeUser.name
+  const activeUser: user = useSelector(
+    (state: RootState) => state.users.activeUser
   );
   const visibilityProjects = useSelector(
     (state: RootState) => state.projects.visibilityProjects
@@ -76,7 +76,7 @@ const ProjectDetailUpdateButton: React.FC<IProjectDetailUpdateButton> = ({
 
     const setUpdatedProject = { ...updatedProject };
     setUpdatedProject.updatedDate = new Date();
-    setUpdatedProject.updatedPerson = activeUser;
+    setUpdatedProject.updatedPerson = activeUser.id;
 
     const {
       id,

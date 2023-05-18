@@ -31,8 +31,8 @@ const AddProjectModal: React.FC = () => {
         updatedProject.id = "id"+nanoid();
         updatedProject.createdDate = new Date();
         updatedProject.updatedDate = new Date();
-        updatedProject.createdPerson = activeUser.name;
-        updatedProject.updatedPerson = activeUser.name;
+        updatedProject.createdPerson = activeUser.id;
+        updatedProject.updatedPerson = activeUser.id;
         dispatch(addNewProject(updatedProject));
         addProjects(updatedProject);
       }

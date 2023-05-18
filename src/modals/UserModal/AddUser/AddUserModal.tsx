@@ -9,7 +9,7 @@ import { user } from "../../../types/Type";
 
 const AddUserModal: React.FC = () => {
   const dispatch = useDispatch();
-  const activeUser = useSelector((state: RootState) => state.users.activeUser);
+  const activeUser: user = useSelector((state: RootState) => state.users.activeUser);
   const [newUser, setNewUser] = useState<user>({
     id: "",
     name: "",
@@ -29,8 +29,8 @@ const AddUserModal: React.FC = () => {
     updatedUser.id = "id"+nanoid();
     updatedUser.createdDate = new Date();
     updatedUser.updatedDate = new Date();
-    updatedUser.createdPerson = activeUser.name;
-    updatedUser.updatedPerson = activeUser.name;
+    updatedUser.createdPerson = activeUser.id;
+    updatedUser.updatedPerson = activeUser.id;
 
     // debugger;
     addUsers(updatedUser);

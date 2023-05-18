@@ -1,5 +1,5 @@
 import React from "react";
-import { IContentDetailUpdateButton, content } from "../../../types/Type";
+import { IContentDetailUpdateButton, content, user } from "../../../types/Type";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { updateContents } from "../../../services/contentService";
@@ -11,8 +11,8 @@ const ContentDetailUpdateButton: React.FC<IContentDetailUpdateButton> = ({
   buttonActive,
   setButtonActive,
 }) => {
-  const activeUser = useSelector(
-    (state: RootState) => state.users.activeUser.name
+  const activeUser: user = useSelector(
+    (state: RootState) => state.users.activeUser
   );
   const contents = useSelector((state: RootState) => state.contents.contents);
   const dispatch = useDispatch();
@@ -21,8 +21,8 @@ const ContentDetailUpdateButton: React.FC<IContentDetailUpdateButton> = ({
     setButtonActive(true);
     
     const setUpdatedContent = { ...updatedContent };
-    setUpdatedContent.updatedDate = new Date();;
-    setUpdatedContent.updatedPerson = activeUser;
+    setUpdatedContent.updatedDate = new Date();
+    setUpdatedContent.updatedPerson = activeUser.id;
 
     const {
       id,

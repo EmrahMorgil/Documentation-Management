@@ -18,8 +18,8 @@ const Content: React.FC<IContent> = ({ content, projectId }) => {
         <td scope="row">{content.contentName}</td>
         <td>{(new Date(content.createdDate)).toLocaleDateString()  +"  "+ (new Date(content.createdDate)).toLocaleTimeString()}</td>
         <td>{(new Date(content.updatedDate)).toLocaleDateString()  +"  "+ (new Date(content.updatedDate)).toLocaleTimeString()}</td>
-        <td scope="row">{content.createdPerson}</td>
-        <td scope="row">{content.updatedPerson}</td>
+        <td scope="row">{content.createdPerson.substring(0, 6)}</td>
+        <td scope="row">{content.updatedPerson.substring(0, 6)}</td>
         <td scope="row">{content.version}</td>
         <td scope="row">{content.content.substring(0, 20) + "..."}</td>
         <td scope="row">{content.contentTags}</td>

@@ -54,8 +54,8 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
     updatedContent.id = "id"+nanoid();
     updatedContent.createdDate = new Date();
     updatedContent.updatedDate = new Date();
-    updatedContent.createdPerson = activeUser.name;
-    updatedContent.updatedPerson = activeUser.name;
+    updatedContent.createdPerson = activeUser.id;
+    updatedContent.updatedPerson = activeUser.id;
     updatedContent.projectId = projectId;
     //api
     setTimeout(()=>dispatch(addNewContent(updatedContent)), 100);

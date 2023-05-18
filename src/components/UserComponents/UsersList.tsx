@@ -20,8 +20,8 @@ const UsersList: React.FC = () => {
             <th scope="col">Projects</th>
             <th scope="col">Created Date</th>
             <th scope="col">Updated Date</th>
-            <th scope="col">Created Person</th>
-            <th scope="col">Updated Person</th>
+            <th scope="col">Created Person ID</th>
+            <th scope="col">Updated Person ID</th>
             <th scope="col">Action</th>
           </tr>
         </thead>

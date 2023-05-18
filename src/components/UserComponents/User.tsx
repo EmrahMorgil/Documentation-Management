@@ -21,7 +21,7 @@ const User: React.FC<IUserProp> = ({ user }) => {
   return (
     <>
       <tr style={{textAlign: "center"}}>
-        <td scope="row">{user.id.substring(0, 2) + "..."}</td>
+        <td scope="row">{user.id.substring(0, 6)}</td>
         <td scope="row">{user.name}</td>
         <td scope="row">{user.surname}</td>
         <td scope="row">{user.password}</td>
@@ -29,8 +29,8 @@ const User: React.FC<IUserProp> = ({ user }) => {
         <td scope="row">{onUserProjectLength()}</td>
         <td>{(new Date(user.createdDate)).toLocaleDateString()  +"  "+ (new Date(user.createdDate)).toLocaleTimeString()}</td>
         <td>{(new Date(user.updatedDate)).toLocaleDateString()  +"  "+ (new Date(user.updatedDate)).toLocaleTimeString()}</td>
-        <td scope="row">{user.createdPerson}</td>
-        <td scope="row">{user.updatedPerson}</td>
+        <td scope="row">{user.createdPerson.substring(0, 6)}</td>
+        <td scope="row">{user.updatedPerson.substring(0, 6)}</td>
         <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
           <div className="dropdown">
             <button

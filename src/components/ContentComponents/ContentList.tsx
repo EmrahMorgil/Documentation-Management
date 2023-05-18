@@ -28,8 +28,8 @@ const ContentList: React.FC<IContentList> = ({ projectId }) => {
             <SortByContentName />
             <SortByCreatedDate />
             <SortByUpdatedDate />
-            <th scope="col">Created Person</th>
-            <th scope="col">Updated Person</th>
+            <th scope="col">Created Person ID</th>
+            <th scope="col">Updated Person ID</th>
             <SortByContentVersion />
             <th scope="col">Content</th>
             <th scope="col">Content Tags</th>

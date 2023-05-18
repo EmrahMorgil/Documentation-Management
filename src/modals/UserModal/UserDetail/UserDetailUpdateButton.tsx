@@ -9,8 +9,8 @@ import { setUsers } from "../../../redux/users/usersSlice";
 
 const UserDetailUpdateButton: React.FC<IUserDetailUpdateButton> = ({user,updatedUser,buttonActive,setButtonActive}) => {
   const dispatch = useDispatch();
-  const activeUser = useSelector(
-    (state: RootState) => state.users.activeUser.name
+  const activeUser: user = useSelector(
+    (state: RootState) => state.users.activeUser
   );
   const users = useSelector((state: RootState) => state.users.users);
 
@@ -18,7 +18,7 @@ const UserDetailUpdateButton: React.FC<IUserDetailUpdateButton> = ({user,updated
     setButtonActive(true);
     const setUpdatedUser = { ...updatedUser };
     setUpdatedUser.updatedDate = new Date();;
-    setUpdatedUser.updatedPerson = activeUser;
+    setUpdatedUser.updatedPerson = activeUser.id;
     setUpdatedUser.totalProject = updateUser.totalProject;
 
     const {

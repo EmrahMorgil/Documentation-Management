@@ -28,8 +28,8 @@ const ProjectsList: React.FC<IProjectsList> = ({ projectsControl, userId }) => {
             <SortByProjectName />
             <SortByCreatedDate />
             <SortByUpdatedDate />
-            <th scope="col">Created Person</th>
-            <th scope="col">Updated Person</th>
+            <th scope="col">Created Person ID</th>
+            <th scope="col">Updated Person ID</th>
             <SortByTotalContent />
             <SortByVisibilityRole />
             {(projectsControl !== "allProjects" || !adminLoggedIn) && (

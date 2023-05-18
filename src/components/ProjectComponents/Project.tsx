@@ -32,8 +32,8 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
         <td>{project.projectName}</td>
         <td style={{width: "40px"}}>{(new Date(project.createdDate)).toLocaleDateString()  +"  "+ (new Date(project.createdDate)).toLocaleTimeString()}</td>
         <td>{(new Date(project.updatedDate)).toLocaleDateString()  +"  "+ (new Date(project.updatedDate)).toLocaleTimeString()}</td>
-        <td>{project.createdPerson}</td>
-        <td>{project.updatedPerson}</td>
+        <td>{project.createdPerson.substring(0, 6)}</td>
+        <td>{project.updatedPerson.substring(0, 6)}</td>
         <td>{totalContent()}</td>
         <td>{project.visibilityRole}</td>
         {projectsControl === "addUserOnProject" ? (
