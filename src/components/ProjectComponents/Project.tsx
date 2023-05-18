@@ -38,12 +38,12 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
         <td scope="row">{project.visibilityRole}</td>
         {projectsControl === "addUserOnProject" ? (
           <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
-            {/* kullanıcının üzerine proje ekleme */}
+            {/* Kullanıcının üzerine proje ekleme */}
             <OnUserProjectAddButton userId={userId} project={project} />
           </td>
         ) : projectsControl === "projectPanel" ? (
           <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
-            {/* projectpanelde görünecekler */}
+            {/* Projectpanelde görünecekler */}
             <div className="dropdown">
               <button
                 className="btn btn-primary dropdown-toggle"
@@ -80,11 +80,12 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
           </td>
         ) : projectsControl === "onUserDeleteProject" ? (
           <td scope="row">
-            {/* kullanıcının üzerinden proje silme */}
+            {/* Kullanıcının üzerinden proje silme */}
             <OnUserProjectRemoveButton userId={userId} projectId={project.id} />
           </td>
         ) : projectsControl === "visibilityProjectsMap" ? (
           <td scope="row">
+            {/* Kullanıcı giriş yaptığı zaman gözükecek olan buton */}
             <Link to={`/contentpanel/${project.projectId}`}>
               <button className="btn btn-success">Contents</button>
             </Link>
