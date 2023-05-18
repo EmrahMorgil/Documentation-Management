@@ -30,10 +30,10 @@ export class content{
     updatedPerson: string;
     version: number;
     content: string;
-    contentTags: string;
+    contentTags: string[];
     projectId: string;
 
-    constructor(id: string, contentName: string, createdDate: Date, updatedDate: Date, createdPerson: string, updatedPerson: string, version: number, content: string, contentTags: string, projectId: string)
+    constructor(id: string, contentName: string, createdDate: Date, updatedDate: Date, createdPerson: string, updatedPerson: string, version: number, content: string, contentTags: string[], projectId: string)
     {
         this.id = id;
         this.contentName = contentName;

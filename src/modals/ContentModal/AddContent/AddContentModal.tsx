@@ -24,7 +24,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
     updatedPerson: "emrah",
     version: 0,
     content: "",
-    contentTags: "",
+    contentTags: [],
     projectId: projectId,
   });
 
@@ -82,7 +82,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
       updatedPerson: "",
       version: 0,
       content: "",
-      contentTags: "",
+      contentTags: [],
       projectId: "",
     });
 
@@ -93,6 +93,10 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
   };
   const handleChange = (e: any) => {
     setNewContent({ ...newContent, [e.target.name]: e.target.value });
+    if(e.target.name === "contentTags")
+    {
+      setNewContent({...newContent, ["contentTags"]: [e.target.value]});
+    }
   };
 
   return (

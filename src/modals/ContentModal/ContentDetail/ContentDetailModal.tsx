@@ -26,6 +26,10 @@ const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
 
   const handleChange = (e: any) => {
     setUpdatedContent({ ...updatedContent, [e.target.name]: e.target.value });
+    if(e.target.name === "contentTags")
+    {
+      setUpdatedContent({...updatedContent, ["contentTags"]: [e.target.value]});
+    }
   };
 
   useEffect(() => {

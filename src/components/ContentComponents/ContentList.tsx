@@ -39,9 +39,7 @@ const ContentList: React.FC<IContentList> = ({ projectId }) => {
         <tbody>
           {contents.map((content: content, i: number) => {
             if (
-              content.contentTags
-                .toLowerCase()
-                .includes(filterValues.contentTags.toLowerCase()) &&
+              content.contentTags[0].toLowerCase().includes(filterValues.contentTags.toLowerCase()) &&
               content.contentName
                 .toLowerCase()
                 .includes(filterValues.contentName.toLowerCase()) 
