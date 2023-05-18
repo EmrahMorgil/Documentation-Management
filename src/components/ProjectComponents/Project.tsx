@@ -27,7 +27,7 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
 
   return (
     <>
-      <tr>
+      <tr style={{textAlign: "center"}}>
         <td>{project.id.substring(0, 2) + "..."}</td>
         <td>{project.projectName}</td>
         <td>{project.createdDate}</td>

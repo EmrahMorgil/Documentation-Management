@@ -23,7 +23,7 @@ const ProjectsList: React.FC<IProjectsList> = ({ projectsControl, userId }) => {
       <table className="table table-striped">
         <ProjectFilterInputs filterValues={filterValues} projectsControl={projectsControl} adminLoggedIn={adminLoggedIn} setFilterValues={setFilterValues}/>
         <thead className="thead-dark">
-          <tr>
+          <tr style={{textAlign: "center"}}>
             <th scope="col">ID</th>
             <SortByProjectName />
             <SortByCreatedDate />

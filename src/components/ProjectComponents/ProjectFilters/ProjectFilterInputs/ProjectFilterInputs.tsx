@@ -1,4 +1,5 @@
 import React from "react";
+import ProjectRefresh from "../../ProjectRefresh";
 
 export interface IProjectFilterInputs {
   filterValues: {
@@ -33,7 +34,7 @@ const ProjectFilterInputs: React.FC<IProjectFilterInputs> = ({
   };
 
   return (
-    <thead className="thead-dark">
+    <thead className="thead-dark" style={{textAlign: "center"}}>
       <th scope="col">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +84,9 @@ const ProjectFilterInputs: React.FC<IProjectFilterInputs> = ({
       <th scope="col"></th>
       <th scope="col"></th>
       {(projectsControl !== "allProjects" || !adminLoggedIn) && (
-        <th scope="col"></th>
+        <th scope="col">
+          <ProjectRefresh />
+        </th>
       )}
     </thead>
   );

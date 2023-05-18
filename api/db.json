@@ -27,7 +27,7 @@
       "updatedDate": "29/5/2023",
       "createdPerson": "admin",
       "updatedPerson": "admin",
-      "totalContent": 3,
+      "totalContent": 0,
       "visibilityRole": 0
     },
     {
@@ -137,42 +137,6 @@
       "projectId": "idOh4b1HHZQfqqQoYt85fcw"
     },
     {
-      "id": "idU5lp1i5o2zbSYUyRirI13",
-      "contentName": "test",
-      "createdPerson": "admin",
-      "updatedPerson": "admin",
-      "createdDate": "16/5/2023",
-      "updatedDate": "17/5/2023",
-      "version": "1.6",
-      "content": "test",
-      "contentTags": "doktor",
-      "projectId": "idrOGuvrAvhn5Oe6HUYhNwR"
-    },
-    {
-      "id": "idgtGMoVICGYpxVDgyBdNcW",
-      "contentName": "test2",
-      "createdDate": "16/5/2023",
-      "updatedDate": "16/5/2023",
-      "createdPerson": "admin",
-      "updatedPerson": "admin",
-      "version": 0,
-      "content": "test2",
-      "contentTags": "hemşire, doktor",
-      "projectId": "idrOGuvrAvhn5Oe6HUYhNwR"
-    },
-    {
-      "id": "idb3A3CB4Pr9VRU1uELPHE3",
-      "contentName": "test3",
-      "createdDate": "16/5/2023",
-      "updatedDate": "16/5/2023",
-      "createdPerson": "admin",
-      "updatedPerson": "admin",
-      "version": 0,
-      "content": "test3",
-      "contentTags": "hasta",
-      "projectId": "idrOGuvrAvhn5Oe6HUYhNwR"
-    },
-    {
       "id": "idrns2DvjvxmAjovnMZh_AZ",
       "contentName": "testw",
       "createdPerson": "admin",
@@ -256,7 +220,7 @@
       "createdDate": "16/5/2023",
       "updatedDate": "16/5/2023",
       "updatedPerson": "Emrah",
-      "totalProject": 4
+      "totalProject": 2
     },
     {
       "id": "id0ESh7bgK5HWV5q1TsrPRE",
@@ -298,19 +262,6 @@
       "projectId": "idrOGuvrAvhn5Oe6HUYhNwR"
     },
     {
-      "id": "_WY8303qvyxZMDslR0XsA",
-      "projectName": "Okul",
-      "createdDate": "13/5/2023",
-      "updatedDate": "5/5/2023",
-      "createdPerson": "admin",
-      "updatedPerson": "admin",
-      "totalContent": 4,
-      "visibilityRole": 0,
-      "visibility": true,
-      "userId": "idbsP8kTT2xLV5qJ9X0CSWa",
-      "projectId": "idOh4b1HHZQfqqQoYt85fcw"
-    },
-    {
       "id": "-MBVg9Kxj4IcKPVWalfq2",
       "projectName": "Üniversite",
       "createdDate": "1/8/2023",
@@ -334,19 +285,6 @@
       "visibility": true,
       "userId": "id0ESh7bgK5HWV5q1TsrPRE",
       "projectId": "idGw1jQVddtbwJQ79NzQg5O"
-    },
-    {
-      "id": "IXCqbiz233KQNd6dYuuli",
-      "projectName": "Üniversite",
-      "createdDate": "1/8/2023",
-      "updatedDate": "16/5/2023",
-      "createdPerson": "admin",
-      "updatedPerson": "Emrah",
-      "totalContent": 2,
-      "visibilityRole": 0,
-      "visibility": true,
-      "userId": "idbsP8kTT2xLV5qJ9X0CSWa",
-      "projectId": "idF80LvffnIJcb0P7VVyT6B"
     },
     {
       "id": "osjioA8ew0R6pdm88VLa1",
