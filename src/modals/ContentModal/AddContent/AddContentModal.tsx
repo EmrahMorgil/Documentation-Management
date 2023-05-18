@@ -5,15 +5,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { addContents } from "../../../services/contentService";
 import { addNewContent } from "../../../redux/contents/contentsSlice";
 import {updateProjects} from "../../../services/projectService";
-import { IAddContentModal, content, project } from "../../../types/Type";
+import { IAddContentModal, content, project, user } from "../../../types/Type";
 import { setProjects } from "../../../redux/projects/projectsSlice";
 import {toast} from "react-toastify";
 
 
 const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
   const dispatch = useDispatch();
-  const activeUser = useSelector((state: RootState) => state.users.activeUser);
-  const projects = useSelector((state: RootState) => state.projects.projects);
+  const activeUser: user = useSelector((state: RootState) => state.users.activeUser);
+  const projects: project[] = useSelector((state: RootState) => state.projects.projects);
 
   const [newContent, setNewContent] = useState<content>({
     id: "",

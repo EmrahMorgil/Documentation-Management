@@ -2,10 +2,8 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { deleteProjects } from '../../services/projectService';
-import { IProjectProp, project, user, visibilityProjects } from '../../types/Type';
+import { IProjectProp, project, visibilityProjects } from '../../types/Type';
 import { setProjects, setVisibilityProjects } from '../../redux/projects/projectsSlice';
-import { updateUsers } from '../../services/userService';
-import { setUsers } from '../../redux/users/usersSlice';
 
 
 const DeleteProject: React.FC<IProjectProp> = ({project}) => {

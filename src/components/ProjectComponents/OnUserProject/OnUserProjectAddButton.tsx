@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
-import { IOnUserProjectAddButton, project, user, visibilityProjects } from "../../../types/Type";
+import { IOnUserProjectAddButton, user, visibilityProjects } from "../../../types/Type";
 import { setUsers } from "../../../redux/users/usersSlice";
 import { updateUsers } from "../../../services/userService";
 import { addVisibilityProjectsApi } from "../../../services/visibilityProjectServise";

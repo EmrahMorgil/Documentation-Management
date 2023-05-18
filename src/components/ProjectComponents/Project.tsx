@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import DeleteProject from "./DeleteProject";
 import { Link } from "react-router-dom";
 import OnUserProjectRemoveButton from "./OnUserProject/OnUserProjectRemoveButton";
@@ -16,11 +16,11 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
   const totalContent = () => {
     if (project.projectId) {
       return allContents.filter(
-        (content: content) => content.projectId == project.projectId
+        (content: content) => content.projectId === project.projectId
       ).length;
     } else {
       return allContents.filter(
-        (content: content) => content.projectId == project.id
+        (content: content) => content.projectId === project.id
       ).length;
     }
   };
@@ -28,21 +28,21 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
   return (
     <>
       <tr>
-        <td scope="row">{project.id.substring(0, 2) + "..."}</td>
-        <td scope="row">{project.projectName}</td>
-        <td scope="row">{project.createdDate}</td>
-        <td scope="row">{project.updatedDate}</td>
-        <td scope="row">{project.createdPerson}</td>
-        <td scope="row">{project.updatedPerson}</td>
-        <td scope="row">{totalContent()}</td>
-        <td scope="row">{project.visibilityRole}</td>
+        <td>{project.id.substring(0, 2) + "..."}</td>
+        <td>{project.projectName}</td>
+        <td>{project.createdDate}</td>
+        <td>{project.updatedDate}</td>
+        <td>{project.createdPerson}</td>
+        <td>{project.updatedPerson}</td>
+        <td>{totalContent()}</td>
+        <td>{project.visibilityRole}</td>
         {projectsControl === "addUserOnProject" ? (
-          <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
+          <td style={{ display: "flex", flexDirection: "column" }}>
             {/* Kullanıcının üzerine proje ekleme */}
             <OnUserProjectAddButton userId={userId} project={project} />
           </td>
         ) : projectsControl === "projectPanel" ? (
-          <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
+          <td style={{ display: "flex", flexDirection: "column" }}>
             {/* Projectpanelde görünecekler */}
             <div className="dropdown">
               <button
@@ -79,12 +79,12 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
             <ProjectDetailModal project={project} />
           </td>
         ) : projectsControl === "onUserDeleteProject" ? (
-          <td scope="row">
+          <td>
             {/* Kullanıcının üzerinden proje silme */}
             <OnUserProjectRemoveButton userId={userId} projectId={project.id} />
           </td>
         ) : projectsControl === "visibilityProjectsMap" ? (
-          <td scope="row">
+          <td>
             {/* Kullanıcı giriş yaptığı zaman gözükecek olan buton */}
             <Link to={`/contentpanel/${project.projectId}`}>
               <button className="btn btn-success">Contents</button>
