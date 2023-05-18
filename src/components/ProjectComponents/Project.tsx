@@ -30,7 +30,7 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
       <tr style={{textAlign: "center"}}>
         <td>{project.id.substring(0, 2) + "..."}</td>
         <td>{project.projectName}</td>
-        <td>{(new Date(project.createdDate)).toLocaleDateString()  +"  "+ (new Date(project.createdDate)).toLocaleTimeString()}</td>
+        <td style={{width: "40px"}}>{(new Date(project.createdDate)).toLocaleDateString()  +"  "+ (new Date(project.createdDate)).toLocaleTimeString()}</td>
         <td>{(new Date(project.updatedDate)).toLocaleDateString()  +"  "+ (new Date(project.updatedDate)).toLocaleTimeString()}</td>
         <td>{project.createdPerson}</td>
         <td>{project.updatedPerson}</td>

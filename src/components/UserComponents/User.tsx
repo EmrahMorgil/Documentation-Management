@@ -20,7 +20,7 @@ const User: React.FC<IUserProp> = ({ user }) => {
 
   return (
     <>
-      <tr>
+      <tr style={{textAlign: "center"}}>
         <td scope="row">{user.id.substring(0, 2) + "..."}</td>
         <td scope="row">{user.name}</td>
         <td scope="row">{user.surname}</td>

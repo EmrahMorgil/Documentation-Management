@@ -11,7 +11,7 @@ const UsersList: React.FC = () => {
     <div className="container">
       <table className="table table-striped">
         <thead>
-          <tr>
+          <tr style={{textAlign: "center"}}>
             <th scope="col">ID</th>
             <th scope="col">Name </th>
             <th scope="col">Surname</th>
