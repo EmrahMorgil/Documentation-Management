@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { IUserProp, user } from "../../types/Type";
+import { IUserProp, user } from "../../../types/Type";
 import UserDetailUndoButton from "./UserDetailUndoButton";
 import UserDetailUpdateButton from "./UserDetailUpdateButton";
 

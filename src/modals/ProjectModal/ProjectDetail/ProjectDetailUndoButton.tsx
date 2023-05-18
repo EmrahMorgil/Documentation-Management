@@ -1,17 +1,7 @@
 import React from "react";
-import { project } from "../../types/Type";
+import { IProjectDetailUndoButton } from "../../../types/Type";
 
-const ProjectDetailUndoButton = ({
-  project,
-  updatedProject,
-  setUpdatedProject,
-  buttonActive,
-}: {
-  project: project;
-  updatedProject: project;
-  setUpdatedProject: any;
-  buttonActive: boolean;
-}) => {
+const ProjectDetailUndoButton: React.FC<IProjectDetailUndoButton> = ({project,setUpdatedProject,buttonActive}) => {
   const undoProject = () => {
     setUpdatedProject({
       id: project.id,

@@ -1,6 +1,6 @@
 import React from 'react'
-import {IUserProp } from '../../types/Type'
-import ProjectsList from '../../components/ProjectComponents/ProjectsList'
+import {IUserProp } from '../../../types/Type'
+import ProjectsList from '../../../components/ProjectComponents/ProjectsList'
 
 const AddOnUserProjectsModal: React.FC<IUserProp> = ({user}) => {
   return (

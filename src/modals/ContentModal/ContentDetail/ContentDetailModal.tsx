@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
-import { IContentProp, content } from "../../types/Type";
+import { RootState } from "../../../redux/store";
+import { IContentProp, content } from "../../../types/Type";
 import ContentDetailUndoButton from "./ContentDetailUndoButton";
 import ContentDetailUpdateButton from "./ContentDetailUpdateButton";
 

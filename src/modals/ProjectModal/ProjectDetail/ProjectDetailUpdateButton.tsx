@@ -1,24 +1,21 @@
 import React from "react";
-import { project, visibilityProjects } from "../../types/Type";
-import { updateProjects } from "../../services/projectService";
-import { RootState } from "../../redux/store";
+import { IProjectDetailUpdateButton, project, visibilityProjects } from "../../../types/Type";
+import { updateProjects } from "../../../services/projectService";
+import { RootState } from "../../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setProjects,
   setVisibilityProjects,
-} from "../../redux/projects/projectsSlice";
-import { updateVisibilityProjectsApi } from "../../services/visibilityProjectServise";
+} from "../../../redux/projects/projectsSlice";
+import { updateVisibilityProjectsApi } from "../../../services/visibilityProjectServise";
 
-const ProjectDetailUpdateButton = ({
+
+
+const ProjectDetailUpdateButton: React.FC<IProjectDetailUpdateButton> = ({
   project,
   buttonActive,
   setButtonActive,
   updatedProject,
-}: {
-  project: project;
-  buttonActive: boolean;
-  setButtonActive: any;
-  updatedProject: project;
 }) => {
   const dispatch = useDispatch();
   const projects = useSelector((state: RootState) => state.projects.projects);

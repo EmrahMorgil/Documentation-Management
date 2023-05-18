@@ -1,16 +1,9 @@
 import React from "react";
-import { content } from "../../types/Type";
+import { IContentDetailUpdateButton, content } from "../../../types/Type";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
-import { updateContents } from "../../services/contentService";
-import { setContents } from "../../redux/contents/contentsSlice";
-
-export interface IContentDetailUpdateButton {
-  content: content;
-  updatedContent: content;
-  buttonActive: boolean;
-  setButtonActive: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import { RootState } from "../../../redux/store";
+import { updateContents } from "../../../services/contentService";
+import { setContents } from "../../../redux/contents/contentsSlice";
 
 const ContentDetailUpdateButton: React.FC<IContentDetailUpdateButton> = ({
   content,

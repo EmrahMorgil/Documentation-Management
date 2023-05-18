@@ -1,21 +1,13 @@
 import React from "react";
-import { user } from "../../types/Type";
+import { IUserDetailUpdateButton, user } from "../../../types/Type";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
-import { updateUsers } from "../../services/userService";
-import { setUsers } from "../../redux/users/usersSlice";
+import { RootState } from "../../../redux/store";
+import { updateUsers } from "../../../services/userService";
+import { setUsers } from "../../../redux/users/usersSlice";
 
-const UserDetailUpdateButton = ({
-  user,
-  updatedUser,
-  buttonActive,
-  setButtonActive,
-}: {
-  user: user;
-  updatedUser: user;
-  buttonActive: boolean;
-  setButtonActive: any;
-}) => {
+
+
+const UserDetailUpdateButton: React.FC<IUserDetailUpdateButton> = ({user,updatedUser,buttonActive,setButtonActive}) => {
   const dispatch = useDispatch();
   const activeUser = useSelector(
     (state: RootState) => state.users.activeUser.name

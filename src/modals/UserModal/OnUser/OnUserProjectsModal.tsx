@@ -1,6 +1,6 @@
 import React from "react";
-import { IUserProp } from "../../types/Type";
-import OnUserProjectContainer from "../../components/ProjectComponents/OnUserProject/OnUserProjectContainer";
+import { IUserProp } from "../../../types/Type";
+import OnUserProjectContainer from "../../../components/ProjectComponents/OnUserProject/OnUserProjectContainer";
 
 
 const OnUserProjectsModal: React.FC<IUserProp> = ({ user }) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import AddContentModal from "../../../modals/ContentModal/AddContentModal";
+import AddContentModal from "../../../modals/ContentModal/AddContent/AddContentModal";
 import { IAddContent } from "../../../types/Type";
 
 const AddContent: React.FC<IAddContent> = ({ projectId }) => {

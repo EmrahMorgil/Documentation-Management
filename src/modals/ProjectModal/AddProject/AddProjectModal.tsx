@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import { nanoid } from 'nanoid';
-import { RootState } from '../../redux/store';
+import { RootState } from '../../../redux/store';
 import { useDispatch, useSelector } from 'react-redux';
-import { addNewProject } from '../../redux/projects/projectsSlice';
-import { addProjects } from '../../services/projectService';
+import { addNewProject } from '../../../redux/projects/projectsSlice';
+import { addProjects } from '../../../services/projectService';
 import {toast} from "react-toastify";
-import { project } from '../../types/Type';
+import { project } from '../../../types/Type';
 
 const AddProjectModal: React.FC = () => {
 

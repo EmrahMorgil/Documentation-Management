@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import DeleteProject from "./DeleteProject";
 import { Link } from "react-router-dom";
 import OnUserProjectRemoveButton from "./OnUserProject/OnUserProjectRemoveButton";
-import ProjectDetailModal from "../../modals/ProjectModal/ProjectDetailModal";
+import ProjectDetailModal from "../../modals/ProjectModal/ProjectDetail/ProjectDetailModal";
 import { IProject, content } from "../../types/Type";
 import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";

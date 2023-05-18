@@ -1,17 +1,8 @@
 import React from "react";
-import { user } from "../../types/Type";
+import { IUserDetailUndoButton } from "../../../types/Type";
 
-const UserDetailUndoButton = ({
-  user,
-  updatedUser,
-  setUpdatedUser,
-  buttonActive,
-}: {
-  user: user;
-  updatedUser: user;
-  setUpdatedUser: any;
-  buttonActive: boolean;
-}) => {
+
+const UserDetailUndoButton: React.FC<IUserDetailUndoButton> = ({user,updatedUser,setUpdatedUser,buttonActive}) => {
   const undoUser = () => {
     setUpdatedUser({
       id: user.id,

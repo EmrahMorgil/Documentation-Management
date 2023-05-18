@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { IProjectProp, project } from "../../types/Type";
+import { IProjectProp, project } from "../../../types/Type";
 
 import ProjectDetailUpdateButton from "./ProjectDetailUpdateButton";
 import ProjectDetailUndoButton from "./ProjectDetailUndoButton";
@@ -98,7 +98,6 @@ const ProjectDetailModal: React.FC<IProjectProp> = ({ project }) => {
             </button>
             <ProjectDetailUndoButton
               project={project}
-              updatedProject={updatedProject}
               setUpdatedProject={setUpdatedProject}
               buttonActive={buttonActive}
             />

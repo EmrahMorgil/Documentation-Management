@@ -3,7 +3,7 @@ import { IContent } from "../../types/Type";
 import DeleteContent from "./DeleteContent";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import ContentDetailModal from "../../modals/ContentModal/ContentDetailModal";
+import ContentDetailModal from "../../modals/ContentModal/ContentDetail/ContentDetailModal";
 
 
 const Content: React.FC<IContent> = ({ content, projectId }) => {
