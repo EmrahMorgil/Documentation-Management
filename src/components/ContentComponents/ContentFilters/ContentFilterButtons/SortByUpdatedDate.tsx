@@ -13,8 +13,8 @@ const SortByUpdatedDate: React.FC = () => {
 
   const sortUpdatedDate = () => {
     const sortedData = [...contents].sort((a, b) => {
-      let dateA: any = new Date(a.updatedDate.split("/").reverse().join("/"));
-      let dateB: any = new Date(b.updatedDate.split("/").reverse().join("/"));
+      let dateA: any = new Date(a.updatedDate);
+      let dateB: any = new Date(b.updatedDate);
       if (updatedDateSorted.isReversed) {
         return dateA - dateB;
       }

@@ -28,8 +28,8 @@ const SortByCreatedDate: React.FC = () => {
       : (variableProject = visibilityProjects);
 
     const sortedData = [...variableProject].sort((a, b) => {
-      let dateA: any = new Date(a.createdDate.split("/").reverse().join("/"));
-      let dateB: any = new Date(b.createdDate.split("/").reverse().join("/"));
+      let dateA: any = new Date(a.createdDate);
+      let dateB: any = new Date(b.createdDate);
       if (createdDateSorted.isReversed) {
         return dateA - dateB;
       }

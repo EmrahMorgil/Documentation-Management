@@ -27,8 +27,8 @@ const User: React.FC<IUserProp> = ({ user }) => {
         <td scope="row">{user.password}</td>
         <td scope="row">{user.role}</td>
         <td scope="row">{onUserProjectLength()}</td>
-        <td scope="row">{(new Date(user.createdDate)).toLocaleDateString()}</td>
-        <td scope="row">{(new Date(user.updatedDate)).toLocaleDateString()}</td>
+        <td>{(new Date(user.createdDate)).toLocaleDateString()  +"  "+ (new Date(user.createdDate)).toLocaleTimeString()}</td>
+        <td>{(new Date(user.updatedDate)).toLocaleDateString()  +"  "+ (new Date(user.updatedDate)).toLocaleTimeString()}</td>
         <td scope="row">{user.createdPerson}</td>
         <td scope="row">{user.updatedPerson}</td>
         <td scope="row" style={{ display: "flex", flexDirection: "column" }}>

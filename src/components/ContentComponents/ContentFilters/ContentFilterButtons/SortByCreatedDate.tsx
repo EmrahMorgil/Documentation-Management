@@ -13,8 +13,8 @@ const SortByCreatedDate: React.FC = () => {
 
   const sortCreatedDate = () => {
     const sortedData = [...contents].sort((a, b) => {
-      let dateA: any = new Date(a.createdDate.split("/").reverse().join("/"));
-      let dateB: any = new Date(b.createdDate.split("/").reverse().join("/"));
+      let dateA: any = new Date(a.createdDate);
+      let dateB: any = new Date(b.createdDate);
       if (createdDateSorted.isReversed) {
         return dateA - dateB;
       }
