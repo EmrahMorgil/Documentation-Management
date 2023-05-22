@@ -93,7 +93,8 @@ const ProjectFilterInputs: React.FC<IProjectFilterInputs> = ({
           name="projectName"
           size={10}
           onChange={handleChange}
-          style={{height: "24.40", padding: "3.5px", borderRadius: "5px", paddingLeft: "12px"}}
+          value={filterValues.projectName}
+          style={{height: "24.40", padding: "3.5px", borderRadius: "5px", paddingLeft: "12px", color: "black"}}
         />
       </th>
       <th scope="col">
