@@ -2,6 +2,11 @@
 
 @import "rsuite/dist/rsuite.css";
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #999;
+  opacity: 1; /* Firefox */
+}
+
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid grey; /* Blue */

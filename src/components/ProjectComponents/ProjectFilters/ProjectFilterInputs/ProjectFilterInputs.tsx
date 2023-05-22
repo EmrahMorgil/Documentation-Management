@@ -39,25 +39,31 @@ const ProjectFilterInputs: React.FC<IProjectFilterInputs> = ({
   };
 
   const projects = useSelector((state: RootState)=>state.projects.projects);
+  const allProjects = useSelector((state: RootState)=>state.projects.allProjects);
   const dispatch = useDispatch();
 
-  const handleDateChange = (value: any) => {
+  const createdDateRangeFilter = (value: any) => {
 
-    // var dateArray = [new Date('2023-01-01'), new Date('2023-02-15'), new Date('2023-03-20'), new Date('2023-04-10')];
+    let startDate = new Date(value ? value[0] : "");
+    let endDate = new Date(value ? value[1] : "");
 
-    var startDate = new Date(value[0] && value[0]);
-    var endDate = new Date(value[1] && value[1]);
-
-    var filteredDates = projects.filter(function(date: project) {
-      debugger;
+    let filteredDates = allProjects.filter(function(date: project) {
       return new Date(date.createdDate) >= startDate && new Date(date.createdDate) <= endDate;
     });
-    // console.log(filteredDates);
     dispatch(setProjects(filteredDates));
-
-    console.log('Başlangıç Tarihi:', new Date(value[0]).toLocaleDateString());
-    console.log('Bitiş Tarihi:', new Date(value[1]).toLocaleDateString());
   };
+
+  const updatedDateRangeFilter = (value: any) => {
+
+    let startDate = new Date(value ? value[0] : "");
+    let endDate = new Date(value ? value[1] : "");
+
+    let filteredDates = allProjects.filter(function(date: project) {
+      return new Date(date.updatedDate) >= startDate && new Date(date.updatedDate) <= endDate;
+    });
+    dispatch(setProjects(filteredDates));
+  };
+
 
   return (
     <thead className="thead-dark" style={{textAlign: "center"}}>
@@ -87,18 +93,14 @@ const ProjectFilterInputs: React.FC<IProjectFilterInputs> = ({
           name="projectName"
           size={10}
           onChange={handleChange}
+          style={{height: "24.40", padding: "3.5px", borderRadius: "5px", paddingLeft: "12px"}}
         />
       </th>
       <th scope="col">
-      <DateRangePicker cleanable onChange={handleDateChange} onClick={()=>console.log("tıklandı")}/>
+      <DateRangePicker onOk={createdDateRangeFilter} onClean={()=>dispatch(setProjects(allProjects))} size="sm"/>
       </th>
       <th scope="col">
-        <input
-          placeholder="Updated..."
-          name="updatedDate"
-          size={7}
-          onChange={handleChange}
-        />
+      <DateRangePicker onOk={updatedDateRangeFilter} onClean={()=>dispatch(setProjects(allProjects))} size="sm"/>
       </th>
       <th scope="col"></th>
       <th scope="col"></th>

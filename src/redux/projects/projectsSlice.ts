@@ -4,6 +4,7 @@ import { getVisibilityProjectsAsync } from "../../services/visibilityProjectServ
 
 const initialState: any = {
   projects: [],
+  allProjects: [],
   visibilityProjects: [],
   projectsIsLoading: "loading",
   visibilityProjectsIsLoading: "loading",
@@ -35,6 +36,7 @@ export const projectsSlice = createSlice({
     });
     builder.addCase(getProjectsAsync.fulfilled, (state, action) => {
       state.projects = action.payload;
+      state.allProjects = action.payload;
       state.projectsIsLoading = "fulfilled";
     });
     builder.addCase(getVisibilityProjectsAsync.fulfilled, (state, action)=>{
