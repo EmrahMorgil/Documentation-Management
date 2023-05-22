@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { visibilityProjects } from "../types/Type";
+import { mdlVisibilityProjects } from "../types/Type";
 
 
 export const getVisibilityProjectsAsync: any = createAsyncThunk("visibilityProject/getVisibilityProjectAsync", async () => {
@@ -17,7 +17,7 @@ export const deleteVisibilityProjectsApi = async(id: string) => {
   await axios.delete(`http://localhost:3004/visibilityProjects/${id}`);
 };
 
-export const updateVisibilityProjectsApi = async(id: string, updatedVisibilityProject: visibilityProjects) => {
+export const updateVisibilityProjectsApi = async(id: string, updatedVisibilityProject: mdlVisibilityProjects) => {
   await axios.put(`http://localhost:3004/visibilityProjects/${id}`, updatedVisibilityProject);
 };
 

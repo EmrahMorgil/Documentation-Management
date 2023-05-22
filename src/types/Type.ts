@@ -1,4 +1,4 @@
-export class project{
+export class mdlProject{
     id: string;
     projectName: string;
     createdDate: Date;
@@ -21,7 +21,7 @@ export class project{
     }
 }
 
-export class content{
+export class mdlContent{
     id: string;
     contentName: string;
     createdDate: Date;
@@ -50,19 +50,19 @@ export class content{
 }
 
 
-export class user{
+export class mdlUser{
     id: string;
     name: string;
     surname: string;
     password: string;
-    role: userRole;
+    role: enmUserRole;
     createdDate: Date;
     updatedDate: Date;
     createdPerson: string;
     updatedPerson: string;
     totalProject: number;
 
-    constructor(id: string, name: string, surname: string, password: string, role: userRole,createdDate: Date, updatedDate: Date, createdPerson: string, updatedPerson: string, totalProject: number)
+    constructor(id: string, name: string, surname: string, password: string, role: enmUserRole,createdDate: Date, updatedDate: Date, createdPerson: string, updatedPerson: string, totalProject: number)
     {
         this.id = id;
         this.name = name;
@@ -78,7 +78,7 @@ export class user{
 
 }
 
-export class visibilityProjects{
+export class mdlVisibilityProjects{
     id: string;
     projectName: string;
     createdDate: Date;
@@ -106,21 +106,21 @@ export class visibilityProjects{
 
 }
 
-enum userRole{
+enum enmUserRole{
     user,
     admin,
 }
 
 export interface IUserProp{
-    user: user;
+    user: mdlUser;
   }
 
 export interface IProjectProp{
-    project: project;
+    project: mdlProject;
 }
 
 export interface IContentProp{
-    content: content;
+    content: mdlContent;
 }
 
 
@@ -131,7 +131,7 @@ export interface IProject {
   }
 
 export interface IContent {
-    content: content;
+    content: mdlContent;
     projectId?: string;
   }
 
@@ -154,7 +154,7 @@ export interface IDeleteContent{
 
  export interface IOnUserProjectAddButton{
     userId?: string;
-    project: project;
+    project: mdlProject;
   }
 
   export interface IOnUserProjectRemoveButton{
@@ -182,42 +182,42 @@ export interface IDeleteContent{
 
 
 export interface IUserDetailUpdateButton {
-  user: user;
-  updatedUser: user;
+  user: mdlUser;
+  updatedUser: mdlUser;
   buttonActive: boolean;
   setButtonActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface IUserDetailUndoButton{
-  user: user,
-  updatedUser: user,
-  setUpdatedUser: React.Dispatch<React.SetStateAction<user>>,
+  user: mdlUser,
+  updatedUser: mdlUser,
+  setUpdatedUser: React.Dispatch<React.SetStateAction<mdlUser>>,
   buttonActive: boolean,
 }
 
 export interface IProjectDetailUndoButton{
-  project: project;
-  setUpdatedProject: React.Dispatch<React.SetStateAction<project>>;
+  project: mdlProject;
+  setUpdatedProject: React.Dispatch<React.SetStateAction<mdlProject>>;
   buttonActive: boolean;
 }
 
 export interface IProjectDetailUpdateButton{
-  project: project;
+  project: mdlProject;
   buttonActive: boolean;
   setButtonActive: React.Dispatch<React.SetStateAction<boolean>>;
-  updatedProject: project;
+  updatedProject: mdlProject;
 }
 
 export interface IContentDetailUndoButton{
-  content: content,
-  updatedContent: content,
-  setUpdatedContent: React.Dispatch<React.SetStateAction<content>>,
+  content: mdlContent,
+  updatedContent: mdlContent,
+  setUpdatedContent: React.Dispatch<React.SetStateAction<mdlContent>>,
   buttonActive: boolean,
 }
 
 export interface IContentDetailUpdateButton {
-  content: content;
-  updatedContent: content;
+  content: mdlContent;
+  updatedContent: mdlContent;
   buttonActive: boolean;
   setButtonActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
