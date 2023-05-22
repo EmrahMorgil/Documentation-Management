@@ -1,5 +1,9 @@
 import React from "react";
-
+import { DateRangePicker } from "rsuite";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../../redux/store";
+import { content } from "../../../../types/Type";
+import { setContents } from "../../../../redux/contents/contentsSlice";
 export interface IContentFilterInputs {
   filterValues: {
     contentName: string;
@@ -21,6 +25,36 @@ const ContentFilterInputs: React.FC<IContentFilterInputs> = ({filterValues,setFi
   const handleChange = (e: any) => {
     setFilterValues({ ...filterValues, [e.target.name]: e.target.value });
   };
+
+  const allContents = useSelector((state: RootState)=>state.contents.allContents);
+  const dispatch = useDispatch();
+
+  const createdDateRangeFilter = (value: any) => {
+
+    let startDate = new Date(value ? value[0] : "");
+    let endDate = new Date(value ? value[1] : "");
+
+    let filteredDates = allContents.filter(function(date: content) {
+      return new Date(date.createdDate) >= startDate && new Date(date.createdDate) <= endDate;
+    });
+    dispatch(setContents(filteredDates));
+  };
+
+  const updatedDateRangeFilter = (value: any) => {
+
+    let startDate = new Date(value ? value[0] : "");
+    let endDate = new Date(value ? value[1] : "");
+
+    let filteredDates = allContents.filter(function(date: content) {
+      return new Date(date.updatedDate) >= startDate && new Date(date.updatedDate) <= endDate;
+    });
+    dispatch(setContents(filteredDates));
+  };
+
+
+
+
+
 
   return (
     <thead className="thead-dark">
@@ -50,23 +84,15 @@ const ContentFilterInputs: React.FC<IContentFilterInputs> = ({filterValues,setFi
           name="contentName"
           size={7}
           onChange={handleChange}
+          value={filterValues.contentName}
+          style={{height: "24.40", padding: "3.5px", borderRadius: "5px", paddingLeft: "12px", color: "black"}}
         />
       </th>
-      <th scope="col">
-        <input
-          placeholder="Search Date"
-          name="createdDate"
-          size={7}
-          onChange={handleChange}
-        />
+     <th scope="col">
+      <DateRangePicker onOk={createdDateRangeFilter} onClean={()=>dispatch(setContents(allContents))} size="sm"/>
       </th>
       <th scope="col">
-        <input
-          placeholder="Search Date"
-          name="updatedDate"
-          size={7}
-          onChange={handleChange}
-        />
+      <DateRangePicker onOk={updatedDateRangeFilter} onClean={()=>dispatch(setContents(allContents))} size="sm"/>
       </th>
       <th scope="col"></th>
       <th scope="col"></th>
@@ -77,7 +103,9 @@ const ContentFilterInputs: React.FC<IContentFilterInputs> = ({filterValues,setFi
           placeholder="Tag Search"
           name="contentTags"
           size={7}
+          value={filterValues.contentTags}
           onChange={handleChange}
+          style={{height: "24.40", padding: "3.5px", borderRadius: "5px", paddingLeft: "12px", color: "black"}}
         />
       </th>
     </thead>
