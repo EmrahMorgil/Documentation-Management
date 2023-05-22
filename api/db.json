@@ -35,28 +35,28 @@
     {
       "id": "idwc4XNBOhI8MW5TlHGzpaP",
       "contentName": "test",
-      "createdDate": "2023-05-18T13:43:48.927Z",
-      "updatedDate": "2023-05-18T13:43:48.927Z",
       "createdPerson": "idlmEzEIU1sZQVORJ1cYOes",
       "updatedPerson": "idlmEzEIU1sZQVORJ1cYOes",
+      "createdDate": "2023-05-18T13:43:48.927Z",
+      "updatedDate": "2023-05-22T11:16:18.773Z",
       "version": 0,
       "content": "test",
       "contentTags": [
-        "test"
+        "matematik, türkçe, fen"
       ],
       "projectId": "id2WXK-TcQq5AhPbAQvshj9"
     },
     {
       "id": "idLjC1Mhp3WzS-KPuYC_nua",
       "contentName": "test3",
-      "createdDate": "2023-05-18T13:43:58.277Z",
-      "updatedDate": "2023-05-18T13:43:58.277Z",
       "createdPerson": "idlmEzEIU1sZQVORJ1cYOes",
       "updatedPerson": "idlmEzEIU1sZQVORJ1cYOes",
+      "createdDate": "2023-05-18T13:43:58.277Z",
+      "updatedDate": "2023-05-22T11:16:24.123Z",
       "version": 0,
       "content": "test3",
       "contentTags": [
-        "test3"
+        "matematik"
       ],
       "projectId": "id2WXK-TcQq5AhPbAQvshj9"
     },
@@ -89,17 +89,44 @@
       "totalProject": 0
     },
     {
-      "id": "idy8sADLQApbXBgUb-4GrFf",
-      "name": "Emrahee",
+      "id": "idyy7htw23AEQMiaLbHdj0W",
+      "name": "Emrah",
       "surname": "Morgil",
       "password": "123",
       "role": 0,
-      "createdPerson": "admin",
-      "createdDate": "2023-05-18T11:15:18.967Z",
-      "updatedDate": "2023-05-18T12:51:04.187Z",
-      "updatedPerson": "idlmEzEIU1sZQVORJ1cYOes",
-      "totalProject": 2
+      "totalProject": 2,
+      "createdDate": "2023-05-22T11:28:43.245Z",
+      "updatedDate": "2023-05-22T11:28:43.245Z",
+      "createdPerson": "idlmEzEIU1sZQVORJ1cYOes",
+      "updatedPerson": "idlmEzEIU1sZQVORJ1cYOes"
     }
   ],
-  "visibilityProjects": []
+  "visibilityProjects": [
+    {
+      "id": "P5wqutaXbBoLF5nyLnhmb",
+      "projectName": "Kütüphane",
+      "createdDate": "2023-05-22T12:53:26.983Z",
+      "updatedDate": "2023-05-22T12:53:26.983Z",
+      "createdPerson": "idlmEzEIU1sZQVORJ1cYOes",
+      "updatedPerson": "idlmEzEIU1sZQVORJ1cYOes",
+      "totalContent": 6,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "idyy7htw23AEQMiaLbHdj0W",
+      "projectId": "id2WXK-TcQq5AhPbAQvshj9"
+    },
+    {
+      "id": "4yYaNo4oVUWcAFNukG88y",
+      "projectName": "Okul",
+      "createdDate": "2023-05-05T12:53:30.820Z",
+      "updatedDate": "2023-05-05T12:53:30.820Z",
+      "createdPerson": "idlmEzEIU1sZQVORJ1cYOes",
+      "updatedPerson": "idlmEzEIU1sZQVORJ1cYOes",
+      "totalContent": 0,
+      "visibilityRole": 0,
+      "visibility": true,
+      "userId": "idyy7htw23AEQMiaLbHdj0W",
+      "projectId": "id4zr8e9PZmMuTzeViWXKMu"
+    }
+  ]
 }

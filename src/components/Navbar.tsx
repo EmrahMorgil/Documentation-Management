@@ -69,9 +69,9 @@ const Navbar: React.FC = () => {
             </ul>
           ) : (
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li className="nav-item active nav-link navbar-brand">
-                Project Management
-              </li>
+              <NavLink className="nav-link navbar-brand" to={"/projects"}>
+                  Project Management
+                </NavLink>
             </ul>
           )}
         </div>

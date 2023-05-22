@@ -4,7 +4,7 @@ import { DateRangePicker } from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../redux/store";
 import { project } from "../../../../types/Type";
-import { setProjects } from "../../../../redux/projects/projectsSlice";
+import { setProjects, setVisibilityProjects } from "../../../../redux/projects/projectsSlice";
 
 export interface IProjectFilterInputs {
   filterValues: {
@@ -25,11 +25,7 @@ export interface IProjectFilterInputs {
   adminLoggedIn: boolean;
 }
 
-const ProjectFilterInputs: React.FC<IProjectFilterInputs> = ({
-  filterValues,
-  setFilterValues,
-  projectsControl,
-  adminLoggedIn,
+const ProjectFilterInputs: React.FC<IProjectFilterInputs> = ({filterValues,setFilterValues,projectsControl,adminLoggedIn,
 }) => {
   const handleChange = (e: any) => {
     setFilterValues({ ...filterValues, [e.target.name]: e.target.value });
@@ -40,29 +36,60 @@ const ProjectFilterInputs: React.FC<IProjectFilterInputs> = ({
 
   const projects = useSelector((state: RootState)=>state.projects.projects);
   const allProjects = useSelector((state: RootState)=>state.projects.allProjects);
+  const allVisibilityProjects = useSelector((state: RootState)=>state.projects.allVisibilityProjects);
   const dispatch = useDispatch();
 
   const createdDateRangeFilter = (value: any) => {
 
-    let startDate = new Date(value ? value[0] : "");
-    let endDate = new Date(value ? value[1] : "");
-
-    let filteredDates = allProjects.filter(function(date: project) {
-      return new Date(date.createdDate) >= startDate && new Date(date.createdDate) <= endDate;
-    });
-    dispatch(setProjects(filteredDates));
-  };
+    if(adminLoggedIn)
+    {
+      let startDate = new Date(value ? value[0] : "");
+      let endDate = new Date(value ? value[1] : "");
+      let filteredDates = allProjects.filter(function(date: project) {
+        return new Date(date.createdDate) >= startDate && new Date(date.createdDate) <= endDate;
+      });
+      dispatch(setProjects(filteredDates));
+    }else{
+      let startDate = new Date(value ? value[0] : "");
+      let endDate = new Date(value ? value[1] : "");
+      let filteredDates = allVisibilityProjects.filter(function(date: project) {
+        return new Date(date.createdDate) >= startDate && new Date(date.createdDate) <= endDate;
+      });
+      dispatch(setVisibilityProjects(filteredDates));
+    }
+    };
 
   const updatedDateRangeFilter = (value: any) => {
 
-    let startDate = new Date(value ? value[0] : "");
-    let endDate = new Date(value ? value[1] : "");
-
-    let filteredDates = allProjects.filter(function(date: project) {
-      return new Date(date.updatedDate) >= startDate && new Date(date.updatedDate) <= endDate;
-    });
-    dispatch(setProjects(filteredDates));
+    if(adminLoggedIn)
+    {
+      let startDate = new Date(value ? value[0] : "");
+      let endDate = new Date(value ? value[1] : "");
+      let filteredDates = allProjects.filter(function(date: project) {
+        return new Date(date.updatedDate) >= startDate && new Date(date.updatedDate) <= endDate;
+      });
+      dispatch(setProjects(filteredDates));
+    }else{
+      let startDate = new Date(value ? value[0] : "");
+      let endDate = new Date(value ? value[1] : "");
+      let filteredDates = allVisibilityProjects.filter(function(date: project) {
+        return new Date(date.updatedDate) >= startDate && new Date(date.updatedDate) <= endDate;
+      });
+      dispatch(setVisibilityProjects(filteredDates));
+    }
   };
+
+  const dateFilterClear = ()=>{
+
+    if(adminLoggedIn)
+    {
+      dispatch(setProjects(allProjects));
+    }else{
+      dispatch(setVisibilityProjects(allVisibilityProjects));
+    }
+
+  }
+  
 
 
   return (
@@ -98,10 +125,10 @@ const ProjectFilterInputs: React.FC<IProjectFilterInputs> = ({
         />
       </th>
       <th scope="col">
-      <DateRangePicker onOk={createdDateRangeFilter} onClean={()=>dispatch(setProjects(allProjects))} size="sm"/>
+      <DateRangePicker onOk={createdDateRangeFilter} onClean={dateFilterClear} size="sm"/>
       </th>
       <th scope="col">
-      <DateRangePicker onOk={updatedDateRangeFilter} onClean={()=>dispatch(setProjects(allProjects))} size="sm"/>
+      <DateRangePicker onOk={updatedDateRangeFilter} onClean={dateFilterClear} size="sm"/>
       </th>
       <th scope="col"></th>
       <th scope="col"></th>
