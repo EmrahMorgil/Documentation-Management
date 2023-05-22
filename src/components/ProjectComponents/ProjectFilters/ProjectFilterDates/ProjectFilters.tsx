@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../redux/store";
 import { project } from "../../../../types/Type";
 import { dateFilterClear, setProjects, setVisibilityProjects } from "../../../../redux/projects/projectsSlice";
+import ProjectCreatedDateFilter from "./ProjectCreatedDateFilter";
+import ProjectUpdatedDateFilter from "./ProjectUpdatedDateFilter";
 
 export interface IProjectFilterInputs {
   filterValues: {
@@ -31,50 +33,6 @@ const ProjectFilterDates: React.FC<IProjectFilterInputs> = ({filterValues,setFil
     setFilterValues({ ...filterValues, [e.target.name]: e.target.value });
     if (e.target.name === "visibilityRole") {
       setFilterValues({ ...filterValues, visibilityRole: e.target.value });
-    }
-  };
-
-  const allProjects = useSelector((state: RootState)=>state.projects.allProjects);
-  const allVisibilityProjects = useSelector((state: RootState)=>state.projects.allVisibilityProjects);
-  const dispatch = useDispatch();
-
-  const createdDateRangeFilter = (value: any) => {
-
-    if(adminLoggedIn)
-    {
-      let startDate = new Date(value ? value[0] : "");
-      let endDate = new Date(value ? value[1] : "");
-      let filteredDates = allProjects.filter(function(date: project) {
-        return new Date(date.createdDate) >= startDate && new Date(date.createdDate) <= endDate;
-      });
-      dispatch(setProjects(filteredDates));
-    }else{
-      let startDate = new Date(value ? value[0] : "");
-      let endDate = new Date(value ? value[1] : "");
-      let filteredDates = allVisibilityProjects.filter(function(date: project) {
-        return new Date(date.createdDate) >= startDate && new Date(date.createdDate) <= endDate;
-      });
-      dispatch(setVisibilityProjects(filteredDates));
-    }
-    };
-
-  const updatedDateRangeFilter = (value: any) => {
-
-    if(adminLoggedIn)
-    {
-      let startDate = new Date(value ? value[0] : "");
-      let endDate = new Date(value ? value[1] : "");
-      let filteredDates = allProjects.filter(function(date: project) {
-        return new Date(date.updatedDate) >= startDate && new Date(date.updatedDate) <= endDate;
-      });
-      dispatch(setProjects(filteredDates));
-    }else{
-      let startDate = new Date(value ? value[0] : "");
-      let endDate = new Date(value ? value[1] : "");
-      let filteredDates = allVisibilityProjects.filter(function(date: project) {
-        return new Date(date.updatedDate) >= startDate && new Date(date.updatedDate) <= endDate;
-      });
-      dispatch(setVisibilityProjects(filteredDates));
     }
   };
 
@@ -112,10 +70,10 @@ const ProjectFilterDates: React.FC<IProjectFilterInputs> = ({filterValues,setFil
         />
       </th>
       <th scope="col">
-      <DateRangePicker onOk={createdDateRangeFilter} onClean={()=>dispatch(dateFilterClear())} size="sm"/>
+      <ProjectCreatedDateFilter adminLoggedIn={adminLoggedIn}/>
       </th>
       <th scope="col">
-      <DateRangePicker onOk={updatedDateRangeFilter} onClean={()=>dispatch(dateFilterClear())} size="sm"/>
+      <ProjectUpdatedDateFilter adminLoggedIn={adminLoggedIn}/>
       </th>
       <th scope="col"></th>
       <th scope="col"></th>
