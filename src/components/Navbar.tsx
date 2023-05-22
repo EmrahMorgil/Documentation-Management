@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { Link, NavLink, useParams } from "react-router-dom";
 import Logout from "../logout/Logout";
 import { RootState } from "../redux/store";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { user } from "../types/Type";
+import { dateFilterClear } from "../redux/projects/projectsSlice";
 
 const Navbar: React.FC = () => {
   const activeUser: user = useSelector(
     (state: RootState) => state.users.activeUser
   );
+  const dispatch = useDispatch();
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3 mb-5">
@@ -52,17 +54,17 @@ const Navbar: React.FC = () => {
                     />
                   </svg>
                 </>
-                <NavLink className="nav-link navbar-brand" to={"/projects"}>
+                <NavLink className="nav-link navbar-brand" to={"/projects"} onClick={()=>dispatch(dateFilterClear())}>
                   Project Management
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to={"/userpanel"}>
+                <NavLink className="nav-link" to={"/userpanel"} onClick={()=>dispatch(dateFilterClear())}>
                   User Control Panel
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to={"/projectpanel"}>
+                <NavLink className="nav-link" to={"/projectpanel"} onClick={()=>dispatch(dateFilterClear())}>
                   Project & Content Control Panel
                 </NavLink>
               </li>

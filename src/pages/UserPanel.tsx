@@ -8,6 +8,7 @@ import { getUsersAsync } from "../services/userService";
 import { getVisibilityProjectsAsync } from "../services/visibilityProjectServise";
 import { getProjectsAsync } from "../services/projectService";
 import Loading from "../components/Loading";
+import { dateFilterClear } from "../redux/projects/projectsSlice";
 
 const UserPanel: React.FC = () => {
   const dispatch = useDispatch();
@@ -31,9 +32,6 @@ const UserPanel: React.FC = () => {
       <>
         <div className="container d-flex mt-5">
           <AddUser />
-          <Link to="/projects">
-            <button className="btn btn-danger">Back</button>
-          </Link>
         </div>
         <UsersList />
       </>

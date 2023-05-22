@@ -35,9 +35,6 @@ const ProjectPanel: React.FC = () => {
         <>
           <div className="container d-flex mt-5">
             <AddProject />
-            <Link to="/projects">
-              <button className="btn btn-danger">Back</button>
-            </Link>
           </div>
           <ProjectsList projectsControl={"projectPanel"} />
         </>

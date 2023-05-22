@@ -6,6 +6,7 @@ import { getContentsAsync } from "../services/contentService";
 import ContentList from "../components/ContentComponents/ContentList";
 import { RootState } from "../redux/store";
 import Loading from "../components/Loading";
+import { dateFilterClear } from "../redux/projects/projectsSlice";
 
 const ContentPanel: React.FC = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const ContentPanel: React.FC = () => {
           <div className='container d-flex mt-5'>
             {adminLoggedIn && <AddContent projectId={String(id)} />}
             <Link to={adminLoggedIn ? "/projectpanel" : "/projects"}>
-              <button className="btn btn-danger mb-3">Back</button>
+              <button className="btn btn-danger mb-3" onClick={()=>dispatch(dateFilterClear())}>Back</button>
             </Link>
           </div>
           <ContentList projectId={id}/>

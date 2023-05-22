@@ -8,7 +8,7 @@ import SortByCreatedDate from "./ProjectFilters/ProjectFilterButtons/SortByCreat
 import SortByUpdatedDate from "./ProjectFilters/ProjectFilterButtons/SortByUpdatedDate";
 import SortByTotalContent from "./ProjectFilters/ProjectFilterButtons/SortByTotalContent";
 import SortByVisibilityRole from "./ProjectFilters/ProjectFilterButtons/SortByVisibilityRole";
-import ProjectFilterInputs from "./ProjectFilters/ProjectFilterInputs/ProjectFilterInputs";
+import ProjectFilterDates from "./ProjectFilters/ProjectFilterDates/ProjectFilterDates";
 
 const ProjectsList: React.FC<IProjectsList> = ({ projectsControl, userId }) => {
 
@@ -21,7 +21,7 @@ const ProjectsList: React.FC<IProjectsList> = ({ projectsControl, userId }) => {
   return (
     <div className="container">
       <table className="table table-striped">
-        <ProjectFilterInputs filterValues={filterValues} projectsControl={projectsControl} adminLoggedIn={adminLoggedIn} setFilterValues={setFilterValues}/>
+        <ProjectFilterDates filterValues={filterValues} projectsControl={projectsControl} adminLoggedIn={adminLoggedIn} setFilterValues={setFilterValues}/>
         <thead className="thead-dark">
           <tr style={{textAlign: "center"}}>
             <th scope="col">ID</th>
