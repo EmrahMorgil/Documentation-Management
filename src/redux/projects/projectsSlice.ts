@@ -6,6 +6,7 @@ const initialState: any = {
   projects: [],
   allProjects: [],
   visibilityProjects: [],
+  allVisibilityProjects: [],
   projectsIsLoading: "loading",
   visibilityProjectsIsLoading: "loading",
 };
@@ -41,6 +42,7 @@ export const projectsSlice = createSlice({
     });
     builder.addCase(getVisibilityProjectsAsync.fulfilled, (state, action)=>{
       state.visibilityProjects = action.payload;
+      state.allVisibilityProjects = action.payload;
       state.visibilityProjectsIsLoading = "fulfilled";
     })
   },
