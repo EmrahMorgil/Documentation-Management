@@ -2,13 +2,13 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { deleteProjects } from '../../services/projectService';
-import { IProjectProp, project, visibilityProjects } from '../../types/Type';
+import { IProjectProp, mdlProject, mdlVisibilityProjects } from '../../types/Type';
 import { setProjects, setVisibilityProjects } from '../../redux/projects/projectsSlice';
 
 
 const DeleteProject: React.FC<IProjectProp> = ({project}) => {
 
-  let deletedItems: visibilityProjects = {id: "", projectName: "", createdDate: new Date, updatedDate: new Date, createdPerson: "", updatedPerson: "",  totalContent: 0, visibilityRole: 1, userId: "", projectId: ""};
+  let deletedItems: mdlVisibilityProjects = {id: "", projectName: "", createdDate: new Date, updatedDate: new Date, createdPerson: "", updatedPerson: "",  totalContent: 0, visibilityRole: 1, userId: "", projectId: ""};
 
   
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const DeleteProject: React.FC<IProjectProp> = ({project}) => {
 
   const removeVisibilityProjectItem = () =>{
    
-    const newArray: visibilityProjects = visibilityProjects.filter((visibilityProject: visibilityProjects)=>{
+    const newArray: mdlVisibilityProjects = visibilityProjects.filter((visibilityProject: mdlVisibilityProjects)=>{
       if(visibilityProject.projectId!==project.id)
       {
         return visibilityProject;
@@ -32,11 +32,11 @@ const DeleteProject: React.FC<IProjectProp> = ({project}) => {
   }
 
 
-  const deletedProject = (item: project) => {
+  const deletedProject = (item: mdlProject) => {
     deleteProjects(item.id);
     //api
 
-    const newArr = projects.filter((projects: project) => {
+    const newArr = projects.filter((projects: mdlProject) => {
       if (projects.id !== item.id) {
         return projects;
       }

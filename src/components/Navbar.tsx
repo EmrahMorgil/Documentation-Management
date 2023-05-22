@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { Link, NavLink, useParams } from "react-router-dom";
+import React from "react";
+import {  NavLink } from "react-router-dom";
 import Logout from "../logout/Logout";
 import { RootState } from "../redux/store";
 import { useDispatch, useSelector } from "react-redux";
-import { user } from "../types/Type";
+import { mdlUser } from "../types/Type";
 import { dateFilterClear } from "../redux/projects/projectsSlice";
 
 const Navbar: React.FC = () => {
-  const activeUser: user = useSelector(
+  const activeUser: mdlUser = useSelector(
     (state: RootState) => state.users.activeUser
   );
   const dispatch = useDispatch();

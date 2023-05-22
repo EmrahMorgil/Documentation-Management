@@ -3,7 +3,7 @@ import DeleteProject from "./DeleteProject";
 import { Link } from "react-router-dom";
 import OnUserProjectRemoveButton from "./OnUserProject/OnUserProjectRemoveButton";
 import ProjectDetailModal from "../../modals/ProjectModal/ProjectDetail/ProjectDetailModal";
-import { IProject, content } from "../../types/Type";
+import { IProject, mdlContent } from "../../types/Type";
 import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
 import OnUserProjectAddButton from "./OnUserProject/OnUserProjectAddButton";
@@ -16,11 +16,11 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
   const totalContent = () => {
     if (project.projectId) {
       return allContents.filter(
-        (content: content) => content.projectId === project.projectId
+        (content: mdlContent) => content.projectId === project.projectId
       ).length;
     } else {
       return allContents.filter(
-        (content: content) => content.projectId === project.id
+        (content: mdlContent) => content.projectId === project.id
       ).length;
     }
   };

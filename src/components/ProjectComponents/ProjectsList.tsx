@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import {IProjectsList,project,user,visibilityProjects} from "../../types/Type";
+import {IProjectsList,mdlProject,mdlUser,mdlVisibilityProjects} from "../../types/Type";
 import Project from "./Project";
 import SortByProjectName from "./ProjectFilters/ProjectFilterButtons/SortByProjectName";
 import SortByCreatedDate from "./ProjectFilters/ProjectFilterButtons/SortByCreatedDate";
@@ -15,7 +15,7 @@ const ProjectsList: React.FC<IProjectsList> = ({ projectsControl, userId }) => {
   const projects = useSelector((state: RootState) => state.projects.projects);
     const [filterValues, setFilterValues] = useState({projectName: "",createdDate: "",updatedDate: "",visibilityRole: 0});
     const adminLoggedIn: boolean = useSelector((state: RootState) => state.users.adminLoggedIn);
-    const activeUser: user = useSelector((state: RootState) => state.users.activeUser);
+    const activeUser: mdlUser = useSelector((state: RootState) => state.users.activeUser);
     const visibilityProjects = useSelector((state: RootState) => state.projects.visibilityProjects);
 
   return (
@@ -39,7 +39,7 @@ const ProjectsList: React.FC<IProjectsList> = ({ projectsControl, userId }) => {
         </thead>
         <tbody>
           {adminLoggedIn
-            ? projects.map((item: project, i: number) => {
+            ? projects.map((item: mdlProject, i: number) => {
                 if (
                   item.projectName
                     .toLowerCase()
@@ -55,7 +55,7 @@ const ProjectsList: React.FC<IProjectsList> = ({ projectsControl, userId }) => {
                   );
                 }
               })
-            : visibilityProjects.map((visibilityProject: visibilityProjects, i: number) => {
+            : visibilityProjects.map((visibilityProject: mdlVisibilityProjects, i: number) => {
                   if (activeUser.id === visibilityProject.userId) {
                     if (
                       visibilityProject.projectName

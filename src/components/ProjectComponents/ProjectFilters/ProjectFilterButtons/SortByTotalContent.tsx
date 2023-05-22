@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { user } from "../../../../types/Type";
+import { mdlUser } from "../../../../types/Type";
 import { RootState } from "../../../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -8,7 +8,7 @@ import {
 } from "../../../../redux/projects/projectsSlice";
 
 const SortByTotalContent: React.FC = () => {
-  const activeUser: user = useSelector(
+  const activeUser: mdlUser = useSelector(
     (state: RootState) => state.users.activeUser
   );
   const dispatch = useDispatch();

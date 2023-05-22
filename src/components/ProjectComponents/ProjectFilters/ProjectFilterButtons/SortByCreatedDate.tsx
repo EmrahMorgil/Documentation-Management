@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { user } from "../../../../types/Type";
+import { mdlUser } from "../../../../types/Type";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../redux/store";
 import {
@@ -12,7 +12,7 @@ const SortByCreatedDate: React.FC = () => {
     sorted: "createdDate",
     isReversed: false,
   });
-  const activeUser: user = useSelector(
+  const activeUser: mdlUser = useSelector(
     (state: RootState) => state.users.activeUser
   );
   const dispatch = useDispatch();

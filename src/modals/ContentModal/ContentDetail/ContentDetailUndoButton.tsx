@@ -1,5 +1,5 @@
 import React from "react";
-import { IContentDetailUndoButton, content } from "../../../types/Type";
+import { IContentDetailUndoButton } from "../../../types/Type";
 
 const ContentDetailUndoButton: React.FC<IContentDetailUndoButton> = ({
   content,

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { IProjectProp, project } from "../../../types/Type";
+import { IProjectProp, mdlProject } from "../../../types/Type";
 
 import ProjectDetailUpdateButton from "./ProjectDetailUpdateButton";
 import ProjectDetailUndoButton from "./ProjectDetailUndoButton";
 
 const ProjectDetailModal: React.FC<IProjectProp> = ({ project }) => {
   const [buttonActive, setButtonActive] = useState(true);
-  const [updatedProject, setUpdatedProject] = useState<project>({
+  const [updatedProject, setUpdatedProject] = useState<mdlProject>({
     id: project.id,
     projectName: project.projectName,
     createdDate: project.createdDate,

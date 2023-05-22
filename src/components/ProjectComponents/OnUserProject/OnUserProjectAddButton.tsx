@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
-import { IOnUserProjectAddButton, user, visibilityProjects } from "../../../types/Type";
+import { IOnUserProjectAddButton, mdlUser, mdlVisibilityProjects } from "../../../types/Type";
 import { setUsers } from "../../../redux/users/usersSlice";
 import { updateUsers } from "../../../services/userService";
 import { addVisibilityProjectsApi } from "../../../services/visibilityProjectServise";
@@ -20,8 +20,8 @@ const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, pro
 
 
   const addProjectAmount = async()=>{
-    let updatedProjectAmount: user ={id:"", name: "", surname: "", password: "", role: 0, createdDate: new Date, updatedDate: new Date, createdPerson: "", updatedPerson: "", totalProject: 0};
-    const newUserArray = users.map((user: user)=>{
+    let updatedProjectAmount: mdlUser ={id:"", name: "", surname: "", password: "", role: 0, createdDate: new Date, updatedDate: new Date, createdPerson: "", updatedPerson: "", totalProject: 0};
+    const newUserArray = users.map((user: mdlUser)=>{
       if(user.id===userId)
       {
         updatedProjectAmount = {...user};
@@ -38,14 +38,14 @@ const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, pro
 
   const handleClick = () => {
  
-    const newUser: user = users.find((user: user)=>{
+    const newUser: mdlUser = users.find((user: mdlUser)=>{
       if(user.id===userId)
       {
         return user;
       }
     });
 
-    const newArr = visibilityProjects.map((visibilityProject: visibilityProjects)=>{
+    const newArr = visibilityProjects.map((visibilityProject: mdlVisibilityProjects)=>{
       if(visibilityProject.projectId===project.id && visibilityProject.userId=== userId)
       {
         return false;
@@ -76,7 +76,7 @@ const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, pro
   };
 
   const visibility = () =>{
-    return visibilityProjects.find((item: visibilityProjects)=>(item.projectId===project.id && item.userId===userId));
+    return visibilityProjects.find((item: mdlVisibilityProjects)=>(item.projectId===project.id && item.userId===userId));
   }
 
 

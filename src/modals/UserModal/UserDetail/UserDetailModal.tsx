@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { IUserProp, user } from "../../../types/Type";
+import { IUserProp, mdlUser } from "../../../types/Type";
 import UserDetailUndoButton from "./UserDetailUndoButton";
 import UserDetailUpdateButton from "./UserDetailUpdateButton";
 
 const UserDetailModal: React.FC<IUserProp> = ({ user }) => {
   const [buttonActive, setButtonActive] = useState(true);
-  const [updatedUser, setUpdatedUser] = useState<user>({
+  const [updatedUser, setUpdatedUser] = useState<mdlUser>({
     id: user.id,
     name: user.name,
     surname: user.surname,

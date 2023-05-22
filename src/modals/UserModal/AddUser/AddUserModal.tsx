@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { addNewUser } from "../../../redux/users/usersSlice";
 import {toast} from "react-toastify";
-import { user } from "../../../types/Type";
+import { mdlUser } from "../../../types/Type";
 
 const AddUserModal: React.FC = () => {
   const dispatch = useDispatch();
-  const activeUser: user = useSelector((state: RootState) => state.users.activeUser);
-  const [newUser, setNewUser] = useState<user>({
+  const activeUser: mdlUser = useSelector((state: RootState) => state.users.activeUser);
+  const [newUser, setNewUser] = useState<mdlUser>({
     id: "",
     name: "",
     surname: "",

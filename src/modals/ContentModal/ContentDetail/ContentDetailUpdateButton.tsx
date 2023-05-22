@@ -1,5 +1,5 @@
 import React from "react";
-import { IContentDetailUpdateButton, content, user } from "../../../types/Type";
+import { IContentDetailUpdateButton, mdlContent, mdlUser } from "../../../types/Type";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { updateContents } from "../../../services/contentService";
@@ -11,13 +11,13 @@ const ContentDetailUpdateButton: React.FC<IContentDetailUpdateButton> = ({
   buttonActive,
   setButtonActive,
 }) => {
-  const activeUser: user = useSelector(
+  const activeUser: mdlUser = useSelector(
     (state: RootState) => state.users.activeUser
   );
   const contents = useSelector((state: RootState) => state.contents.contents);
   const dispatch = useDispatch();
 
-  const updateContent = async (item: content) => {
+  const updateContent = async (item: mdlContent) => {
     setButtonActive(true);
     
     const setUpdatedContent = { ...updatedContent };
@@ -40,7 +40,7 @@ const ContentDetailUpdateButton: React.FC<IContentDetailUpdateButton> = ({
     updateContents(item.id, setUpdatedContent);
     //api
 
-    const newArr = contents.map((contents: content) => {
+    const newArr = contents.map((contents: mdlContent) => {
       if (contents.id === item.id) {
         return {
           id,

@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
 import AddUser from "../components/UserComponents/UserModalConnection/AddUser";
 import UsersList from "../components/UserComponents/UsersList";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { getUsersAsync } from "../services/userService";
 import { getVisibilityProjectsAsync } from "../services/visibilityProjectServise";
 import { getProjectsAsync } from "../services/projectService";
 import Loading from "../components/Loading";
-import { dateFilterClear } from "../redux/projects/projectsSlice";
 
 const UserPanel: React.FC = () => {
   const dispatch = useDispatch();

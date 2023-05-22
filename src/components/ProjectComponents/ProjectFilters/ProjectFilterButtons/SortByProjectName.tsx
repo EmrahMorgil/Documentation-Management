@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../redux/store";
-import { user } from "../../../../types/Type";
+import { mdlUser } from "../../../../types/Type";
 import {
   setProjects,
   setVisibilityProjects,
@@ -9,7 +9,7 @@ import {
 
 const SortByProjectName: React.FC = () => {
   const dispatch = useDispatch();
-  const activeUser: user = useSelector(
+  const activeUser: mdlUser = useSelector(
     (state: RootState) => state.users.activeUser
   );
   const projects = useSelector((state: RootState) => state.projects.projects);

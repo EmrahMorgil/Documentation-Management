@@ -1,10 +1,5 @@
 import React from "react";
 import ProjectRefresh from "../../ProjectRefresh";
-import { DateRangePicker } from "rsuite";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../../redux/store";
-import { project } from "../../../../types/Type";
-import { dateFilterClear, setProjects, setVisibilityProjects } from "../../../../redux/projects/projectsSlice";
 import ProjectCreatedDateFilter from "./ProjectCreatedDateFilter";
 import ProjectUpdatedDateFilter from "./ProjectUpdatedDateFilter";
 

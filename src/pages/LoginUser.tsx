@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
-import { user } from "../types/Type";
+import { mdlUser } from "../types/Type";
 import {setUserLoggedIn,setAdminLoggedIn,setActiveUser} from "../redux/users/usersSlice";
 import {toast} from "react-toastify";
 
@@ -15,7 +15,7 @@ const LoginUser: React.FC = () => {
 
   const handleClick = () => {
 
-    const newArr = users.map((item: user) => {
+    const newArr = users.map((item: mdlUser) => {
       if(userLogin.name == "")
       {
         setError("Kullancı adı boş bırakılamaz");

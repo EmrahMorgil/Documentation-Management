@@ -5,17 +5,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { addContents } from "../../../services/contentService";
 import { addNewContent } from "../../../redux/contents/contentsSlice";
 import {updateProjects} from "../../../services/projectService";
-import { IAddContentModal, content, project, user } from "../../../types/Type";
+import { IAddContentModal, mdlContent, mdlProject, mdlUser } from "../../../types/Type";
 import { setProjects } from "../../../redux/projects/projectsSlice";
 import {toast} from "react-toastify";
 
 
 const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
   const dispatch = useDispatch();
-  const activeUser: user = useSelector((state: RootState) => state.users.activeUser);
-  const projects: project[] = useSelector((state: RootState) => state.projects.projects);
+  const activeUser: mdlUser = useSelector((state: RootState) => state.users.activeUser);
+  const projects: mdlProject[] = useSelector((state: RootState) => state.projects.projects);
 
-  const [newContent, setNewContent] = useState<content>({
+  const [newContent, setNewContent] = useState<mdlContent>({
     id: "",
     contentName: "",
     createdDate: new Date(),
@@ -30,8 +30,8 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
 
   const addContentAmount = () => {
 
-    let updatedContentAmount: project ={id:"", projectName: "", createdDate: new Date, updatedDate: new Date, createdPerson: "", updatedPerson: "", totalContent: 0, visibilityRole: 1};
-    let newArr = projects.map((item: project) => {
+    let updatedContentAmount: mdlProject ={id:"", projectName: "", createdDate: new Date, updatedDate: new Date, createdPerson: "", updatedPerson: "", totalContent: 0, visibilityRole: 1};
+    let newArr = projects.map((item: mdlProject) => {
       if (item.id === projectId) {
         updatedContentAmount = { ...item };
         updatedContentAmount.totalContent++;

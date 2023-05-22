@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
-import { IOnUserProjectRemoveButton, project, user, visibilityProjects } from "../../../types/Type";
+import { IOnUserProjectRemoveButton, mdlUser, mdlVisibilityProjects } from "../../../types/Type";
 import { updateUsers } from "../../../services/userService";
 import { setUsers } from "../../../redux/users/usersSlice";
 import { setVisibilityProjects } from "../../../redux/projects/projectsSlice";
@@ -15,8 +15,8 @@ const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId
 
 
   const removeProjectAmount = ()=>{
-    let updatedProjectAmount: user ={id:"", name: "", surname: "", password: "", role: 0, createdDate: new Date, updatedDate: new Date, createdPerson: "", updatedPerson: "", totalProject: 0};
-    const newUserArray = users.map((user: user)=>{
+    let updatedProjectAmount: mdlUser ={id:"", name: "", surname: "", password: "", role: 0, createdDate: new Date, updatedDate: new Date, createdPerson: "", updatedPerson: "", totalProject: 0};
+    const newUserArray = users.map((user: mdlUser)=>{
       
       if(user.id===userId)
       {
@@ -34,7 +34,7 @@ const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId
 
   const handleClick = () => {
     
-    const newArr = visibilityProjects.filter((item: visibilityProjects, i:number)=>{
+    const newArr = visibilityProjects.filter((item: mdlVisibilityProjects, i:number)=>{
       if(item.id!==projectId)
       {
         return item;

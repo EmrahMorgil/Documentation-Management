@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { user } from "../../types/Type";
+import { mdlUser } from "../../types/Type";
 import User from "./User";
 
 const UsersList: React.FC = () => {
@@ -26,7 +26,7 @@ const UsersList: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user: user, i: number) => (
+          {users.map((user: mdlUser, i: number) => (
             <User user={user} key={i} />
           ))}
         </tbody>

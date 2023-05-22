@@ -2,7 +2,7 @@ import React from "react";
 import { DateRangePicker } from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../redux/store";
-import { content } from "../../../../types/Type";
+import { mdlContent } from "../../../../types/Type";
 import { setContents } from "../../../../redux/contents/contentsSlice";
 export interface IContentFilterInputs {
   filterValues: {
@@ -34,7 +34,7 @@ const ContentFilterInputs: React.FC<IContentFilterInputs> = ({filterValues,setFi
     let startDate = new Date(value ? value[0] : "");
     let endDate = new Date(value ? value[1] : "");
 
-    let filteredDates = allContents.filter(function(date: content) {
+    let filteredDates = allContents.filter(function(date: mdlContent) {
       return new Date(date.createdDate) >= startDate && new Date(date.createdDate) <= endDate;
     });
     dispatch(setContents(filteredDates));
@@ -45,7 +45,7 @@ const ContentFilterInputs: React.FC<IContentFilterInputs> = ({filterValues,setFi
     let startDate = new Date(value ? value[0] : "");
     let endDate = new Date(value ? value[1] : "");
 
-    let filteredDates = allContents.filter(function(date: content) {
+    let filteredDates = allContents.filter(function(date: mdlContent) {
       return new Date(date.updatedDate) >= startDate && new Date(date.updatedDate) <= endDate;
     });
     dispatch(setContents(filteredDates));

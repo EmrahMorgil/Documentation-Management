@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addNewProject } from '../../../redux/projects/projectsSlice';
 import { addProjects } from '../../../services/projectService';
 import {toast} from "react-toastify";
-import { project } from '../../../types/Type';
+import { mdlProject } from '../../../types/Type';
 
 const AddProjectModal: React.FC = () => {
 
@@ -13,7 +13,7 @@ const AddProjectModal: React.FC = () => {
     const dispatch = useDispatch();
     const activeUser = useSelector((state: RootState) => state.users.activeUser);
 
-    const [newProject, setNewProject] = useState<project>({
+    const [newProject, setNewProject] = useState<mdlProject>({
         id: "",
         projectName: "",
         createdDate: new Date(),

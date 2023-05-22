@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
-import { IContentProp, content } from "../../../types/Type";
+import { IContentProp, mdlContent } from "../../../types/Type";
 import ContentDetailUndoButton from "./ContentDetailUndoButton";
 import ContentDetailUpdateButton from "./ContentDetailUpdateButton";
 
@@ -11,7 +11,7 @@ const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
   );
   const [buttonActive, setButtonActive] = useState(true);
 
-  const [updatedContent, setUpdatedContent] = useState<content>({
+  const [updatedContent, setUpdatedContent] = useState<mdlContent>({
     id: content.id,
     contentName: content.contentName,
     createdPerson: content.createdPerson,

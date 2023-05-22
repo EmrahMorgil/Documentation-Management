@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { IContentList, content } from "../../types/Type";
+import { IContentList, mdlContent } from "../../types/Type";
 import Content from "./Content";
 import SortByContentName from "./ContentFilters/ContentFilterButtons/SortByContentName";
 import SortByCreatedDate from "./ContentFilters/ContentFilterButtons/SortByCreatedDate";
@@ -37,7 +37,7 @@ const ContentList: React.FC<IContentList> = ({ projectId }) => {
           </tr>
         </thead>
         <tbody>
-          {contents.map((content: content, i: number) => {
+          {contents.map((content: mdlContent, i: number) => {
             if (
               content.contentTags[0].toLowerCase().includes(filterValues.contentTags.toLowerCase()) &&
               content.contentName

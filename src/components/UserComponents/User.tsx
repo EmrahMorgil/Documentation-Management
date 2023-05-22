@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import DeleteUser from "./DeleteUser";
-import { IUserProp, visibilityProjects } from "../../types/Type";
+import { IUserProp, mdlVisibilityProjects } from "../../types/Type";
 import OnUserProjectsModal from "../../modals/UserModal/OnUser/OnUserProjectsModal";
 import AddOnUserProjectsModal from "../../modals/UserModal/OnUser/AddOnUserProjectsModal";
 import UserDetailModal from "../../modals/UserModal/UserDetail/UserDetailModal";
@@ -14,7 +14,7 @@ const User: React.FC<IUserProp> = ({ user }) => {
 
   const onUserProjectLength = () => {
     return visibilityProjects.filter(
-      (item: visibilityProjects) => item.userId == user.id
+      (item: mdlVisibilityProjects) => item.userId == user.id
     ).length;
   };
 

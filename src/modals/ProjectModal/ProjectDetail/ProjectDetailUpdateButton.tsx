@@ -1,5 +1,5 @@
 import React from "react";
-import { IProjectDetailUpdateButton, project, user, visibilityProjects } from "../../../types/Type";
+import { IProjectDetailUpdateButton, mdlProject, mdlUser, mdlVisibilityProjects } from "../../../types/Type";
 import { updateProjects } from "../../../services/projectService";
 import { RootState } from "../../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,7 +19,7 @@ const ProjectDetailUpdateButton: React.FC<IProjectDetailUpdateButton> = ({
 }) => {
   const dispatch = useDispatch();
   const projects = useSelector((state: RootState) => state.projects.projects);
-  const activeUser: user = useSelector(
+  const activeUser: mdlUser = useSelector(
     (state: RootState) => state.users.activeUser
   );
   const visibilityProjects = useSelector(
@@ -39,12 +39,12 @@ const ProjectDetailUpdateButton: React.FC<IProjectDetailUpdateButton> = ({
       visibilityRole,
     } = setUpdatedProject;
 
-    const newArray: visibilityProjects = visibilityProjects.map(
-      (visibilityProject: visibilityProjects) => {
+    const newArray: mdlVisibilityProjects = visibilityProjects.map(
+      (visibilityProject: mdlVisibilityProjects) => {
         if (visibilityProject.projectId == project.id) {
           let projectId = visibilityProject.projectId;
           let userId = visibilityProject.userId;
-          const updatedVisibilityProject: visibilityProjects = {
+          const updatedVisibilityProject: mdlVisibilityProjects = {
             id,
             projectName,
             createdDate,
@@ -71,7 +71,7 @@ const ProjectDetailUpdateButton: React.FC<IProjectDetailUpdateButton> = ({
     dispatch(setVisibilityProjects(newArray));
   };
 
-  const updateProject = async (updateProject: project) => {
+  const updateProject = async (updateProject: mdlProject) => {
     setButtonActive(true);
 
     const setUpdatedProject = { ...updatedProject };
@@ -91,7 +91,7 @@ const ProjectDetailUpdateButton: React.FC<IProjectDetailUpdateButton> = ({
 
     updateProjects(updateProject.id, setUpdatedProject);
 
-    const newArr = projects.map((projects: project) => {
+    const newArr = projects.map((projects: mdlProject) => {
       if (projects.id === updateProject.id) {
         return {
           id,

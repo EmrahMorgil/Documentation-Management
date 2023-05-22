@@ -1,5 +1,5 @@
 import React from "react";
-import { IUserProp, user, visibilityProjects } from "../../../types/Type";
+import { IUserProp, mdlVisibilityProjects } from "../../../types/Type";
 import { RootState } from "../../../redux/store";
 import { useSelector } from "react-redux";
 import Project from "../Project";
@@ -27,7 +27,7 @@ const OnUserProjects: React.FC<IUserProp> = ({ user }) => {
           </tr>
         </thead>
         <tbody>
-          {visibilityProjects.map((visibilityProject: visibilityProjects, i: string) => {
+          {visibilityProjects.map((visibilityProject: mdlVisibilityProjects, i: string) => {
             if (user.id === visibilityProject.userId) {
               return (
                 <>

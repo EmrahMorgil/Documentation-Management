@@ -1,5 +1,5 @@
 import React from "react";
-import { IUserDetailUpdateButton, user } from "../../../types/Type";
+import { IUserDetailUpdateButton, mdlUser } from "../../../types/Type";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { updateUsers } from "../../../services/userService";
@@ -9,12 +9,12 @@ import { setUsers } from "../../../redux/users/usersSlice";
 
 const UserDetailUpdateButton: React.FC<IUserDetailUpdateButton> = ({user,updatedUser,buttonActive,setButtonActive}) => {
   const dispatch = useDispatch();
-  const activeUser: user = useSelector(
+  const activeUser: mdlUser = useSelector(
     (state: RootState) => state.users.activeUser
   );
   const users = useSelector((state: RootState) => state.users.users);
 
-  const updateUser = async (updateUser: user) => {
+  const updateUser = async (updateUser: mdlUser) => {
     setButtonActive(true);
     const setUpdatedUser = { ...updatedUser };
     setUpdatedUser.updatedDate = new Date();;
@@ -36,7 +36,7 @@ const UserDetailUpdateButton: React.FC<IUserDetailUpdateButton> = ({user,updated
     updateUsers(updateUser.id, setUpdatedUser);
     //api
 
-    const newArr = users.map((users: user) => {
+    const newArr = users.map((users: mdlUser) => {
       if (users.id === updateUser.id) {
         return {
           id,

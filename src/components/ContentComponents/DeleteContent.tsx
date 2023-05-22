@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
-import { IDeleteContent, content, project } from '../../types/Type';
+import { IDeleteContent, mdlContent, mdlProject } from '../../types/Type';
 import { deleteContents } from '../../services/contentService';
 import { setAllContents, setContents } from '../../redux/contents/contentsSlice';
 import { updateProjects } from '../../services/projectService';
@@ -22,9 +22,9 @@ const DeleteContent: React.FC<IDeleteContent> = ({contentId, projectId}) => {
   //amount
   const deleteContentAmount = () =>{
 
-    let updatedContentAmount: project ={id:"", projectName: "", createdDate: new Date, updatedDate: new Date, createdPerson: "", updatedPerson: "", totalContent: 0, visibilityRole: 1};
+    let updatedContentAmount: mdlProject ={id:"", projectName: "", createdDate: new Date, updatedDate: new Date, createdPerson: "", updatedPerson: "", totalContent: 0, visibilityRole: 1};
 
-    let newArray = projects.map((item: project)=>{
+    let newArray = projects.map((item: mdlProject)=>{
       if(item.id === projectId)
       {
         updatedContentAmount = {...item};
@@ -48,12 +48,12 @@ const DeleteContent: React.FC<IDeleteContent> = ({contentId, projectId}) => {
     //delete amount
     setTimeout(deleteContentAmount, 100);
 
-    const newArr = contents.filter((contents: content) => {
+    const newArr = contents.filter((contents: mdlContent) => {
       if (contents.id !== id) {
         return contents;
       }
     });
-    const newArray = allContents.filter((contents: content)=>{
+    const newArray = allContents.filter((contents: mdlContent)=>{
       if(contents.id !== id)
       {
         return contents;
