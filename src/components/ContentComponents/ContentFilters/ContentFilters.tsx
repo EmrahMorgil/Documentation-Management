@@ -1,9 +1,7 @@
 import React from "react";
-import { DateRangePicker } from "rsuite";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../redux/store";
-import { mdlContent } from "../../../types/Type";
-import { setContents } from "../../../redux/contents/contentsSlice";
+import ContentCreatedDateFilter from "./ContentFilterDates/ContentCreatedDateFilter";
+import ContentUpdatedDateFilter from "./ContentFilterDates/ContentUpdatedDateFilter";
+
 export interface IContentFilterInputs {
   filterValues: {
     contentName: string;
@@ -18,43 +16,13 @@ export interface IContentFilterInputs {
       updatedDate: string;
       contentTags: string;
     }>
-  >;
+  >
 }
 
 const ContentFilters: React.FC<IContentFilterInputs> = ({filterValues,setFilterValues}) => {
   const handleChange = (e: any) => {
     setFilterValues({ ...filterValues, [e.target.name]: e.target.value });
   };
-
-  const allContents = useSelector((state: RootState)=>state.contents.allContents);
-  const dispatch = useDispatch();
-
-  const createdDateRangeFilter = (value: any) => {
-
-    let startDate = new Date(value ? value[0] : "");
-    let endDate = new Date(value ? value[1] : "");
-
-    let filteredDates = allContents.filter(function(date: mdlContent) {
-      return new Date(date.createdDate) >= startDate && new Date(date.createdDate) <= endDate;
-    });
-    dispatch(setContents(filteredDates));
-  };
-
-  const updatedDateRangeFilter = (value: any) => {
-
-    let startDate = new Date(value ? value[0] : "");
-    let endDate = new Date(value ? value[1] : "");
-
-    let filteredDates = allContents.filter(function(date: mdlContent) {
-      return new Date(date.updatedDate) >= startDate && new Date(date.updatedDate) <= endDate;
-    });
-    dispatch(setContents(filteredDates));
-  };
-
-
-
-
-
 
   return (
     <thead className="thead-dark">
@@ -89,10 +57,10 @@ const ContentFilters: React.FC<IContentFilterInputs> = ({filterValues,setFilterV
         />
       </th>
      <th scope="col">
-      <DateRangePicker onOk={createdDateRangeFilter} onClean={()=>dispatch(setContents(allContents))} size="sm"/>
+     <ContentCreatedDateFilter/>
       </th>
       <th scope="col">
-      <DateRangePicker onOk={updatedDateRangeFilter} onClean={()=>dispatch(setContents(allContents))} size="sm"/>
+      <ContentUpdatedDateFilter/>
       </th>
       <th scope="col"></th>
       <th scope="col"></th>
