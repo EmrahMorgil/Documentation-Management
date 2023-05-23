@@ -17,8 +17,11 @@ const ProjectUpdatedDateFilter: React.FC<IProjectDateFilter> = ({adminLoggedIn})
 
         
           let startDate = new Date(value ? value[0] : "");
+          startDate.setDate(startDate.getDate()-1);
+
           let endDate = new Date(value ? value[1] : "");
           let filteredDates = allProjects.filter(function(date: mdlProject) {
+            debugger;
             return new Date(date.updatedDate) >= startDate && new Date(date.updatedDate) <= endDate;
           });
           setUpdatedDateFilter(projects);

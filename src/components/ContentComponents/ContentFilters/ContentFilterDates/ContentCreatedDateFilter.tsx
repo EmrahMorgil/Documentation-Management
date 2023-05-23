@@ -14,6 +14,7 @@ const ContentCreatedDateFilter: React.FC = () => {
 
     const createdDateRangeFilter = (value: any) => {
         let startDate = new Date(value ? value[0] : "");
+        startDate.setDate(startDate.getDate()-1);
         let endDate = new Date(value ? value[1] : "");
         
         let filteredDates = contents.filter(function(date: mdlContent) {
