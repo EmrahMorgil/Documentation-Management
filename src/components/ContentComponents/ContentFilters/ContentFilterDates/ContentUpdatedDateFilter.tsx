@@ -10,23 +10,32 @@ const ContentUpdatedDateFilter: React.FC = () => {
   const contents = useSelector((state: RootState)=>state.contents.contents);
   const dispatch = useDispatch();
   const [updatedDateFilter, setUpdatedDateFilter] = useState();
+  const [filterControl, setFilterControl] = useState<boolean>(true);
 
     const updatedDateRangeFilter = (value: any) => {
 
-        let startDate = new Date(value ? value[0] : "");
-        startDate.setDate(startDate.getDate()-1);
-        let endDate = new Date(value ? value[1] : "");
-    
-        let filteredDates = contents.filter(function(date: mdlContent) {
+        if(filterControl)
+        {
+          setFilterControl(false);
+          let startDate = new Date(value ? value[0] : "");
+          startDate.setDate(startDate.getDate()-1);
+          let endDate = new Date(value ? value[1] : "");
+          
+          let filteredDates = contents.filter(function(date: mdlContent) {
           return new Date(date.updatedDate) >= startDate && new Date(date.updatedDate) <= endDate;
         });
         setUpdatedDateFilter(contents);
         dispatch(setContents(filteredDates));
+      }
       };
     
+      const filterOnClean = ()=>{
+        setFilterControl(true);
+        dispatch(setContents(updatedDateFilter))
+      }
     
   return (
-    <DateRangePicker onOk={updatedDateRangeFilter} onClean={()=>dispatch(setContents(updatedDateFilter))} size="sm"/>
+    <DateRangePicker onOk={updatedDateRangeFilter} onClean={filterOnClean} size="sm"/>
   )
 }
 

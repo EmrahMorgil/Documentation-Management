@@ -10,9 +10,12 @@ const ContentCreatedDateFilter: React.FC = () => {
     const contents = useSelector((state: RootState)=>state.contents.contents);
     const dispatch = useDispatch();
     const [createdDateFilter, setCreatedDateFilter] = useState();
-
+    const [filterControl, setFilterControl] = useState<boolean>(true);
 
     const createdDateRangeFilter = (value: any) => {
+      if(filterControl)
+      {
+        setFilterControl(false);
         let startDate = new Date(value ? value[0] : "");
         startDate.setDate(startDate.getDate()-1);
         let endDate = new Date(value ? value[1] : "");
@@ -22,9 +25,16 @@ const ContentCreatedDateFilter: React.FC = () => {
         });
         setCreatedDateFilter(contents);
         dispatch(setContents(filteredDates));
+      }
       };
+
+      const filterOnClean = ()=>{
+        setFilterControl(true);
+        dispatch(setContents(createdDateFilter))
+      }
+
   return (
-    <DateRangePicker onOk={createdDateRangeFilter} onClean={()=>dispatch(setContents(createdDateFilter))} size="sm"/>
+    <DateRangePicker placeholder="Enter a valid date" onOk={createdDateRangeFilter} onClean={filterOnClean} size="sm"/>
   )
 }
 

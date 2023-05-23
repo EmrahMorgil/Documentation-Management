@@ -16,10 +16,13 @@ const ProjectCreatedDateFilter: React.FC<IProjectDateFilter> = ({adminLoggedIn})
     const allProjects = useSelector((state: RootState)=>state.projects.allProjects);
     const projects = useSelector((state: RootState)=>state.projects.projects);
     const [createdDateFilter, setCreatedDateFilter] = useState();
+    const [filterControl, setFilterControl] = useState<boolean>(true);
 
     const createdDateRangeFilter = (value: any) => {
-
-       
+        if(filterControl)
+        {
+          setFilterControl(false);
+          
           let startDate = new Date(value ? value[0] : "");
           startDate.setDate(startDate.getDate()-1);
           let endDate = new Date(value ? value[1] : "");
@@ -29,10 +32,16 @@ const ProjectCreatedDateFilter: React.FC<IProjectDateFilter> = ({adminLoggedIn})
           setCreatedDateFilter(projects);
           dispatch(setProjects(filteredDates));
         
+        }
         };
 
+        const filterOnClean = ()=>{
+          setFilterControl(true);
+          dispatch(setProjects(createdDateFilter));
+        }
+        
   return (
-    <DateRangePicker onOk={createdDateRangeFilter} onClean={()=>dispatch(setProjects(createdDateFilter))} size="sm"/>
+    <DateRangePicker placeholder="Enter a valid date" onOk={createdDateRangeFilter} onClean={filterOnClean} size="sm"/>
   )
 }
 
