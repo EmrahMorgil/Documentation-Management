@@ -15,13 +15,9 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId, visibil
 
   const totalContent = () => {
     if (project.projectId) {
-      return allContents.filter(
-        (content: mdlContent) => content.projectId === project.projectId
-      ).length;
+      return allContents.filter((content: mdlContent) => content.projectId === project.projectId).length;
     } else {
-      return allContents.filter(
-        (content: mdlContent) => content.projectId === project.id
-      ).length;
+      return allContents.filter((content: mdlContent) => content.projectId === project.id).length;
     }
   };
 

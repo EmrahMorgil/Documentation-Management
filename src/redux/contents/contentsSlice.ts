@@ -32,7 +32,6 @@ export const contentsSlice = createSlice({
     });
     builder.addCase(getContentsAsync.fulfilled, (state, action) => {
       state.contents = action.payload;
-      state.allContents=action.payload;
       state.contentsIsLoading = "fulfilled";
     });
     builder.addCase(getAllContentsAsync.fulfilled, (state, action) => {

@@ -7,7 +7,7 @@ import SortByContentName from "./ContentFilters/ContentFilterButtons/SortByConte
 import SortByCreatedDate from "./ContentFilters/ContentFilterButtons/SortByCreatedDate";
 import SortByUpdatedDate from "./ContentFilters/ContentFilterButtons/SortByUpdatedDate";
 import SortByContentVersion from "./ContentFilters/ContentFilterButtons/SortByContentVersion";
-import ContentFilters from "./ContentFilters/ContentFilterDates/ContentFilters";
+import ContentFilters from "./ContentFilters/ContentFilters";
 
 const ContentList: React.FC<IContentList> = ({ projectId }) => {
   const contents = useSelector((state: RootState) => state.contents.contents);
@@ -38,12 +38,13 @@ const ContentList: React.FC<IContentList> = ({ projectId }) => {
         </thead>
         <tbody>
           {contents.map((content: mdlContent, i: number) => {
-            if (
-              content.contentTags[0].toLowerCase().includes(filterValues.contentTags.toLowerCase()) &&
+            let newArr = (content.contentTags.map((item: string)=>{
+              return item.toLowerCase().includes(filterValues.contentTags.toLowerCase())
+            }));
+            if(newArr.includes(true) &&
               content.contentName
                 .toLowerCase()
                 .includes(filterValues.contentName.toLowerCase()) 
-              
             ) {
               return (
                 <Content content={content} key={i} projectId={projectId} />

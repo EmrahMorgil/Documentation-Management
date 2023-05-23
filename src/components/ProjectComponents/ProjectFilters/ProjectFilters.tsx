@@ -1,7 +1,7 @@
 import React from "react";
-import ProjectRefresh from "../../ProjectRefresh";
-import ProjectCreatedDateFilter from "./ProjectCreatedDateFilter";
-import ProjectUpdatedDateFilter from "./ProjectUpdatedDateFilter";
+import ProjectRefresh from "../ProjectRefresh";
+import ProjectCreatedDateFilter from "./ProjectFilterDates/ProjectCreatedDateFilter";
+import ProjectUpdatedDateFilter from "./ProjectFilterDates/ProjectUpdatedDateFilter";
 
 export interface IProjectFilterInputs {
   filterValues: {

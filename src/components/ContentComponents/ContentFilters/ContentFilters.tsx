@@ -1,9 +1,9 @@
 import React from "react";
 import { DateRangePicker } from "rsuite";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../../redux/store";
-import { mdlContent } from "../../../../types/Type";
-import { setContents } from "../../../../redux/contents/contentsSlice";
+import { RootState } from "../../../redux/store";
+import { mdlContent } from "../../../types/Type";
+import { setContents } from "../../../redux/contents/contentsSlice";
 export interface IContentFilterInputs {
   filterValues: {
     contentName: string;

@@ -50,12 +50,13 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
 
   const createNewContent = () =>{
  
-    const updatedContent = { ...newContent };
+    const updatedContent = { ...newContent };    
     updatedContent.id = "id"+nanoid();
     updatedContent.createdDate = new Date();
     updatedContent.updatedDate = new Date();
     updatedContent.createdPerson = activeUser.id;
     updatedContent.updatedPerson = activeUser.id;
+    updatedContent.contentTags = updatedContent.contentTags[0].split(",");
     updatedContent.projectId = projectId;
     //api
     setTimeout(()=>dispatch(addNewContent(updatedContent)), 100);
@@ -174,6 +175,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
                     name="contentTags"
                     className="form-control"
                   />
+                  <p className="ml-1 mt-1" style={{color: "#AEAEAE"}}>Put a comma between the tags</p>
                 </div>
               </form>
             </div>

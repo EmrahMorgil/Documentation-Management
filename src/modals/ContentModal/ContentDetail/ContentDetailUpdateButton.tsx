@@ -23,6 +23,7 @@ const ContentDetailUpdateButton: React.FC<IContentDetailUpdateButton> = ({
     const setUpdatedContent = { ...updatedContent };
     setUpdatedContent.updatedDate = new Date();
     setUpdatedContent.updatedPerson = activeUser.id;
+    setUpdatedContent.contentTags = setUpdatedContent.contentTags[0].split(",");
 
     const {
       id,

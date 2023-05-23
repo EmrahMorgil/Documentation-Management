@@ -54,17 +54,17 @@ const Navbar: React.FC = () => {
                     />
                   </svg>
                 </>
-                <NavLink className="nav-link navbar-brand" to={"/projects"} onClick={()=>dispatch(dateFilterClear())}>
+                <NavLink className="nav-link navbar-brand" to={"/projects"}>
                   Project Management
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to={"/userpanel"} onClick={()=>dispatch(dateFilterClear())}>
+                <NavLink className="nav-link" to={"/userpanel"}>
                   User Control Panel
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to={"/projectpanel"} onClick={()=>dispatch(dateFilterClear())}>
+                <NavLink className="nav-link" to={"/projectpanel"}>
                   Project & Content Control Panel
                 </NavLink>
               </li>

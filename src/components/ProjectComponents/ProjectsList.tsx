@@ -8,7 +8,7 @@ import SortByCreatedDate from "./ProjectFilters/ProjectFilterButtons/SortByCreat
 import SortByUpdatedDate from "./ProjectFilters/ProjectFilterButtons/SortByUpdatedDate";
 import SortByTotalContent from "./ProjectFilters/ProjectFilterButtons/SortByTotalContent";
 import SortByVisibilityRole from "./ProjectFilters/ProjectFilterButtons/SortByVisibilityRole";
-import ProjectFilters from "./ProjectFilters/ProjectFilterDates/ProjectFilters";
+import ProjectFilters from "./ProjectFilters/ProjectFilters";
 
 const ProjectsList: React.FC<IProjectsList> = ({ projectsControl, userId }) => {
 
