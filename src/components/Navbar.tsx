@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
           className="collapse navbar-collapse d-flex"
           id="navbarTogglerDemo03"
         >
-          {activeUser.role === 1 ? (
+          
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
               <li className="nav-item">
                 <>
@@ -58,6 +58,7 @@ const Navbar: React.FC = () => {
                   Project Management
                 </NavLink>
               </li>
+              {activeUser.role === 1 &&  <>
               <li className="nav-item">
                 <NavLink className="nav-link" to={"/userpanel"}>
                   User Control Panel
@@ -68,14 +69,10 @@ const Navbar: React.FC = () => {
                   Project & Content Control Panel
                 </NavLink>
               </li>
+              </>}
+             
             </ul>
-          ) : (
-            <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-              <NavLink className="nav-link navbar-brand" to={"/projects"}>
-                  Project Management
-                </NavLink>
-            </ul>
-          )}
+         
         </div>
         <div>
           <button
