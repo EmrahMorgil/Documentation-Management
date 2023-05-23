@@ -22,23 +22,17 @@ const SortByProjectName: React.FC = () => {
   });
 
   const sortProjectName = () => {
-    let variableProject;
-    activeUser.role === 1
-      ? (variableProject = projects)
-      : (variableProject = visibilityProjects);
-
-    const sortedData = [...variableProject].sort((a, b) => {
+   
+    const sortedData = [...projects].sort((a, b) => {
       if (projectSorted.isReversed) {
         return b.projectName.localeCompare(a.projectName);
       }
       return a.projectName.localeCompare(b.projectName);
     });
 
-    if (activeUser.role === 0) {
-      dispatch(setVisibilityProjects(sortedData));
-    } else {
-      dispatch(setProjects(sortedData));
-    }
+  
+    dispatch(setProjects(sortedData));
+    
     setProjectSorted({
       sorted: "projectName",
       isReversed: !projectSorted.isReversed,

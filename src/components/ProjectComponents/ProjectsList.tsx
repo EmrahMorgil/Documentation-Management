@@ -55,9 +55,9 @@ const ProjectsList: React.FC<IProjectsList> = ({ projectsControl, userId }) => {
                   );
                 }
               })
-            : visibilityProjects.map((visibilityProject: mdlVisibilityProjects, i: number) => {
+            : projects.map((project: mdlProject, i: number) => {
 
-                 return projects.map((project: mdlProject, i: number)=>{
+                 return visibilityProjects.map((visibilityProject: mdlVisibilityProjects, i: number)=>{
                     if(visibilityProject.projectId === project.id && visibilityProject.userId === activeUser.id)
                     {
                       if (
