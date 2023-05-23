@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { DateRangePicker } from 'rsuite'
 import { dateFilterClear, setProjects, setVisibilityProjects } from '../../../../redux/projects/projectsSlice';
@@ -14,7 +14,9 @@ const ProjectCreatedDateFilter: React.FC<IProjectDateFilter> = ({adminLoggedIn})
 
     const dispatch = useDispatch();
     const allProjects = useSelector((state: RootState)=>state.projects.allProjects);
+    const projects = useSelector((state: RootState)=>state.projects.projects);
     const allVisibilityProjects = useSelector((state: RootState)=>state.projects.allVisibilityProjects);
+    const [createdDateFilter, setCreatedDateFilter] = useState();
 
     const createdDateRangeFilter = (value: any) => {
 
@@ -25,6 +27,7 @@ const ProjectCreatedDateFilter: React.FC<IProjectDateFilter> = ({adminLoggedIn})
           let filteredDates = allProjects.filter(function(date: mdlProject) {
             return new Date(date.createdDate) >= startDate && new Date(date.createdDate) <= endDate;
           });
+          setCreatedDateFilter(projects);
           dispatch(setProjects(filteredDates));
         }else{
           let startDate = new Date(value ? value[0] : "");
@@ -32,12 +35,13 @@ const ProjectCreatedDateFilter: React.FC<IProjectDateFilter> = ({adminLoggedIn})
           let filteredDates = allVisibilityProjects.filter(function(date: mdlProject) {
             return new Date(date.createdDate) >= startDate && new Date(date.createdDate) <= endDate;
           });
+          setCreatedDateFilter(projects);
           dispatch(setVisibilityProjects(filteredDates));
         }
         };
 
   return (
-    <DateRangePicker onOk={createdDateRangeFilter} onClean={()=>dispatch(dateFilterClear())} size="sm"/>
+    <DateRangePicker onOk={createdDateRangeFilter} onClean={()=>dispatch(setProjects(createdDateFilter))} size="sm"/>
   )
 }
 

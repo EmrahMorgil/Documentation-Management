@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { IProjectDateFilter } from './ProjectCreatedDateFilter'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/store';
@@ -11,6 +11,8 @@ const ProjectUpdatedDateFilter: React.FC<IProjectDateFilter> = ({adminLoggedIn})
     const dispatch = useDispatch();
     const allProjects = useSelector((state: RootState)=>state.projects.allProjects);
     const allVisibilityProjects = useSelector((state: RootState)=>state.projects.allVisibilityProjects);
+    const projects = useSelector((state: RootState)=>state.projects.projects);
+    const [updatedDateFilter, setUpdatedDateFilter] = useState();
 
     const updatedDateRangeFilter = (value: any) => {
 
@@ -21,6 +23,7 @@ const ProjectUpdatedDateFilter: React.FC<IProjectDateFilter> = ({adminLoggedIn})
           let filteredDates = allProjects.filter(function(date: mdlProject) {
             return new Date(date.updatedDate) >= startDate && new Date(date.updatedDate) <= endDate;
           });
+          setUpdatedDateFilter(projects);
           dispatch(setProjects(filteredDates));
         }else{
           let startDate = new Date(value ? value[0] : "");
@@ -28,13 +31,14 @@ const ProjectUpdatedDateFilter: React.FC<IProjectDateFilter> = ({adminLoggedIn})
           let filteredDates = allVisibilityProjects.filter(function(date: mdlProject) {
             return new Date(date.updatedDate) >= startDate && new Date(date.updatedDate) <= endDate;
           });
+          setUpdatedDateFilter(projects);
           dispatch(setVisibilityProjects(filteredDates));
         }
       };
 
 
   return (
-    <DateRangePicker onOk={updatedDateRangeFilter} onClean={()=>dispatch(dateFilterClear())} size="sm"/>
+    <DateRangePicker onOk={updatedDateRangeFilter} onClean={()=>dispatch(setProjects(updatedDateFilter))} size="sm"/>
   )
 }
 
