@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { deleteProjects } from '../../services/projectService';
 import { IProjectProp, mdlProject, mdlVisibilityProjects } from '../../types/Type';
-import { setProjects, setVisibilityProjects } from '../../redux/projects/projectsSlice';
+import { setAllProjects, setProjects, setVisibilityProjects } from '../../redux/projects/projectsSlice';
 
 
 const DeleteProject: React.FC<IProjectProp> = ({project}) => {
@@ -42,7 +42,7 @@ const DeleteProject: React.FC<IProjectProp> = ({project}) => {
       }
     });
     dispatch(setProjects(newArr));
-
+    dispatch(setAllProjects(newArr));
 
     //visibilityProjects'den silme işlemi
     setTimeout(removeVisibilityProjectItem, 500);

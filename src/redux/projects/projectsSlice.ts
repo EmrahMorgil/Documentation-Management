@@ -17,9 +17,13 @@ export const projectsSlice = createSlice({
   reducers: {
     addNewProject: (state, action)=>{
       state.projects.push(action.payload);
+      state.allProjects.push(action.payload);
     },
     setProjects: (state, action)=>{
       state.projects = action.payload;
+    },
+    setAllProjects: (state, action)=>{
+      state.allProjects = action.payload;
     },
     dateFilterClear: (state)=>{
       state.projects = state.allProjects;
@@ -53,4 +57,4 @@ export const projectsSlice = createSlice({
 });
 
 export default projectsSlice.reducer;
-export const { addNewProject, setProjects, addVisibilityProjects, setVisibilityProjects, dateFilterClear } = projectsSlice.actions;
+export const { addNewProject, setProjects, setAllProjects,addVisibilityProjects, setVisibilityProjects, dateFilterClear } = projectsSlice.actions;

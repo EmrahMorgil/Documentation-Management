@@ -4,6 +4,7 @@ import { updateProjects } from "../../../services/projectService";
 import { RootState } from "../../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  setAllProjects,
   setProjects,
   setVisibilityProjects,
 } from "../../../redux/projects/projectsSlice";
@@ -91,6 +92,7 @@ const ProjectDetailUpdateButton: React.FC<IProjectDetailUpdateButton> = ({
       return projects;
     });
     dispatch(setProjects(newArr));
+    dispatch(setAllProjects(newArr));
 
     //visibilityProject'de var ise oradan da update işlemi yapılıyor.
     updateVisibilityProjectItem();
