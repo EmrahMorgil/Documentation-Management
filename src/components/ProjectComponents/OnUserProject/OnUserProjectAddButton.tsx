@@ -37,7 +37,7 @@ const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, pro
   }
 
   const handleClick = () => {
- 
+    
     const newUser: mdlUser = users.find((user: mdlUser)=>{
       if(user.id===userId)
       {
@@ -59,9 +59,8 @@ const OnUserProjectAddButton: React.FC<IOnUserProjectAddButton> = ({ userId, pro
   
       if(!newArr.includes(false) || newArr.length ===0)
       {
-      const {projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole } = project;
       const randomId = nanoid();
-      const newItem = {id: randomId, projectName, createdDate, updatedDate, createdPerson, updatedPerson, totalContent, visibilityRole, visibility: true, userId, projectId: project.id};
+      const newItem = {id: randomId, userId, projectId: project.id};
       addVisibilityProjectsApi(newItem);
       dispatch(addVisibilityProjects(newItem));
       

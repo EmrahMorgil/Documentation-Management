@@ -8,7 +8,7 @@ import { setVisibilityProjects } from "../../../redux/projects/projectsSlice";
 import { deleteVisibilityProjectsApi } from "../../../services/visibilityProjectServise";
 
 
-const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId, projectId}) => {
+const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId, visibilityProjectId}) => {
   const users = useSelector((state: RootState) => state.users.users);
   const visibilityProjects = useSelector((state:RootState)=>state.projects.visibilityProjects);
   const dispatch = useDispatch();
@@ -33,16 +33,16 @@ const OnUserProjectRemoveButton: React.FC<IOnUserProjectRemoveButton> = ({userId
 
 
   const handleClick = () => {
-    
+    debugger;
     const newArr = visibilityProjects.filter((item: mdlVisibilityProjects, i:number)=>{
-      if(item.id!==projectId)
+      if(item.id!==visibilityProjectId)
       {
         return item;
       }
     });
     dispatch(setVisibilityProjects(newArr));
     //api    
-    deleteVisibilityProjectsApi(projectId);
+    deleteVisibilityProjectsApi(visibilityProjectId!);
     
     setTimeout(removeProjectAmount, 100);
   };

@@ -94,39 +94,62 @@
       "surname": "Morgil",
       "password": "123",
       "role": 0,
-      "totalProject": 2,
+      "totalProject": 8,
       "createdDate": "2023-05-22T11:28:43.245Z",
       "updatedDate": "2023-05-22T11:28:43.245Z",
+      "createdPerson": "idlmEzEIU1sZQVORJ1cYOes",
+      "updatedPerson": "idlmEzEIU1sZQVORJ1cYOes"
+    },
+    {
+      "id": "id4udwKA7oSbJDNddPMpqI5",
+      "name": "Ömer",
+      "surname": "Morgil",
+      "password": "123",
+      "role": 0,
+      "totalProject": 7,
+      "createdDate": "2023-05-22T15:21:02.494Z",
+      "updatedDate": "2023-05-22T15:21:02.494Z",
+      "createdPerson": "idlmEzEIU1sZQVORJ1cYOes",
+      "updatedPerson": "idlmEzEIU1sZQVORJ1cYOes"
+    },
+    {
+      "id": "idVJvTMWnOtnhnsBuO8MCcQ",
+      "name": "Atay",
+      "surname": "Morgil",
+      "password": "123",
+      "role": 0,
+      "totalProject": 8,
+      "createdDate": "2023-05-22T15:23:40.412Z",
+      "updatedDate": "2023-05-22T15:23:40.412Z",
       "createdPerson": "idlmEzEIU1sZQVORJ1cYOes",
       "updatedPerson": "idlmEzEIU1sZQVORJ1cYOes"
     }
   ],
   "visibilityProjects": [
     {
-      "id": "P5wqutaXbBoLF5nyLnhmb",
-      "projectName": "Kütüphane",
-      "createdDate": "2023-05-22T12:53:26.983Z",
-      "updatedDate": "2023-05-22T12:53:26.983Z",
-      "createdPerson": "idlmEzEIU1sZQVORJ1cYOes",
-      "updatedPerson": "idlmEzEIU1sZQVORJ1cYOes",
-      "totalContent": 6,
-      "visibilityRole": 0,
-      "visibility": true,
+      "id": "yD7pGatAHHBcext3cJkIa",
       "userId": "idyy7htw23AEQMiaLbHdj0W",
       "projectId": "id2WXK-TcQq5AhPbAQvshj9"
     },
     {
-      "id": "4yYaNo4oVUWcAFNukG88y",
-      "projectName": "Okul",
-      "createdDate": "2023-05-05T12:53:30.820Z",
-      "updatedDate": "2023-05-05T12:53:30.820Z",
-      "createdPerson": "idlmEzEIU1sZQVORJ1cYOes",
-      "updatedPerson": "idlmEzEIU1sZQVORJ1cYOes",
-      "totalContent": 0,
-      "visibilityRole": 0,
-      "visibility": true,
+      "id": "_MXEMcSj6LlRmVDQjIIR6",
       "userId": "idyy7htw23AEQMiaLbHdj0W",
+      "projectId": "idPW0Da4FKtcwa95FT50q90"
+    },
+    {
+      "id": "t5FXoscBVBToOePpDodRR",
+      "userId": "id4udwKA7oSbJDNddPMpqI5",
+      "projectId": "id2WXK-TcQq5AhPbAQvshj9"
+    },
+    {
+      "id": "2e-NVZ8anltdIoKvYZ8t9",
+      "userId": "id4udwKA7oSbJDNddPMpqI5",
       "projectId": "id4zr8e9PZmMuTzeViWXKMu"
+    },
+    {
+      "id": "lL3MU2b7UG4oOvSaL_GL6",
+      "userId": "idVJvTMWnOtnhnsBuO8MCcQ",
+      "projectId": "id2WXK-TcQq5AhPbAQvshj9"
     }
   ]
 }

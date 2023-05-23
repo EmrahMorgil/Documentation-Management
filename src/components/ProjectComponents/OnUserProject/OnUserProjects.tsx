@@ -1,14 +1,18 @@
 import React from "react";
-import { IUserProp, mdlVisibilityProjects } from "../../../types/Type";
+import {
+  IUserProp,
+  mdlProject,
+  mdlVisibilityProjects,
+} from "../../../types/Type";
 import { RootState } from "../../../redux/store";
 import { useSelector } from "react-redux";
 import Project from "../Project";
-
 
 const OnUserProjects: React.FC<IUserProp> = ({ user }) => {
   const visibilityProjects = useSelector(
     (state: RootState) => state.projects.visibilityProjects
   );
+  const projects = useSelector((state: RootState) => state.projects.projects);
 
   return (
     <div className="container">
@@ -28,19 +32,21 @@ const OnUserProjects: React.FC<IUserProp> = ({ user }) => {
         </thead>
         <tbody>
           {visibilityProjects.map((visibilityProject: mdlVisibilityProjects, i: string) => {
-            if (user.id === visibilityProject.userId) {
-              return (
-                <>
-                  <Project
-                    project={visibilityProject}
-                    key={i}
-                    projectsControl="onUserDeleteProject"
-                    userId={user.id}
-                  />
-                </>
-              );
+              return projects.map((project: mdlProject, i: number) => {
+                if (visibilityProject.projectId === project.id && visibilityProject.userId === user.id
+                ) {
+                    return (
+                      <Project
+                        project={project}
+                        key={i}
+                        projectsControl={"onUserDeleteProject"}
+                        visibilityProject={visibilityProject}
+                      />
+                    );
+                }
+              });
             }
-          })}
+          )}
         </tbody>
       </table>
     </div>

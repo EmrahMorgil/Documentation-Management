@@ -8,7 +8,7 @@ import { RootState } from "../../redux/store";
 import { useSelector } from "react-redux";
 import OnUserProjectAddButton from "./OnUserProject/OnUserProjectAddButton";
 
-const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
+const Project: React.FC<IProject> = ({ project, projectsControl, userId, visibilityProject }) => {
   const allContents = useSelector(
     (state: RootState) => state.contents.allContents
   );
@@ -81,12 +81,12 @@ const Project: React.FC<IProject> = ({ project, projectsControl, userId }) => {
         ) : projectsControl === "onUserDeleteProject" ? (
           <td>
             {/* Kullanıcının üzerinden proje silme */}
-            <OnUserProjectRemoveButton userId={userId} projectId={project.id} />
+            <OnUserProjectRemoveButton userId={userId} visibilityProjectId={visibilityProject?.id} />
           </td>
         ) : projectsControl === "visibilityProjectsMap" ? (
           <td>
             {/* Kullanıcı giriş yaptığı zaman gözükecek olan buton */}
-            <Link to={`/contentpanel/${project.projectId}`}>
+            <Link to={`/contentpanel/${project.id}`}>
               <button className="btn btn-success">Contents</button>
             </Link>
           </td>

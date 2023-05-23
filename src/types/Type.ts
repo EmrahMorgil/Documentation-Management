@@ -80,26 +80,12 @@ export class mdlUser{
 
 export class mdlVisibilityProjects{
     id: string;
-    projectName: string;
-    createdDate: Date;
-    updatedDate: Date;
-    createdPerson: string;
-    updatedPerson: string;
-    totalContent: number;
-    visibilityRole: number;
     userId: string;
     projectId: string
 
-    constructor(id: string, projectName: string, createdDate: Date, updatedDate: Date, createdPerson: string, updatedPerson: string, totalContent: number, visibilityRole: number, userId: string, projectId: string)
+    constructor(id: string, userId: string, projectId: string)
     {
         this.id = id;
-        this.projectName = projectName;
-        this.createdDate = createdDate;
-        this.updatedDate = updatedDate;
-        this.createdPerson = createdPerson;
-        this.updatedPerson = updatedPerson;
-        this.totalContent = totalContent;
-        this.visibilityRole = visibilityRole;
         this.userId = userId;
         this.projectId = projectId;
     }
@@ -124,10 +110,11 @@ export interface IContentProp{
 }
 
 
-export interface IProject {
+export class IProject {
     project: any;
-    projectsControl: string;
+    projectsControl!: string;
     userId?: string;
+    visibilityProject?: mdlVisibilityProjects;
   }
 
 export interface IContent {
@@ -159,7 +146,7 @@ export interface IDeleteContent{
 
   export interface IOnUserProjectRemoveButton{
     userId?: string;
-    projectId: string;
+    visibilityProjectId?: string;
   }
 
   export interface IProjectsList{

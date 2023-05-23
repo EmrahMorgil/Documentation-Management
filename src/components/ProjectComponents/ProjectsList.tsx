@@ -56,21 +56,27 @@ const ProjectsList: React.FC<IProjectsList> = ({ projectsControl, userId }) => {
                 }
               })
             : visibilityProjects.map((visibilityProject: mdlVisibilityProjects, i: number) => {
-                  if (activeUser.id === visibilityProject.userId) {
-                    if (
-                      visibilityProject.projectName
-                        .toLowerCase()
-                        .includes(filterValues.projectName.toLowerCase())
-                    ) {
-                      return (
-                        <Project
-                          project={visibilityProject}
-                          key={i}
-                          projectsControl={"visibilityProjectsMap"}
-                        />
-                      );
+
+                 return projects.map((project: mdlProject, i: number)=>{
+                    if(visibilityProject.projectId === project.id && visibilityProject.userId === activeUser.id)
+                    {
+                      if (
+                        project.projectName
+                          .toLowerCase()
+                          .includes(filterValues.projectName.toLowerCase())
+                      ) {
+                        return (
+                          <Project
+                            project={project}
+                            key={i}
+                            projectsControl={"visibilityProjectsMap"}
+                          />
+                        );
+                      }
                     }
-                  }
+                  })
+                
+
                 }
               )}
         </tbody>

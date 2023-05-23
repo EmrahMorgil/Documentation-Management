@@ -28,16 +28,7 @@ const ProjectDetailUpdateButton: React.FC<IProjectDetailUpdateButton> = ({
 
   const updateVisibilityProjectItem = () => {
     const setUpdatedProject = { ...updatedProject };
-    const {
-      id,
-      projectName,
-      createdDate,
-      updatedDate,
-      createdPerson,
-      updatedPerson,
-      totalContent,
-      visibilityRole,
-    } = setUpdatedProject;
+    const {id} = setUpdatedProject;
 
     const newArray: mdlVisibilityProjects = visibilityProjects.map(
       (visibilityProject: mdlVisibilityProjects) => {
@@ -46,13 +37,6 @@ const ProjectDetailUpdateButton: React.FC<IProjectDetailUpdateButton> = ({
           let userId = visibilityProject.userId;
           const updatedVisibilityProject: mdlVisibilityProjects = {
             id,
-            projectName,
-            createdDate,
-            updatedDate,
-            createdPerson,
-            updatedPerson,
-            totalContent,
-            visibilityRole,
             projectId,
             userId,
           };
