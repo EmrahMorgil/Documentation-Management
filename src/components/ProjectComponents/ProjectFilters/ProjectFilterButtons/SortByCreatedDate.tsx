@@ -22,12 +22,9 @@ const SortByCreatedDate: React.FC = () => {
   );
 
   const sortCreatedDate = () => {
-    let variableProject;
-    activeUser.role === 1
-      ? (variableProject = projects)
-      : (variableProject = visibilityProjects);
+  
 
-    const sortedData = [...variableProject].sort((a, b) => {
+    const sortedData = [...projects].sort((a, b) => {
       let dateA: any = new Date(a.createdDate);
       let dateB: any = new Date(b.createdDate);
       if (createdDateSorted.isReversed) {
@@ -36,11 +33,8 @@ const SortByCreatedDate: React.FC = () => {
       return dateB - dateA;
     });
 
-    if (activeUser.role === 0) {
-      dispatch(setVisibilityProjects(sortedData));
-    } else {
-      dispatch(setProjects(sortedData));
-    }
+    dispatch(setProjects(sortedData));
+    
     setCreatedDateSorted({
       sorted: "createdDate",
       isReversed: !createdDateSorted.isReversed,

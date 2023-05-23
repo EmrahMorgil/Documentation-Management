@@ -10,14 +10,12 @@ const ProjectUpdatedDateFilter: React.FC<IProjectDateFilter> = ({adminLoggedIn})
     
     const dispatch = useDispatch();
     const allProjects = useSelector((state: RootState)=>state.projects.allProjects);
-    const allVisibilityProjects = useSelector((state: RootState)=>state.projects.allVisibilityProjects);
     const projects = useSelector((state: RootState)=>state.projects.projects);
     const [updatedDateFilter, setUpdatedDateFilter] = useState();
 
     const updatedDateRangeFilter = (value: any) => {
 
-        if(adminLoggedIn)
-        {
+        
           let startDate = new Date(value ? value[0] : "");
           let endDate = new Date(value ? value[1] : "");
           let filteredDates = allProjects.filter(function(date: mdlProject) {
@@ -25,15 +23,7 @@ const ProjectUpdatedDateFilter: React.FC<IProjectDateFilter> = ({adminLoggedIn})
           });
           setUpdatedDateFilter(projects);
           dispatch(setProjects(filteredDates));
-        }else{
-          let startDate = new Date(value ? value[0] : "");
-          let endDate = new Date(value ? value[1] : "");
-          let filteredDates = allVisibilityProjects.filter(function(date: mdlProject) {
-            return new Date(date.updatedDate) >= startDate && new Date(date.updatedDate) <= endDate;
-          });
-          setUpdatedDateFilter(projects);
-          dispatch(setVisibilityProjects(filteredDates));
-        }
+        
       };
 
 

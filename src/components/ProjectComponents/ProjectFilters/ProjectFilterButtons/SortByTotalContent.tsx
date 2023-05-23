@@ -23,23 +23,17 @@ const SortByTotalContent: React.FC = () => {
   });
 
   const sortTotalContent = () => {
-    let variableProject;
-    activeUser.role === 1
-      ? (variableProject = projects)
-      : (variableProject = visibilityProjects);
 
-    const sortedData = [...variableProject].sort((a, b) => {
+    const sortedData = [...projects].sort((a, b) => {
       if (totalSorted.isReversed) {
         return a.totalContent - b.totalContent;
       }
       return b.totalContent - a.totalContent;
     });
 
-    if (activeUser.role === 0) {
-      dispatch(setVisibilityProjects(sortedData));
-    } else {
-      dispatch(setProjects(sortedData));
-    }
+ 
+    dispatch(setProjects(sortedData));
+    
     setTotalSorted({
       sorted: "totalContent",
       isReversed: !totalSorted.isReversed,
