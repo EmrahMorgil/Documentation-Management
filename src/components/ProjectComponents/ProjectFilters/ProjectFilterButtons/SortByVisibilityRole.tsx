@@ -23,23 +23,17 @@ const SortByVisibilityRole: React.FC = () => {
   );
 
   const sortVisibilityRole = () => {
-    let variableProject;
-    activeUser.role === 1
-      ? (variableProject = projects)
-      : (variableProject = visibilityProjects);
 
-    const sortedData = [...variableProject].sort((a, b) => {
+
+    const sortedData = [...projects].sort((a, b) => {
       if (roleSorted.isReversed) {
         return a.visibilityRole - b.visibilityRole;
       }
       return b.visibilityRole - a.visibilityRole;
     });
 
-    if (activeUser.role === 0) {
-      dispatch(setVisibilityProjects(sortedData));
-    } else {
-      dispatch(setProjects(sortedData));
-    }
+    dispatch(setProjects(sortedData));
+    
     setRoleSorted({
       sorted: "visibilityRole",
       isReversed: !roleSorted.isReversed,
