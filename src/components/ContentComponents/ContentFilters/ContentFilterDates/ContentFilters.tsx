@@ -21,7 +21,7 @@ export interface IContentFilterInputs {
   >;
 }
 
-const ContentFilterInputs: React.FC<IContentFilterInputs> = ({filterValues,setFilterValues}) => {
+const ContentFilters: React.FC<IContentFilterInputs> = ({filterValues,setFilterValues}) => {
   const handleChange = (e: any) => {
     setFilterValues({ ...filterValues, [e.target.name]: e.target.value });
   };
@@ -112,4 +112,4 @@ const ContentFilterInputs: React.FC<IContentFilterInputs> = ({filterValues,setFi
   );
 };
 
-export default ContentFilterInputs;
+export default ContentFilters;

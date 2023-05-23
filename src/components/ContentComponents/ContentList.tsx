@@ -7,7 +7,7 @@ import SortByContentName from "./ContentFilters/ContentFilterButtons/SortByConte
 import SortByCreatedDate from "./ContentFilters/ContentFilterButtons/SortByCreatedDate";
 import SortByUpdatedDate from "./ContentFilters/ContentFilterButtons/SortByUpdatedDate";
 import SortByContentVersion from "./ContentFilters/ContentFilterButtons/SortByContentVersion";
-import ContentFilterInputs from "./ContentFilters/ContentFilterInputs/ContentFilterInputs";
+import ContentFilters from "./ContentFilters/ContentFilterDates/ContentFilters";
 
 const ContentList: React.FC<IContentList> = ({ projectId }) => {
   const contents = useSelector((state: RootState) => state.contents.contents);
@@ -21,7 +21,7 @@ const ContentList: React.FC<IContentList> = ({ projectId }) => {
   return (
     <div className="container">
       <table className="table table-striped table-dark">
-        <ContentFilterInputs filterValues={filterValues} setFilterValues={setFilterValues}/>
+        <ContentFilters filterValues={filterValues} setFilterValues={setFilterValues}/>
         <thead className="thead-dark">
           <tr>
             <th scope="col">ID</th>
