@@ -212,7 +212,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
                     />
                   </div>
                 </div>
-                <div>
+                <div style={{margin: "0px 60px"}}>
                   <ul>
                     {newContent.contentTags.map((item: mdlContentTag) => {
                       return (
@@ -223,7 +223,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
                             alignItems: "center",
                           }}
                         >
-                          <li>
+                          <li style={{listStyle: "none"}}>
                             <input
                               value={item.tag}
                               onChange={(e) => tagChange(e, item)}

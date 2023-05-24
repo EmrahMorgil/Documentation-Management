@@ -161,16 +161,17 @@ const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
                       onChange={(e) => setContentTag(e.target.value)}
                       disabled={!adminLoggedIn}
                     />
-                    <ContentTagAddButton
+                    {adminLoggedIn && <ContentTagAddButton
                       newContent={updatedContent}
                       contentTag={contentTag}
                       setContentTag={setContentTag}
                       contentType="updateContentModal"
                       setUpdatedContent={setUpdatedContent}
-                    />
+                    />}
+                    
                   </div>
                 </div>
-                <div>
+                <div style={{margin: `${adminLoggedIn ? "0px 60px" : "0px 80px"}`}}>
                   <ul>
                     {updatedContent.contentTags.map((item: mdlContentTag) => {
                       return (
@@ -181,17 +182,19 @@ const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
                             alignItems: "center",
                           }}
                         >
-                          <li style={{ color: "black" }}>
+                          <li style={{ color: "black", listStyle: "none" }}>
                             <input
+                              disabled={!adminLoggedIn}
                               value={item.tag}
                               onChange={(e) => tagChange(e, item)}
                             />
                           </li>
-                          <ContentTagRemoveButton
+                          {adminLoggedIn && <ContentTagRemoveButton
                             newContent={updatedContent}
                             setNewContent={setUpdatedContent}
                             contentTagId={item.id}
-                          />
+                          />}
+                          
                         </div>
                       );
                     })}
