@@ -6,6 +6,7 @@ import ContentDetailUndoButton from "./ContentDetailUndoButton";
 import ContentDetailUpdateButton from "./ContentDetailUpdateButton";
 import ContentTagRemoveButton from "../ContentTag/ContentTagRemoveButton";
 import { nanoid } from "nanoid";
+import ContentTagAddButton from "../ContentTag/ContentTagAddButton";
 
 const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
   const adminLoggedIn = useSelector(
@@ -65,29 +66,6 @@ const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
       ...updatedContent,
       ["contentTags"]: updatedContentTags,
     });
-  };
-
-  const addContentTag = (e: any, contentTag: string) => {
-    e.preventDefault();
-    // console.log(contentTag);
-    // console.log(updatedContent.contentTags);
-    let newContentTag = [
-      ...updatedContent.contentTags,
-      { id: nanoid(), tag: contentTag },
-    ];
-    setUpdatedContent({
-      id: content.id,
-      contentName: content.contentName,
-      createdPerson: content.createdPerson,
-      updatedPerson: content.updatedPerson,
-      createdDate: content.createdDate,
-      updatedDate: content.updatedDate,
-      version: content.version,
-      content: content.content,
-      contentTags: newContentTag,
-      projectId: content.projectId,
-    });
-    setContentTag("");
   };
 
   return (
@@ -183,12 +161,13 @@ const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
                       onChange={(e) => setContentTag(e.target.value)}
                       disabled={!adminLoggedIn}
                     />
-                    <button
-                      className="btn btn-primary"
-                      onClick={(e) => addContentTag(e, contentTag)}
-                    >
-                      Add
-                    </button>
+                    <ContentTagAddButton
+                      newContent={updatedContent}
+                      contentTag={contentTag}
+                      setContentTag={setContentTag}
+                      contentType="updateContentModal"
+                      setUpdatedContent={setUpdatedContent}
+                    />
                   </div>
                 </div>
                 <div>

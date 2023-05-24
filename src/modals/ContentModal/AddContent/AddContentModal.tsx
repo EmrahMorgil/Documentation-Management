@@ -208,6 +208,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
                       newContent={newContent}
                       contentTag={contentTag}
                       setContentTag={setContentTag}
+                      contentType="addContentModal"
                     />
                   </div>
                 </div>
