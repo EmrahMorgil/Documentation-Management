@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
-import { IContentProp, mdlContent } from "../../../types/Type";
+import { IContentProp, mdlContent, mdlContentTag } from "../../../types/Type";
 import ContentDetailUndoButton from "./ContentDetailUndoButton";
 import ContentDetailUpdateButton from "./ContentDetailUpdateButton";
 
@@ -124,11 +124,11 @@ const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
                   />
                 </div>
 
-                <div className="form-outline mb-4">
+                <div className="form-outline">
                   <label htmlFor="exampleInput" style={{ color: "black" }}>
                     Content Tags
                   </label>
-                  <input
+                  {/* <input
                     type="text"
                     style={{ border: "1px solid black" }}
                     value={updatedContent.contentTags}
@@ -136,7 +136,16 @@ const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
                     className="form-control"
                     onChange={handleChange}
                     disabled={!adminLoggedIn}
-                  />
+                  /> */}
+                </div>
+                <div>
+                  <ul>
+                    
+                    {updatedContent.contentTags.map((item: mdlContentTag)=>{
+                      return <div style={{display: "flex", gap: "5px", alignItems: "center"}}><li style={{color: "black"}}>{item.tag}</li><button className="btn btn-danger btn-sm">X</button></div>
+                    })}
+                    
+                  </ul>
                 </div>
               </form>
             </div>

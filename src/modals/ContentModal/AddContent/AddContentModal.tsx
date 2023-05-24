@@ -5,15 +5,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { addContents } from "../../../services/contentService";
 import { addNewContent } from "../../../redux/contents/contentsSlice";
 import {updateProjects} from "../../../services/projectService";
-import { IAddContentModal, mdlContent, mdlProject, mdlUser } from "../../../types/Type";
+import { IAddContentModal, mdlContent, mdlContentTag, mdlProject, mdlUser } from "../../../types/Type";
 import { setProjects } from "../../../redux/projects/projectsSlice";
 import {toast} from "react-toastify";
+import ContentTagAddButton from "../ContentTag/ContentTagAddButton";
+import ContentTagRemoveButton from "../ContentTag/ContentTagRemoveButton";
 
 
 const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
   const dispatch = useDispatch();
   const activeUser: mdlUser = useSelector((state: RootState) => state.users.activeUser);
   const projects: mdlProject[] = useSelector((state: RootState) => state.projects.projects);
+  const [contentTag, setContentTag] = useState<string>("");
 
   const [newContent, setNewContent] = useState<mdlContent>({
     id: "",
@@ -27,6 +30,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
     contentTags: [],
     projectId: projectId,
   });
+
 
   const addContentAmount = () => {
 
@@ -56,7 +60,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
     updatedContent.updatedDate = new Date();
     updatedContent.createdPerson = activeUser.id;
     updatedContent.updatedPerson = activeUser.id;
-    updatedContent.contentTags = updatedContent.contentTags[0].split(",");
+    // updatedContent.contentTags = updatedContent.contentTags[0].split(",");
     updatedContent.projectId = projectId;
     //api
     setTimeout(()=>dispatch(addNewContent(updatedContent)), 100);
@@ -66,6 +70,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
 
 
   const addContent = async () => {
+    setContentTag("");
     if(newContent.contentName==="" || newContent.content==="")
     {
       toast.error("Please fill in all the blanks..");
@@ -168,14 +173,26 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
 
                 <div className="form-outline mb-4">
                   <label htmlFor="exampleInput">Content Tags</label>
+                  <div style={{display: "flex", gap: "5px"}}>
                   <input
                     type="text"
-                    value={newContent.contentTags}
-                    onChange={handleChange}
+                    value={contentTag}
+                    onChange={(e)=>setContentTag(e.target.value)}
                     name="contentTags"
                     className="form-control"
-                  />
-                  <p className="ml-1 mt-1" style={{color: "#AEAEAE"}}>Put a comma between the tags</p>
+                    />
+                  <ContentTagAddButton newContent={newContent} contentTag={contentTag} setContentTag={setContentTag}/>
+                    </div>
+                  {/* <p className="ml-1 mt-1" style={{color: "#AEAEAE"}}>Put a comma between the tags</p> */}
+                </div>
+                <div>
+                  <ul>
+                    
+                    {newContent.contentTags && newContent.contentTags.map((item: mdlContentTag)=>{
+                      return <div style={{display: "flex", gap: "5px", alignItems: "center"}}><li>{item.tag}</li><ContentTagRemoveButton newContent={newContent} setNewContent={setNewContent} contentTagId={item.id}/></div>
+                    })}
+                    
+                  </ul>
                 </div>
               </form>
             </div>

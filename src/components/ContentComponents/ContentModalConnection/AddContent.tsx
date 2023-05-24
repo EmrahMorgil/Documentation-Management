@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import AddContentModal from "../../../modals/ContentModal/AddContent/AddContentModal";
 import { IAddContent } from "../../../types/Type";
-
 const AddContent: React.FC<IAddContent> = ({ projectId }) => {
+
   return (
     <div>
       <button
@@ -13,7 +13,7 @@ const AddContent: React.FC<IAddContent> = ({ projectId }) => {
       >
         Add Content
       </button>
-      <AddContentModal projectId={projectId} />
+      <AddContentModal projectId={projectId}/>
     </div>
   );
 };

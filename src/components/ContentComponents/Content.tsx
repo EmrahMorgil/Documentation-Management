@@ -1,5 +1,5 @@
 import React from "react";
-import { IContent } from "../../types/Type";
+import { IContent, mdlContentTag } from "../../types/Type";
 import DeleteContent from "./DeleteContent";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
@@ -22,7 +22,9 @@ const Content: React.FC<IContent> = ({ content, projectId }) => {
         <td scope="row">{content.updatedPerson.substring(0, 6)}</td>
         <td scope="row">{content.version}</td>
         <td scope="row">{content.content.substring(0, 20) + "..."}</td>
-        <td scope="row">{content.contentTags}</td>
+        <td scope="row">{content.contentTags.map((item: mdlContentTag)=>{
+          return <li>{item.tag}</li>
+        })}</td>
         <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
           {adminLoggedIn ? (
             <>
