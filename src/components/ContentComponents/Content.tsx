@@ -22,10 +22,10 @@ const Content: React.FC<IContent> = ({ content, projectId }) => {
         <td scope="row">{content.updatedPerson.substring(0, 6)}</td>
         <td scope="row">{content.version}</td>
         <td scope="row">{content.content.substring(0, 20) + "..."}</td>
-        <td scope="row">{content.contentTags.slice(0,2).map((item: mdlContentTag)=>{
-          return <li>{item.tag}</li>
+        <td scope="row" style={{textAlign: "center"}}>{content.contentTags.slice(0,2).map((item: mdlContentTag)=>{
+          return <p>{item.tag}</p>
         })}
-        {content.contentTags.length>2 && <li>...</li>}</td>
+        {content.contentTags.length>2 && <p>...</p>}</td>
         <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
           {adminLoggedIn ? (
             <>
