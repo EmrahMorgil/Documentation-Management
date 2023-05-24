@@ -4,6 +4,7 @@ import { RootState } from "../../../redux/store";
 import { IContentProp, mdlContent, mdlContentTag } from "../../../types/Type";
 import ContentDetailUndoButton from "./ContentDetailUndoButton";
 import ContentDetailUpdateButton from "./ContentDetailUpdateButton";
+import ContentTagRemoveButton from "../ContentTag/ContentTagRemoveButton";
 
 const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
   const adminLoggedIn = useSelector(
@@ -142,7 +143,7 @@ const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
                   <ul>
                     
                     {updatedContent.contentTags.map((item: mdlContentTag)=>{
-                      return <div style={{display: "flex", gap: "5px", alignItems: "center"}}><li style={{color: "black"}}>{item.tag}</li><button className="btn btn-danger btn-sm">X</button></div>
+                      return <div style={{display: "flex", gap: "5px", alignItems: "center"}}><li style={{color: "black"}}>{item.tag}</li><ContentTagRemoveButton newContent={updatedContent} setNewContent={setUpdatedContent} contentTagId={item.id}/></div>
                     })}
                     
                   </ul>
