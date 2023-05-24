@@ -5,12 +5,14 @@ import { IContentProp, mdlContent, mdlContentTag } from "../../../types/Type";
 import ContentDetailUndoButton from "./ContentDetailUndoButton";
 import ContentDetailUpdateButton from "./ContentDetailUpdateButton";
 import ContentTagRemoveButton from "../ContentTag/ContentTagRemoveButton";
+import { nanoid } from "nanoid";
 
 const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
   const adminLoggedIn = useSelector(
     (state: RootState) => state.users.adminLoggedIn
   );
   const [buttonActive, setButtonActive] = useState(true);
+  const [contentTag, setContentTag] = useState<string>("");
 
   const [updatedContent, setUpdatedContent] = useState<mdlContent>({
     id: content.id,
@@ -27,19 +29,21 @@ const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
 
   const handleChange = (e: any) => {
     setUpdatedContent({ ...updatedContent, [e.target.name]: e.target.value });
-    if(e.target.name === "contentTags")
-    {
-      setUpdatedContent({...updatedContent, ["contentTags"]: [e.target.value]});
+    if (e.target.name === "contentTags") {
+      setUpdatedContent({
+        ...updatedContent,
+        ["contentTags"]: [e.target.value],
+      });
     }
   };
 
   useEffect(() => {
-    
     if (
       updatedContent.contentName == content.contentName &&
       updatedContent.version == content.version &&
       updatedContent.content == content.content &&
-      JSON.stringify(updatedContent.contentTags) == JSON.stringify(content.contentTags)
+      JSON.stringify(updatedContent.contentTags) ==
+        JSON.stringify(content.contentTags)
     ) {
       setButtonActive(true);
     } else {
@@ -47,17 +51,44 @@ const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
     }
   }, [updatedContent]);
 
-  const tagChange = (e: any, item: mdlContentTag)=>{
-    let updatedContentTags = updatedContent.contentTags.map((contentTag: mdlContentTag)=>{
-      if(item.id===contentTag.id)
-      {
-        return {id: contentTag.id, tag: e.target.value};
-      }else{
-        return {id: contentTag.id, tag: contentTag.tag};
+  const tagChange = (e: any, item: mdlContentTag) => {
+    let updatedContentTags = updatedContent.contentTags.map(
+      (contentTag: mdlContentTag) => {
+        if (item.id === contentTag.id) {
+          return { id: contentTag.id, tag: e.target.value };
+        } else {
+          return { id: contentTag.id, tag: contentTag.tag };
+        }
       }
+    );
+    setUpdatedContent({
+      ...updatedContent,
+      ["contentTags"]: updatedContentTags,
     });
-    setUpdatedContent({...updatedContent, ["contentTags"]: updatedContentTags});
-  }
+  };
+
+  const addContentTag = (e: any, contentTag: string) => {
+    e.preventDefault();
+    // console.log(contentTag);
+    // console.log(updatedContent.contentTags);
+    let newContentTag = [
+      ...updatedContent.contentTags,
+      { id: nanoid(), tag: contentTag },
+    ];
+    setUpdatedContent({
+      id: content.id,
+      contentName: content.contentName,
+      createdPerson: content.createdPerson,
+      updatedPerson: content.updatedPerson,
+      createdDate: content.createdDate,
+      updatedDate: content.updatedDate,
+      version: content.version,
+      content: content.content,
+      contentTags: newContentTag,
+      projectId: content.projectId,
+    });
+    setContentTag("");
+  };
 
   return (
     <div
@@ -138,27 +169,53 @@ const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
                   />
                 </div>
 
-                <div className="form-outline">
+                <div className="form-outline mb-4">
                   <label htmlFor="exampleInput" style={{ color: "black" }}>
                     Content Tags
                   </label>
-                  {/* <input
-                    type="text"
-                    style={{ border: "1px solid black" }}
-                    value={updatedContent.contentTags}
-                    name="contentTags"
-                    className="form-control"
-                    onChange={handleChange}
-                    disabled={!adminLoggedIn}
-                  /> */}
+                  <div style={{ display: "flex", gap: "5px" }}>
+                    <input
+                      type="text"
+                      style={{ border: "1px solid black" }}
+                      value={contentTag}
+                      name="contentTags"
+                      className="form-control"
+                      onChange={(e) => setContentTag(e.target.value)}
+                      disabled={!adminLoggedIn}
+                    />
+                    <button
+                      className="btn btn-primary"
+                      onClick={(e) => addContentTag(e, contentTag)}
+                    >
+                      Add
+                    </button>
+                  </div>
                 </div>
                 <div>
                   <ul>
-                    
-                    {updatedContent.contentTags.map((item: mdlContentTag)=>{
-                      return <div style={{display: "flex", gap: "5px", alignItems: "center"}}><li style={{color: "black"}}><input value={item.tag} onChange={(e)=>tagChange(e, item)}/></li><ContentTagRemoveButton newContent={updatedContent} setNewContent={setUpdatedContent} contentTagId={item.id}/></div>
+                    {updatedContent.contentTags.map((item: mdlContentTag) => {
+                      return (
+                        <div
+                          style={{
+                            display: "flex",
+                            gap: "5px",
+                            alignItems: "center",
+                          }}
+                        >
+                          <li style={{ color: "black" }}>
+                            <input
+                              value={item.tag}
+                              onChange={(e) => tagChange(e, item)}
+                            />
+                          </li>
+                          <ContentTagRemoveButton
+                            newContent={updatedContent}
+                            setNewContent={setUpdatedContent}
+                            contentTagId={item.id}
+                          />
+                        </div>
+                      );
                     })}
-                    
                   </ul>
                 </div>
               </form>
