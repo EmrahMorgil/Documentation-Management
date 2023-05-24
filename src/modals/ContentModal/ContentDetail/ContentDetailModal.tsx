@@ -34,17 +34,30 @@ const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
   };
 
   useEffect(() => {
+    
     if (
       updatedContent.contentName == content.contentName &&
       updatedContent.version == content.version &&
       updatedContent.content == content.content &&
-      updatedContent.contentTags == content.contentTags
+      JSON.stringify(updatedContent.contentTags) == JSON.stringify(content.contentTags)
     ) {
       setButtonActive(true);
     } else {
       setButtonActive(false);
     }
   }, [updatedContent]);
+
+  const tagChange = (e: any, item: mdlContentTag)=>{
+    let updatedContentTags = updatedContent.contentTags.map((contentTag: mdlContentTag)=>{
+      if(item.id===contentTag.id)
+      {
+        return {id: contentTag.id, tag: e.target.value};
+      }else{
+        return {id: contentTag.id, tag: contentTag.tag};
+      }
+    });
+    setUpdatedContent({...updatedContent, ["contentTags"]: updatedContentTags});
+  }
 
   return (
     <div
@@ -143,7 +156,7 @@ const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
                   <ul>
                     
                     {updatedContent.contentTags.map((item: mdlContentTag)=>{
-                      return <div style={{display: "flex", gap: "5px", alignItems: "center"}}><li style={{color: "black"}}>{item.tag}</li><ContentTagRemoveButton newContent={updatedContent} setNewContent={setUpdatedContent} contentTagId={item.id}/></div>
+                      return <div style={{display: "flex", gap: "5px", alignItems: "center"}}><li style={{color: "black"}}><input value={item.tag} onChange={(e)=>tagChange(e, item)}/></li><ContentTagRemoveButton newContent={updatedContent} setNewContent={setUpdatedContent} contentTagId={item.id}/></div>
                     })}
                     
                   </ul>

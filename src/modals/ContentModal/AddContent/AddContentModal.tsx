@@ -105,6 +105,18 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
     }
   };
 
+  const tagChange = (e: any, item: mdlContentTag)=>{
+    let updatedContentTags = newContent.contentTags.map((contentTag: mdlContentTag)=>{
+      if(item.id===contentTag.id)
+      {
+        return {id: contentTag.id, tag: e.target.value};
+      }else{
+        return {id: contentTag.id, tag: contentTag.tag};
+      }
+    });
+    setNewContent({...newContent, ["contentTags"]: updatedContentTags});
+  }
+
   return (
     <div
       className="modal fade"
@@ -183,13 +195,12 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
                     />
                   <ContentTagAddButton newContent={newContent} contentTag={contentTag} setContentTag={setContentTag}/>
                     </div>
-                  {/* <p className="ml-1 mt-1" style={{color: "#AEAEAE"}}>Put a comma between the tags</p> */}
                 </div>
                 <div>
                   <ul>
                     
-                    {newContent.contentTags && newContent.contentTags.map((item: mdlContentTag)=>{
-                      return <div style={{display: "flex", gap: "5px", alignItems: "center"}}><li>{item.tag}</li><ContentTagRemoveButton newContent={newContent} setNewContent={setNewContent} contentTagId={item.id}/></div>
+                    {newContent.contentTags.map((item: mdlContentTag)=>{
+                      return <div style={{display: "flex", gap: "5px", alignItems: "center"}}><li><input value={item.tag} onChange={(e)=>tagChange(e, item)}/></li><ContentTagRemoveButton newContent={newContent} setNewContent={setNewContent} contentTagId={item.id}/></div>
                     })}
                     
                   </ul>
