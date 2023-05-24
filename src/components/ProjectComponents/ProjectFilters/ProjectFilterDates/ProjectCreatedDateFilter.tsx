@@ -24,8 +24,8 @@ const ProjectCreatedDateFilter: React.FC<IProjectDateFilter> = ({adminLoggedIn})
           setFilterControl(false);
           
           let startDate = new Date(value ? value[0] : "");
-          startDate.setDate(startDate.getDate()-1);
           let endDate = new Date(value ? value[1] : "");
+          endDate.setDate(endDate.getDate()+1);
           let filteredDates = allProjects.filter(function(date: mdlProject) {
             return new Date(date.createdDate) >= startDate && new Date(date.createdDate) <= endDate;
           });
