@@ -18,9 +18,8 @@ const ContentUpdatedDateFilter: React.FC = () => {
         {
           setFilterControl(false);
           let startDate = new Date(value ? value[0] : "");
-          startDate.setDate(startDate.getDate()-1);
           let endDate = new Date(value ? value[1] : "");
-          
+          endDate.setDate(endDate.getDate()+1);
           let filteredDates = contents.filter(function(date: mdlContent) {
           return new Date(date.updatedDate) >= startDate && new Date(date.updatedDate) <= endDate;
         });

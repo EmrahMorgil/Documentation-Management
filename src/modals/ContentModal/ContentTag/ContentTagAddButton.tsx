@@ -17,7 +17,7 @@ const ContentTagAddButton: React.FC<IContentTagAddButton> = ({newContent, conten
       }
 
   return (
-    <button className="btn btn-success" onClick={(e)=>addContentTag(e)}>Add</button>
+    <button className="btn btn-primary" onClick={(e)=>addContentTag(e)}>Add</button>
   )
 }
 
