@@ -1,28 +1,26 @@
-import React from 'react'
-import { mdlContent } from '../../../types/Type';
-import { nanoid } from 'nanoid';
+import React from "react";
+import { mdlContent } from "../../../types/Type";
+import { nanoid } from "nanoid";
+import { toast } from "react-toastify";
 
-export interface IContentTagAddButton{
-    newContent: mdlContent;
-    contentTag: string;
-    setContentTag: React.Dispatch<React.SetStateAction<string>>;
-    contentType: string;
-    setUpdatedContent?: React.Dispatch<React.SetStateAction<mdlContent>>;
+export interface IContentTagAddButton {
+  newContent: mdlContent;
+  contentTag: string;
+  setContentTag: React.Dispatch<React.SetStateAction<string>>;
+  contentType: string;
+  setUpdatedContent?: React.Dispatch<React.SetStateAction<mdlContent>>;
 }
 
-const ContentTagAddButton: React.FC<IContentTagAddButton> = ({newContent, contentTag, setContentTag, contentType, setUpdatedContent}) => {
-  
-  const addContentTag = (e: any)=>{
-      e.preventDefault();
-      if(contentType === "addContentModal")
-      {
-        newContent.contentTags.push({id: nanoid(), tag: contentTag});
-        
-      }else{
-        let newContentTag = [
-          ...newContent.contentTags,
-          { id: nanoid(), tag: contentTag },
-        ];
+const ContentTagAddButton: React.FC<IContentTagAddButton> = ({newContent,contentTag,setContentTag,contentType,setUpdatedContent}) => {
+  const addContentTag = (e: any) => {
+    e.preventDefault();
+    if (newContent.contentTags.includes(contentTag)) {
+      toast.error("This tag is already attached!!");
+    } else {
+      if (contentType === "addContentModal") {
+        newContent.contentTags.push(contentTag);
+      } else {
+        let newContentTag: string[] = [...newContent.contentTags, contentTag];
         setUpdatedContent!({
           id: newContent.id,
           contentName: newContent.contentName,
@@ -36,12 +34,15 @@ const ContentTagAddButton: React.FC<IContentTagAddButton> = ({newContent, conten
           projectId: newContent.projectId,
         });
       }
-      setContentTag("");
-      }
+    }
+    setContentTag("");
+  };
 
   return (
-    <button className="btn btn-primary" onClick={(e)=>addContentTag(e)}>Add</button>
-  )
-}
+    <button className="btn btn-primary" onClick={(e) => addContentTag(e)}>
+      Add
+    </button>
+  );
+};
 
-export default ContentTagAddButton
+export default ContentTagAddButton;

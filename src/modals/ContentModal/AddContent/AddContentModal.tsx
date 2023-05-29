@@ -8,7 +8,6 @@ import { updateProjects } from "../../../services/projectService";
 import {
   IAddContentModal,
   mdlContent,
-  mdlContentTag,
   mdlProject,
   mdlUser,
 } from "../../../types/Type";
@@ -115,13 +114,13 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
     }
   };
 
-  const tagChange = (e: any, item: mdlContentTag) => {
+  const tagChange = (e: any, item: string) => {
     let updatedContentTags = newContent.contentTags.map(
-      (contentTag: mdlContentTag) => {
-        if (item.id === contentTag.id) {
-          return { id: contentTag.id, tag: e.target.value };
+      (contentTag: string) => {
+        if (item === contentTag) {
+          return e.target.value;
         } else {
-          return { id: contentTag.id, tag: contentTag.tag };
+          return contentTag;
         }
       }
     );
@@ -214,7 +213,7 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
                 </div>
                 <div style={{margin: "0px 60px"}}>
                   <ul>
-                    {newContent.contentTags.map((item: mdlContentTag) => {
+                    {newContent.contentTags.map((item: string) => {
                       return (
                         <div
                           style={{
@@ -225,14 +224,14 @@ const AddContentModal: React.FC<IAddContentModal> = ({ projectId }) => {
                         >
                           <li style={{listStyle: "none"}}>
                             <input
-                              value={item.tag}
+                              value={item}
                               onChange={(e) => tagChange(e, item)}
                             />
                           </li>
                           <ContentTagRemoveButton
                             newContent={newContent}
                             setNewContent={setNewContent}
-                            contentTagId={item.id}
+                            contentTag={item}
                           />
                         </div>
                       );

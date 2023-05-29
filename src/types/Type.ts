@@ -30,10 +30,10 @@ export class mdlContent{
     updatedPerson: string;
     version: number;
     content: string;
-    contentTags: mdlContentTag[];
+    contentTags: string[];
     projectId: string;
 
-    constructor(id: string, contentName: string, createdDate: Date, updatedDate: Date, createdPerson: string, updatedPerson: string, version: number, content: string, contentTags: mdlContentTag[], projectId: string)
+    constructor(id: string, contentName: string, createdDate: Date, updatedDate: Date, createdPerson: string, updatedPerson: string, version: number, content: string, contentTags: string[], projectId: string)
     {
         this.id = id;
         this.contentName = contentName;
@@ -91,12 +91,6 @@ export class mdlVisibilityProjects{
     }
 
 }
-
-export class mdlContentTag{
-  id!: string;
-  tag!: string; 
-}
-
 
 enum enmUserRole{
     user,

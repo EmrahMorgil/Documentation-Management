@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
-import { IContentProp, mdlContent, mdlContentTag } from "../../../types/Type";
+import { IContentProp, mdlContent } from "../../../types/Type";
 import ContentDetailUndoButton from "./ContentDetailUndoButton";
 import ContentDetailUpdateButton from "./ContentDetailUpdateButton";
 import ContentTagRemoveButton from "../ContentTag/ContentTagRemoveButton";
@@ -52,20 +52,17 @@ const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
     }
   }, [updatedContent]);
 
-  const tagChange = (e: any, item: mdlContentTag) => {
+  const tagChange = (e: any, item: string) => {
     let updatedContentTags = updatedContent.contentTags.map(
-      (contentTag: mdlContentTag) => {
-        if (item.id === contentTag.id) {
-          return { id: contentTag.id, tag: e.target.value };
+      (contentTag: string) => {
+        if (item === contentTag) {
+          return e.target.value;
         } else {
-          return { id: contentTag.id, tag: contentTag.tag };
+          return contentTag;
         }
       }
     );
-    setUpdatedContent({
-      ...updatedContent,
-      ["contentTags"]: updatedContentTags,
-    });
+    setUpdatedContent({...updatedContent,["contentTags"]: updatedContentTags});
   };
 
   return (
@@ -173,7 +170,7 @@ const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
                 </div>
                 <div style={{margin: `${adminLoggedIn ? "0px 60px" : "0px 80px"}`}}>
                   <ul>
-                    {updatedContent.contentTags.map((item: mdlContentTag) => {
+                    {updatedContent.contentTags.map((item: string) => {
                       return (
                         <div
                           style={{
@@ -185,14 +182,14 @@ const ContentDetailModal: React.FC<IContentProp> = ({ content }) => {
                           <li style={{ color: "black", listStyle: "none" }}>
                             <input
                               disabled={!adminLoggedIn}
-                              value={item.tag}
+                              value={item}
                               onChange={(e) => tagChange(e, item)}
                             />
                           </li>
                           {adminLoggedIn && <ContentTagRemoveButton
                             newContent={updatedContent}
                             setNewContent={setUpdatedContent}
-                            contentTagId={item.id}
+                            contentTag={item}
                           />}
                           
                         </div>

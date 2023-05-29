@@ -1,18 +1,18 @@
 import React from 'react'
-import { mdlContent, mdlContentTag } from '../../../types/Type'
+import { mdlContent } from '../../../types/Type'
 
 export interface IContentTagRemoveButton{
     newContent: mdlContent;
     setNewContent: React.Dispatch<React.SetStateAction<mdlContent>>;
-    contentTagId: string;
+    contentTag: string;
 }
 
-const ContentTagRemoveButton: React.FC<IContentTagRemoveButton> = ({newContent, setNewContent, contentTagId}) => {
+const ContentTagRemoveButton: React.FC<IContentTagRemoveButton> = ({newContent, setNewContent, contentTag}) => {
 
-    const removeContentTag = (contentTagId: string, e: React.MouseEvent<HTMLElement>)=>{
+    const removeContentTag = (contentTag: string, e: React.MouseEvent<HTMLElement>)=>{
         e.preventDefault();
-        let newTags = newContent.contentTags.filter((contentTag: mdlContentTag)=>{
-            if(contentTag.id!==contentTagId)
+        let newTags = newContent.contentTags.filter((tag: string)=>{
+            if(tag!==contentTag)
             {
                 return contentTag;
             }
@@ -34,7 +34,7 @@ const ContentTagRemoveButton: React.FC<IContentTagRemoveButton> = ({newContent, 
         }
 
   return (
-    <button className='btn btn-danger btn-sm' onClick={(e)=>removeContentTag(contentTagId, e)}>X</button>
+    <button className='btn btn-danger btn-sm' onClick={(e)=>removeContentTag(contentTag, e)}>X</button>
   )
 }
 

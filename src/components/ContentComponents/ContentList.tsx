@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { IContentList, mdlContent, mdlContentTag } from "../../types/Type";
+import { IContentList, mdlContent } from "../../types/Type";
 import Content from "./Content";
 import SortByContentName from "./ContentFilters/ContentFilterButtons/SortByContentName";
 import SortByCreatedDate from "./ContentFilters/ContentFilterButtons/SortByCreatedDate";
@@ -38,8 +38,8 @@ const ContentList: React.FC<IContentList> = ({ projectId }) => {
         </thead>
         <tbody>
           {contents.map((content: mdlContent, i: number) => {
-            let newArr = (content.contentTags.map((item: mdlContentTag)=>{
-              return item.tag.toLowerCase().includes(filterValues.contentTags.toLowerCase())
+            let newArr = (content.contentTags.map((item: string)=>{
+              return item.toLowerCase().includes(filterValues.contentTags.toLowerCase())
             }));
             if(newArr.includes(true) &&
               content.contentName
@@ -49,8 +49,7 @@ const ContentList: React.FC<IContentList> = ({ projectId }) => {
               return (
                 <Content content={content} key={i} projectId={projectId} />
               );
-            }
-          })}
+            }})}
         </tbody>
       </table>
     </div>

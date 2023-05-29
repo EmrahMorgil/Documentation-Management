@@ -1,5 +1,5 @@
 import React from "react";
-import { IContent, mdlContentTag } from "../../types/Type";
+import { IContent } from "../../types/Type";
 import DeleteContent from "./DeleteContent";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
@@ -22,8 +22,8 @@ const Content: React.FC<IContent> = ({ content, projectId }) => {
         <td scope="row">{content.updatedPerson.substring(0, 6)}</td>
         <td scope="row">{content.version}</td>
         <td scope="row">{content.content.substring(0, 20) + "..."}</td>
-        <td scope="row" style={{textAlign: "center"}}>{content.contentTags.slice(0,2).map((item: mdlContentTag)=>{
-          return <p>{item.tag}</p>
+        <td scope="row" style={{textAlign: "center"}}>{content.contentTags.slice(0,2).map((item: string)=>{
+          return <p>{item}</p>
         })}
         {content.contentTags.length>2 && <p>...</p>}</td>
         <td scope="row" style={{ display: "flex", flexDirection: "column" }}>
